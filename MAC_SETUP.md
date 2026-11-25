@@ -224,3 +224,24 @@ python -m labelpath query warnings warfarin
 ```
 
 Every command prints `Educational only, not medical advice.` The store is opened read-only. Do **not** run `python scripts/ingest.py` or `python scripts/milestone1_toy.py` just to try queries: both would replace `data/labelpath.rl`. Ingest is only needed if you are rebuilding the store from `data/raw/` on purpose.
+
+
+## Milestone 4 on a Mac
+
+The local UI is documented in `README.md`. After the venv is active in `~/Projects/labelpath`:
+
+```bash
+python -m pytest
+python -m labelpath serve --port 8765
+```
+
+Leave that process running and, in another terminal (or a browser on this Mac), open http://127.0.0.1:8765/ or use:
+
+```bash
+curl -sS http://127.0.0.1:8765/ | head
+curl -sS "http://127.0.0.1:8765/api/path?start=apixaban&end=aspirin"
+```
+
+The server binds to 127.0.0.1 only and opens the store read-only. The page always shows `Educational only, not medical advice.` Click **Try: apixaban → aspirin** for the demo pair (default max 2 hops). Stop the server with Ctrl+C.
+
+Do **not** run `python scripts/ingest.py` or `python scripts/milestone1_toy.py` just to try the UI: both would replace `data/labelpath.rl`.

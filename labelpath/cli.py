@@ -1,4 +1,4 @@
-"""Command-line interface: python -m labelpath query ..."""
+"""Command-line interface: python -m labelpath query ... or serve."""
 from __future__ import annotations
 
 import argparse
@@ -241,12 +241,27 @@ def build_parser() -> argparse.ArgumentParser:
     p_nei = qsub.add_parser("neighbors", help="List labeled neighbors of a drug.")
     p_nei.add_argument("name")
     p_nei.add_argument("--limit", type=int, default=DEFAULT_NEIGHBOR_LIMIT)
+
+    p_serve = sub.add_parser(
+        "serve",
+        help="Serve the local single-page UI on 127.0.0.1 only (read-only store).",
+    )
+    p_serve.add_argument(
+        "--port",
+        type=int,
+        default=8765,
+        help="Port to bind on 127.0.0.1 (default: 8765).",
+    )
     return parser
 
 
 def main(argv: Optional[List[str]] = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
+    if args.group == "serve":
+        from labelpath.serve import run_server
+
+        return run_server(port=args.port, database=args.database)
     if args.group != "query" or not args.action:
         parser.print_help()
         return 2

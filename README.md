@@ -6,7 +6,7 @@ A local, no-server app that turns a snapshot of public FDA drug labels into a Re
 
 Data provided by the U.S. Food and Drug Administration (https://open.fda.gov).
 
-This repository is being built for the Relate by Neo4j hackathon. A curated, offline-queryable snapshot lives in a persistent Relate single-file store, `data/labelpath.rl`. A single `.rl` file is used because it is easy to commit, copy, and inspect. This is not an in-memory-only demo. Milestone 3 adds a read-only query CLI for lookups, bounded paths, warnings, and neighbors.
+This repository is being built for the Relate by Neo4j hackathon. A curated, offline-queryable snapshot lives in a persistent Relate single-file store, `data/labelpath.rl`. A single `.rl` file is used because it is easy to commit, copy, and inspect. This is not an in-memory-only demo. Milestone 3 adds a read-only query CLI for lookups, bounded paths, warnings, and neighbors. Milestone 4 adds a local single-page UI, served only on 127.0.0.1, that reuses the same query functions.
 
 ## Requirements
 
@@ -70,6 +70,24 @@ python -m labelpath --json query lookup warfarin
 
 `--json` writes one JSON object to stdout (the same disclaimer is a field in that object, and the disclaimer line is also printed to stderr). `--database PATH` selects a store; the default is `data/labelpath.rl`.
 
+## Local UI
+
+The UI is a single page served by the Python standard library (`http.server`). It binds to **127.0.0.1 only**, opens the store **read-only**, and reuses the same query functions as the CLI. There is no extra package to install.
+
+From the project root, with the venv active:
+
+```bash
+python -m labelpath serve --port 8765
+```
+
+Then open http://127.0.0.1:8765/ in a browser on the same machine. The page always shows `Educational only, not medical advice.` and the openFDA attribution: “Data provided by the U.S. Food and Drug Administration (https://open.fda.gov).” It also quotes the openFDA caution: “Do not rely on openFDA to make decisions regarding medical care.”
+
+The page has a lookup box, a two-drug path finder (default max 2 hops, shorter paths first, optional 1 or 3), and warnings and neighbors views. Each edge shows its section name, a source snippet, and a DailyMed link when a `set_id` is present. A **Try: apixaban → aspirin** button fills the demo pair and runs the path query. Paths also get a small inline SVG node-and-edge diagram (no CDN).
+
+`?demo=1` on the URL runs that demo pair automatically. Press Ctrl+C in the terminal to stop the server.
+
+The HTTP JSON endpoints are `/api/lookup?q=...`, `/api/path?start=...&end=...`, `/api/warnings?q=...`, `/api/neighbors?q=...`, and `/api/meta`. The path endpoint defaults to `max_hops=2` (the CLI `path` command still defaults to 3). Every JSON response includes the `disclaimer` field.
+
 Do not run `scripts/milestone1_toy.py` against this project if you want to keep the real snapshot; that script would replace `data/labelpath.rl` with the toy graph.
 
 If you have the Relate CLI on your `PATH` (`export PATH="$HOME/.local/bin:$PATH"` if needed), you can also query the same store directly. Bind values as parameters; do not paste user text into a statement:
@@ -79,7 +97,7 @@ relate --database ./data/labelpath.rl --read-only --mode table --param key=warfa
   "MATCH (d:Drug {key: $key})-[:HAS_LABEL]->(:Label)-[:HAS_SECTION]->(s:Section) RETURN s.kind AS kind LIMIT 10"
 ```
 
-A later milestone will add a small local UI and a documented read-only MCP command.
+A later milestone may add a documented read-only MCP command.
 
 ## License
 

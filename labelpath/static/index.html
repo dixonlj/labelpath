@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LabelPath — labeled connections in public FDA drug labels</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <aside class="banner" role="note" aria-label="Disclaimer">
+    <p class="banner-kicker">Educational only, not medical advice.</p>
+    <p>
+      Not for clinical use, and not a substitute for the official label or a licensed clinician.
+      This is a graph of public label text only. openFDA says:
+      “Do not rely on openFDA to make decisions regarding medical care.”
+      Always speak to your health provider about the risks and benefits of FDA-regulated products.
+    </p>
+    <p class="banner-attr">
+      Data provided by the U.S. Food and Drug Administration
+      (<a href="https://open.fda.gov" rel="noopener noreferrer">https://open.fda.gov</a>).
+    </p>
+  </aside>
+
+  <header class="masthead">
+    <p class="eyebrow">Local snapshot · Relate graph · read-only</p>
+    <h1>LabelPath</h1>
+    <p class="lede">
+      Look up a drug from this offline snapshot of public FDA labels, then follow
+      labeled paths, boxed warnings, and neighbors — each hop points back to a
+      label section and a DailyMed page.
+    </p>
+  </header>
+
+  <main>
+    <section class="panel" id="paths" aria-labelledby="paths-heading">
+      <div class="panel-head">
+        <h2 id="paths-heading">Labeled paths</h2>
+        <p>Shorter paths are listed first. The default hop limit is 2; you can raise it to 3.</p>
+      </div>
+      <form id="path-form" class="path-form" action="#" method="get">
+        <label>
+          <span>From</span>
+          <input id="path-start" name="start" type="text" autocomplete="off" placeholder="apixaban" maxlength="200">
+        </label>
+        <span class="arrow" aria-hidden="true">→</span>
+        <label>
+          <span>To</span>
+          <input id="path-end" name="end" type="text" autocomplete="off" placeholder="aspirin" maxlength="200">
+        </label>
+        <label class="hops">
+          <span>Max hops</span>
+          <select id="path-hops" name="max_hops">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+          </select>
+        </label>
+        <div class="actions">
+          <button type="submit" class="btn primary">Find paths</button>
+          <button type="button" class="btn ghost" id="try-demo">Try: apixaban → aspirin</button>
+        </div>
+      </form>
+      <div id="path-status" class="status" role="status" data-state="idle">Enter two names, or try the demo pair.</div>
+      <div id="path-results" class="results"></div>
+    </section>
+
+    <section class="panel" id="lookup" aria-labelledby="lookup-heading">
+      <div class="panel-head">
+        <h2 id="lookup-heading">Lookup</h2>
+        <p>Search a drug or ingredient in this snapshot. Matching is case-insensitive and tolerant of salt names.</p>
+      </div>
+      <form id="lookup-form" class="row-form" action="#" method="get">
+        <label class="grow">
+          <span>Name</span>
+          <input id="lookup-q" name="q" type="text" autocomplete="off" placeholder="warfarin sodium" maxlength="200">
+        </label>
+        <button type="submit" class="btn primary">Search</button>
+      </form>
+      <div id="lookup-status" class="status" role="status" data-state="idle"></div>
+      <div id="lookup-results" class="results"></div>
+    </section>
+
+    <div class="split">
+      <section class="panel" id="warnings" aria-labelledby="warnings-heading">
+        <div class="panel-head">
+          <h2 id="warnings-heading">Warnings</h2>
+          <p>Boxed-warning and contraindication text for a snapshot drug, with source pointers.</p>
+        </div>
+        <form id="warnings-form" class="row-form" action="#" method="get">
+          <label class="grow">
+            <span>Drug</span>
+            <input id="warnings-q" name="q" type="text" autocomplete="off" placeholder="warfarin" maxlength="200">
+          </label>
+          <button type="submit" class="btn primary">Show warnings</button>
+        </form>
+        <div id="warnings-status" class="status" role="status" data-state="idle"></div>
+        <div id="warnings-results" class="results"></div>
+      </section>
+
+      <section class="panel" id="neighbors" aria-labelledby="neighbors-heading">
+        <div class="panel-head">
+          <h2 id="neighbors-heading">Neighbors</h2>
+          <p>Adjacent drugs, ingredients, and conditions, each with a section snippet when one exists.</p>
+        </div>
+        <form id="neighbors-form" class="row-form" action="#" method="get">
+          <label class="grow">
+            <span>Drug</span>
+            <input id="neighbors-q" name="q" type="text" autocomplete="off" placeholder="protamine" maxlength="200">
+          </label>
+          <button type="submit" class="btn primary">Show neighbors</button>
+        </form>
+        <div id="neighbors-status" class="status" role="status" data-state="idle"></div>
+        <div id="neighbors-results" class="results"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>Educational only, not medical advice. Served on 127.0.0.1 only. The Relate store is opened read-only.</p>
+    <p>Data provided by the U.S. Food and Drug Administration (https://open.fda.gov).</p>
+  </footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>
