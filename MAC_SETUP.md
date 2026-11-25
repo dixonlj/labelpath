@@ -273,3 +273,14 @@ python -m pytest
 
 Do **not** run `python scripts/ingest.py` or `python scripts/milestone1_toy.py` just to re-read the docs: both would replace `data/labelpath.rl`. Leave a LabelPath UI server on port 8765 alone if one is already running. A public GitHub repo is not created in this milestone.
 
+
+## Milestone 7 on a Mac
+
+Draft submission files live in `submission/`. They are for review only. Do not register on Devpost, create a public repo, record or upload a video, or click submit unless you have decided to do that specific step.
+
+```bash
+python -m pytest
+```
+
+Do **not** run `python scripts/ingest.py` or `python scripts/milestone1_toy.py` just to read the drafts. Leave a LabelPath UI server on port 8765 alone if one is already running.
+
