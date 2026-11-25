@@ -1,0 +1,32 @@
+{
+  "seed": "pyrazinamide",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22pyrazinamide%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 5,
+  "record": {
+    "set_id": "262d8829-728c-48db-b89b-88d13b87e684",
+    "id": "e043f21d-4a30-4d23-bc03-12207af7d6d7",
+    "effective_time": "20260302",
+    "indications_and_usage": [
+      "INDICATIONS & USAGE Pyrazinamide is indicated for the initial treatment of active tuberculosis in adults and children when combined with other antituberculous agents. (The current recommendation of the CDC for drug-susceptible disease is to use a six-month regimen for initial treatment of active tuberculosis, consisting of isoniazid, rifampin and pyrazinamide given for 2 months, followed by isoniazid and rifampin for 4 months. *4 ) (Patients with drug-resistant disease should be treated with regimens individualized to their situation. Pyrazinamide frequently will be an important component of such therapy.) (In patients with concomitant HIV infection, the physician should be aware of current recommendations of CDC. It is possible these patients may require a longer course of treatment.) It is also indicated after treatment failure with other primary drugs in any form of active tuberculosis. Pyrazinamide should only be used in conjunction with other effective antituberculous agents. *See recommendations of Center for Disease Control (CDC) and American Thoracic Society for complete regimen and dosage recommendations. 4"
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Pyrazinamide is contraindicated in persons: with severe hepatic damage. who have shown hypersensitivity to it. with acute gout."
+    ],
+    "openfda": {
+      "generic_name": [
+        "PYRAZINAMIDE"
+      ],
+      "brand_name": [
+        "Pyrazinamide"
+      ],
+      "substance_name": [
+        "PYRAZINAMIDE"
+      ],
+      "application_number": [
+        "ANDA080157"
+      ]
+    }
+  }
+}

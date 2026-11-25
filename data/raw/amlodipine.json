@@ -1,0 +1,38 @@
+{
+  "seed": "amlodipine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22amlodipine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 248,
+  "record": {
+    "set_id": "ac0dd8fb-ebe1-4d02-bd0d-4f979c6e3608",
+    "id": "5fdde068-2523-9928-e063-6294a90abe4c",
+    "effective_time": "20261109",
+    "indications_and_usage": [
+      "1 INDICATIONS & USAGE Amlodipine besylate tablets is a calcium channel blocker and may be used alone or in combination with other antihypertensive and antianginal agents for the treatment of: • Hypertension ( 1.1 ) Amlodipine besylate tablets is indicated for the treatment of hypertension, to lower blood pressure. Lowering blood pressure reduces the risk of fatal and nonfatal cardiovascular events, primarily strokes and myocardial infarctions. • Coronary Artery Disease ( 1.2 ) Chronic Stable Angina Vasospastic Angina (Prinzmetal’s or Variant Angina) Angiographically Documented Coronary Artery Disease in patients without heart failure or an ejection fraction < 40% 1.1 Hypertension Amlodipine besylate tablets is indicated for the treatment of hypertension, to lower blood pressure. Lowering blood pressure reduces the risk of fatal and nonfatal cardiovascular events, primarily strokes and myocardial infarctions. These benefits have been seen in controlled trials of antihypertensive drugs from a wide variety of pharmacologic classes including Amlodipine besylate tablets. Control of high blood pressure should be part of comprehensive cardiovascular risk management, including, as appropriate, lipid control, diabetes management, antithrombotic therapy, smoking cessation, exercise, and limited sodium intake. Many patients will require more than one drug to achieve blood pressure goals. For specific advice on goals and management, see published guidelines, such as those of the National High Blood Pressure Education Program’s Joint National Committee on Prevention, Detection, Evaluation, and Treatment of High Blood Pressure (JNC). Numerous antihypertensive drugs, from a variety of pharmacologic classes and with different mechanisms of action, have been shown in randomized controlled trials to reduce cardiovascular morbidity and mortality, and it can be concluded that it is blood pressure reduction, and not some other pharmacologic property of the drugs, that is largely responsible for those benefits. The largest and most consistent cardiovascular outcome benefit has been a reduction in the risk of stroke, but reductions in myocardial infarction and cardiovascular mortality also have been seen regularly. Elevated systolic or diastolic pressure causes increased cardiovascular risk, and the absolute risk increase per mmHg is greater at higher blood pressures, so that even modest reductions of severe hypertension can provide substantial benefit. Relative risk reduction from blood pressure reduction is similar across populations with varying absolute risk, so the absolute benefit is greater in patients who are at higher risk independent of their hypertension (for example, patients with diabetes or hyperlipidemia), and such patients would be expected to benefit from more aggressive treatment to a lower blood pressure goal. Some antihypertensive drugs have smaller blood pressure effects (as monotherapy) in black patients, and many antihypertensive drugs have additional approved indications and effects (e.g., on angina, heart failure, or diabetic kidney disease). These considerations may guide selection of therapy. Amlodipine besylate tablets may be used alone or in combination with other antihypertensive agents. 1.2 Coronary Artery Disease (CAD) Chronic Stable Angina Amlodipine besylate tablets is indicated for the symptomatic treatment of chronic stable angina. Amlodipine besylate tablets may be used alone or in combination with other antianginal agents. Vasospastic Angina (Prinzmetal’s or Variant Angina) Amlodipine besylate tablets is indicated for the treatment of confirmed or suspected vasospastic angina. Amlodipine besylate tablets may be used as monotherapy or in combination with other antianginal agents. Angiographically Documented CAD In patients with recently documented CAD by angiography and without heart failure or an ejection fraction <40%, Amlodipine besylate tablets is indicated to reduce the risk of hospitalization for angina and to reduce the risk of a coronary revascularization procedure."
+    ],
+    "contraindications": [
+      "4 CONTRAINDICATIONS Amlodipine besylate tablets are contraindicated in patients with known sensitivity to amlodipine. Known sensitivity to amlodipine ( 4 )"
+    ],
+    "drug_interactions": [
+      "7 DRUG INTERACTIONS Do not exceed doses greater than 20 mg daily of simvastatin. (7.2) 7.1 Impact of Other Drugs on Amlodipine CYP3A Inhibitors Co-administration with CYP3A inhibitors (moderate and strong) results in increased systemic exposure to amlodipine and may require dose reduction. Monitor for symptoms of hypotension and edema when amlodipine is co-administered with CYP3A inhibitors to determine the need for dose adjustment [see Clinical Pharmacology (12.3) ] . CYP3A Inducers No information is available on the quantitative effects of CYP3A inducers on amlodipine. Blood pressure should be closely monitored when amlodipine is co-administered with CYP3A inducers. Sildenafil Monitor for hypotension when sildenafil is co-administered with amlodipine [see Clinical Pharmacology (12.2) 7.2 Impact of Amlodipine on Other Drugs Simvastatin Co-administration of simvastatin with amlodipine increases the systemic exposure of simvastatin. Limit the dose of simvastatin in patients on amlodipine to 20 mg daily [see Clinical Pharmacology (12.3) ] . Immunosuppressants Amlodipine may increase the systemic exposure of cyclosporine or tacrolimus when co-administered. Frequent monitoring of trough blood levels of cyclosporine and tacrolimus is recommended and adjust the dose when appropriate [see Clinical Pharmacology (12.3) ] ."
+    ],
+    "warnings_and_cautions": [
+      "5 WARNINGS AND PRECAUTIONS • Symptomatic hypotension is possible, particularly in patients with severe aortic stenosis. However, acute hypotension is unlikely. ( 5.1 ) • Worsening angina and acute myocardial infarction can develop after starting or increasing the dose of amlodipine particularly in patients with severe obstructive coronary artery disease. ( 5.2 ) • Titrate slowly in patients with severe hepatic impairment. ( 5.3 ) 5.1 Hypotension Symptomatic hypotension is possible, particularly in patients with severe aortic stenosis. Because of the gradual onset of action, acute hypotension is unlikely. 5.2 Increased Angina or Myocardial Infarction Worsening angina and acute myocardial infarction can develop after starting or increasing the dose of amlodipine besylate tablets, particularly in patients with severe obstructive coronary artery disease. 5.3 Patients with Hepatic Failure Because amlodipine is extensively metabolized by the liver and the plasma elimination half-life (t 1/2 ) is 56 hours in patients with impaired hepatic function, titrate slowly when administering amlodipine to patients with severe hepatic impairment."
+    ],
+    "openfda": {
+      "generic_name": [
+        "AMLODIPINE BESYLATE"
+      ],
+      "brand_name": [
+        "Amlodipine Besylate"
+      ],
+      "substance_name": [
+        "AMLODIPINE BESYLATE"
+      ],
+      "application_number": [
+        "ANDA078925"
+      ]
+    }
+  }
+}

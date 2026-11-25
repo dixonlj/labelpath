@@ -1,0 +1,32 @@
+{
+  "seed": "naloxone",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22naloxone%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 142,
+  "record": {
+    "set_id": "d39635a4-ddb3-4d32-8211-eb84c78e9f59",
+    "id": "a035d31b-b121-4913-bf37-4615a6acd0c6",
+    "effective_time": "20261105",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Naloxone hydrochloride injection is indicated for the complete or partial reversal of opioid depression, including respiratory depression, induced by natural and synthetic opioids including propoxyphene, methadone, and certain mixed agonist-antagonist analgesics: nalbuphine, pentazocine, butorphanol, and cyclazocine. Naloxone hydrochloride is also indicated for the diagnosis of suspected or known acute opioid overdosage. Naloxone hydrochloride injection may be useful as an adjunctive agent to increase blood pressure in the management of septic shock (see CLINICAL PHARMACOLOGY: Adjunctive Use in Septic Shock )."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Naloxone hydrochloride injection is contraindicated in patients known to be hypersensitive to naloxone hydrochloride or any of the other ingredients contained in the formulation."
+    ],
+    "openfda": {
+      "generic_name": [
+        "NALOXONE HYDROCHLORIDE"
+      ],
+      "brand_name": [
+        "Naloxone Hydrochloride"
+      ],
+      "substance_name": [
+        "NALOXONE HYDROCHLORIDE"
+      ],
+      "application_number": [
+        "ANDA070172"
+      ]
+    }
+  }
+}

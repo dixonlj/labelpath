@@ -1,0 +1,2 @@
+# Seed drugs with no matching openFDA generic_name label
+cholecalciferol	no matching generic_name

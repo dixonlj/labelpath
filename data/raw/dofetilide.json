@@ -1,0 +1,36 @@
+{
+  "seed": "dofetilide",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22dofetilide%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 13,
+  "record": {
+    "set_id": "26de5f8c-8cec-46f6-a468-69451758a278",
+    "id": "ee9fe799-9bd7-4caa-b629-0464d2417a68",
+    "effective_time": "20260831",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Maintenance of Normal Sinus Rhythm (Delay in AF/AFl Recurrence) Dofetilide capsules are indicated for the maintenance of normal sinus rhythm (delay in time to recurrence of atrial fibrillation/atrial flutter [AF/AFl]) in patients with atrial fibrillation/atrial flutter of greater than one week duration who have been converted to normal sinus rhythm. Because dofetilide capsules can cause life threatening ventricular arrhythmias, it should be reserved for patients in whom atrial fibrillation/atrial flutter is highly symptomatic. In general, antiarrhythmic therapy for atrial fibrillation/atrial flutter aims to prolong the time in normal sinus rhythm. Recurrence is expected in some patients (see CLINICAL STUDIES ). Conversion of Atrial Fibrillation/Flutter Dofetilide capsules are indicated for the conversion of atrial fibrillation and atrial flutter to normal sinus rhythm. Dofetilide capsules have not been shown to be effective in patients with paroxysmal atrial fibrillation."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Dofetilide capsules are contraindicated in patients with congenital or acquired long QT syndromes. Dofetilide capsules should not be used in patients with a baseline QT interval or QTc >440 msec (500 msec in patients with ventricular conduction abnormalities). Dofetilide capsules are also contraindicated in patients with severe renal impairment (calculated creatinine clearance <20 mL/min). The concomitant use of verapamil or the cation transport system inhibitors cimetidine, trimethoprim (alone or in combination with sulfamethoxazole), or ketoconazole with dofetilide capsules is contraindicated (see WARNINGS and PRECAUTIONS, Drug-Drug Interactions ), as each of these drugs cause a substantial increase in dofetilide plasma concentrations. In addition, other known inhibitors of the renal cation transport system such as prochlorperazine, dolutegravir and megestrol should not be used in patients on dofetilide capsules. The concomitant use of hydrochlorothiazide (alone or in combinations such as with triamterene) with dofetilide capsules is contraindicated (see PRECAUTIONS, Drug-Drug Interactions ) because this has been shown to significantly increase dofetilide plasma concentrations and QT interval prolongation. Dofetilide capsules are also contraindicated in patients with a known hypersensitivity to the drug."
+    ],
+    "drug_interactions": [
+      "Drug-Drug Interactions (see PRECAUTIONS )",
+      "Drug-Drug Interactions Cimetidine (see WARNINGS , CONTRAINDICATIONS ) Concomitant use of cimetidine is contraindicated. Cimetidine at 400 mg BID (the usual prescription dose) co-administered with dofetilide capsules (500 mcg BID) for 7 days has been shown to increase dofetilide plasma levels by 58%. Cimetidine at doses of 100 mg BID (OTC dose) resulted in a 13% increase in dofetilide plasma levels (500 mcg single dose). No studies have been conducted at intermediate doses of cimetidine. If a patient requires dofetilide capsules and anti-ulcer therapy, it is suggested that omeprazole, ranitidine, or antacids (aluminum and magnesium hydroxides) be used as alternatives to cimetidine, as these agents have no effect on the pharmacokinetic profile of dofetilide capsules. Verapamil (see CONTRAINDICATIONS ) Concomitant use of verapamil is contraindicated. Co-administration of dofetilide capsules with verapamil resulted in increases in dofetilide peak plasma levels of 42%, although overall exposure to dofetilide was not significantly increased. In an analysis of the supraventricular arrhythmia and DIAMOND patient populations, the concomitant administration of verapamil with dofetilide was associated with a higher occurrence of Torsade de Pointes. Ketoconazole (see WARNINGS , CONTRAINDICATIONS ) Concomitant use of ketoconazole is contraindicated. Ketoconazole at 400 mg daily (the maximum approved prescription dose) co-administered with dofetilide capsules (500 mcg BID) for 7 days has been shown to increase dofetilide C max by 53% in males and 97% in females, and AUC by 41% in males and 69% in females. Trimethoprim Alone or in Combination with Sulfamethoxazole (see WARNINGS , CONTRAINDICATIONS ) Concomitant use of trimethoprim alone or in combination with sulfamethoxazole is contraindicated. Trimethoprim 160 mg in combination with 800 mg sulfamethoxazole co-administered BID with dofetilide capsules (500 mcg BID) for 4 days has been shown to increase dofetilide AUC by 103% and C max by 93%. Hydrochlorothiazide (HCTZ) Alone or in Combination with Triamterene (see CONTRAINDICATIONS ) Concomitant use of HCTZ alone or in combination with triamterene is contraindicated. HCTZ 50 mg QD or HCTZ/triamterene 50/100 mg QD was co-administered with dofetilide capsules (500 mcg BID) for 5 days (following 2 days of diuretic use at half dose). In patients receiving HCTZ alone, dofetilide AUC increased by 27% and C max by 21%. However, the pharmacodynamic effect increased by 197% (QTc increase over time) and by 95% (maximum QTc increase). In patients receiving HCTZ in combination with triamterene, dofetilide AUC increased by 30% and C max by 16%. However, the pharmacodynamic effect increased by 190% (QTc increase over time) and by 84% (maximum QTc increase). The pharmacodynamic effects can be explained by a combination of the increase in dofetilide exposure and the reductions in serum potassium. In the DIAMOND trials, 1252 patients were treated with dofetilide capsules and diuretics concomitantly, of whom 493 died compared to 508 deaths among the 1248 patients receiving placebo and diuretics. Of the 229 patients who had potassium depleting diuretics added to their concomitant medications in the DIAMOND trials, the patients on dofetilide capsules had a non-significantly reduced relative risk for death of 0.68 (95% CI: 0.376, 1.230)."
+    ],
+    "openfda": {
+      "generic_name": [
+        "DOFETILIDE"
+      ],
+      "brand_name": [
+        "Dofetilide"
+      ],
+      "substance_name": [
+        "DOFETILIDE"
+      ],
+      "application_number": [
+        "ANDA207058"
+      ]
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "seed": "ascorbic acid",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22ascorbic+acid%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 86,
+  "record": {
+    "set_id": "f0b683f8-189b-4a3f-9ffe-f91df6d798b6",
+    "id": "55308830-78d6-4a9f-b880-3c2b9f6cb42e",
+    "effective_time": "20260903",
+    "indications_and_usage": [
+      "1 INDICATIONS AND USAGE Ascorbic acid injection is indicated for the short term (up to 1 week) treatment of scurvy in adult and pediatric patients age 5 months and older for whom oral administration is not possible, insufficient or contraindicated. Limitations of Use Ascorbic acid injection is not indicated for the treatment of vitamin C deficiency that is not associated with signs and symptoms of scurvy. Ascorbic acid injection is vitamin C indicated for the short term (up to 1 week) treatment of scurvy in adult and pediatric patients age 5 months and older for whom oral administration is not possible, insufficient or contraindicated. Limitations of Use Ascorbic acid injection is not indicated for treatment of vitamin C deficiency that is not associated with signs and symptoms of scurvy."
+    ],
+    "contraindications": [
+      "4 CONTRAINDICATIONS None. None"
+    ],
+    "drug_interactions": [
+      "7 DRUG INTERACTIONS Antibiotics: Ascorbic acid may decrease the activities of erythromycin, kanamycin, streptomycin, doxycycline and lincomycin. Bleomycin is inactivated in vitro by ascorbic acid ( 7.1 ). Amphetamine and Other Drugs Affected by Urine Acidification: Ascorbic acid may cause acidification of the urine and result in decreased amphetamine serum levels and affect excretion and plasma concentrations of other drugs sensitive to urine pH ( 7.2 ). Warfarin: Continue standard monitoring ( 7.3 ). 7.1 Antibiotics Ascorbic acid may decrease activities of erythromycin, kanamycin, streptomycin, doxycycline and lincomycin. Bleomycin is inactivated in vitro by ascorbic acid. If the antibiotic efficacy is suspected to be decreased by concomitant administration of ascorbic acid injection, discontinue ascorbic acid injection administration. 7.2 Amphetamines & Other Drugs Affected by Urine Acidification Ascorbic acid may acidify the urine and lower serum concentrations of amphetamine by increasing renal excretion (as reflected by changes in amphetamine urine recovery rates). In case of decreased amphetamine efficacy discontinue ascorbic acid injection administration. Standard monitoring of therapy is warranted. In addition, acidification of urine by ascorbic acid will alter the excretion of certain drugs affected by the pH of the urine (e.g., fluphenazine) when administered concurrently. It has been reported that concurrent administration of ascorbic acid and fluphenazine has resulted in decreased fluphenazine plasma concentrations. Standard monitoring of therapy is warranted. 7.3 Warfarin Limited case reports have suggested interference of ascorbic acid with the anticoagulation effects of warfarin, however, for patients on warfarin therapy treated with ascorbic acid doses up to 1,000 mg/day (5 times the largest recommended single dose) for 2 weeks (twice the maximum recommended duration), no effect was observed. Standard monitoring for anti-coagulation therapy should continue during ascorbic acid treatment, as per standard of care. 7.4 Laboratory Test Interference Because ascorbic acid is a strong reducing agent, it can interfere with numerous laboratory tests based on oxidation-reduction reactions (e.g., glucose, nitrite and bilirubin levels, leukocyte count, etc.). Chemical detecting methods based on colorimetric reactions are generally those tests affected. Ascorbic acid may lead to inaccurate results (false negatives) obtained for checking blood or urinary glucose levels, nitrite, bilirubin, and leukocytes if tested during or within 24 hours after infusion [see Warnings and Precautions ( 5.3 )] ."
+    ],
+    "warnings_and_cautions": [
+      "5 WARNINGS AND PRECAUTIONS Oxalate nephropathy and Nephrolithiasis: Ascorbic acid has been associated with development of acute or chronic oxalate nephropathy following prolonged use of high doses of ascorbic acid infusion. Patients with renal disease including renal impairment, history of oxalate kidney stones, geriatric patients and pediatric patients less than 2 years old may be at increased risk ( 5.1 ). Haemolysis: Patients with glucose-6-phosphate dehydrogenase deficiency are at risk of severe haemolysis; a reduced dose is recommended ( 5.2 ). Laboratory Test Interference: Ascorbic acid may interfere with laboratory tests based on oxidation reduction reactions, including blood and urine glucose testing ( 5.3 ). 5.1 Oxalate Nephropathy and Nephrolithiasis Acute and chronic oxalate nephropathy have been reported with prolonged administration of high doses of ascorbic acid. Acidification of the urine by ascorbic acid may cause precipitation of cysteine, urate or oxalate stones. Patients with renal disease including renal impairment, history of oxalate kidney stones, and geriatric patients may be at increased risk for oxalate nephropathy while receiving treatment with ascorbic acid. Pediatric patients less than 2 years of age may be at increased risk for oxalate nephropathy during treatment with ascorbic acid because their kidneys are immature [see Use in Specific Populations ( 8.4 , 8.5 , 8.6 )]. Monitor renal function in patients at increased risk receiving ascorbic acid injection. Discontinue ascorbic acid injection in patients who develop oxalate nephropathy and treat any suspected oxalate nephropathy. Ascorbic acid injection is not indicated for prolonged administration (the maximum recommended duration is one week) [see Dosage and Administration ( 2.1 ) ]. 5.2 Hemolysis in Patients with Glucose-6-Phosphate Dehydrogenase Deficiency Hemolysis has been reported with administration of ascorbic acid in patients with glucose-6-phosphate dehydrogenase deficiency. Patients with glucose-6-phosphate dehydrogenase deficiency may be at increased risk for severe hemolysis during treatment with ascorbic acid. Monitor hemoglobin and blood count and use a reduced dose of ascorbic acid injection in patients with glucose-6-phosphate dehydrogenase deficiency [see Dosage and Administration ( 2.3 )]. Discontinue treatment with ascorbic acid injection if hemolysis is suspected and treat as needed. 5.3 Laboratory Test Interference Ascorbic acid may interfere with laboratory tests based on oxidation-reduction reactions, including blood and urine glucose testing, nitrite and bilirubin levels, and leucocyte count testing. If possible, laboratory tests based on oxidation-reduction reactions should be delayed until 24 hours after infusion of ascorbic acid injection [see Drug Interactions ( 7.4 )]."
+    ],
+    "openfda": {
+      "generic_name": [
+        "ASCORBIC ACID"
+      ],
+      "brand_name": [
+        "Ascorbic acid"
+      ],
+      "substance_name": [
+        "ASCORBIC ACID"
+      ],
+      "application_number": [
+        "ANDA220873"
+      ]
+    }
+  }
+}

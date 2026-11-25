@@ -1,0 +1,35 @@
+{
+  "seed": "mupirocin",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22mupirocin%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 46,
+  "record": {
+    "set_id": "1692855a-c6c1-4c30-aaa8-a761d635d931",
+    "id": "02d8f858-c42d-4d02-87a0-5792c0710fd2",
+    "effective_time": "20261029",
+    "indications_and_usage": [
+      "1 INDICATIONS AND USAGE Mupirocin Ointment USP, 2% is indicated for the topical treatment of impetigo due to susceptible isolates of Staphylococcus aureus (S. aureus) and Streptococcus pyogenes (S. pyogenes) . Mupirocin ointment is an RNA synthetase inhibitor antibacterial indicated for the topical treatment of impetigo due to susceptible isolates of Staphylococcus aureus and Streptococcus pyogenes . ( 1 )"
+    ],
+    "contraindications": [
+      "4 CONTRAINDICATIONS Mupirocin ointment is contraindicated in patients with known hypersensitivity to mupirocin or any of the excipients of mupirocin ointment. Known hypersensitivity to mupirocin or any of the excipients of mupirocin ointment. ( 4 )"
+    ],
+    "warnings_and_cautions": [
+      "5 WARNINGS AND PRECAUTIONS Severe Allergic Reactions: Anaphylaxis, urticaria, angioedema, and generalized rash have been reported in patients treated with formulations of mupirocin, including mupirocin ointment. ( 5.1 ) Eye Irritation: Avoid contact with eyes. ( 5.2 ) Local Irritation: Discontinue in the event of sensitization or severe local irritation. ( 5.3 ) Clostridium difficile- Associated Diarrhea (CDAD): If diarrhea occurs, evaluate patients for CDAD. ( 5.4 ) Potential for Microbial Overgrowth: Prolonged use may result in overgrowth of nonsusceptible microorganisms, including fungi. ( 5.5 ) Risk Associated with Mucosal Use: Mupirocin ointment is not formulated for use on mucosal surfaces. A separate formulation, mupirocin nasal ointment, is available for intranasal use. ( 5.6 ) Risk of Polyethylene Glycol Absorption: Mupirocin ointment should not be used where absorption of large quantities of polyethylene glycol is possible, especially if there is evidence of moderate or severe renal impairment. ( 5.7 ) Risk Associated with Use at Intravenous Sites: Mupirocin ointment should not be used with intravenous cannulae or at central intravenous sites because of the potential to promote fungal infections and antimicrobial resistance. ( 5.8 ) 5.1 Severe Allergic Reactions Systemic allergic reactions, including anaphylaxis, urticaria, angioedema, and generalized rash, have been reported in patients treated with formulations of mupirocin, including mupirocin ointment [see Adverse Reactions (6.2) ] . 5.2 Eye Irritation Avoid contact with the eyes. In case of accidental contact, rinse well with water. 5.3 Local Irritation In the event of a sensitization or severe local irritation from mupirocin ointment, usage should be discontinued, and appropriate alternative therapy for the infection instituted. 5.4 Clostridium difficile -Associated Diarrhea Clostridium difficile- associated diarrhea (CDAD) has been reported with use of nearly all antibacterial agents and may range in severity from mild diarrhea to fatal colitis. Treatment with antibacterial agents alters the normal flora of the colon leading to overgrowth of C. difficile . C. difficile produces toxins A and B which contribute to the development of CDAD. Hypertoxin-producing strains of C. difficile cause increased morbidity and mortality, as these infections can be refractory to antimicrobial therapy and may require colectomy. CDAD must be considered in all patients who present with diarrhea following antibacterial drug use. Careful medical history is necessary since CDAD has been reported to occur over 2 months after the administration of antibacterial agents. If CDAD is suspected or confirmed, ongoing antibacterial drug use not directed against C. difficile may need to be discontinued. Appropriate fluid and electrolyte management, protein supplementation, antibacterial treatment of C. difficile , and surgical evaluation should be instituted as clinically indicated. 5.5 Potential for Microbial Overgrowth As with other antibacterial products, prolonged use of mupirocin ointment may result in overgrowth of nonsusceptible microorganisms, including fungi [see Dosage and Administration (2) ] . 5.6 Risk Associated with Mucosal Use Mupirocin ointment is not formulated for use on mucosal surfaces. Intranasal use has been associated with isolated reports of stinging and drying. A separate formulation, mupirocin calcium nasal ointment, is available for intranasal use. 5.7 Risk of Polyethylene Glycol Absorption Polyethylene glycol can be absorbed from open wounds and damaged skin and is excreted by the kidneys. In common with other polyethylene glycol-based ointments, mupirocin ointment should not be used in conditions where absorption of large quantities of polyethylene glycol is possible, especially if there is evidence of moderate or severe renal impairment. 5.8 Risk Associated with Use at Intravenous Sites Mupirocin ointment should not be used with intravenous cannulae or at central intravenous sites because of the potential to promote fungal infections and antimicrobial resistance."
+    ],
+    "openfda": {
+      "generic_name": [
+        "MUPIROCIN"
+      ],
+      "brand_name": [
+        "Mupirocin"
+      ],
+      "substance_name": [
+        "MUPIROCIN"
+      ],
+      "application_number": [
+        "ANDA065170"
+      ]
+    }
+  }
+}

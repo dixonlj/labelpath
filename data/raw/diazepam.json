@@ -1,0 +1,38 @@
+{
+  "seed": "diazepam",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22diazepam%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 90,
+  "record": {
+    "set_id": "c2768add-5e01-4ff4-afa3-230380d59a1f",
+    "id": "602dad92-8c66-6ec2-e063-6394a90acce1",
+    "effective_time": "20261113",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Diazepam tablets are indicated for the management of anxiety disorders or for the short-term relief of the symptoms of anxiety. Anxiety or tension associated with the stress of everyday life usually does not require treatment with an anxiolytic. In acute alcohol withdrawal, diazepam tablets may be useful in the symptomatic relief of acute agitation, tremor, impending or acute delirium tremens and hallucinosis. Diazepam tablets are a useful adjunct for the relief of skeletal muscle spasm due to reflex spasm to local pathology (such as inflammation of the muscles or joints, or secondary to trauma), spasticity caused by upper motor neuron disorders (such as cerebral palsy and paraplegia), athetosis, and stiff-man syndrome. Oral diazepam tablets may be used adjunctively in convulsive disorders, although it has not proved useful as the sole therapy. The effectiveness of diazepam tablets in long-term use, that is, more than 4 months, has not been assessed by systematic clinical studies. The physician should periodically reassess the usefulness of the drug for the individual patient."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Diazepam tablets are contraindicated in patients with a known hypersensitivity to diazepam and, because of lack of sufficient clinical experience, in pediatric patients under 6 months of age. Diazepam tablets are also contraindicated in patients with myasthenia gravis, severe respiratory insufficiency, severe hepatic insufficiency, and sleep apnea syndrome. They may be used in patients with open-angle glaucoma who are receiving appropriate therapy, but is contraindicated in acute narrow-angle glaucoma."
+    ],
+    "boxed_warning": [
+      "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs in patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (see WARNINGS and PRECAUTIONS ). The use of benzodiazepines, including diazepam tablets, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing diazepam tablets and throughout treatment, assess each patient’s risk for abuse, misuse, and addiction (see WARNINGS ) . The continued use of benzodiazepines, including diazepam tablets, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of diazepam tablets after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue diazepam tablets or reduce the dosage (see DOSAGE AND ADMINISTRATION and WARNINGS ) ."
+    ],
+    "drug_interactions": [
+      "Drug Interactions Opioids The concomitant use of benzodiazepines and opioids increases the risk of respiratory depression because of actions at different receptor sites in the CNS that control respiration. Benzodiazepines interact at GABA A sites and opioids interact primarily at mu receptors. When benzodiazepines and opioids are combined, the potential for benzodiazepines to significantly worsen opioid-related respiratory depression exists. Limit dosage and duration of concomitant use of benzodiazepines and opioids, and monitor patients closely for respiratory depression and sedation. Centrally Acting Agents If diazepam tablets are to be combined with other centrally acting agents, careful consideration should be given to the pharmacology of the agents employed particularly with compounds that may potentiate or be potentiated by the action of diazepam tablets, such as phenothiazines, antipsychotics, anxiolytics/sedatives, hypnotics, anticonvulsants, narcotic analgesics, anesthetics, sedative antihistamines, narcotics, barbiturates, MAO inhibitors and other antidepressants. Alcohol Concomitant use with alcohol is not recommended due to enhancement of the sedative effect. Antacids Diazepam peak concentrations are 30% lower when antacids are administered concurrently. However, there is no effect on the extent of absorption. The lower peak concentrations appear due to a slower rate of absorption, with the time required to achieve peak concentrations on average 20-25 minutes greater in the presence of antacids. However, this difference was not statistically significant. Compounds Which Inhibit Certain Hepatic Enzymes There is a potentially relevant interaction between diazepam and compounds which inhibit certain hepatic enzymes (particularly cytochrome P450 3A and 2C19). Data indicate that these compounds influence the pharmacokinetics of diazepam and may lead to increased and prolonged sedation. At present, this reaction is known to occur with cimetidine, ketoconazole, fluvoxamine, fluoxetine, and omeprazole. Phenytoin There have also been reports that the metabolic elimination of phenytoin is decreased by diazepam."
+    ],
+    "openfda": {
+      "generic_name": [
+        "DIAZEPAM"
+      ],
+      "brand_name": [
+        "Diazepam"
+      ],
+      "substance_name": [
+        "DIAZEPAM"
+      ],
+      "application_number": [
+        "ANDA070325"
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "seed": "diphenhydramine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22diphenhydramine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 1119,
+  "record": {
+    "set_id": "9d6b5ec1-3aa4-4a19-936e-c44b04b2f3fa",
+    "id": "15fda4e1-098b-454a-a36e-7433da8e3a1e",
+    "effective_time": "20261113",
+    "indications_and_usage": [
+      "Uses for relief of occasional sleeplessness"
+    ],
+    "openfda": {
+      "generic_name": [
+        "DIPHENHYDRAMINE HYDROCHLORIDE"
+      ],
+      "brand_name": [
+        "SleepAid Softgels"
+      ],
+      "substance_name": [
+        "DIPHENHYDRAMINE HYDROCHLORIDE"
+      ],
+      "application_number": [
+        "M010"
+      ]
+    }
+  }
+}

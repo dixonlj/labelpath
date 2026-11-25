@@ -1,0 +1,38 @@
+{
+  "seed": "oseltamivir",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22oseltamivir%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 78,
+  "record": {
+    "set_id": "339778ee-0b6f-6d81-e063-6394a90a2d32",
+    "id": "600b9b9c-4c73-deed-e063-6394a90a9513",
+    "effective_time": "20261111",
+    "indications_and_usage": [
+      "1 INDICATIONS AND USAGE Oseltamivir phosphate is an influenza neuraminidase inhibitor (NAI) indicated for: Treatment of acute, uncomplicated influenza A and B in patients 2 weeks of age and older who have been symptomatic for no more than 48 hours. ( 1.1 ) Prophylaxis of influenza A and B in patients 1 year and older. ( 1.2 ) Limitations of Use : Not a substitute for annual influenza vaccination. ( 1.3 ) Consider available information on influenza drug susceptibility patterns and treatment effects when deciding whether to use. ( 1.3 ) Not recommended for patients with end-stage renal disease not undergoing dialysis. ( 1.3 ) 1.1 Treatment of Influenza Oseltamivir phosphate is indicated for the treatment of acute, uncomplicated illness due to influenza A and B infection in patients 2 weeks of age and older who have been symptomatic for no more than 48 hours. 1.2 Prophylaxis of Influenza Oseltamivir phosphate is indicated for the prophylaxis of influenza A and B in patients 1 year and older. 1.3 Limitations of Use Oseltamivir phosphate is not a substitute for early influenza vaccination on an annual basis as recommended by the Centers for Disease Control and Prevention Advisory Committee on Immunization Practices. Influenza viruses change over time. Emergence of resistance substitutions could decrease drug effectiveness. Other factors (for example, changes in viral virulence) might also diminish clinical benefit of antiviral drugs. Prescribers should consider available information on influenza drug susceptibility patterns and treatment effects when deciding whether to use oseltamivir phosphate [see Microbiology (12.4) ] . Oseltamivir phosphate is not recommended for patients with end-stage renal disease not undergoing dialysis [see Dosage and Administration (2.4) and Use in Specific Populations (8.6) ]."
+    ],
+    "contraindications": [
+      "4 CONTRAINDICATIONS Oseltamivir phosphate capsules are contraindicated in patients with known serious hypersensitivity to oseltamivir or any component of the product. Severe allergic reactions have included anaphylaxis and serious skin reactions including toxic epidermal necrolysis, Stevens-Johnson Syndrome, and erythema multiforme [see Warnings and Precautions (5.1) ] . Patients with known serious hypersensitivity to oseltamivir or any of the components of oseltamivir phosphate capsules ( 4 )"
+    ],
+    "drug_interactions": [
+      "7 DRUG INTERACTIONS Live attenuated influenza vaccine (LAIV), intranasal: Avoid administration of LAIV within 2 weeks before or 48 hours after oseltamivir phosphate capsules use, unless medically indicated. ( 7 ) 7.1 Influenza Vaccines Live Attenuated Influenza Vaccine The concurrent use of oseltamivir phosphate with live attenuated influenza vaccine (LAIV) intranasal has not been evaluated. However, because of the potential for oseltamivir phosphate to inhibit replication of live vaccine virus and possibly reduce the efficacy of LAIV, avoid administration of LAIV within 2 weeks before or 48 hours after oseltamivir phosphate administration, unless medically indicated. Inactivated Influenza Vaccine Inactivated influenza vaccine can be administered at any time relative to use of oseltamivir phosphate. 7.2 Drugs Without Clinically Significant Drug Interaction with oseltamivir phosphate No dose adjustments are needed for either oseltamivir or the concomitant drug when coadministering oseltamivir with amoxicillin, acetaminophen, aspirin, cimetidine, antacids (magnesium and aluminum hydroxides and calcium carbonates), rimantadine, amantadine, or warfarin [see Clinical Pharmacology (12.3) ] ."
+    ],
+    "warnings_and_cautions": [
+      "5 WARNINGS AND PRECAUTIONS Serious skin/hypersensitivity reactions such as Stevens-Johnson Syndrome, toxic epidermal necrolysis and erythema multiforme: Discontinue oseltamivir phosphate capsules and initiate appropriate treatment if allergic-like reactions occur or are suspected. ( 5.1 ) Neuropsychiatric events: Patients with influenza, including those receiving oseltamivir phosphate capsules, particularly pediatric patients, may be at an increased risk of confusion or abnormal behavior early in their illness. Monitor for signs of abnormal behavior. ( 5.2 ) 5.1 Serious Skin/Hypersensitivity Reactions Cases of anaphylaxis and serious skin reactions including toxic epidermal necrolysis, Stevens-Johnson Syndrome, and erythema multiforme have been reported in postmarketing experience with oseltamivir phosphate. Stop oseltamivir phosphate and institute appropriate treatment if an allergic-like reaction occurs or is suspected. The use of oseltamivir phosphate is contraindicated in patients with known serious hypersensitivity to oseltamivir phosphate [see Contraindications (4) and Adverse Reactions (6.2) ] . 5.2 Neuropsychiatric Events There have been postmarketing reports of delirium and abnormal behavior leading to injury, and in some cases resulting in fatal outcomes, in patients with influenza who were receiving oseltamivir phosphate [see Adverse Reactions (6.2) ] . Because these events were reported voluntarily during clinical practice, estimates of frequency cannot be made but they appear to be uncommon based on oseltamivir phosphate usage data. These events were reported primarily among pediatric patients and often had an abrupt onset and rapid resolution. The contribution of oseltamivir phosphate to these events has not been established. Influenza can be associated with a variety of neurologic and behavioral symptoms that can include events such as hallucinations, delirium, and abnormal behavior, in some cases resulting in fatal outcomes. These events may occur in the setting of encephalitis or encephalopathy but can occur without obvious severe disease. Closely monitor oseltamivir phosphate-treated patients with influenza for signs of abnormal behavior. If neuropsychiatric symptoms occur, evaluate the risks and benefits of continuing oseltamivir phosphate for each patient. 5.3 Risk of Bacterial Infections There is no evidence for efficacy of oseltamivir phosphate in any illness caused by pathogens other than influenza viruses. Serious bacterial infections may begin with influenza-like symptoms or may coexist with or occur as complications during the course of influenza. Oseltamivir phosphate has not been shown to prevent such complications. Prescribers should be alert to the potential for secondary bacterial infections and treat them as appropriate."
+    ],
+    "openfda": {
+      "generic_name": [
+        "OSELTAMIVIR PHOSPHATE"
+      ],
+      "brand_name": [
+        "oseltamivir phosphate"
+      ],
+      "substance_name": [
+        "OSELTAMIVIR PHOSPHATE"
+      ],
+      "application_number": [
+        "ANDA218009"
+      ]
+    }
+  }
+}

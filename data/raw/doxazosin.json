@@ -1,0 +1,38 @@
+{
+  "seed": "doxazosin",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22doxazosin%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 70,
+  "record": {
+    "set_id": "bf2f7b41-f14d-4fcd-8db3-f507ca6ff78b",
+    "id": "5df8b46a-6be0-eec5-e063-6394a90ade09",
+    "effective_time": "20261016",
+    "indications_and_usage": [
+      "1 INDICATIONS AND USAGE Doxazosin tablets are an alpha 1 adrenergic antagonist indicated for: Signs and symptoms of Benign Prostatic Hyperplasia (BPH) Treatment of HypertensionTreatment of Hypertension 1.1 Benign Prostatic Hyperplasia (BPH) Doxazosin tablets are indicated for the treatment of the signs and symptoms of BPH. 1.2 Hypertension Doxazosin tablets are indicated for the treatment of hypertension, to lower blood pressure. Lowering blood pressure reduces the risk of fatal and nonfatal cardiovascular events, primarily strokes and myocardial infarctions. These benefits have been seen in controlled trials of antihypertensive drugs from a wide variety of pharmacologic classes, including this drug. Control of high blood pressure should be part of comprehensive cardiovascular risk management, including, as appropriate, lipid control, diabetes management, antithrombotic therapy, smoking cessation, exercise, and limited sodium intake. Many patients will require more than one drug to achieve blood pressure goals. For specific advice on goals and management, see published guidelines, such as those of the National High Blood Pressure Education Program’s Joint National Committee on Prevention, Detection, Evaluation, and Treatment of High Blood Pressure (JNC). Numerous antihypertensive drugs, from a variety of pharmacologic classes and with different mechanisms of action, have been shown in randomized controlled trials to reduce cardiovascular morbidity and mortality, and it can be concluded that it is blood pressure reduction, and not some other pharmacologic property of the drugs, that is largely responsible for those benefits. The largest and most consistent cardiovascular outcome benefit has been a reduction in the risk of stroke, but reductions in myocardial infarction and cardiovascular mortality also have been seen regularly. Elevated systolic or diastolic pressure causes increased cardiovascular risk, and the absolute risk increase per mmHg is greater at higher blood pressures, so that even modest reductions of severe hypertension can provide substantial benefit. Relative risk reduction from blood pressure reduction is similar across populations with varying absolute risk, so the absolute benefit is greater in patients who are at higher risk independent of their hypertension (for example, patients with diabetes or hyperlipidemia), and such patients would be expected to benefit from more aggressive treatment to a lower blood pressure goal. Some antihypertensive drugs have smaller blood pressure effects (as monotherapy) in black patients, and many antihypertensive drugs have additional approved indications and effects (e.g., on angina, heart failure, or diabetic kidney disease). These considerations may guide selection of therapy. Doxazosin tablets may be used alone or in combination with other antihypertensives."
+    ],
+    "contraindications": [
+      "4 CONTRAINDICATIONS The use of doxazosin tablets is contraindicated in patients with a hypersensitivity to doxazosin, other quinazolines (e.g., prazosin, terazosin), or any of its components. Hypersensitivity to doxazosin, other quinazolines, or any other ingredient in doxazosin tablets. ( 4 )"
+    ],
+    "drug_interactions": [
+      "7 DRUG INTERACTIONS Strong cytochrome P450 (CYP) 3A inhibitors may increase exposure to doxazosin and increased risk of hypotension. ( 7.1 ) Concomitant administration of doxazosin tablets with a phosphodiesterase-5 (PDE-5) inhibitor can result in additive blood pressure lowering effects and symptomatic hypotension. ( 7.2 ) 7.1 CYP 3A Inhibitors In vitro studies suggest that doxazosin is a substrate of CYP 3A4. Strong CYP3A inhibitors may increase exposure to doxazosin. Monitor blood pressure and for symptoms of hypotension when doxazosin tablets are used concomitantly with strong CYP3A inhibitors [ see Clinical Pharmacology ( 12.3 ) ]. 7.2 Phosphodiesterase-5 (PDE-5) Inhibitors Concomitant administration of doxazosin tablets with a phosphodiesterase-5 (PDE-5) inhibitor can result in additive blood pressure lowering effects and symptomatic hypotension. Monitor blood pressure and for symptoms of hypotension [ see Warnings and Precautions ( 5.1 ) ]."
+    ],
+    "warnings_and_cautions": [
+      "5 WARNINGS AND PRECAUTIONS Postural hypotension with or without syncope may occur. ( 5.1 ) Risk of Intraoperative Floppy Iris Syndrome during cataract surgery. ( 5.2 ) Screen for the presence of prostate cancer prior to treatment for BPH and at regular intervals afterwards. ( 5.3 ) 5.1 Postural Hypotension Postural hypotension with or without symptoms (e.g., dizziness) may develop within a few hours following administration of doxazosin tablets. However, infrequently, symptomatic postural hypotension has also been reported later than a few hours after dosing. As with other alpha-blockers, there is a potential for syncope, especially after the initial dose or after an increase in dosage strength. Advise patient how to avoid symptoms resulting from postural hypotension and what measures to take should they develop. Concomitant administration of doxazosin tablets with a PDE-5 inhibitor can result in additive blood pressure lowering effects and symptomatic hypotension. 5.2 Cataract Surgery Intraoperative Floppy Iris Syndrome (IFIS) has been observed during cataract surgery in some patients on or previously treated with alpha 1 blockers. This variant of small pupil syndrome is characterized by the combination of a flaccid iris that billows in response to intraoperative irrigation currents, progressive intraoperative miosis despite preoperative dilation with standard mydriatic drugs, and potential prolapse of the iris toward the phacoemulsification incisions. The patient’s surgeon should be prepared for possible modifications to their surgical technique, such as the utilization of iris hooks, iris dilator rings, or viscoelastic substances. There does not appear to be a benefit of stopping alpha 1 blocker therapy prior to cataract surgery. 5.3 Prostate Cancer Carcinoma of the prostate causes many of the symptoms associated with BPH and the two disorders frequently co-exist. Carcinoma of the prostate should therefore be ruled out prior to commencing therapy with doxazosin tablets for the treatment of BPH. 5.4 Priapism Alpha1 antagonists, including doxazosin, have been associated with priapism (painful penile erection, sustained for hours and unrelieved by sexual intercourse or masturbation). This condition can lead to permanent impotence if not promptly treated."
+    ],
+    "openfda": {
+      "generic_name": [
+        "DOXAZOSIN"
+      ],
+      "brand_name": [
+        "Doxazosin"
+      ],
+      "substance_name": [
+        "DOXAZOSIN MESYLATE"
+      ],
+      "application_number": [
+        "ANDA075580"
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "seed": "leucovorin",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22leucovorin%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 27,
+  "record": {
+    "set_id": "82c445f5-4cb7-4457-af19-3b5b8a121b4f",
+    "id": "782dbace-df38-43ca-b58b-ff1d89892167",
+    "effective_time": "20261015",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Leucovorin calcium rescue is indicated after high dose methotrexate therapy in osteosarcoma. Leucovorin calcium is also indicated to diminish the toxicity and counteract the effects of impaired methotrexate elimination and of inadvertent overdosages of folic acid antagonists. Leucovorin calcium is indicated in the treatment of megaloblastic anemias due to folic acid deficiency when oral therapy is not feasible. Leucovorin is also indicated for use in combination with 5-fluorouracil to prolong survival in the palliative treatment of patients with advanced colorectal cancer. Leucovorin should not be mixed in the same infusion as 5-fluorouracil because a precipitate may form."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Leucovorin is improper therapy for pernicious anemia and other megaloblastic anemias secondary to the lack of vitamin B 12 . A hematologic remission may occur while neurologic manifestations continue to progress."
+    ],
+    "drug_interactions": [
+      "Drug Interactions Folic acid in large amounts may counteract the antiepileptic effect of phenobarbital, phenytoin and primidone, and increase the frequency of seizures in susceptible pediatric patients. Preliminary animal and human studies have shown that small quantities of systemically administered leucovorin enter the CSF primarily as 5-methyltetrahydrofolate and, in humans, remain 1 to 3 orders of magnitude lower than the usual methotrexate concentrations following intrathecal administration. However, high doses of leucovorin may reduce the efficacy of intrathecally administered methotrexate. Leucovorin may enhance the toxicity of 5-fluorouracil (see WARNINGS )."
+    ],
+    "openfda": {
+      "generic_name": [
+        "LEUCOVORIN CALCIUM"
+      ],
+      "brand_name": [
+        "Leucovorin Calcium"
+      ],
+      "substance_name": [
+        "LEUCOVORIN CALCIUM"
+      ],
+      "application_number": [
+        "ANDA218200"
+      ]
+    }
+  }
+}

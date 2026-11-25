@@ -1,0 +1,29 @@
+{
+  "seed": "hydroxocobalamin",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22hydroxocobalamin%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 3,
+  "record": {
+    "set_id": "3be23e83-4a7f-3854-e063-6294a90acb7a",
+    "id": "51e3535b-dc11-abe8-e063-6394a90a0c61",
+    "effective_time": "20260515",
+    "contraindications": [
+      "Contraindications Hydroxocobalamin Injection is contraindicated in patients with known hypersensitivity to hydroxocobalamin, vitamin B12 preparations, cobalt, benzyl alcohol, or any component of the formulation. Hypersensitivity reactions, including anaphylactic shock and serious allergic reactions, have been reported following parenteral administration of hydroxocobalamin and other vitamin B12 products. Administration to patients with hereditary optic nerve atrophy (Leber’s disease) may result in severe and rapid optic nerve atrophy."
+    ],
+    "warnings_and_cautions": [
+      "Warnings and Precautions Hypersensitivity reactions, including anaphylactic shock, rash, pruritus, urticaria, and edema, have been reported following parenteral administration of vitamin B12 products, including hydroxocobalamin. Patients with known sensitivity to hydroxocobalamin, cobalt, benzyl alcohol, or any component of the formulation may be at increased risk for serious allergic reactions. This product contains benzyl alcohol as a preservative. Benzyl alcohol has been associated with serious and fatal adverse reactions, including “gasping syndrome,” in premature infants and neonates. Administer under appropriate medical supervision. Monitor patients for signs and symptoms of hypersensitivity during administration. Do not use if the solution is cloudy, discolored, or contains particulate matter. Use aseptic technique during handling and administration. Protect from light. Not for intravenous administration."
+    ],
+    "openfda": {
+      "generic_name": [
+        "HYDROXOCOBALAMIN"
+      ],
+      "brand_name": [
+        "Hydroxocobalamin"
+      ],
+      "substance_name": [
+        "HYDROXOCOBALAMIN"
+      ]
+    }
+  }
+}

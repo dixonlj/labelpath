@@ -1,0 +1,35 @@
+{
+  "seed": "alteplase",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22alteplase%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 2,
+  "record": {
+    "set_id": "91ecdef2-95ff-42dd-a31c-c8a09cab3ad9",
+    "id": "0c2938dd-2978-411f-bd76-208fc8754838",
+    "effective_time": "20260120",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Cathflo ® Activase ® (Alteplase) is indicated for the restoration of function to central venous access devices as assessed by the ability to withdraw blood."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Cathflo Activase should not be administered to patients with known hypersensitivity to Alteplase or any component of the formulation (see DESCRIPTION )."
+    ],
+    "drug_interactions": [
+      "Drug Interactions The interaction of Cathflo Activase with other drugs has not been formally studied. Concomitant use of drugs affecting coagulation and/or platelet function has not been studied."
+    ],
+    "openfda": {
+      "generic_name": [
+        "ALTEPLASE"
+      ],
+      "brand_name": [
+        "Cathflo Activase"
+      ],
+      "substance_name": [
+        "ALTEPLASE"
+      ],
+      "application_number": [
+        "BLA103172"
+      ]
+    }
+  }
+}

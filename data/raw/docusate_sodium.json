@@ -1,0 +1,29 @@
+{
+  "seed": "docusate sodium",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22docusate+sodium%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 325,
+  "record": {
+    "set_id": "91099e15-94d7-b684-e053-2a95a90a574e",
+    "id": "5e8342f6-9314-6daf-e063-6294a90afaf4",
+    "effective_time": "20261023",
+    "indications_and_usage": [
+      "Uses For relief of occasional constipation (irregularity). This product generally produces a bowel movement in 2 to 15 minutes."
+    ],
+    "openfda": {
+      "generic_name": [
+        "DOCUSATE SODIUM"
+      ],
+      "brand_name": [
+        "Docusate Mini Enema"
+      ],
+      "substance_name": [
+        "DOCUSATE SODIUM"
+      ],
+      "application_number": [
+        "M007"
+      ]
+    }
+  }
+}

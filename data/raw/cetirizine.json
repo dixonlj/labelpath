@@ -1,0 +1,29 @@
+{
+  "seed": "cetirizine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22cetirizine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 426,
+  "record": {
+    "set_id": "30cbaa91-2216-efd2-e063-6294a90aaaed",
+    "id": "5fdaa8a0-17e8-54b8-e063-6294a90a55c0",
+    "effective_time": "20261109",
+    "indications_and_usage": [
+      "Uses temporarily relieves these symptoms due to hay fever or other upper respiratory allergies: runny nose sneezing itchy, watery eyes itching of the nose or throat"
+    ],
+    "openfda": {
+      "generic_name": [
+        "CETIRIZINE HYDROCHLORIDE"
+      ],
+      "brand_name": [
+        "Childrens Cetirizine Hydrochloride"
+      ],
+      "substance_name": [
+        "CETIRIZINE HYDROCHLORIDE"
+      ],
+      "application_number": [
+        "ANDA090182"
+      ]
+    }
+  }
+}

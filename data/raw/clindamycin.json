@@ -1,0 +1,35 @@
+{
+  "seed": "clindamycin",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22clindamycin%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 220,
+  "record": {
+    "set_id": "4a3901a4-194f-4a15-9c85-3d0982afcf31",
+    "id": "21fcaec2-edca-4efd-8d4a-71f28d38980a",
+    "effective_time": "20261117",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE CLEOCIN T Topical Solution, CLEOCIN T Topical Gel and CLEOCIN T Topical Lotion are indicated in the treatment of acne vulgaris. In view of the potential for diarrhea, bloody diarrhea and pseudomembranous colitis, the physician should consider whether other agents are more appropriate (see CONTRAINDICATIONS , WARNINGS and ADVERSE REACTIONS )."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS CLEOCIN T Topical Solution, CLEOCIN T Topical Gel and CLEOCIN T Topical Lotion are contraindicated in individuals with a history of hypersensitivity to preparations containing clindamycin or lincomycin, a history of regional enteritis or ulcerative colitis, or a history of antibiotic-associated colitis."
+    ],
+    "drug_interactions": [
+      "Drug Interactions Clindamycin has been shown to have neuromuscular blocking properties that may enhance the action of other neuromuscular blocking agents. Therefore, it should be used with caution in patients receiving such agents."
+    ],
+    "openfda": {
+      "generic_name": [
+        "CLINDAMYCIN PHOSPHATE"
+      ],
+      "brand_name": [
+        "Cleocin T"
+      ],
+      "substance_name": [
+        "CLINDAMYCIN PHOSPHATE"
+      ],
+      "application_number": [
+        "NDA050600"
+      ]
+    }
+  }
+}

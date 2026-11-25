@@ -1,0 +1,35 @@
+{
+  "seed": "trimethoprim",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22trimethoprim%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 108,
+  "record": {
+    "set_id": "e53ccf1b-315f-4454-824e-f69769908597",
+    "id": "59825b40-6603-4279-8f73-01a52a7b6b53",
+    "effective_time": "20261115",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE To reduce the development of drug-resistant bacteria and maintain the effectiveness of trimethoprim tablets and other antibacterial drugs, trimethoprim tablets should be used only to treat or prevent infections that are proven or strongly suspected to be caused by susceptible bacteria. When culture and susceptibility information are available, they should be considered in selecting or modifying antibacterial therapy. In the absence of such data, local epidemiology and susceptibility patterns may contribute to the empiric selection of therapy. For the treatment of initial episodes of uncomplicated urinary tract infections due to susceptible strains of the following organisms: Escherichia coli, Proteus mirabilis, Klebsiella pneumoniae, Enterobacter species, and coagulase-negative Staphylococcus species, including S. saprophyticus . Cultures and susceptibility tests should be performed to determine the susceptibility of the bacteria to trimethoprim. Therapy may be initiated prior to obtaining the results of these tests."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Trimethoprim is contraindicated in individuals hypersensitive to trimethoprim and in those with documented megaloblastic anemia due to folate deficiency."
+    ],
+    "drug_interactions": [
+      "Drug Interactions Trimethoprim may inhibit the hepatic metabolism of phenytoin. Trimethoprim, given at a common clinical dosage, increased the phenytoin half-life by 51% and decreased the phenytoin metabolic clearance rate by 30%. When administering these drugs concurrently, one should be alert for possible excessive phenytoin effect."
+    ],
+    "openfda": {
+      "generic_name": [
+        "TRIMETHOPRIM"
+      ],
+      "brand_name": [
+        "TRIMETHOPRIM"
+      ],
+      "substance_name": [
+        "TRIMETHOPRIM"
+      ],
+      "application_number": [
+        "ANDA220920"
+      ]
+    }
+  }
+}

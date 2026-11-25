@@ -1,0 +1,35 @@
+{
+  "seed": "bisoprolol",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22bisoprolol%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 52,
+  "record": {
+    "set_id": "6517d564-ea55-4084-a8ab-34fea548c24e",
+    "id": "265bc69e-7b8b-4b1b-8767-653c726af12a",
+    "effective_time": "20261111",
+    "indications_and_usage": [
+      "INDICATIONS & USAGE BISOPROLOL FUMARATE TABLETS, USP are indicated in the management of hypertension. It may be used alone or in combination with other antihypertensive agents."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS BISOPROLOL FUMARATE is contraindicated in patients with cardiogenic shock, overt cardiac failure, second or third degree AV block, and marked sinus bradycardia."
+    ],
+    "drug_interactions": [
+      "Drug Interactions BISOPROLOL FUMARATE should not be combined with other beta-blocking agents. Patients receiving catecholamine-depleting drugs, such as reserpine or guanethidine, should be closely monitored, because the added beta-adrenergic blocking action of BISOPROLOL FUMARATE may produce excessive reduction of sympathetic activity. In patients receiving concurrent therapy with clonidine, if therapy is to be discontinued, it is suggested that BISOPROLOL FUMARATE be discontinued for several days before the withdrawal of clonidine. BISOPROLOL FUMARATE should be used with care when myocardial depressants or inhibitors of AV conduction, such as certain calcium antagonists (particularly of the phenylalkylamine [verapamil] and benzothiazepine [diltiazem] classes), or antiarrhythmic agents, such as disopyramide, are used concurrently. Both digitalis glycosides and beta-blockers slow atrioventricular conduction and decrease heart rate. Concomitant use can increase the risk of bradycardia. Concurrent use of rifampin increases the metabolic clearance of BISOPROLOL FUMARATE, resulting in a shortened elimination half-life of BISOPROLOL FUMARATE. However, initial dose modification is generally not necessary. Pharmacokinetic studies document no clinically relevant interactions with other agents given concomitantly, including thiazide diuretics and cimetidine. There was no effect of BISOPROLOL FUMARATE on prothrombin time in patients on stable doses of warfarin. Risk of Anaphylactic Reaction: While taking beta-blockers, patients with a history of severe anaphylactic reaction to a variety of allergens may be more reactive to repeated challenge, either accidental, diagnostic, or therapeutic. Such patients may be unresponsive to the usual doses of epinephrine used to treat allergic reactions."
+    ],
+    "openfda": {
+      "generic_name": [
+        "BISOPROLOL FUMARATE"
+      ],
+      "brand_name": [
+        "Bisoprolol Fumarate"
+      ],
+      "substance_name": [
+        "BISOPROLOL FUMARATE"
+      ],
+      "application_number": [
+        "ANDA215563"
+      ]
+    }
+  }
+}

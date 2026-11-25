@@ -1,0 +1,29 @@
+{
+  "seed": "acetaminophen",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22acetaminophen%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 3516,
+  "record": {
+    "set_id": "146c735b-5081-4de4-9025-d939d560bbba",
+    "id": "5ff1d81f-2241-c31a-e063-6394a90ad756",
+    "effective_time": "20261110",
+    "indications_and_usage": [
+      "Uses temporarily relieves minor aches and pains due to: the common cold headache backache minor pain of arthritis toothache muscular aches premenstrual and menstrual cramps temporarily reduces fever"
+    ],
+    "openfda": {
+      "generic_name": [
+        "ACETAMINOPHEN"
+      ],
+      "brand_name": [
+        "Pain Relief"
+      ],
+      "substance_name": [
+        "ACETAMINOPHEN"
+      ],
+      "application_number": [
+        "M013"
+      ]
+    }
+  }
+}

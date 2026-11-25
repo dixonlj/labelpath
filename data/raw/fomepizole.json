@@ -1,0 +1,32 @@
+{
+  "seed": "fomepizole",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22fomepizole%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 7,
+  "record": {
+    "set_id": "256910fe-91f2-48f6-b0b4-55edc52dacd4",
+    "id": "62ff03a3-fb25-41d8-9c6c-d1ad61ea3d31",
+    "effective_time": "20251120",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Fomepizole is indicated as an antidote for ethylene glycol (such as antifreeze) or methanol poisoning, or for use in suspected ethylene glycol or methanol ingestion, either alone or in combination with hemodialysis ( see DOSAGE AND ADMINISTRATION )."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Fomepizole should not be administered to patients with a documented serious hypersensitivity reaction to fomepizole or other pyrazoles."
+    ],
+    "openfda": {
+      "generic_name": [
+        "FOMEPIZOLE"
+      ],
+      "brand_name": [
+        "Fomepizole"
+      ],
+      "substance_name": [
+        "FOMEPIZOLE"
+      ],
+      "application_number": [
+        "ANDA078537"
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "seed": "fexofenadine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22fexofenadine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 222,
+  "record": {
+    "set_id": "c5d58d74-da08-eb72-e053-2a95a90adc27",
+    "id": "5ff40623-68eb-03b2-e063-6294a90a649d",
+    "effective_time": "20261110",
+    "indications_and_usage": [
+      "Uses temporarily relieves these symptoms due to hay fever or other upper respiratory allergies: runny nose sneezing itchy, watery eyes itching of the nose or throat"
+    ],
+    "openfda": {
+      "generic_name": [
+        "FEXOFENADINE HYDROCHLORIDE"
+      ],
+      "brand_name": [
+        "Allergy Relief"
+      ],
+      "substance_name": [
+        "FEXOFENADINE HYDROCHLORIDE"
+      ],
+      "application_number": [
+        "ANDA211075"
+      ]
+    }
+  }
+}

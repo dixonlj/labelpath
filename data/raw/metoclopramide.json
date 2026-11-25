@@ -1,0 +1,35 @@
+{
+  "seed": "metoclopramide",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22metoclopramide%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 67,
+  "record": {
+    "set_id": "917494a9-cff1-4ee6-9523-e112120373c5",
+    "id": "30683997-9059-4c61-ba7f-578f9c0bf8f9",
+    "effective_time": "20261104",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Diabetic Gastroparesis (Diabetic Gastric Stasis) Metoclopramide is indicated for the relief of symptoms associated with acute and recurrent diabetic gastric stasis. The Prevention of Nausea and Vomiting Associated with Emetogenic Cancer Chemotherapy Metoclopramide Injection, USP is indicated for the prophylaxis of vomiting associated with emetogenic cancer chemotherapy. The Prevention of Postoperative Nausea and Vomiting Metoclopramide Injection, USP is indicated for the prophylaxis of postoperative nausea and vomiting in those circumstances where nasogastric suction is undesirable. Small Bowel Intubation Metoclopramide Injection, USP may be used to facilitate small bowel intubation in adults and pediatric patients in whom the tube does not pass the pylorus with conventional maneuvers. Radiological Examination Metoclopramide Injection, USP may be used to stimulate gastric emptying and intestinal transit of barium in cases where delayed emptying interferes with radiological examination of the stomach and/or small intestine."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Metoclopramide should not be used whenever stimulation of gastrointestinal motility might be dangerous, e.g., in the presence of gastrointestinal hemorrhage, mechanical obstruction or perforation. Metoclopramide is contraindicated in patients with pheochromocytoma because the drug may cause a hypertensive crisis, probably due to release of catecholamines from the tumor. Such hypertensive crises may be controlled by phentolamine. Metoclopramide is contraindicated in patients with known sensitivity or intolerance to the drug. Metoclopramide should not be used in epileptics or patients receiving other drugs which are likely to cause extrapyramidal reactions, since the frequency and severity of seizures or extrapyramidal reactions may be increased."
+    ],
+    "boxed_warning": [
+      "WARNING: TARDIVE DYSKINESIA Treatment with metoclopramide can cause tardive dyskinesia, a serious movement disorder that is often irreversible. The risk of developing tardive dyskinesia increases with duration of treatment and total cumulative dose. Metoclopramide therapy should be discontinued in patients who develop signs or symptoms of tardive dyskinesia. There is no known treatment for tardive dyskinesia. In some patients, symptoms may lessen or resolve after metoclopramide treatment is stopped. Treatment with metoclopramide for longer than 12 weeks should be avoided in all but rare cases where therapeutic benefit is thought to outweigh the risk of developing tardive dyskinesia (see WARNINGS )."
+    ],
+    "openfda": {
+      "generic_name": [
+        "METOCLOPRAMIDE"
+      ],
+      "brand_name": [
+        "Metoclopramide"
+      ],
+      "substance_name": [
+        "METOCLOPRAMIDE HYDROCHLORIDE"
+      ],
+      "application_number": [
+        "ANDA073118"
+      ]
+    }
+  }
+}

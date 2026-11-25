@@ -1,0 +1,29 @@
+{
+  "seed": "fluticasone",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22fluticasone%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 180,
+  "record": {
+    "set_id": "ba2b40a1-e28e-48b6-a406-9f720c3e6b39",
+    "id": "ba2b40a1-e28e-48b6-a406-9f720c3e6b39",
+    "effective_time": "20261109",
+    "indications_and_usage": [
+      "Uses Temporarily relieves these symptoms of hay fever or other upper respiratory allergies: • nasal congestion • itchy nose • runny nose • itchy, watery eyes • sneezing"
+    ],
+    "openfda": {
+      "generic_name": [
+        "FLUTICASONE PROPIONATE"
+      ],
+      "brand_name": [
+        "fluticasone propionate allergy relief"
+      ],
+      "substance_name": [
+        "FLUTICASONE PROPIONATE"
+      ],
+      "application_number": [
+        "ANDA218742"
+      ]
+    }
+  }
+}

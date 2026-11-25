@@ -1,0 +1,35 @@
+{
+  "seed": "fludrocortisone",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22fludrocortisone%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 16,
+  "record": {
+    "set_id": "933e28ef-05e8-419e-a786-21eab67f33a2",
+    "id": "b450e16e-26ca-424c-8f9f-3ed4ede6f0f1",
+    "effective_time": "20260624",
+    "indications_and_usage": [
+      "INDICATIONS & USAGE Fludrocortisone acetate tablets, 0.1 mg are indicated as partial replacement therapy for primary and secondary adrenocortical insufficiency in Addison’s disease and for the treatment of salt-losing adrenogenital syndrome."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Corticosteroids are contraindicated in patients with systemic fungal infections and in those with a history of possible or known hypersensitivity to these agents."
+    ],
+    "drug_interactions": [
+      "DRUG INTERACTIONS When administered concurrently, the following drugs may interact with adrenal corticosteroids. Amphotericin B or potassium-depleting diuretics (benzothiadiazines and related drugs, ethacrynic acid and furosemide)—enhanced hypokalemia. Check serum potassium levels at frequent intervals; use potassium supplements if necessary (see WARNINGS ). Digitalis glycosides — enhanced possibility of arrhythmias or digitalis toxicity associated with hypokalemia. Monitor serum potassium levels; use potassium supplements if necessary. Oral anticoagulants — decreased prothrombin time response. Monitor prothrombin levels and adjust anticoagulant dosage accordingly. Antidiabetic drugs (oral agents and insulin)—diminished antidiabetic effect. Monitor for symptoms of hyperglycemia; adjust dosage of antidiabetic drug upward if necessary. Aspirin — increased ulcerogenic effect; decreased pharmacologic effect of aspirin. Rarely salicylate toxicity may occur in patients who discontinue steroids after concurrent high-dose aspirin therapy. Monitor salicylate levels or the therapeutic effect for which aspirin is given; adjust salicylate dosage accordingly if effect is altered (see PRECAUTIONS, General ). Barbiturates, phenytoin, or rifampin —increased metabolic clearance of fludrocortisone acetate because of the induction of hepatic enzymes. Observe the patient for possible diminished effect of steroid and increase the steroid dosage accordingly. Anabolic steroids (particularly C-17 alkylated androgens such as oxymetholone, methandrostenolone, norethandrolone, and similar compounds)—enhanced tendency toward edema. Use caution when giving these drugs together, especially in patients with hepatic or cardiac disease. Vaccines —neurological complications and lack of antibody response (see WARNINGS ). Estrogen —increased levels of corticosteroid-binding globulin thereby increasing the bound (inactive) fraction; this effect is at least balanced by decreased metabolism of corticosteroids. When estrogen therapy is initiated, a reduction in corticosteroid dosage may be required, and increased amounts may be required when estrogen is terminated."
+    ],
+    "openfda": {
+      "generic_name": [
+        "FLUDROCORTISONE ACETATE"
+      ],
+      "brand_name": [
+        "Fludrocortisone Acetate"
+      ],
+      "substance_name": [
+        "FLUDROCORTISONE ACETATE"
+      ],
+      "application_number": [
+        "ANDA215279"
+      ]
+    }
+  }
+}

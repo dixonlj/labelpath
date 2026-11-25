@@ -1,0 +1,38 @@
+{
+  "seed": "iron sucrose",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22iron+sucrose%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 7,
+  "record": {
+    "set_id": "6f19c80e-22e9-4bab-aa53-4d2d958119ed",
+    "id": "b9d702c5-5fca-4127-bf68-bb2ca6cc9192",
+    "effective_time": "20260605",
+    "indications_and_usage": [
+      "1 INDICATIONS AND USAGE Iron Sucrose Injection is indicated for the treatment of iron deficiency anemia (IDA) in patients with chronic kidney disease (CKD). Iron Sucrose Injection is an iron replacement product indicated for the treatment of iron deficiency anemia (IDA) in patients with chronic kidney disease (CKD)."
+    ],
+    "contraindications": [
+      "4 CONTRAINDICATIONS Known hypersensitivity to Iron Sucrose Injection • Known hypersensitivity to Iron Sucrose Injection ( 4 )"
+    ],
+    "drug_interactions": [
+      "7 DRUG INTERACTIONS Iron Sucrose Injection may reduce the absorption of concomitantly administered oral iron preparations."
+    ],
+    "warnings_and_cautions": [
+      "5 WARNINGS AND PRECAUTIONS • Hypersensitivity Reactions: Observe for signs and symptoms of hypersensitivity during and after Iron Sucrose Injection administration for at least 30 minutes and until clinically stable following completion of each administration. Only administer Iron Sucrose Injection when personnel and therapies are immediately available for the treatment of serious hypersensitivity reactions. ( 5.1 ) • Hypotension: May cause hypotension. Monitor for signs and symptoms of hypotension during and following each administration ( 5.2 ) • Iron Overload: Regularly monitor hematologic responses during therapy. Do not administer to patients with iron overload.( 5.3 ) 5.1 Hypersensitivity Reactions Serious hypersensitivity reactions, including anaphylactic-type reactions, some of which have been life-threatening and fatal, have been reported in patients receiving Iron Sucrose Injection. Patients may present with shock, clinically significant hypotension, loss of consciousness, and/or collapse. If hypersensitivity reactions or signs of intolerance occur during administration, stop Iron Sucrose Injection immediately. Monitor patients for signs and symptoms of hypersensitivity during and after Iron Sucrose Injection administration for at least 30 minutes and until clinically stable following completion of the infusion. Only administer Iron Sucrose Injection when personnel and therapies are immediately available for the treatment of serious hypersensitivity reactions. Most reactions associated with intravenous iron preparations occur within 30 minutes of the completion of the infusion [ see Adverse Reactions ( 6.1 and 6.2 ) ] . 5.2 Hypotension Iron Sucrose Injection may cause clinically significant hypotension. Monitor for signs and symptoms of hypotension following each administration of Iron Sucrose Injection. Hypotension following administration of Iron Sucrose Injection may be related to the rate of administration and/or total dose administered [ see Dosage and Administration ( 2 ), Warnings and Precautions ( 5.1 ), and Adverse Reactions ( 6.2 ) ] . 5.3 Iron Overload Excessive therapy with parenteral iron can lead to excess storage of iron with the possibility of iatrogenic hemosiderosis. All adult and pediatric patients receiving Iron Sucrose Injection require periodic monitoring of hematologic and iron parameters (hemoglobin, hematocrit, serum ferritin and transferrin saturation). Do not administer Iron Sucrose Injection to patients with evidence of iron overload. Transferrin saturation (TSAT) values increase rapidly after intravenous administration of iron sucrose; do not perform serum iron measurements for at least 48 hours after intravenous dosing [ see Dosage and Administration ( 2 ) and Overdosage ( 10 ) ] ."
+    ],
+    "openfda": {
+      "generic_name": [
+        "IRON SUCROSE"
+      ],
+      "brand_name": [
+        "Iron Sucrose"
+      ],
+      "substance_name": [
+        "IRON SUCROSE"
+      ],
+      "application_number": [
+        "ANDA208977"
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "seed": "levonorgestrel",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22levonorgestrel%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 125,
+  "record": {
+    "set_id": "51afe483-1834-0528-e063-6294a90ac75d",
+    "id": "094d5260-3735-4122-a2ea-5b63c2e79bcb",
+    "effective_time": "20260917",
+    "indications_and_usage": [
+      "Use for women to reduce chance of pregnancy after unprotected sex (if a contraceptive failed or if you did not use birth control)"
+    ],
+    "openfda": {
+      "generic_name": [
+        "LEVONORGESTREL"
+      ],
+      "brand_name": [
+        "Julie Morning After Pill"
+      ],
+      "substance_name": [
+        "LEVONORGESTREL"
+      ],
+      "application_number": [
+        "ANDA206867"
+      ]
+    }
+  }
+}

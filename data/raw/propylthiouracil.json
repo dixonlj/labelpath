@@ -1,0 +1,38 @@
+{
+  "seed": "propylthiouracil",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22propylthiouracil%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 8,
+  "record": {
+    "set_id": "d819e532-09ac-434a-84a6-636c4204c7aa",
+    "id": "5a08b89c-d38c-ccd7-e063-6394a90aaba1",
+    "effective_time": "20260827",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Propylthiouracil is indicated: in patients with Graves’ disease with hyperthyroidism or toxic multinodular goiter who are intolerant of methimazole and for whom surgery or radioactive iodine therapy is not an appropriate treatment option to ameliorate symptoms of hyperthyroidism in preparation for thyroidectomy or radioactive iodine therapy in patients who are intolerant of methimazole"
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Propylthiouracil is contraindicated in patients who have demonstrated hypersensitivity to the drug or any of the other product components."
+    ],
+    "boxed_warning": [
+      "WARNING Severe liver injury and acute liver failure, in some cases fatal, have been reported in patients treated with propylthiouracil. These reports of hepatic reactions include cases requiring liver transplantation in adult and pediatric patients. Propylthiouracil should be reserved for patients who cannot tolerate methimazole and in whom radioactive iodine therapy or surgery are not appropriate treatments for the management of hyperthyroidism. Propylthiouracil may be the treatment of choice when an antithyroid drug is indicated during or just prior to the first trimester of pregnancy (see Warnings and Precautions )."
+    ],
+    "drug_interactions": [
+      "Drug Interactions Anticoagulants (oral): Due to the potential inhibition of vitamin K activity by propylthiouracil, the activity of oral anticoagulants (e.g., warfarin) may be increased; additional monitoring of PT/INR should be considered, especially before surgical procedures. Beta-adrenergic blocking agents: Hyperthyroidism may cause an increased clearance of beta blockers with a high extraction ratio. A reduced dose of beta-adrenergic blockers may be needed when a hyperthyroid patient becomes euthyroid. Digitalis glycosides: Serum digitalis levels may be increased when hyperthyroid patients on a stable digitalis glycoside regimen become euthyroid; a reduced dose of digitalis glycosides may be needed. Theophylline: Theophylline clearance may decrease when hyperthyroid patients on a stable theophylline regimen become euthyroid; a reduced dose of theophylline may be needed."
+    ],
+    "openfda": {
+      "generic_name": [
+        "PROPYLTHIOURACIL"
+      ],
+      "brand_name": [
+        "Propylthiouracil"
+      ],
+      "substance_name": [
+        "PROPYLTHIOURACIL"
+      ],
+      "application_number": [
+        "NDA006188"
+      ]
+    }
+  }
+}

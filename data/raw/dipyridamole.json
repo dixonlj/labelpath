@@ -1,0 +1,32 @@
+{
+  "seed": "dipyridamole",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22dipyridamole%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 17,
+  "record": {
+    "set_id": "1a2c0a9a-c637-4485-ad4b-0b6d0b05fa20",
+    "id": "b88cbd46-dbb1-4e76-9c5d-739a00bf858f",
+    "effective_time": "20261028",
+    "indications_and_usage": [
+      "Indications and Usage Dipyridamole Injection is indicated as an alternative to exercise in thallium myocardial perfusion imaging for the evaluation of coronary artery disease in patients who cannot exercise adequately. In a study of about 1100 patients who underwent coronary arteriography and Dipyridamole Injection assisted thallium imaging, the results of both tests were interpreted blindly and the sensitivity and specificity of the dipyridamole thallium study in predicting the angiographic outcome were calculated. The sensitivity of the dipyridamole test (true positive dipyridamole divided by the total number of patients with positive angiography) was about 85%. The specificity (true negative divided by the number of patients with negative angiograms) was about 50%. In a subset of patients who had exercise thallium imaging as well as dipyridamole thallium imaging, sensitivity and specificity of the two tests were almost identical."
+    ],
+    "contraindications": [
+      "Contraindications Hypersensitivity to dipyridamole."
+    ],
+    "openfda": {
+      "generic_name": [
+        "DIPYRIDAMOLE"
+      ],
+      "brand_name": [
+        "Dipyridamole"
+      ],
+      "substance_name": [
+        "DIPYRIDAMOLE"
+      ],
+      "application_number": [
+        "ANDA074521"
+      ]
+    }
+  }
+}

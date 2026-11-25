@@ -1,0 +1,35 @@
+{
+  "seed": "potassium chloride",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22potassium+chloride%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 318,
+  "record": {
+    "set_id": "730fcad2-e080-42b7-b52d-3dabab6209de",
+    "id": "730fcad2-e080-42b7-b52d-3dabab6209de",
+    "effective_time": "20261106",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE BECAUSE OF REPORTS OF INTESTINAL AND GASTRIC ULCERATION AND BLEEDING WITH CONTROLLED RELEASE POTASSIUM CHLORIDE PREPARATIONS, THESE DRUGS SHOULD BE RESERVED FOR THOSE PATIENTS WHO CANNOT TOLERATE OR REFUSE TO TAKE LIQUID OR EFFERVESCENT POTASSIUM PREPARATIONS OR FOR PATIENTS IN WHOM THERE IS A PROBLEM OF COMPLIANCE WITH THESE PREPARATIONS. 1. For the treatment of patients with hypokalemia with or without metabolic alkalosis, in digitalis intoxication, and in patients with hypokalemic familial periodic paralysis. If hypokalemia is the result of diuretic therapy, consideration should be given to the use of a lower dose of diuretic, which may be sufficient without leading to hypokalemia. 2. For the prevention of hypokalemia in patients who would be at particular risk if hypokalemia were to develop, e.g. digitalized patients or patients with significant cardiac arrhythmias. The use of potassium salts in patients receiving diuretics for uncomplicated essential hypertension is often unnecessary when such patients have a normal dietary pattern and when low doses of the diuretic are used. Serum potassium should be checked periodically, however, and if hypokalemia occurs, dietary supplementation with potassium-containing foods may be adequate to control milder cases. In more severe cases, and if dose adjustment of the diuretic is ineffective or unwarranted, supplementation with potassium salts may be indicated."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Potassium supplements are contraindicated in patients with hyperkalemia since a further increase in serum potassium concentration in such patients can produce cardiac arrest. Hyperkalemia may complicate any of the following conditions: chronic renal failure, systemic acidosis, such as diabetic acidosis, acute dehydration, extensive tissue breakdown as in severe burns, adrenal insufficiency, or the administration of a potassium-sparing diuretic (e.g. spironolactone, triamterene, amiloride) (see OVERDOSAGE ). Controlled-release formulations of potassium chloride have produced esophageal ulceration in certain cardiac patients with esophageal compression due to enlarged left atrium. Potassium supplementation, when indicated in such patients, should be given as a liquid preparation or as an aqueous (water) suspension of Potassium Chloride (see PRECAUTIONS: Information for Patients , and DOSAGE AND ADMINISTRATION sections). All solid oral dosage forms of potassium chloride are contraindicated in any patient in whom there is structural, pathological (e.g. diabetic gastroparesis), or pharmacologic (use of anticholinergic agents or other agents with anticholinergic properties at sufficient doses to exert anticholinergic effects) cause for arrest or delay in tablet passage through the gastrointestinal tract."
+    ],
+    "drug_interactions": [
+      "Drug Interactions Potassium-sparing diuretics, angiotensin-converting enzyme inhibitors (see WARNINGS )."
+    ],
+    "openfda": {
+      "generic_name": [
+        "POTASSIUM CHLORIDE"
+      ],
+      "brand_name": [
+        "Potassium Chloride"
+      ],
+      "substance_name": [
+        "POTASSIUM CHLORIDE"
+      ],
+      "application_number": [
+        "ANDA076368"
+      ]
+    }
+  }
+}

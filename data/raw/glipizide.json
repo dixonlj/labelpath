@@ -1,0 +1,35 @@
+{
+  "seed": "glipizide",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22glipizide%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 122,
+  "record": {
+    "set_id": "4c4dfe64-d1c5-65ec-e063-6394a90aead5",
+    "id": "6031b589-6c34-b825-e063-6394a90a4c69",
+    "effective_time": "20261113",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Glipizide tablets are indicated as an adjunct to diet and exercise to improve glycemic control in adults with type 2 diabetes mellitus."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Glipizide tablets are contraindicated in patients with: Known hypersensitivity to the drug. Type 1 diabetes mellitus, diabetic ketoacidosis, with or without coma. This condition should be treated with insulin."
+    ],
+    "drug_interactions": [
+      "Drug Interactions: The hypoglycemic action of sulfonylureas may be potentiated by certain drugs including nonsteroidal anti-inflammatory agents, some azoles, and other drugs that are highly protein bound, salicylates, sulfonamides, chloramphenicol, probenecid, coumarins, monoamine oxidase inhibitors, quinolones and beta adrenergic blocking agents. When such drugs are administered to a patient receiving glipizide, the patient should be observed closely for hypoglycemia. When such drugs are withdrawn from a patient receiving glipizide, the patient should be observed closely for loss of control. In vitro binding studies with human serum proteins indicate that glipizide binds differently than tolbutamide and does not interact with salicylate or dicumarol. However, caution must be exercised in extrapolating these findings to the clinical situation and in the use of glipizide with these drugs. Certain drugs tend to produce hyperglycemia and may lead to loss of control. These drugs include the thiazides and other diuretics, corticosteroids, phenothiazines, thyroid products, estrogens, oral contraceptives, phenytoin, nicotinic acid, sympathomimetics, calcium channel blocking drugs, and isoniazid. When such drugs are administered to a patient receiving glipizide, the patient should be closely observed for loss of control. When such drugs are withdrawn from a patient receiving glipizide, the patient should be observed closely for hypoglycemia. A potential interaction between oral miconazole and oral hypoglycemic agents leading to severe hypoglycemia has been reported. Whether this interaction also occurs with the intravenous, topical, or vaginal preparations of miconazole is not known. The effect of concomitant administration of DIFLUCAN ® (fluconazole) and glipizide has been demonstrated in a placebo-controlled crossover study in normal volunteers. All subjects received glipizide alone and following treatment with 100 mg of DIFLUCAN as a single daily oral dose for 7 days. The mean percentage increase in the glipizide AUC after fluconazole administration was 56.9% (range: 35 to 81). In studies assessing the effect of colesevelam on the pharmacokinetics of glipizide ER in healthy volunteers, reductions in glipizide AUC 0–∞ and C max of 12% and 13%, respectively were observed when colesevelam was coadministered with glipizide ER. When glipizide ER was administered 4 hours prior to colesevelam, there was no significant change in glipizide AUC 0–∞ or C max, -4% and 0%, respectively. Therefore, glipizide should be administered at least 4 hours prior to colesevelam to ensure that colesevelam does not reduce the absorption of glipizide."
+    ],
+    "openfda": {
+      "generic_name": [
+        "GLIPIZIDE"
+      ],
+      "brand_name": [
+        "Glipizide"
+      ],
+      "substance_name": [
+        "GLIPIZIDE"
+      ],
+      "application_number": [
+        "ANDA214874"
+      ]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "seed": "carbidopa and levodopa",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22carbidopa+and+levodopa%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 64,
+  "record": {
+    "set_id": "5217a6ec-cc26-4acc-b2da-17f6545c3b60",
+    "id": "5f9d3c46-cfda-e58c-e063-6294a90a87ab",
+    "effective_time": "20261106",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Carbidopa and levodopa extended-release tablets are indicated in the treatment of Parkinson's disease, post-encephalitic parkinsonism, and symptomatic parkinsonism that may follow carbon monoxide intoxication or manganese intoxication."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Nonselective monoamine oxidase (MAO) inhibitors are contraindicated for use with carbidopa and levodopa extended-release. These inhibitors must be discontinued at least two weeks prior to initiating therapy with carbidopa and levodopa extended-release. Carbidopa and levodopa extended-release may be administered concomitantly with the manufacturer's recommended dose of an MAO inhibitor with selectivity for MAO type B (e.g., selegiline HCl) (see PRECAUTIONS, Drug Interactions ). Carbidopa and levodopa extended-release is contraindicated in patients with known hypersensitivity to any component of this drug, and in patients with narrow-angle glaucoma."
+    ],
+    "drug_interactions": [
+      "Drug Interactions Caution should be exercised when the following drugs are administered concomitantly with carbidopa and levodopa extended-release Symptomatic postural hypotension has occurred when carbidopa levodopa preparations were added to the treatment of patients receiving some antihypertensive drugs. Therefore, when therapy with carbidopa and levodopa extended-release is started, dosage adjustment of the antihypertensive drug may be required. For patients receiving MAO inhibitors (Type A or B), see CONTRAINDICATIONS . Concomitant therapy with selegiline and carbidopa levodopa may be associated with severe orthostatic hypotension not attributable to carbidopa levodopa alone (see CONTRAINDICATIONS ). There have been rare reports of adverse reactions, including hypertension and dyskinesia, resulting from the concomitant use of tricyclic antidepressants and carbidopa levodopa preparations. Dopamine D 2 receptor antagonists (e.g., phenothiazines, butyrophenones, risperidone) and isoniazid may reduce the therapeutic effects of levodopa. In addition, the beneficial effects of levodopa in Parkinson's disease have been reported to be reversed by phenytoin and papaverine. Patients taking these drugs with carbidopa and levodopa extended-release should be carefully observed for loss of therapeutic response. Use of carbidopa and levodopa extended-release with dopamine-depleting agents (e.g., reserpine and tetrabenazine) or other drugs known to deplete monoamine stores is not recommended. Carbidopa and levodopa extended-release and iron salts or multivitamins containing iron salts should be coadministered with caution. Iron salts can form chelates with levodopa and carbidopa and consequently reduce the bioavailability of carbidopa and levodopa. Although metoclopramide may increase the bioavailability of levodopa by increasing gastric emptying, metoclopramide may also adversely affect disease control by its dopamine receptor antagonistic properties."
+    ],
+    "openfda": {
+      "generic_name": [
+        "CARBIDOPA AND LEVODOPA"
+      ],
+      "brand_name": [
+        "CARBIDOPA AND LEVODOPA"
+      ],
+      "substance_name": [
+        "CARBIDOPA",
+        "LEVODOPA"
+      ],
+      "application_number": [
+        "ANDA202323"
+      ]
+    }
+  }
+}

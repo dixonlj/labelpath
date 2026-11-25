@@ -1,0 +1,38 @@
+{
+  "seed": "sodium ferric gluconate",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22sodium+ferric+gluconate%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 4,
+  "record": {
+    "set_id": "1fe028ff-42ac-4329-b1a5-a9dadfcb79f6",
+    "id": "2552acd1-62ae-49aa-9f88-e3baba1db724",
+    "effective_time": "20251007",
+    "indications_and_usage": [
+      "1 INDICATIONS AND USAGE Ferrlecit is indicated for the treatment of iron deficiency anemia in adult patients and in pediatric patients age 6 years and older with chronic kidney disease receiving hemodialysis who are receiving supplemental epoetin therapy. Ferrlecit is an iron replacement product for treatment of iron deficiency anemia in adult patients and in pediatric patients age 6 years and older with chronic kidney disease receiving hemodialysis who are receiving supplemental epoetin therapy. ( 1 )"
+    ],
+    "contraindications": [
+      "4 CONTRAINDICATIONS Ferrlecit is contraindicated in patients with known hypersensitivity to sodium ferric gluconate or any of its components. Reactions have included anaphylaxis [see Warnings and Precautions (5.1) ] . Known hypersensitivity to sodium ferric gluconate or any of its inactive components. ( 4 )"
+    ],
+    "drug_interactions": [
+      "7 DRUG INTERACTIONS Drug-drug interactions involving Ferrlecit have not been studied. Ferrlecit may reduce the absorption of concomitantly administered oral iron preparations."
+    ],
+    "warnings_and_cautions": [
+      "5 WARNINGS AND PRECAUTIONS Hypersensitivity Reactions: Monitor patients for signs and symptoms of hypersensitivity during and after Ferrlecit administration for at least 30 minutes and until clinically stable following completion of the infusion. Only administer Ferrlecit when personnel and therapies are immediately available for the treatment of anaphylaxis and other hypersensitivity reactions. ( 5.1 ) Hypotension: Ferrlecit may cause hypotension. Monitor patients for signs and symptoms of hypotension during and following each Ferrlecit dose. ( 5.2 ) Iron Overload: Regularly monitor hematologic responses during Ferrlecit therapy. Do not administer Ferrlecit to patients with iron overload. ( 5.3 ) Benzyl Alcohol Toxicity: Premature and low-birth-weight infants may be more likely to develop toxicity. ( 5.4 ) 5.1 Hypersensitivity Reactions Serious hypersensitivity reactions, including anaphylactic-type reactions, some of which have been life-threatening and fatal, have been reported in patients receiving Ferrlecit in postmarketing experience. Patients may present with shock, clinically significant hypotension, loss of consciousness, or collapse. Monitor patients for signs and symptoms of hypersensitivity during and after Ferrlecit administration for at least 30 minutes and until clinically stable following completion of the infusion. Only administer Ferrlecit when personnel and therapies are immediately available for the treatment of anaphylaxis and other hypersensitivity reactions [see Adverse Reactions (6) ] . In the single-dose, postmarketing safety study one patient experienced a life-threatening hypersensitivity reaction (diaphoresis, nausea, vomiting, severe lower back pain, dyspnea, and wheezing for 20 minutes) following Ferrlecit administration. Among 1,097 patients who received Ferrlecit in this study, there were 9 patients (0.8%) who had an adverse reaction that, in the view of the investigator, precluded further Ferrlecit administration. These included one life-threatening reaction, six allergic reactions (including pruritus, facial flushing, chills, dyspnea/chest pain, and rash), and two other reactions (hypotension and nausea). Another 2 patients experienced (0.2%) allergic reactions not deemed to represent drug intolerance (nausea/malaise and nausea/dizziness) following Ferrlecit administration. 5.2 Hypotension Ferrlecit may cause clinically significant hypotension. Hypotension associated with lightheadedness, malaise, fatigue, weakness or severe pain in the chest, back, flanks, or groin has been reported. These hypotensive reactions may or may not be associated with signs and symptoms of hypersensitivity reactions and usually resolve within one to two hours. In the single-dose safety study, postadministration hypotensive events were observed in 22/1,097 patients (2%) following Ferrlecit administration. Transient hypotension may occur during dialysis. Administration of Ferrlecit may augment hypotension caused by dialysis. Monitor patients for signs and symptoms of hypotension during and following Ferrlecit administration [see Adverse Reactions (6.1) ] . 5.3 Iron Overload Excessive therapy with parenteral iron can lead to excess storage of iron with the possibility of iatrogenic hemosiderosis. Patients receiving Ferrlecit require periodic monitoring of hematologic and iron parameters (hemoglobin, hematocrit, serum ferritin, and transferrin saturation). 5.4 Risk of Serious Adverse Reactions in Infants Due to Benzyl Alcohol Preservative Ferrlecit is not approved for use in neonates or infants. Serious and fatal adverse reactions including \"gasping syndrome\" can occur in neonates and low-birth-weight infants treated with benzyl alcohol–preserved drugs, including Ferrlecit. The \"gasping syndrome\" is characterized by central nervous system depression, metabolic acidosis, and gasping respirations. The minimum amount of benzyl alcohol at which serious adverse reactions may occur is not known (Ferrlecit contains 9 mg of benzyl alcohol per mL) [see Use in Specific Populations (8.4) ] ."
+    ],
+    "openfda": {
+      "generic_name": [
+        "SODIUM FERRIC GLUCONATE COMPLEX"
+      ],
+      "brand_name": [
+        "Ferrlecit"
+      ],
+      "substance_name": [
+        "SODIUM FERRIC GLUCONATE COMPLEX"
+      ],
+      "application_number": [
+        "NDA020955"
+      ]
+    }
+  }
+}

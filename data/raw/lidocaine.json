@@ -1,0 +1,32 @@
+{
+  "seed": "lidocaine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22lidocaine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 1678,
+  "record": {
+    "set_id": "ffc87dfb-0e26-4b42-80fd-3fb7690119e3",
+    "id": "430e399e-0ae3-4604-8f75-4aecc43a2e0a",
+    "effective_time": "20261113",
+    "indications_and_usage": [
+      "INDICATIONS & USAGE Xylocaine (lidocaine HCl) Injections are indicated for production of local or regional anesthesia by infiltration techniques such as percutaneous injection and intravenous regional anesthesia by peripheral nerve block techniques such as brachial plexus and intercostal and by central neural techniques such as lumbar and caudal epidural blocks, when the accepted procedures for these techniques as described in standard textbooks are observed."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Lidocaine HCl is contraindicated in patients with a known history of hypersensitivity to local anesthetics of the amide type."
+    ],
+    "openfda": {
+      "generic_name": [
+        "LIDOCAINE HYDROCHLORIDE"
+      ],
+      "brand_name": [
+        "Xylocaine"
+      ],
+      "substance_name": [
+        "LIDOCAINE HYDROCHLORIDE ANHYDROUS"
+      ],
+      "application_number": [
+        "NDA006488"
+      ]
+    }
+  }
+}

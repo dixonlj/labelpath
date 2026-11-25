@@ -1,0 +1,32 @@
+{
+  "seed": "baclofen",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22baclofen%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 172,
+  "record": {
+    "set_id": "32525b4e-6384-49e1-a66d-abe45484ab86",
+    "id": "40841bdd-0fd3-42fb-81c3-d4a87a65cbea",
+    "effective_time": "20261112",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Baclofen tablets USP are useful for the alleviation of signs and symptoms of spasticity resulting from multiple sclerosis, particularly for the relief of flexor spasms and concomitant pain, clonus, and muscular rigidity. Patients should have reversible spasticity so that baclofen treatment will aid in restoring residual function. Baclofen tablets USP may also be of some value in patients with spinal cord injuries and other spinal cord diseases. Baclofen tablets USP are not indicated in the treatment of skeletal muscle spasm resulting from rheumatic disorders. The efficacy of baclofen in stroke, cerebral palsy, and Parkinson’s disease has not been established and, therefore, it is not recommended for these conditions."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Hypersensitivity to baclofen."
+    ],
+    "openfda": {
+      "generic_name": [
+        "BACLOFEN"
+      ],
+      "brand_name": [
+        "Baclofen"
+      ],
+      "substance_name": [
+        "BACLOFEN"
+      ],
+      "application_number": [
+        "ANDA077068"
+      ]
+    }
+  }
+}

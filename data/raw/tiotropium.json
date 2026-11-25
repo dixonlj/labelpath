@@ -1,0 +1,38 @@
+{
+  "seed": "tiotropium",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tiotropium%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 6,
+  "record": {
+    "set_id": "496b38ee-45b6-4bb2-a35e-9023c3b73719",
+    "id": "c6659c2f-75c2-4dcb-b89a-dc506b5b1784",
+    "effective_time": "20261031",
+    "indications_and_usage": [
+      "1 INDICATIONS AND USAGE Tiotropium bromide inhalation powder is indicated for the long-term, once-daily, maintenance treatment of bronchospasm associated with chronic obstructive pulmonary disease (COPD), including chronic bronchitis and emphysema. Tiotropium bromide inhalation powder is indicated to reduce exacerbations in COPD patients. Tiotropium bromide inhalation powder is an anticholinergic indicated for the long-term, once-daily, maintenance treatment of bronchospasm associated with chronic obstructive pulmonary disease (COPD), and for reducing COPD exacerbations ( 1 )"
+    ],
+    "contraindications": [
+      "4 CONTRAINDICATIONS Tiotropium bromide inhalation powder is contraindicated in patients with a hypersensitivity to tiotropium, ipratropium, or any components of this product [see Warnings and Precautions ( 5.2 )] . In clinical trials and postmarketing experience with tiotropium bromide inhalation powder, immediate hypersensitivity reactions, including angioedema (including swelling of the lips, tongue, or throat), itching, or rash have been reported [see Warnings and Precautions ( 5.2 )] . Hypersensitivity to tiotropium, ipratropium, or any components of tiotropium bromide inhalation powder capsules ( 4 )"
+    ],
+    "drug_interactions": [
+      "7 DRUG INTERACTIONS Anticholinergics: May interact additively with concomitantly used anticholinergic medications. Avoid administration of tiotropium bromide inhalation powder with other anticholinergic-containing drugs. ( 7.2 ) 7.1 Sympathomimetics, Methylxanthines, Steroids Tiotropium bromide inhalation powder has been used concomitantly with short-acting and long-acting sympathomimetic (beta-agonists) bronchodilators, methylxanthines, and oral and inhaled steroids without increases in adverse reactions. 7.2 Anticholinergics There is potential for an additive interaction with concomitantly used anticholinergic medications. Therefore, avoid coadministration of tiotropium bromide inhalation powder with other anticholinergic-containing drugs as this may lead to an increase in anticholinergic adverse effects [see Warnings and Precautions ( 5.4 , 5.5 ) and Adverse Reactions ( 6 )]."
+    ],
+    "warnings_and_cautions": [
+      "5 WARNINGS AND PRECAUTIONS Not for acute use: Not a rescue medication ( 5.1 ) Immediate hypersensitivity reactions: Discontinue tiotropium bromide inhalation powder at once and consider alternatives if immediate hypersensitivity reactions, including angioedema, urticaria, rash, bronchospasm, or anaphylaxis, occur. Use with caution in patients with severe hypersensitivity to milk proteins. ( 5.2 ) Paradoxical bronchospasm: Discontinue tiotropium bromide inhalation powder and consider other treatments if paradoxical bronchospasm occurs ( 5.3 ) Worsening of narrow-angle glaucoma may occur. Use with caution in patients with narrow-angle glaucoma and instruct patients to consult a physician immediately if this occurs. ( 5.4 ) Worsening of urinary retention may occur. Use with caution in patients with prostatic hyperplasia or bladder-neck obstruction and instruct patients to consult a physician immediately if this occurs. ( 5.5 ) 5.1 Not for Acute Use Tiotropium bromide inhalation powder is intended as a once-daily maintenance treatment for COPD and should not be used for relief of acute symptoms, i.e., as rescue therapy for the treatment of acute episodes of bronchospasm. 5.2 Immediate Hypersensitivity Reactions Immediate hypersensitivity reactions, including urticaria, angioedema (including swelling of the lips, tongue, or throat), rash, bronchospasm, anaphylaxis, or itching, may occur after administration of tiotropium bromide inhalation powder. If such a reaction occurs, therapy with tiotropium bromide inhalation powder should be stopped at once and alternative treatments should be considered. Given the similar structural formula of atropine to tiotropium, patients with a history of hypersensitivity reactions to atropine or its derivatives should be closely monitored for similar hypersensitivity reactions to tiotropium bromide inhalation powder. In addition, tiotropium bromide inhalation powder should be used with caution in patients with severe hypersensitivity to milk proteins. 5.3 Paradoxical Bronchospasm Inhaled medicines, including tiotropium bromide inhalation powder, may cause paradoxical bronchospasm. If this occurs, it should be treated immediately with an inhaled short- acting beta 2 -agonist such as albuterol. Treatment with tiotropium bromide inhalation powder should be stopped and other treatments considered. 5.4 Worsening of Narrow-Angle Glaucoma Tiotropium bromide inhalation powder should be used with caution in patients with narrow-angle glaucoma. Prescribers and patients should be alert for signs and symptoms of acute narrow-angle glaucoma (e.g., eye pain or discomfort, blurred vision, visual halos or colored images in association with red eyes from conjunctival congestion and corneal edema). Instruct patients to consult a physician immediately should any of these signs or symptoms develop. 5.5 Worsening of Urinary Retention Tiotropium bromide inhalation powder should be used with caution in patients with urinary retention. Prescribers and patients should be alert for signs and symptoms of urinary retention (e.g., difficulty passing urine, painful urination), especially in patients with prostatic hyperplasia or bladder-neck obstruction. Instruct patients to consult a physician immediately should any of these signs or symptoms develop. 5.6 Renal Impairment As a predominantly renally excreted drug, patients with moderate to severe renal impairment (creatinine clearance of <60 mL/min) treated with tiotropium bromide inhalation powder should be monitored closely for anticholinergic side effects [see Clinical Pharmacology ( 12.3 )]."
+    ],
+    "openfda": {
+      "generic_name": [
+        "TIOTROPIUM BROMIDE"
+      ],
+      "brand_name": [
+        "Tiotropium Bromide"
+      ],
+      "substance_name": [
+        "TIOTROPIUM BROMIDE MONOHYDRATE"
+      ],
+      "application_number": [
+        "ANDA211287"
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "seed": "cyclobenzaprine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22cyclobenzaprine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 200,
+  "record": {
+    "set_id": "34e57aff-dc4b-4631-9d57-31020244835d",
+    "id": "5fefcf6f-0ebc-f4a0-e063-6394a90a5441",
+    "effective_time": "20261110",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Cyclobenzaprine hydrochloride tablets are indicated as an adjunct to rest and physical therapy for relief of muscle spasm associated with acute, painful musculoskeletal conditions. Improvement is manifested by relief of muscle spasm and its associated signs and symptoms, namely, pain, tenderness, limitation of motion, and restriction in activities of daily living. Cyclobenzaprine hydrochloride tablets should be used only for short periods (up to two or three weeks) because adequate evidence of effectiveness for more prolonged use is not available and because muscle spasm associated with acute, painful musculoskeletal conditions is generally of short duration and specific therapy for longer periods is seldom warranted. Cyclobenzaprine hydrochloride has not been found effective in the treatment of spasticity associated with cerebral or spinal cord disease, or in children with cerebral palsy."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Hypersensitivity to any component of this product. Concomitant use of monoamine oxidase (MAO) inhibitors or within 14 days after their discontinuation. Hyperpyretic crisis seizures, and deaths have occurred in patients receiving cyclobenzaprine (or structurally similar tricyclic antidepressants) concomitantly with MAO inhibitor drugs. Acute recovery phase of myocardial infarction, and patients with arrhythmias, heart block or conduction disturbances, or congestive heart failure. Hyperthyroidism."
+    ],
+    "openfda": {
+      "generic_name": [
+        "CYCLOBENZAPRINE HYDROCHLORIDE"
+      ],
+      "brand_name": [
+        "Cyclobenzaprine Hydrochloride"
+      ],
+      "substance_name": [
+        "CYCLOBENZAPRINE HYDROCHLORIDE"
+      ],
+      "application_number": [
+        "ANDA218936"
+      ]
+    }
+  }
+}

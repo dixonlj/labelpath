@@ -1,0 +1,32 @@
+{
+  "seed": "cefuroxime",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22cefuroxime%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 39,
+  "record": {
+    "set_id": "0a145288-733a-4966-b7ae-dc96eb103d8c",
+    "id": "da170a9c-def7-432b-8999-701e7b878fe8",
+    "effective_time": "20250327",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Cefuroxime for Injection, USP is indicated for the treatment of patients with infections caused by susceptible strains of the designated organisms in the following diseases: Lower Respiratory Tract Infections , including pneumonia, caused by Streptococcus pneumoniae, Haemophilus influenzae (including ampicillin-resistant strains), Klebsiella spp., Staphylococcus aureus (penicillinase- and non-penicillinase- producing strains), Streptococcus pyogenes , and Escherichia coli . Urinary Tract Infections caused by Escherichia coli and Klebsiella spp. Skin and Skin-Structure Infections caused by Staphylococcus aureus (penicillinase- and non-penicillinase-producing strains), Streptococcus pyogenes , Escherichia coli, Klebsiella spp., and Enterobacter spp. Septicemia caused by Staphylococcus aureus (penicillinase- and non-penicillinase- producing strains), Streptococcus pneumoniae, Escherichia coli, Haemophilus influenzae (including ampicillin-resistant strains), and Klebsiella spp. Meningitis caused by Streptococcus pneumoniae, Haemophilus influenzae (including ampicillin-resistant strains), Neisseria meningitidis , and Staphylococcus aureus (penicillinase- and non-penicillinase-producing strains). Gonorrhea: Uncomplicated and disseminated gonococcal infections due to Neisseria gonorrhoeae (penicillinase- and non-penicillinase-producing strains) in both males and females. Bone and Joint Infections caused by Staphylococcus aureus (penicillinase- and non- penicillinase-producing strains). Clinical microbiological studies in skin and skin-structure infections frequently reveal the growth of susceptible strains of both aerobic and anaerobic organisms. Cefuroxime for Injection, USP has been used successfully in these mixed infections in which several organisms have been isolated. In certain cases of confirmed or suspected gram-positive or gram-negative sepsis or in patients with other serious infections in which the causative organism has not been identified, Cefuroxime for Injection, USP may be used concomitantly with an aminoglycoside (see PRECAUTIONS ). The recommended doses of both antibiotics may be given depending on the severity of the infection and the patient's condition. To reduce the development of drug-resistant bacteria and maintain the effectiveness of Cefuroxime for Injection, USP and other antibacterial drugs, Cefuroxime for Injection, USP should be used only to treat or prevent infections that are proven or strongly suspected to be caused by susceptible bacteria. When culture and susceptibility information are available, they should be considered in selecting or modifying antibacterial therapy. In the absence of such data, local epidemiology and susceptibility patterns may contribute to the empiric selection of therapy. Prevention The preoperative prophylactic administration of Cefuroxime for Injection, USP may prevent the growth of susceptible disease-causing bacteria and thereby may reduce the incidence of certain postoperative infections in patients undergoing surgical procedures (e.g., vaginal hysterectomy) that are classified as clean-contaminated or potentially contaminated procedures. Effective prophylactic use of antibiotics in surgery depends on the time of administration. Cefuroxime for Injection, USP should usually be given one-half to 1 hour before the operation to allow sufficient time to achieve effective antibiotic concentrations in the wound tissues during the procedure. The dose should be repeated intraoperatively if the surgical procedure is lengthy. Prophylactic administration is usually not required after the surgical procedure ends and should be stopped within 24 hours. In the majority of surgical procedures, continuing prophylactic administration of any antibiotic does not reduce the incidence of subsequent infections but will increase the possibility of adverse reactions and the development of bacterial resistance. The perioperative use of Cefuroxime for Injection, USP has also been effective during open heart surgery for surgical patients in whom infections at the operative site would present a serious risk. For these patients it is recommended that therapy with Cefuroxime for Injection, USP be continued for at least 48 hours after the surgical procedure ends. If an infection is present, specimens for culture should be obtained for the identification of the causative organism, and appropriate antimicrobial therapy should be instituted."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Cefuroxime for Injection is contraindicated in patients with known allergy to the cephalosporin group of antibiotics."
+    ],
+    "openfda": {
+      "generic_name": [
+        "CEFUROXIME SODIUM"
+      ],
+      "brand_name": [
+        "Cefuroxime sodium"
+      ],
+      "substance_name": [
+        "CEFUROXIME SODIUM"
+      ],
+      "application_number": [
+        "ANDA064125"
+      ]
+    }
+  }
+}

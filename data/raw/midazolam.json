@@ -1,0 +1,35 @@
+{
+  "seed": "midazolam",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22midazolam%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 46,
+  "record": {
+    "set_id": "3c2fd6ee-4ede-4ee4-8c05-34c93598f381",
+    "id": "a985cfd1-9320-4456-b0e8-aa0ec49d2c4b",
+    "effective_time": "20261105",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Midazolam Injection is indicated: intramuscularly or intravenously for preoperative sedation/anxiolysis/amnesia; intravenously as an agent for sedation/anxiolysis/amnesia prior to or during diagnostic, therapeutic or endoscopic procedures, such as bronchoscopy, gastroscopy, cystoscopy, coronary angiography, cardiac catheterization, oncology procedures, radiologic procedures, suture of lacerations and other procedures either alone or in combination with other CNS depressants; intravenously for induction of general anesthesia, before administration of other anesthetic agents. With the sue of narcotic premedications, induction of anesthesia can be attained within a relatively narrow dose range and in a short period of time. Intravenous midazolam can also be used as a component of intravenous supplementation of nitrous oxide and oxygen (balanced anesthesia): continuous intravenous infusion for sedation of intubated and mechanically ventilated patients as a component of anesthesia or during treatment in a critical care setting."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Injectable midazolam is contraindicated in patients with a known hypersensitivity to the drug. Benzodiazepines are contraindicated in patients with acute narrow-angle glaucoma. Benzodiazepines may be used in patients with open-angle glaucoma only if they are receiving appropriate therapy. Measurements of intraocular pressure in patients without eye disease show a moderate lowering following induction with midazolam; patients with glaucoma have not been studied. Midazolam Injection is not intended for intrathecal or epidural administration due to the presence of the preservative benzyl alcohol in the dosage form. midazolam Injection is contraindicated for use in premature infants because the formulation contains benzyl alcohol. (See WARNINGS and PRECAUTIONS: PEDIATRIC USE )."
+    ],
+    "boxed_warning": [
+      "BOXED WARNING WARNINGS Personnel and Equipment for Monitoring and Resuscitation Adults and Pediatrics: Intravenous midazolam has been associated with respiratory depression and respiratory arrest, especially when used for sedation in noncritical care settings. In some cases, where this was not recognized promptly and treated effectively, death or hypoxic encephalopathy has resulted. Intravenouse midazolam should be used only in hospital or ambulatory care settings, including physicians' and dental offices, that proved for continuous monitoring of respiratory and cardiac function, e.g., pulse oximetry. Immediated availability of resuscitative drugs and age- and size-appropriate for bag/valve/mask ventilation and intubation, and personnel trained in their use and skilled in airway management should be assured. (See WARNINGS .) For deeply sedated pediatric patients, a dedicated individual, other than the practitioner performing the procedure, should monitor the patient throughout the procedure. Risks From Concomitant Use With Opioids Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Monitor patients for respiratory depression and sedation (see WARNINGS , PRECAUTIONS: DRUG INTERACTIONS ). Individualization of Dosage Midazolam should never be used without individualization of dosage. The initial intravenouse dose for sedation in adult patietns may be as little as 1 mg, but should not exceed 2.5 mg in a normal healthy adult. Lower doses are necessary for older (over 60 years) or debilitated patients and in patients receiving concomitant narcotics or other central nervouse system (CNS) depressants. The initial dose and all subsequent doses should always be titrated slowly; administer over at least 2 minutes and allow an additional 2 or more minutes to fully evaluate the sedative effect. The use of the 1 mg/mL formuation or dilution of the 1 mg/mL or 5 mg/mL formulation is recommended to facilitate slower injection. Doses of sedative medications in pediatric patients must be calculated on a mg/kg basis, and initial doses and all subsequent doses should always be titrated slowly. The initial pediatric dose of midazolam for sedation/anxiolysis/amnesia is age, procedure and route dependent (see DOSAGE AND ADMINISTRATION for complete dosing information). Neonates: Midazolam should not be administered by rapid injection in the neonatal population. Severe hypotension and seizures have been reported following rapid IV administration, particularly with concomitant use of fentanyl (see DOSAGE AND ADMINISTRATION for complete information)."
+    ],
+    "openfda": {
+      "generic_name": [
+        "MIDAZOLAM"
+      ],
+      "brand_name": [
+        "Midazolam"
+      ],
+      "substance_name": [
+        "MIDAZOLAM HYDROCHLORIDE"
+      ],
+      "application_number": [
+        "ANDA075243"
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "seed": "triamcinolone",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22triamcinolone%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 256,
+  "record": {
+    "set_id": "0c77ba9f-9f17-4ece-8872-b9fd74218028",
+    "id": "149a268d-d5e9-4f47-a9f3-0ed2fab3d8ac",
+    "effective_time": "20261110",
+    "indications_and_usage": [
+      "INDICATIONS & USAGE Triamcinolone Acetonide Ointment is indicated for the relief of the inflammatory and pruritic manifestations of corticosteroid responsive dermatoses."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Topical corticosteroids are contraindicated in those patients with a history of hypersensitivity to any of the components of the preparations."
+    ],
+    "openfda": {
+      "generic_name": [
+        "TRIAMCINOLONE ACETONIDE"
+      ],
+      "brand_name": [
+        "Triamcinolone acetonide"
+      ],
+      "substance_name": [
+        "TRIAMCINOLONE ACETONIDE"
+      ],
+      "application_number": [
+        "ANDA209828"
+      ]
+    }
+  }
+}

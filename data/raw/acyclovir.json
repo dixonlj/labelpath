@@ -1,0 +1,33 @@
+{
+  "seed": "acyclovir",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22acyclovir%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 181,
+  "record": {
+    "set_id": "8cd22728-34b4-4e55-8339-580138fe46d8",
+    "id": "5fedd638-e9e0-6098-e063-6394a90a4d61",
+    "effective_time": "20261110",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Herpes Zoster Infections: Acyclovir is indicated for the acute treatment of herpes zoster (shingles). Genital Herpes: Acyclovir is indicated for the treatment of initial episodes and the management of recurrent episodes of genital herpes. Chickenpox: Acyclovir is indicated for the treatment of chickenpox (varicella)."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Acyclovir is contraindicated for patients who develop hypersensitivity to acyclovir or valacyclovir."
+    ],
+    "openfda": {
+      "generic_name": [
+        "ACYCLOVIR"
+      ],
+      "brand_name": [
+        "Acyclovir"
+      ],
+      "substance_name": [
+        "ACYCLOVIR"
+      ],
+      "application_number": [
+        "ANDA210401",
+        "ANDA212173"
+      ]
+    }
+  }
+}

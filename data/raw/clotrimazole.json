@@ -1,0 +1,29 @@
+{
+  "seed": "clotrimazole",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22clotrimazole%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 247,
+  "record": {
+    "set_id": "6038e256-a2fe-18f2-e063-6394a90a40d9",
+    "id": "6038e227-25c9-fa6d-e063-6294a90a3724",
+    "effective_time": "20261114",
+    "indications_and_usage": [
+      "Uses • Treats and relieves: - Athlete's foot (tinea pedis) - Jock itch (tinea cruris) -Ringworm (tinea corporis) • Reduces itching, redness, and discomfort caused by fungi."
+    ],
+    "openfda": {
+      "generic_name": [
+        "CLOTRIMAZOLE"
+      ],
+      "brand_name": [
+        "Antifungal Cream"
+      ],
+      "substance_name": [
+        "CLOTRIMAZOLE"
+      ],
+      "application_number": [
+        "M005"
+      ]
+    }
+  }
+}

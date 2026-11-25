@@ -1,0 +1,38 @@
+{
+  "seed": "lorazepam",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22lorazepam%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 102,
+  "record": {
+    "set_id": "5140798d-8571-41fb-84a4-e182aac3f64c",
+    "id": "4cd65837-5279-48e4-a1ac-a31d17a64e46",
+    "effective_time": "20261109",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Status Epilepticus Lorazepam Injection is indicated for the treatment of status epilepticus. Preanesthetic Lorazepam Injection is indicated in adult patients for preanesthetic medication, producing sedation (sleepiness or drowsiness), relief of anxiety, and a decreased ability to recall events related to the day of surgery. It is most useful in those patients who are anxious about their surgical procedure and who would prefer to have diminished recall of the events of the day of surgery (see PRECAUTIONS, Information for Patients )."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Lorazepam Injection is contraindicated in patients with a known sensitivity to benzodiazepines or its vehicle (polyethylene glycol, propylene glycol, and benzyl alcohol), in patients with acute narrow-angle glaucoma, or in patients with sleep apnea syndrome. It is also contraindicated in patients with severe respiratory insufficiency, except in those patients requiring relief of anxiety and/or diminished recall of events while being mechanically ventilated. The use of Lorazepam Injection intra-arterially is contraindicated because, as with other injectable benzodiazepines, inadvertent intra-arterial injection may produce arteriospasm resulting in gangrene which may require amputation (see WARNINGS ). Lorazepam Injection is contraindicated for use in premature infants because the formulation contains benzyl alcohol (see WARNINGS and PRECAUTIONS, Pediatric Use )."
+    ],
+    "boxed_warning": [
+      "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs in patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (see WARNINGS and PRECAUTIONS ). The use of benzodiazepines, including Lorazepam Injection, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing Lorazepam Injection and throughout treatment, assess each patient’s risk for abuse, misuse, and addiction (see WARNINGS ). The continued use of benzodiazepines for several days to weeks may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Although Lorazepam Injection is indicated only for intermittent use (see INDICATIONS AND USAGE and DOSAGE AND ADMINISTRATION ), if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of Lorazepam Injection may precipitate acute withdrawal reactions, which can be life-threatening. For patients using Lorazepam Injection more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue Lorazepam Injection (see WARNINGS )."
+    ],
+    "drug_interactions": [
+      "Drug Interactions INTERACTION WITH BENZODIAZEPINES AND OTHER CNS DEPRESSANTS The concomitant use of benzodiazepines and opioids increases the risk of respiratory depression because of actions at different receptor sites in the CNS that control respiration. Benzodiazepines interact at GABA A sites and opioids interact primarily at mu receptors. When benzodiazepines and opioids are combined, the potential for benzodiazepines to significantly worsen opioid-related respiratory depression exists. Monitor patients closely for respiratory depression and sedation. Lorazepam Injection, like other injectable benzodiazepines, produces additive depression of the central nervous system when administered with other CNS depressants such as ethyl alcohol, phenothiazines, barbiturates, MAO inhibitors, and other antidepressants. When scopolamine is used concomitantly with injectable lorazepam, an increased incidence of sedation, hallucinations and irrational behavior has been observed. There have been rare reports of significant respiratory depression, stupor and/or hypotension with the concomitant use of loxapine and lorazepam. Marked sedation, excessive salivation, ataxia, and, rarely, death have been reported with the concomitant use of clozapine and lorazepam. Apnea, coma, bradycardia, arrhythmia, heart arrest, and death have been reported with the concomitant use of haloperidol and lorazepam. The risk of using lorazepam in combination with scopolamine, loxapine, clozapine, haloperidol, or other CNS-depressant drugs has not been systematically evaluated. Therefore, caution is advised if the concomitant administration of lorazepam and these drugs is required. Concurrent administration of any of the following drugs with lorazepam had no effect on the pharmacokinetics of lorazepam: metoprolol, cimetidine, ranitidine, disulfiram, propranolol, metronidazole, and propoxyphene. No change in lorazepam dosage is necessary when concomitantly given with any of these drugs. LORAZEPAM-VALPROATE INTERACTION Concurrent administration of lorazepam (2 mg intravenously) with valproate (250 mg twice daily orally for 3 days) to 6 healthy male subjects resulted in decreased total clearance of lorazepam by 40% and decreased formation rate of lorazepam glucuronide by 55%, as compared with lorazepam administered alone. Accordingly, lorazepam plasma concentrations were about two-fold higher for at least 12 hours post-dose administration during valproate treatment. Lorazepam dosage should be reduced to 50% of the normal adult dose when this drug combination is prescribed in patients (see DOSAGE AND ADMINISTRATION ). LORAZEPAM-ORAL CONTRACEPTIVE STEROIDS INTERACTION Coadministration of lorazepam (2 mg intravenously) with oral contraceptive steroids (norethindrone acetate, 1 mg, and ethinyl estradiol, 50 μg, for at least 6 months) to healthy females (n=7) was associated with a 55% decrease in half-life, a 50% increase in the volume of distribution, thereby resulting in an almost 3.7-fold increase in total clearance of lorazepam as compared with control healthy females (n=8). It may be necessary to increase the dose of lorazepam in female patients who are concomitantly taking oral contraceptives (see DOSAGE AND ADMINISTRATION ). LORAZEPAM-PROBENECID INTERACTION Concurrent administration of lorazepam (2 mg intravenously) with probenecid (500 mg orally every 6 hours) to 9 healthy volunteers resulted in a prolongation of lorazepam half-life by 130% and a decrease in its total clearance by 45%. No change in volume of distribution was noted during probenecid co-treatment. Lorazepam dosage needs to be reduced by 50% when coadministered with probenecid (see DOSAGE AND ADMINISTRATION )."
+    ],
+    "openfda": {
+      "generic_name": [
+        "LORAZEPAM"
+      ],
+      "brand_name": [
+        "Lorazepam"
+      ],
+      "substance_name": [
+        "LORAZEPAM"
+      ],
+      "application_number": [
+        "NDA018140"
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "seed": "magnesium sulfate",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22magnesium+sulfate%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 128,
+  "record": {
+    "set_id": "5176ed24-015e-43fe-9eb4-85098debf5f1",
+    "id": "3f3e1899-bb10-4ba2-a3e0-316ad79a3556",
+    "effective_time": "20261102",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Magnesium Sulfate Injection, USP is suitable for replacement therapy in magnesium deficiency, especially in acute hypomagnesemia accompanied by signs of tetany similar to those observed in hypocalcemia. In such cases, the serum magnesium level is usually below the lower limit of normal (1.5 to 2.5 mEq/L) and the serum calcium level is normal (4.3 to 5.2 mEq/L) or elevated. In total parental nutrition (TPN), magnesium sulfate may be added to the nutriend admixture to correct or prevent hypomagnesemia which can arise during the course of therapy. Magnesium sulfate injection is also indicated for the prevention and control of seizures in pre-eclampsia and eclampsia, respectively."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Parenteral administration of the drug is contraindicated in patients with heart block or myocardial damage."
+    ],
+    "openfda": {
+      "generic_name": [
+        "MAGNESIUM SULFATE"
+      ],
+      "brand_name": [
+        "Magnesium Sulfate"
+      ],
+      "substance_name": [
+        "MAGNESIUM SULFATE HEPTAHYDRATE"
+      ],
+      "application_number": [
+        "NDA019316"
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "seed": "flecainide",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22flecainide%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 35,
+  "record": {
+    "set_id": "ee9595d5-08a1-4529-9215-ddc3c7f929c4",
+    "id": "e9e0eab5-efc5-4bac-8d46-0bce60b2fcc5",
+    "effective_time": "20260611",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE In patients without structural heart disease, flecainide is indicated for the prevention of - paroxysmal supraventricular tachycardias (PSVT), including atrioventricular nodal reentrant tachycardia, atrioventricular reentrant tachycardia and other supraventricular tachycardias of unspecified mechanism associated with disabling symptoms - paroxysmal atrial fibrillation/flutter (PAF) associated with disabling symptoms. Flecainide is also indicated for the prevention of - documented ventricular arrhythmias, such as sustained ventricular tachycardia ( sustained VT), that in the judgment of the physician, are life-threatening. Use of flecainide for the treatment of sustained VT, like other antiarrhythmics, should be initiated in the hospital. The use of flecainide is not recommended in patients with less severe ventricular arrhythmias even if the patients are symptomatic. Because of the proarrhythmic effects of flecainide, its use should be reserved for patients in whom, in the opinion of the physician, the benefits of treatment outweigh the risks. Flecainide should not be used in patients with recent myocardial infarction (see Boxed WARNINGS ). Use of flecainide in chronic atrial fibrillation has not been adequately studied and is not recommended (see Boxed WARNINGS ). As is the case for other antiarrhythmic agents, there is no evidence from controlled trials that the use of flecainide favorably affects survival or the incidence of sudden death."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Flecainide is contraindicated in patients with preexisting second- or third degree AV block, or with right bundle branch block when associated with a left hemiblock (bifascicular block), unless a pacemaker is present to sustain the cardiac rhythm should complete heart block occur. Flecainide is also contraindicated in the presence of cardiogenic shock or known hypersensitivity to the drug."
+    ],
+    "openfda": {
+      "generic_name": [
+        "FLECAINIDE ACETATE"
+      ],
+      "brand_name": [
+        "Flecainide Acetate"
+      ],
+      "substance_name": [
+        "FLECAINIDE ACETATE"
+      ],
+      "application_number": [
+        "ANDA075442"
+      ]
+    }
+  }
+}

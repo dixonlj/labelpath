@@ -1,0 +1,32 @@
+{
+  "seed": "cyanocobalamin",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22cyanocobalamin%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 85,
+  "record": {
+    "set_id": "409ef9c7-bc19-4d23-8e32-cd5bc8dacc50",
+    "id": "5fd7d280-53bb-650b-e063-6394a90a6625",
+    "effective_time": "20261109",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Cyanocobalamin is indicated for vitamin B 12 deficiencies due to malabsorption which may be associated with the following conditions: Addisonian (pernicious) anemia Gastrointestinal pathology, dysfunction, or surgery, including gluten enteropathy or sprue, small bowel bacteria overgrowth, total or partial gastrectomy Fish tapeworm infestation Malignancy of pancreas or bowel Folic acid deficiency It may be possible to treat the underlying disease by surgical correction of anatomic lesions leading to small bowel bacterial overgrowth, expulsion of fish tapeworm, discontinuation of drugs leading to vitamin malabsorption (see Drug Interactions ), use of a gluten-free diet in nontropical sprue, or administration of antibiotics in tropical sprue. Such measures remove the need for long-term administration of cyanocobalamin. Requirements of vitamin B 12 in excess of normal (due to pregnancy, thyrotoxicosis, hemolytic anemia, hemorrhage, malignancy, hepatic and renal disease) can usually be met with oral supplementation. Cyanocobalamin Injection, USP is also suitable for the vitamin B 12 absorption test ( Schilling test )."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Sensitivity to cobalt and/or vitamin B 12 is a contraindication."
+    ],
+    "openfda": {
+      "generic_name": [
+        "CYANOCOBALAMIN"
+      ],
+      "brand_name": [
+        "Cyanocobalamin"
+      ],
+      "substance_name": [
+        "CYANOCOBALAMIN"
+      ],
+      "application_number": [
+        "ANDA080515"
+      ]
+    }
+  }
+}

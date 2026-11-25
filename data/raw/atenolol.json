@@ -1,0 +1,35 @@
+{
+  "seed": "atenolol",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22atenolol%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 109,
+  "record": {
+    "set_id": "602bf7dd-e41c-bd2d-e063-6294a90a1a22",
+    "id": "602bf7dd-e41d-bd2d-e063-6294a90a1a22",
+    "effective_time": "20261113",
+    "indications_and_usage": [
+      "INDICATIONS & USAGE Hypertension Atenolol tablets USP are indicated for the treatment of hypertension, to lower blood pressure. Lowering blood pressure lowers the risk of fatal and non-fatal cardiovascular events, primarily strokes and myocardial infarctions. These benefits have been seen in controlled trials of antihypertensive drugs from a wide variety of pharmacologic classes including atenolol. Control of high blood pressure should be part of comprehensive cardiovascular risk management, including, as appropriate, lipid control, diabetes management, antithrombotic therapy, smoking cessation, exercise, and limited sodium intake. Many patients will require more than 1 drug to achieve blood pressure goals. For specific advice on goals and management, see published guidelines, such as those of the National High Blood Pressure Education Program's Joint National Committee on Prevention, Detection, Evaluation, and Treatment of High Blood Pressure (JNC). Numerous antihypertensive drugs, from a variety of pharmacologic classes and with different mechanisms of action, have been shown in randomized controlled trials to reduce cardiovascular morbidity and mortality, and it can be concluded that it is blood pressure reduction, and not some other pharmacologic property of the drugs, that is largely responsible for those benefits. The largest and most consistent cardiovascular outcome benefit has been a reduction in the risk of stroke, but reductions in myocardial infarction and cardiovascular mortality also have been seen regularly. Elevated systolic or diastolic pressure causes increased cardiovascular risk, and the absolute risk increase per mmHg is greater at higher blood pressures, so that even modest reductions of severe hypertension can provide substantial benefit. Relative risk reduction from blood pressure reduction is similar across populations with varying absolute risk, so the absolute benefit is greater in patients who are at higher risk independent of their hypertension (for example, patients with diabetes or hyperlipidemia), and such patients would be expected to benefit from more aggressive treatment to a lower blood pressure goal. Some antihypertensive drugs have smaller blood pressure effects (as monotherapy) in black patients, and many antihypertensive drugs have additional approved indications and effects (e.g., on angina, heart failure, or diabetic kidney disease). These considerations may guide selection of therapy. Atenolol tablets USP may be administered with other antihypertensive agents. Angina Pectoris Due to Coronary Atherosclerosis Atenolol is indicated for the long-term management of patients with angina pectoris. Acute Myocardial Infarction Atenolol is indicated in the management of hemodynamically stable patients with definite or suspected acute myocardial infarction to reduce cardiovascular mortality. Treatment can be initiated as soon as the patient's clinical condition allows. (See DOSAGE AND ADMNISTRATION , CONTRAINDICATIONS and WARNINGS ). In general, there is no basis for treating patients like those who were excluded from the ISIS-1 trial (blood pressure less than 100 mm Hg systolic, heart rate less than 50 bpm) or have other reasons to avoid beta-blockade. As noted above, some subgroups (e.g., elderly patients with systolic blood pressure below 120 mm Hg) seemed less likely to benefit."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Atenolol is contraindicated in sinus bradycardia, heart block greater than first degree, cardiogenic shock, and overt cardiac failure (See WARNINGS ). Atenolol is contraindicated in those patients with a history of hypersensitivity to the atenolol or any of the drug product's components"
+    ],
+    "boxed_warning": [
+      "Cessation of Therapy with Atenolol Patients with coronary artery disease, who are being treated with atenolol, should be advised against abrupt discontinuation of therapy. Severe exacerbation of angina and the occurrence of myocardial infarction and ventricular arrhythmias have been reported in angina patients following the abrupt discontinuation of therapy with beta-blockers. The last two complications may occur with or without preceding exacerbation of the angina pectoris. As with other beta-blockers, when discontinuation of atenolol is planned, the patients should be carefully observed and advised to limit physical activity to a minimum. If the angina worsens or acute coronary insufficiency develops, it is recommended that atenolol be promptly reinstituted, at least temporarily. Because coronary artery disease is common and may be unrecognized, it may be prudent not to discontinue atenolol therapy abruptly even in patients treated only for hypertension. (See DOSAGE AND ADMNISTRATION )."
+    ],
+    "openfda": {
+      "generic_name": [
+        "ATENOLOL"
+      ],
+      "brand_name": [
+        "Atenolol"
+      ],
+      "substance_name": [
+        "ATENOLOL"
+      ],
+      "application_number": [
+        "ANDA077443"
+      ]
+    }
+  }
+}

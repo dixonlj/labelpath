@@ -1,0 +1,38 @@
+{
+  "seed": "amitriptyline",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22amitriptyline%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 125,
+  "record": {
+    "set_id": "1523a2b4-f9d6-4d3c-a370-df579ed36911",
+    "id": "601a49a5-0864-de5d-e063-6394a90a6073",
+    "effective_time": "20261112",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE For the relief of symptoms of depression. Endogenous depression is more likely to be alleviated than are other depressive states."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Amitriptyline hydrochloride is contraindicated in patients who have shown prior hypersensitivity to it. It should not be given concomitantly with monoamine oxidase inhibitors. Hyperpyretic crises, severe convulsions, and deaths have occurred in patients receiving tricyclic antidepressant and monoamine oxidase inhibiting drugs simultaneously. When it is desired to replace a monoamine oxidase inhibitor with amitriptyline hydrochloride, a minimum of 14 days should be allowed to elapse after the former is discontinued. Amitriptyline hydrochloride should then be initiated cautiously with gradual increase in dosage until optimum response is achieved. Amitriptyline hydrochloride should not be given with cisapride due to the potential for increased QT interval and increased risk for arrhythmia. This drug is not recommended for use during the acute recovery phase following myocardial infarction."
+    ],
+    "boxed_warning": [
+      "Suicidality and Antidepressant Drugs: Antidepressants increased the risk compared to placebo of suicidal thinking and behavior (suicidality) in children, adolescents, and young adults in short-term studies of major depressive disorder (MDD) and other psychiatric disorders. Anyone considering the use of amitriptyline hydrochloride tablets or any other antidepressant in a child, adolescent, or young adult must balance this risk with the clinical need. Short-term studies did not show an increase in the risk of suicidality with antidepressants compared to placebo in adults beyond age 24; there was a reduction in risk with antidepressants compared to placebo in adults aged 65 and older. Depression and certain other psychiatric disorders are themselves associated with increases in the risk of suicide. Patients of all ages who are started on antidepressant therapy should be monitored appropriately and observed closely for clinical worsening, suicidality, or unusual changes in behavior. Families and caregivers should be advised of the need for close observation and communication with the prescriber. Amitriptyline hydrochloride tablets are not approved for use in pediatric patients (see WARNINGS: Clinical Worsening and Suicide Risk , PRECAUTIONS: Information for Patients , and PRECAUTIONS: Pediatric Use )."
+    ],
+    "drug_interactions": [
+      "Drug Interactions Topiramate Some patients may experience a large increase in amitriptyline concentration in the presence of topiramate and any adjustments in amitriptyline dose should be made according to the patient’s clinical response and not on the basis of plasma levels. Drugs Metabolized by P450 2D6 The biochemical activity of the drug metabolizing isozyme cytochrome P450 2D6 (debrisoquin hydroxylase) is reduced in a subset of the caucasian population (about 7 to 10% of Caucasians are so called “poor metabolizers”); reliable estimates of the prevalence of reduced P450 2D6 isozyme activity among Asian, African and other populations are not yet available. Poor metabolizers have higher than expected plasma concentrations of tricyclic antidepressants (TCAs) when given usual doses. Depending on the fraction of drug metabolized by P450 2D6, the increase in plasma concentration may be small, or quite large (8 fold increase in plasma AUC of the TCA). In addition, certain drugs inhibit the activity of this isozyme and make normal metabolizers resemble poor metabolizers. An individual who is stable on a given dose of TCA may become abruptly toxic when given one of these inhibiting drugs as concomitant therapy. The drugs that inhibit cytochrome P450 2D6 include some that are not metabolized by the enzyme (quinidine; cimetidine) and many that are substrates for P450 2D6 (many other antidepressants, phenothiazines, and the Type 1C antiarrhythmics propafenone and flecainide). While all the selective serotonin reuptake inhibitors (SSRIs), e.g., fluoxetine, sertraline, and paroxetine, inhibit P450 2D6, they may vary in the extent of inhibition. The extent to which SSRI-TCA interactions may pose clinical problems will depend on the degree of inhibition and the pharmacokinetics of the SSRI involved. Nevertheless, caution is indicated in the coadministration of TCAs with any of the SSRIs and also in switching from one class to the other. Of particular importance, sufficient time must elapse before initiating TCA treatment in a patient being withdrawn from fluoxetine, given the long half-life of the parent and active metabolite (at least 5 weeks may be necessary). Concomitant use of tricyclic antidepressants with drugs that can inhibit cytochrome P450 2D6 may require lower doses than usually prescribed for either the tricyclic antidepressant or the other drug. Furthermore, whenever one of these other drugs is withdrawn from co-therapy, an increased dose of tricyclic antidepressant may be required. It is desirable to monitor TCA plasma levels whenever a TCA is going to be coadministered with another drug known to be an inhibitor of P450 2D6. Monoamine oxidase inhibitors – see CONTRAINDICATIONS section. Guanethidine or similarly acting compounds; thyroid medication; alcohol, barbiturates and other CNS depressants; and disulfiram – see WARNINGS section. When amitriptyline hydrochloride is given with anticholinergic agents or sympathomimetic drugs, including epinephrine combined with local anesthetics, close supervision and careful adjustment of dosages are required. Hyperpyrexia has been reported when amitriptyline hydrochloride is administered with anticholinergic agents or with neuroleptic drugs, particularly during hot weather. Paralytic ileus may occur in patients taking tricyclic antidepressants in combination with anticholinergic-type drugs. Cimetidine is reported to reduce hepatic metabolism of certain tricyclic antidepressants, thereby delaying elimination and increasing steady-state concentrations of these drugs. Clinically significant effects have been reported with the tricyclic antidepressants when used concomitantly with cimetidine. Increases in plasma levels of tricyclic antidepressants, and in the frequency and severity of side effects, particularly anticholinergic, have been reported when cimetidine was added to the drug regimen. Discontinuation of cimetidine in well-controlled patients receiving tricyclic antidepressants and cimetidine may decrease the plasma levels and efficacy of the antidepressants. Caution is advised if patients receive large doses of ethchlorvynol concurrently. Transient delirium has been reported in patients who were treated with one gram of ethchlorvynol and 75 to 150 mg of amitriptyline hydrochloride."
+    ],
+    "openfda": {
+      "generic_name": [
+        "AMITRIPTYLINE HYDROCHLORIDE"
+      ],
+      "brand_name": [
+        "Amitriptyline Hydrochloride"
+      ],
+      "substance_name": [
+        "AMITRIPTYLINE HYDROCHLORIDE"
+      ],
+      "application_number": [
+        "ANDA085968"
+      ]
+    }
+  }
+}

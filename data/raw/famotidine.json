@@ -1,0 +1,38 @@
+{
+  "seed": "famotidine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22famotidine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 375,
+  "record": {
+    "set_id": "09ef39a4-c6b3-4395-8211-3f551dc44830",
+    "id": "6005b6b0-b48d-923d-e063-6294a90a1705",
+    "effective_time": "20261111",
+    "indications_and_usage": [
+      "1 Indications and Usage Famotidine tablets are indicated in adult and pediatric patients 40 kg and above for the treatment of: • active duodenal ulcer (DU). • active gastric ulcer(GU). • symptomatic non-erosive gastroesophageal reflux disease (GERD). • erosive esophagitis due to GERD, diagnosed by biopsy. Famotidine tablets are indicated in adults for the: • treatment of pathological hypersecretory conditions (e.g., Zollinger-Ellison Syndrome, multiple endocrine neoplasias). • reduction of the risk of duodenal ulcer recurrence. Famotidine is a histamine-2 (H 2 ) receptor antagonist indicated (1): In adult and pediatric patients 40 kg and greater for the treatment of: active duodenal ulcer (DU). active gastric ulcer. symptomatic nonerosive gastroesophageal reflux disease (GERD). erosive esophagitis due to GERD, diagnosed by biopsy. In adults for the: treatment of pathological hypersecretory conditions (e.g., Zollinger-Ellison syndrome, multiple endocrine neoplasias). reduction of the risk of DU recurrence."
+    ],
+    "contraindications": [
+      "4 Contraindications Famotidine is contraindicated in patients with a history of serious hypersensitivity reactions (e.g., anaphylaxis) to famotidine or other histamine-2 (H 2 ) receptor antagonists. History of serious hypersensitivity reactions (e.g., anaphylaxis) to Famotidine or other H 2 receptor antagonists. (4)"
+    ],
+    "drug_interactions": [
+      "7 Drug Interactions Drugs Dependent on Gastric pH for Absorption : Systemic exposure of the concomitant drug may be significantly reduced leading to loss of efficacy. See full prescribing information for a list of interacting drugs. (7.1) Tizanidine (CYP1A2) Substrate : Potential for substantial increases in blood concentrations of tizanidine resulting in hypotension, bradycardia or excessive drowsiness; avoid concomitant use, if possible. (7.2) 7.1 Drugs Dependent on Gastric pH for Absorption Famotidine can reduce the absorption of other drugs, due to its effect on reducing intragastric acidity, leading to loss of efficacy of the concomitant drug. Concomitant administration of Famotidine with dasatinib, delavirdine mesylate, cefditoren, and fosamprenavir is not recommended. See the prescribing information for other drugs dependent on gastric pH for absorption for administration instructions, including atazanavir, erlotinib, ketoconazole, itraconazole, ledipasvir/sofosbuvir, nilotinib, and rilpivirine. 7.2 Tizanidine (CYP1A2 Substrate) Although not studied clinically, famotidine is considered a weak CYP1A2 inhibitor and may lead to substantial increases in blood concentrations of tizanidine, a CYP1A2 substrate. Avoid concomitant use with Famotidine. If concomitant use is necessary, monitor for hypotension, bradycardia or excessive drowsiness. Refer to the full prescribing information for tizanidine."
+    ],
+    "warnings_and_cautions": [
+      "5 Warnings and Precautions Warnings and Precautions Central Nervous System (CNS) Adverse Reactions : Elderly patients and patients with renal impairment at increased risk; reduce the dosage. (2.2, 5.1, 8.5, 8.6) GI Malignancy : Absence of GI symptoms does not preclude the presence of gastric malignancy; evaluate prior to initiating therapy. (5.2) 5.1 Central Nervous System Adverse Reactions Central nervous system (CNS) adverse reactions, including confusion, delirium, hallucinations, disorientation, agitation, seizures, and lethargy, have been reported in elderly patients and patients with moderate and severe renal impairment treated with Famotidine. Since famotidine blood levels are higher in patients with renal impairment than in patients with normal renal function, dosage adjustments are recommended in patients with renal impairment [see Dosage and Administration ( 2.2 ), Clinical Pharmacology ( 12.3 )]. 5.2 Concurrent Gastric Malignancy In adults, symptomatic response to therapy with Famotidine does not preclude the presence of gastric malignancy. Consider evaluation for gastric malignancy in adult patients who have a suboptimal response or an early symptomatic relapse after completing treatment with Famotidine."
+    ],
+    "openfda": {
+      "generic_name": [
+        "FAMOTIDINE"
+      ],
+      "brand_name": [
+        "Famotidine"
+      ],
+      "substance_name": [
+        "FAMOTIDINE"
+      ],
+      "application_number": [
+        "ANDA075805"
+      ]
+    }
+  }
+}

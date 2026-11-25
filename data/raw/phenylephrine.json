@@ -1,0 +1,29 @@
+{
+  "seed": "phenylephrine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22phenylephrine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 1706,
+  "record": {
+    "set_id": "604bd7d8-3b44-bfc3-e063-6394a90a9a78",
+    "id": "604bd7d8-3b45-bfc3-e063-6394a90a9a78",
+    "effective_time": "20261115",
+    "indications_and_usage": [
+      "Adults: When practical, cleanse the affected area with mild soap and warm water and rinse thoroughly. Gently dry by patting or blotting with toilet tissue or a soft cloth before application. Apply externally to the affected area. For intrarectal use: Attach the applicator to the tube, lubricate well, then gently insert the applicator into the rectum."
+    ],
+    "openfda": {
+      "generic_name": [
+        "PHENYLEPHRINE HYDROCHLORIDE"
+      ],
+      "brand_name": [
+        "ZKBB HEMORRHOIDAL"
+      ],
+      "substance_name": [
+        "PHENYLEPHRINE HYDROCHLORIDE"
+      ],
+      "application_number": [
+        "M015"
+      ]
+    }
+  }
+}

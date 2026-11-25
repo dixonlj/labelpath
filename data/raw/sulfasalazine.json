@@ -1,0 +1,35 @@
+{
+  "seed": "sulfasalazine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22sulfasalazine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 14,
+  "record": {
+    "set_id": "3254432e-87a4-4af0-afd1-d9e6f1b0efd4",
+    "id": "d1c7a456-f482-4a85-a866-e3e9ddb29127",
+    "effective_time": "20261112",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Sulfasalazine tablets are indicated: a) in the treatment of mild to moderate ulcerative colitis, and as adjunctive therapy in severe ulcerative colitis; and b) for the prolongation of the remission period between acute attacks of ulcerative colitis."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Sulfasalazine tablets are contraindicated in: Patients with intestinal or urinary obstruction, Patients with porphyria as sulfonamides have been reported to precipitate an acute attack, Patients hypersensitive to sulfasalazine, its metabolites, sulfonamides, or salicylates."
+    ],
+    "drug_interactions": [
+      "Drug Interactions: Reduced absorption of folic acid and digoxin have been reported when those agents were administered concomitantly with sulfasalazine."
+    ],
+    "openfda": {
+      "generic_name": [
+        "SULFASALAZINE"
+      ],
+      "brand_name": [
+        "Sulfasalazine"
+      ],
+      "substance_name": [
+        "SULFASALAZINE"
+      ],
+      "application_number": [
+        "ANDA219046"
+      ]
+    }
+  }
+}

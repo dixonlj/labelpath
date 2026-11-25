@@ -1,0 +1,35 @@
+{
+  "seed": "folic acid",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22folic+acid%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 157,
+  "record": {
+    "set_id": "726bb436-69e3-452f-9f28-153b58bf3ca5",
+    "id": "60164a89-e6ba-75a3-e063-6394a90a121a",
+    "effective_time": "20261112",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Folic acid, USP is effective in the treatment of megaloblastic anemias due to a deficiency of folic acid, USP (as may be seen in tropical or nontropical sprue) and in anemias of nutritional origin, pregnancy, infancy, or childhood."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Folic acid, USP is contraindicated in patients who have shown previous intolerance to the drug."
+    ],
+    "drug_interactions": [
+      "Drug Interactions There is evidence that the anticonvulsant action of phenytoin is antagonized by folic acid. A patient whose epilepsy is completely controlled by phenytoin may require increased doses to prevent convulsions if folic acid is given. Folate deficiency may result from increased loss of folate, as in renal dialysis and/or interference with metabolism (e.g., folic acid antagonists such as methotrexate); the administration of anticonvulsants, such as diphenylhydantoin, primidone, and barbiturates; alcohol consumption and, especially, alcoholic cirrhosis; and the administration of pyrimethamine and nitrofurantoin. False low serum and red cell folate levels may occur if the patient has been taking antibiotics, such as tetracycline, which suppress the growth of Lactobacillus casei."
+    ],
+    "openfda": {
+      "generic_name": [
+        "FOLIC ACID"
+      ],
+      "brand_name": [
+        "FOLIC ACID"
+      ],
+      "substance_name": [
+        "FOLIC ACID"
+      ],
+      "application_number": [
+        "ANDA204418"
+      ]
+    }
+  }
+}

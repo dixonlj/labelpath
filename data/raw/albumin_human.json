@@ -1,0 +1,38 @@
+{
+  "seed": "albumin human",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22albumin+human%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 14,
+  "record": {
+    "set_id": "57bd6811-8619-11e0-9d78-0800200c9a66",
+    "id": "841fff1e-8512-4dce-aa5e-be7ed224cbf6",
+    "effective_time": "20260820",
+    "indications_and_usage": [
+      "1. INDICATIONS AND USAGE KEDBUMIN® is a 25% albumin solution indicated for: Hypovolemia ( 1.1 ) and Hypoalbuminemia ( 1.2 ) Prevention of central volume depletion after paracentesis due to cirrhotic ascites ( 1.3 ) Ovarian hyperstimulation syndrome (OHSS) ( 1.4 ) Adult Respiratory Distress Syndrome (ARDS) ( 1.5 ) Burns ( 1.6 ) Hemodialysis patients undergoing long term dialysis ( 1.7 ) Patients who cannot tolerate substantial volumes of salt solution ( 1.7 ) Priming as part of a cardiopulmonary bypass fluids ( 1.8 ) 1.1 Hypovolemia For restoration and maintenance of circulating blood volume where volume deficiency is demonstrated and colloid use is appropriate. 1.2 Hypoalbuminemia KEDBUMIN® is indicated for severe albumin deficiency caused by illness or active bleeding. When albumin deficiency results from excessive protein loss, the effect of albumin administration will be temporary unless the underlying disorder is reversed. 1.3 Prevention of Central Volume Depletion after Paracentesis due to Cirrhotic Ascites KEDBUMIN® is indicated for maintenance of cardiovascular function following the removal of large volumes of ascitic fluid due to cirrhosis [1, 2]. 1.4 Ovarian Hyperstimulation Syndrome (OHSS) KEDBUMIN® is indicated as a plasma expander in the fluid management of severe forms of ovarian hyperstimulation syndrome (OHSS) [3, 4]. 1.5 Adult Respiratory Distress Syndrome (ARDS) KEDBUMIN® is indicated in conjunction with diuretics to correct fluid volume overload associated with ARDS [5]. 1.6 Burns KEDBUMIN® is indicated after > 24 hours post burn in patients experiencing severe albumin depletion in order to favor edema re-absorption [6]. 1.7 Hemodialysis KEDBUMIN® is indicated in patients undergoing long term dialysis or for those patients who are fluid-overloaded and cannot tolerate substantial volumes of salt solution for therapy of shock or hypotension [7]. 1.8 Cardiopulmonary Bypass KEDBUMIN® is indicated in cardiopulmonary bypass procedures as part of the priming fluids [8, 9]."
+    ],
+    "contraindications": [
+      "4. CONTRAINDICATIONS KEDBUMIN® is contraindicated in patients with a history of hypersensitivity to albumin, excipients used in its formulation, or components of the container [11]. KEDBUMIN® is also contraindicated in severely anemic patients and in patients with heart failure. Severe anemia or heart failure in the presence of normal or increased intravascular volume ( 4 ). Hypersensitivity to albumin, the excipients, or components of the container."
+    ],
+    "drug_interactions": [
+      "7. DRUG INTERACTION KEDBUMIN® should not be mixed with other medicinal products including blood and blood components, but can be administered concomitantly with other parenterals such as whole blood, plasma, saline, glucose or sodium lactate when medically necessary. KEDBUMIN® should not be mixed with protein hydrolysates or solutions containing alcohol since these combinations may cause protein precipitation."
+    ],
+    "warnings_and_cautions": [
+      "5. WARNINGS AND PRECAUTIONS Risk of transmission of infectious agents ( 5.1 ). Caution where hypervolemia and its consequences or hemodilution could represent a special risk ( 5.2 ) Do not dilute with water for injection ( 5.2 ) 5.1 Hypersensitivity Hypersensitivity or allergic reactions have been observed, and may in some cases progress to severe anaphylaxis. Epinephrine should be available immediately to treat any acute hypersensitivity reaction. 5.2 Hypervolemia KEDBUMIN® should be used with caution in conditions where hypervolemia and its consequences or hemodilution could represent a special risk (10). Examples of such conditions may include but are not limited to: Heart failure Arterial hypertension Esophageal varices Pulmonary edema Hemorrhagic diathesis Severe anemia Renal and post-renal anuria 5.3 Hemolysis Do not dilute KEDBUMIN® with Sterile Water for Injection, as this may cause hemolysis in recipients. There is a risk of potentially fatal hemolysis and acute renal failure from the use of Sterile Water for Injection as a diluent for 25% albumin 12 . Suitable solutions for dilution include 5% glucose and 0.9% sodium chloride (2.2). 5.4 Large Volumes When replacing comparatively large volumes of albumin, control of coagulation and hematocrit is essential. Ensure adequate substitution of other blood constituents as coagulation factors, electrolytes, platelets, and erythrocytes. 5.5 Hydration The colloid osmotic effect of KEDBUMIN® 25% is approximately four times that of human blood. Therefore, when concentrated albumin is administered, ensure adequate hydration of the patient. Carefully monitor to guard against circulatory overload (10). Hemodynamic performance should be monitored regularly. This may include arterial blood pressure and pulse rate, central venous pressure, pulmonary artery occlusion pressure, urine output, electrolyte levels, and hematocrit/hemoglobin. 5.6 Infectious Diseases Albumin is a derivative of human blood. Based on effective donor screening and product manufacturing processes, it carries an extremely remote risk for transmission of viral diseases and variant Creutzfeldt-Jakob disease (vCJD). There is a theoretical risk for transmission of Creutzfeldt-Jakob disease (CJD), but if that risk actually exists, the risk of transmission would also be considered extremely remote. No cases of transmission of viral diseases, CJD or vCJD have ever been identified for licensed albumin. ALL infections suspected by a physician possibly to have been transmitted by this product should be reported by the physician or other healthcare provider to Kedrion Biopharma, Inc. at 1-855-3KDRION (1-855-353-7466) . See also PATIENT COUNSELING INFORMATION (17) ."
+    ],
+    "openfda": {
+      "generic_name": [
+        "ALBUMIN (HUMAN)"
+      ],
+      "brand_name": [
+        "KEDBUMIN"
+      ],
+      "substance_name": [
+        "ALBUMIN HUMAN"
+      ],
+      "application_number": [
+        "BLA125384"
+      ]
+    }
+  }
+}

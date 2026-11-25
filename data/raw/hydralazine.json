@@ -1,0 +1,32 @@
+{
+  "seed": "hydralazine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22hydralazine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 100,
+  "record": {
+    "set_id": "602d9775-61f3-5ef4-e063-6394a90a9aff",
+    "id": "602d9775-61f4-5ef4-e063-6394a90a9aff",
+    "effective_time": "20261113",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE: Severe essential hypertension when the drug cannot be given orally or when there is an urgent need to lower blood pressure."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS: Hypersensitivity to hydralazine, coronary artery disease, mitral valvular rheumatic heart disease."
+    ],
+    "openfda": {
+      "generic_name": [
+        "HYDRALAZINE HYDROCHLORIDE"
+      ],
+      "brand_name": [
+        "Hydralazine Hydrochloride"
+      ],
+      "substance_name": [
+        "HYDRALAZINE HYDROCHLORIDE"
+      ],
+      "application_number": [
+        "ANDA040388"
+      ]
+    }
+  }
+}

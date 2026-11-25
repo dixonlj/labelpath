@@ -1,0 +1,35 @@
+{
+  "seed": "tenecteplase",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tenecteplase%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 2,
+  "record": {
+    "set_id": "739a3c53-caf6-40d6-a6af-84ce733a948b",
+    "id": "f5fbdeb3-d456-45dc-8c37-4e15ca1c66ea",
+    "effective_time": "20251215",
+    "indications_and_usage": [
+      "1 INDICATIONS AND USAGE TNKase ® is indicated to reduce the risk of death associated with acute ST elevation myocardial infarction (STEMI). TNKase is a tissue plasminogen activator, indicated to reduce the risk of death associated with acute ST elevation myocardial infarction (STEMI). ( 1 )"
+    ],
+    "contraindications": [
+      "4 CONTRAINDICATIONS TNKase is contraindicated in patients with [see Warnings and Precautions (5.1) ] : Active internal bleeding History of cerebrovascular accident Intracranial or intraspinal surgery or trauma within 2 months Intracranial neoplasm, arteriovenous malformation, or aneurysm Known bleeding diathesis Severe uncontrolled hypertension Active internal bleeding ( 4 ) History of cerebrovascular accident ( 4 ) Intracranial or intraspinal surgery or trauma within 2 months ( 4 ) Intracranial neoplasm, arteriovenous malformation, or aneurysm ( 4 ) Known bleeding diathesis ( 4 ) Severe uncontrolled hypertension ( 4 )"
+    ],
+    "drug_interactions": [
+      "7 DRUG INTERACTIONS During TNKase therapy, results of coagulation tests and/or measures of fibrinolytic activity may be unreliable unless specific precautions are taken to prevent in vitro artifacts. ( 7.1 ) 7.1 Drug/Laboratory Test Interactions During TNKase therapy, results of coagulation tests and/or measures of fibrinolytic activity may be unreliable unless specific precautions are taken to prevent in vitro artifacts. Tenecteplase is an enzyme that, when present in blood in pharmacologic concentrations, remains active under in vitro conditions. This can lead to degradation of fibrinogen in blood samples removed for analysis."
+    ],
+    "warnings_and_cautions": [
+      "5 WARNINGS AND PRECAUTIONS Bleeding: Increases the risk of bleeding. Avoid intramuscular injections. Monitor for bleeding. ( 5.1 ) Thromboembolism: The use of thrombolytics can increase the risk of thrombo-embolic events in patients with high likelihood of left heart thrombus. ( 5.2 ) Cholesterol Embolization: Has been reported in patients treated with thrombolytic agents. ( 5.3 ) Arrhythmias: It is recommended that anti-arrhythmic therapy for bradycardia and/or ventricular irritability be available when TNKase is administered. ( 5.4 ) Increased Risk of Heart Failure and Recurrent Ischemia when used with Planned Percutaneous Coronary Intervention (PCI) in STEMI: In patients with a large ST segment elevation myocardial infarction, physicians should choose either thrombolysis or PCI as the primary treatment strategy for reperfusion. Rescue PCI or subsequent elective PCI may be performed after administration of thrombolytic therapies if medically appropriate. ( 5.5 ) Hypersensitivity: Monitor patients treated with TNKase during and for several hours after infusion. If symptoms of hypersensitivity occur, initiate appropriate therapy (e.g., antihistamines, corticosteroids). ( 5.6 ) 5.1 Bleeding TNKase can cause bleeding, including intracranial hemorrhage and fatal bleeding. Concomitant use of other drugs that impair hemostasis increases the risk of bleeding. Should serious bleeding that is not controlled by local pressure occur, discontinue any concomitant heparin or antiplatelet agents immediately and treat appropriately. Avoid intramuscular injections and nonessential handling of the patient for the first few hours following treatment with TNKase. Perform arterial and venous punctures carefully and only as required. To minimize bleeding from noncompressible sites, avoid internal jugular and subclavian venous punctures. If an arterial puncture is necessary during TNKase infusion, use an upper extremity vessel that is accessible to manual compression. Apply pressure for at least 30 minutes. 5.2 Thromboembolism The use of thrombolytics can increase the risk of thrombo-embolic events in patients with high likelihood of left heart thrombus, such as patients with mitral stenosis or atrial fibrillation. 5.3 Cholesterol Embolization Cholesterol embolism has been reported in patients treated with thrombolytic agents. Investigate cause of any new embolic event and treat appropriately. 5.4 Arrhythmias Coronary thrombolysis may result in arrhythmias associated with reperfusion. These arrhythmias (such as sinus bradycardia, accelerated idioventricular rhythm, ventricular premature depolarizations, ventricular tachycardia) may be managed with standard anti-arrhythmic measures. It is recommended that anti-arrhythmic therapy for bradycardia and/or ventricular irritability be available when TNKase is administered. 5.5 Increased Risk of Heart Failure and Recurrent Ischemia when used with Planned Percutaneous Coronary Intervention (PCI) in STEMI. In a trial of patients with STEMI, there were trends toward worse outcomes in the individual components of the primary endpoint between TNKase plus PCI versus PCI alone (mortality 6.7% vs. 4.9%, respectively; cardiogenic shock 6.3% vs. 4.8%, respectively; and CHF 12% vs. 9.2%, respectively). In addition, there were trends towards worse outcomes in recurrent MI (6.1% vs. 3.7%, respectively; p = 0.03) and repeat target vessel revascularization (6.6% vs. 3.4%, respectively; p = 0.0045) in patients receiving TNKase plus PCI versus PCI alone [see Clinical Studies (14.1) ] . In patients with large ST segment elevation myocardial infarction, physicians should choose either thrombolysis or PCI as the primary treatment strategy for reperfusion. Rescue PCI or subsequent elective PCI may be performed after administration of thrombolytic therapies if medically appropriate; however, the optimal use of adjunctive antithrombotic and antiplatelet therapies in this setting is unknown. 5.6 Hypersensitivity Hypersensitivity, including urticarial / anaphylactic reactions, have been reported after administration of TNKase (e.g., anaphylaxis, angioedema, laryngeal edema, rash, and urticaria). Monitor patients treated with TNKase during and for several hours after infusion. If symptoms of hypersensitivity occur, initiate appropriate therapy (e.g., antihistamines, corticosteroids)."
+    ],
+    "openfda": {
+      "generic_name": [
+        "TENECTEPLASE"
+      ],
+      "brand_name": [
+        "TNKase"
+      ],
+      "application_number": [
+        "BLA103909"
+      ]
+    }
+  }
+}

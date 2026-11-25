@@ -1,0 +1,35 @@
+{
+  "seed": "albuterol",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22albuterol%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 135,
+  "record": {
+    "set_id": "5d62969b-2ad9-6cf0-e063-6394a90ac2f0",
+    "id": "5d6296ac-3e02-6bba-e063-6394a90af45b",
+    "effective_time": "20261009",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Albuterol inhalation solution is indicated for the relief of bronchospasm in patients 2 years of age and older with reversible obstructive airway disease and acute attacks of bronchospasm."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Albuterol inhalation solution is contraindicated in patients with a history of hypersensitivity to any of its components."
+    ],
+    "drug_interactions": [
+      "Drug Interactions Other sympathomimetic aerosol bronchodilators or epinephrine should not be used concomitantly with albuterol. Albuterol should be administered with extreme caution to patients being treated with monoamine oxidase inhibitors or tricyclic anti-depressants, since the action of albuterol on the vascular system may be potentiated. Beta-receptor blocking agents and albuterol inhibit the effect of each other."
+    ],
+    "openfda": {
+      "generic_name": [
+        "ALBUTEROL SULFATE"
+      ],
+      "brand_name": [
+        "Albuterol Sulfate"
+      ],
+      "substance_name": [
+        "ALBUTEROL SULFATE"
+      ],
+      "application_number": [
+        "ANDA207857"
+      ]
+    }
+  }
+}

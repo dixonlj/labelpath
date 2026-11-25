@@ -1,0 +1,38 @@
+{
+  "seed": "carbamazepine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22carbamazepine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 94,
+  "record": {
+    "set_id": "48080efd-1781-4585-83f8-c43957ac63b3",
+    "id": "5e7d0501-07b8-8664-e063-6394a90a7e70",
+    "effective_time": "20261023",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Epilepsy Carbamazepine is indicated for use as an anticonvulsant drug. Evidence supporting efficacy of carbamazepine as an anticonvulsant was derived from active drug-controlled studies that enrolled patients with the following seizure types: Partial seizures with complex symptomatology (psychomotor, temporal lobe). Patients with these seizures appear to show greater improvement than those with other types. Generalized tonic-clonic seizures (grand mal). Mixed seizure patterns which include the above, or other partial or generalized seizures. Absence seizures (petit mal) do not appear to be controlled by carbamazepine (see PRECAUTIONS , General ). Trigeminal Neuralgia Carbamazepine is indicated in the treatment of the pain associated with true trigeminal neuralgia. Beneficial results have also been reported in glossopharyngeal neuralgia. This drug is not a simple analgesic and should not be used for the relief of trivial aches or pains."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Carbamazepine should not be used in patients with a history of previous bone marrow depression, hypersensitivity to the drug, or known sensitivity to any of the tricyclic compounds, such as amitriptyline, desipramine, imipramine, protriptyline, nortriptyline, etc. Likewise, on theoretical grounds its use with monoamine oxidase (MAO) inhibitors is not recommended. Before administration of carbamazepine, MAO inhibitors should be discontinued for a minimum of 14 days, or longer if the clinical situation permits. Coadministration of carbamazepine and nefazodone may result in insufficient plasma concentrations of nefazodone and its active metabolite to achieve a therapeutic effect. Coadministration of carbamazepine with nefazodone is contraindicated."
+    ],
+    "boxed_warning": [
+      "WARNINGS SERIOUS DERMATOLOGIC REACTIONS AND HLA-B*1502 ALLELE SERIOUS AND SOMETIMES FATAL DERMATOLOGIC REACTIONS, INCLUDING TOXIC EPIDERMAL NECROLYSIS (TEN) AND STEVENS-JOHNSON SYNDROME (SJS), HAVE BEEN REPORTED DURING TREATMENT WITH CARBAMAZEPINE. THESE REACTIONS ARE ESTIMATED TO OCCUR IN 1 TO 6 PER 10,000 NEW USERS IN COUNTRIES WITH MAINLY CAUCASIAN POPULATIONS, BUT THE RISK IN SOME ASIAN COUNTRIES IS ESTIMATED TO BE ABOUT 10 TIMES HIGHER. STUDIES IN PATIENTS OF CHINESE ANCESTRY HAVE FOUND A STRONG ASSOCIATION BETWEEN THE RISK OF DEVELOPING SJS/TEN AND THE PRESENCE OF HLA-B*1502, AN INHERITED ALLELIC VARIANT OF THE HLA-B GENE. HLA-B*1502 IS FOUND ALMOST EXCLUSIVELY IN PATIENTS WITH ANCESTRY ACROSS BROAD AREAS OF ASIA. PATIENTS WITH ANCESTRY IN GENETICALLY AT-RISK POPULATIONS SHOULD BE SCREENED FOR THE PRESENCE OF HLA-B*1502 PRIOR TO INITIATING TREATMENT WITH CARBAMAZEPINE. PATIENTS TESTING POSITIVE FOR THE ALLELE SHOULD NOT BE TREATED WITH CARBAMAZEPINE UNLESS THE BENEFIT CLEARLY OUTWEIGHS THE RISK (SEE WARNINGS AND PRECAUTIONS , LABORATORY TESTS ). APLASTIC ANEMIA AND AGRANULOCYTOSIS APLASTIC ANEMIA AND AGRANULOCYTOSIS HAVE BEEN REPORTED IN ASSOCIATION WITH THE USE OF CARBAMAZEPINE. DATA FROM A POPULATION-BASED CASE CONTROL STUDY DEMONSTRATE THAT THE RISK OF DEVELOPING THESE REACTIONS IS 5 TO 8 TIMES GREATER THAN IN THE GENERAL POPULATION. HOWEVER, THE OVERALL RISK OF THESE REACTIONS IN THE UNTREATED GENERAL POPULATION IS LOW, APPROXIMATELY SIX PATIENTS PER ONE MILLION POPULATION PER YEAR FOR AGRANULOCYTOSIS AND TWO PATIENTS PER ONE MILLION POPULATION PER YEAR FOR APLASTIC ANEMIA. ALTHOUGH REPORTS OF TRANSIENT OR PERSISTENT DECREASED PLATELET OR WHITE BLOOD CELL COUNTS ARE NOT UNCOMMON IN ASSOCIATION WITH THE USE OF CARBAMAZEPINE, DATA ARE NOT AVAILABLE TO ESTIMATE ACCURATELY THEIR INCIDENCE OR OUTCOME. HOWEVER, THE VAST MAJORITY OF THE CASES OF LEUKOPENIA HAVE NOT PROGRESSED TO THE MORE SERIOUS CONDITIONS OF APLASTIC ANEMIA OR AGRANULOCYTOSIS. BECAUSE OF THE VERY LOW INCIDENCE OF AGRANULOCYTOSIS AND APLASTIC ANEMIA, THE VAST MAJORITY OF MINOR HEMATOLOGIC CHANGES OBSERVED IN MONITORING OF PATIENTS ON CARBAMAZEPINE ARE UNLIKELY TO SIGNAL THE OCCURRENCE OF EITHER ABNORMALITY. NONETHELESS, COMPLETE PRETREATMENT HEMATOLOGICAL TESTING SHOULD BE OBTAINED AS A BASELINE. IF A PATIENT IN THE COURSE OF TREATMENT EXHIBITS LOW OR DECREASED WHITE BLOOD CELL OR PLATELET COUNTS, THE PATIENT SHOULD BE MONITORED CLOSELY. DISCONTINUATION OF THE DRUG SHOULD BE CONSIDERED IF ANY EVIDENCE OF SIGNIFICANT BONE MARROW DEPRESSION DEVELOPS."
+    ],
+    "drug_interactions": [
+      "Drug Interactions There has been a report of a patient who passed an orange rubbery precipitate in his stool the day after ingesting Tegretol suspension immediately followed by Thorazine ® solution. Subsequent testing has shown that mixing Tegretol suspension and chlorpromazine solution (both generic and brand name) as well as Tegretol suspension and liquid Mellaril ® , resulted in the occurrence of this precipitate. Because the extent to which this occurs with other liquid medications is not known, Tegretol suspension should not be administered simultaneously with other liquid medicinal agents or diluents (see DOSAGE AND ADMINISTRATION ). Clinically meaningful drug interactions have occurred with concomitant medications and include (but are not limited to) the following:"
+    ],
+    "openfda": {
+      "generic_name": [
+        "CARBAMAZEPINE"
+      ],
+      "brand_name": [
+        "Carbamazepine"
+      ],
+      "substance_name": [
+        "CARBAMAZEPINE"
+      ],
+      "application_number": [
+        "ANDA216594"
+      ]
+    }
+  }
+}

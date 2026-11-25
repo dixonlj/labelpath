@@ -1,0 +1,38 @@
+{
+  "seed": "vasopressin",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22vasopressin%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 25,
+  "record": {
+    "set_id": "53372911-5a55-dfac-e063-6394a90ae2f6",
+    "id": "5946e4cc-d507-e28e-e063-6394a90a0feb",
+    "effective_time": "20260817",
+    "indications_and_usage": [
+      "Vasopressin injection is indicated to increase blood pressure in adults with vasodilatory shock who remain hypotensive despite fluids and catecholamines."
+    ],
+    "contraindications": [
+      "Vasopressin injection 1 mL single dose vial does not contain chlorobutanol and is therefore contraindicated only in patients with a known allergy or hypersensitivity to 8-L-arginine vasopressin."
+    ],
+    "drug_interactions": [
+      "7.1 Catecholamines Use with catecholamines is expected to result in an additive effect on mean arterial blood pressure and other hemodynamic parameters. Hemodynamic monitoring is recommended; adjust the dose of vasopressin as needed. 7.2 Indomethacin Use with indomethacin may prolong the effect of vasopressin injection on cardiac index and systemic vascular resistance. Hemodynamic monitoring is recommended; adjust the dose of vasopressin as needed [see Clinical Pharmacology (12.3)]. 7.3 Ganglionic Blocking Agents Use with ganglionic blocking agents may increase the effect of vasopressin injection on mean arterial blood pressure. Hemodynamic monitoring is recommended; adjust the dose of vasopressin as needed [see Clinical Pharmacology (12.3)]. 7.4 Drugs Suspected of Causing SIADH Use with drugs suspected of causing SIADH (e.g., SSRIs, tricyclic antidepressants, haloperidol, chlorpropamide, enalapril, methyldopa, pentamidine, vincristine, cyclophosphamide, ifosfamide, felbamate) may increase the pressor effect in addition to the antidiuretic effect of vasopressin injection. Hemodynamic monitoring is recommended; adjust the dose of vasopressin as needed. 7.5 Drugs Suspected of Causing Diabetes Insipidus Use with drugs suspected of causing diabetes insipidus (e.g., demeclocycline, lithium, foscarnet, clozapine) may decrease the pressor effect in addition to the antidiuretic effect of vasopressin injection. Hemodynamic monitoring is recommended; adjust the dose of vasopressin as needed."
+    ],
+    "warnings_and_cautions": [
+      "5.1 Worsening Cardiac Function A decrease in cardiac index may be observed with the use of vasopressin. 5.2 Reversible Diabetes Insipidus Patients may experience reversible diabetes insipidus, manifested by the development of polyuria, a dilute urine, and hypernatremia, after cessation of treatment with vasopressin. Monitor serum electrolytes, fluid status and urine output after vasopressin discontinuation. Some patients may require readministration of vasopressin or administration of desmopressin to correct fluid and electrolyte shifts."
+    ],
+    "openfda": {
+      "generic_name": [
+        "VASOPRESSIN"
+      ],
+      "brand_name": [
+        "VASOPRESSIN"
+      ],
+      "substance_name": [
+        "VASOPRESSIN, UNSPECIFIED"
+      ],
+      "application_number": [
+        "ANDA213988"
+      ]
+    }
+  }
+}

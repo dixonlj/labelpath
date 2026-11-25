@@ -1,0 +1,38 @@
+{
+  "seed": "colchicine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22colchicine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 57,
+  "record": {
+    "set_id": "5c1ceff7-8f00-48cc-8ea4-678106455ff1",
+    "id": "6fbfc3fa-8db3-4558-afc9-d5a3cb69f422",
+    "effective_time": "20261106",
+    "indications_and_usage": [
+      "1 INDICATIONS & USAGE Colchicine tablets are an alkaloid indicated for: Familial Mediterranean fever (FMF) in adults and children 4 years or older ( 1.2 ). 1.2 Familial Mediterranean Fever (FMF) Colchicine tablets are indicated in adults and children four years or older for treatment of familial Mediterranean fever (FMF)."
+    ],
+    "contraindications": [
+      "4 CONTRAINDICATIONS Patients with renal or hepatic impairment should not be given colchicine tablets in conjunction with P-gp or strong CYP3A4 inhibitors (this includes all protease inhibitors except fosamprenavir). In these patients, life-threatening and fatal colchicine toxicity has been reported with colchicine taken in therapeutic doses. Patients with renal or hepatic impairment should not be given colchicine tablets in conjunction with P-gp or strong CYP3A4 inhibitors ( 5.3 ). In these patients, life-threatening and fatal colchicine toxicity has been reported with colchicine taken in therapeutic doses (7)."
+    ],
+    "drug_interactions": [
+      "7 DRUG INTERACTIONS Colchicine is a substrate of the efflux transporter P-glycoprotein (P-gp). Of the cytochrome P450 enzymes tested, CYP3A4 was mainly involved in the metabolism of colchicine. If colchicine tablets is administered with drugs that inhibit P-gp, most of which also inhibit CYP3A4, increased concentrations of colchicine are likely. Fatal drug interactions have been reported. Physicians should ensure that patients are suitable candidates for treatment with colchicine tablets and remain alert for signs and symptoms of toxicities related to increased colchicine exposure as a result of a drug interaction. Signs and symptoms of colchicine tablets toxicity should be evaluated promptly and, if toxicity is suspected, colchicine tablets should be discontinued immediately. Table 4 provides recommendations as a result of other potentially significant drug interactions. Table 1 provides recommendations for strong and moderate CYP3A4 inhibitors and P-gp inhibitors. Table 4. Other Potentially Significant Drug Interactions Concomitant Drug Class or Food Noted or Anticipated Outcome Clinical Comment HMG-Co A Reductase Inhibitors: atorvastatin, fluvastatin, lovastatin, pravastatin, simvastatin Pharmacokinetic and/or pharmacodynamic interaction: the addition of one drug to a stable long-term regimen of the other has resulted in myopathy and rhabdomyolysis (including a fatality) Weigh the potential benefits and risks and carefully monitor patients for any signs or symptoms of muscle pain, tenderness, or weakness, particularly during initial therapy; monitoring CPK (creatine phosphokinase) will not necessarily prevent the occurrence of severe myopathy. Other Lipid-Lowering Drugs: fibrates, gemfibrozil Digitalis Glycosides: digoxin P-gp substrate; rhabdomyolysis has been reported Coadministration of P-gp and/or CYP3A4 inhibitors (e.g., clarithromycin or cyclosporine) have been demonstrated to alter the concentration of colchicine. The potential for drug-drug interactions must be considered prior to and during therapy. See FPI for a complete list of reported and potential interactions ( 2.4 , 5.3 , 7 )."
+    ],
+    "warnings_and_cautions": [
+      "5 WARNINGS AND PRECAUTIONS · Fatal overdoses have been reported with colchicine in adults and children. Keep colchicine tablets out of the reach of children ( 5.1 , 10 ). · Blood dyscrasias: myelosuppression, leukopenia, granulocytopenia, thrombocytopenia and aplastic anemia have been reported ( 5.2 ). · Monitor for toxicity and if present consider temporary interruption or discontinuation of colchicine ( 5.2 , 5.3 , 5.4 , 6 , 10 ). · Drug interaction P-gp and/or CYP3A4 inhibitors: Coadministration of colchicine with P-gp and/or strong CYP3A4 inhibitors has resulted in life-threatening interactions and death ( 5.3 , 7 ). · Neuromuscular toxicity: Myotoxicity including rhabdomyolysis may occur, especially in combination with other drugs known to cause this effect. Consider temporary interruption or discontinuation of colchicine tablets ( 5.4 , 7 ). 5.1 Fatal Overdose Fatal overdoses, both accidental and intentional, have been reported in adults and children who have ingested colchicine [see Overdosage ( 10 )] . Colchicine tablets should be kept out of the reach of children. 5.2 Blood Dyscrasias Myelosuppression, leukopenia, granulocytopenia, thrombocytopenia, pancytopenia and aplastic anemia have been reported with colchicine used in therapeutic doses. 5.3 Drug Interactions Colchicine is a P-gp and CYP3A4 substrate. Life-threatening and fatal drug interactions have been reported in patients treated with colchicine given with P-gp and strong CYP3A4 inhibitors. If treatment with a P-gp or strong CYP3A4 inhibitor is required in patients with normal renal and hepatic function, the patient’s dose of colchicine may need to be reduced or interrupted [see Drug Interactions ( 7 )] . Use of colchicine in conjunction with P-gp or strong CYP3A4 inhibitors (this includes all protease inhibitors except fosamprenavir) is contraindicated in patients with renal or hepatic impairment [see Contraindications ( 4 )]. 5.4 Neuromuscular Toxicity Colchicine-induced neuromuscular toxicity and rhabdomyolysis have been reported with chronic treatment in therapeutic doses. Patients with renal dysfunction and elderly patients, even those with normal renal and hepatic function, are at increased risk. Concomitant use of atorvastatin, simvastatin, pravastatin, fluvastatin, lovastatin, gemfibrozil, fenofibrate, fenofibric acid or benzafibrate (themselves associated with myotoxicity) or cyclosporine with colchicine tablets may potentiate the development of myopathy [see Drug Interactions ( 7 )] . Once colchicine is stopped, the symptoms generally resolve within one week to several months."
+    ],
+    "openfda": {
+      "generic_name": [
+        "COLCHICINE"
+      ],
+      "brand_name": [
+        "colchicine"
+      ],
+      "substance_name": [
+        "COLCHICINE"
+      ],
+      "application_number": [
+        "ANDA211250"
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "seed": "oxybutynin",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22oxybutynin%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 87,
+  "record": {
+    "set_id": "9c8ced4b-94de-4df8-bea3-b42b8846b769",
+    "id": "602c2772-5e7c-01ac-e063-6394a90aabbc",
+    "effective_time": "20261113",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Oxybutynin chloride is indicated for the relief of symptoms of bladder instability associated with voiding in patients with uninhibited neurogenic or reflex neurogenic bladder (i.e., urgency, frequency, urinary leakage, urge incontinence, dysuria)."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Oxybutynin chloride is contraindicated in patients with urinary retention, gastric retention and other severe decreased gastrointestinal motility conditions, uncontrolled narrow-angle glaucoma and in patients who are at risk for these conditions. Oxybutynin chloride is also contraindicated in patients who have demonstrated hypersensitivity to the drug substance or other components of the product."
+    ],
+    "drug_interactions": [
+      "Drug Interactions The concomitant use of oxybutynin with other anticholinergic drugs or with other agents which produce dry mouth, constipation, somnolence (drowsiness), and/or other anticholinergic-like effects may increase the frequency and/or severity of such effects. Anticholinergic agents may potentially alter the absorption of some concomitantly administered drugs due to anticholinergic effects on gastrointestinal motility. This may be of concern for drugs with a narrow therapeutic index. Anticholinergic agents may also antagonize the effects of prokinetic agents, such as metoclopramide. Mean oxybutynin chloride plasma concentrations were approximately 3-4 fold higher when oxybutynin chloride was administered with ketoconazole, a potent CYP3A4 inhibitor. Other inhibitors of the cytochrome P450 3A4 enzyme system, such as antimycotic agents (e.g., itraconazole and miconazole) or macrolide antibiotics (e.g., erythromycin and clarithromycin), may alter oxybutynin mean pharmacokinetic parameters (i.e., C max and AUC). The clinical relevance of such potential interactions is not known. Caution should be used when such drugs are co-administered."
+    ],
+    "openfda": {
+      "generic_name": [
+        "OXYBUTYNIN CHLORIDE"
+      ],
+      "brand_name": [
+        "Oxybutynin Chloride"
+      ],
+      "substance_name": [
+        "OXYBUTYNIN CHLORIDE"
+      ],
+      "application_number": [
+        "ANDA209335"
+      ]
+    }
+  }
+}

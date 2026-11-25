@@ -1,0 +1,35 @@
+{
+  "seed": "protamine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22protamine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 5,
+  "record": {
+    "set_id": "c76876da-b9a8-45d0-9278-7df3288d3a06",
+    "id": "c76876da-b9a8-45d0-9278-7df3288d3a06",
+    "effective_time": "20250429",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE: Protamine Sulfate Injection, USP is indicated in the treatment of heparin overdosage."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS: Protamine sulfate is contraindicated in patients who have shown previous intolerance to the drug."
+    ],
+    "boxed_warning": [
+      "WARNING Protamine sulfate can cause severe hypotension, cardiovascular collapse, noncardiogenic pulmonary edema, catastrophic pulmonary vasoconstriction, and pulmonary hypertension. Risk factors include high dose or overdose, rapid administration (see WARNINGS and DOSAGE AND ADMINISTRATION ), repeated doses, previous administration of protamine, and current or previous use of protamine-containing drugs (NPH insulin, protamine zinc insulin, and certain beta-blockers). Allergy to fish, previous vasectomy, and severe left ventricular dysfunction and abnormal preoperative pulmonary hemodynamics also may be risk factors. In patients with any of these risk factors, the risk to benefit of administration of protamine sulfate should be carefully considered. Vasopressors and resuscitation equipment should be immediately available in case of a severe reaction to protamine. Protamine sulfate should not be given when bleeding occurs without prior heparin use."
+    ],
+    "openfda": {
+      "generic_name": [
+        "PROTAMINE SULFATE"
+      ],
+      "brand_name": [
+        "Protamine Sulfate"
+      ],
+      "substance_name": [
+        "PROTAMINE SULFATE"
+      ],
+      "application_number": [
+        "ANDA089454"
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "seed": "ketoconazole",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22ketoconazole%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 73,
+  "record": {
+    "set_id": "8dd6b2f1-f438-4be1-a6c4-4f6c8902dfb6",
+    "id": "ff47a758-6c02-4ee9-a035-1a81c3d0eb93",
+    "effective_time": "20261020",
+    "indications_and_usage": [
+      "Uses controls flaking, scaling and itching associated with dandruff"
+    ],
+    "openfda": {
+      "generic_name": [
+        "KETOCONAZOLE"
+      ],
+      "brand_name": [
+        "Nizoral"
+      ],
+      "substance_name": [
+        "KETOCONAZOLE"
+      ],
+      "application_number": [
+        "NDA020310"
+      ]
+    }
+  }
+}

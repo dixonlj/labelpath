@@ -1,0 +1,29 @@
+{
+  "seed": "polyethylene glycol 3350",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22polyethylene+glycol+3350%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 121,
+  "record": {
+    "set_id": "d649f758-a46f-4864-8718-878ee5a74bfc",
+    "id": "ebd2744e-03ff-47d9-aaa3-5e2e484a19a0",
+    "effective_time": "20261105",
+    "indications_and_usage": [
+      "Use • relieves occasional constipation /irregularity • generally produces a bowel movement in 1 to 3 days"
+    ],
+    "openfda": {
+      "generic_name": [
+        "POLYETHYLENE GLYCOL 3350"
+      ],
+      "brand_name": [
+        "Winco"
+      ],
+      "substance_name": [
+        "POLYETHYLENE GLYCOL 3350"
+      ],
+      "application_number": [
+        "ANDA202071"
+      ]
+    }
+  }
+}

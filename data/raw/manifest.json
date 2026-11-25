@@ -1,0 +1,2073 @@
+{
+  "source": "https://api.fda.gov/drug/label.json",
+  "docs": "https://open.fda.gov/apis/drug/label/",
+  "terms": "https://open.fda.gov/terms/",
+  "retrieved_at": "2026-11-19",
+  "api_key_used": false,
+  "seed_count": 294,
+  "found_count": 293,
+  "missed_count": 1,
+  "cache_hits": 287,
+  "requests": 7,
+  "found": [
+    {
+      "seed": "warfarin",
+      "file": "warfarin.json",
+      "set_id": "61ab23a7-bc67-4777-854a-bf43c788a69a",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "heparin",
+      "file": "heparin.json",
+      "set_id": "7014808d-cec9-4b2c-8eb5-940493e356ab",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "enoxaparin",
+      "file": "enoxaparin.json",
+      "set_id": "1e0ac5e2-329c-d0a8-e063-6394a90afba8",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "dalteparin",
+      "file": "dalteparin.json",
+      "set_id": "23527b8b-9b28-4e6d-9751-33b143975ac7",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "fondaparinux",
+      "file": "fondaparinux.json",
+      "set_id": "dffbf7c9-495e-4a33-ac76-57b52f014fc2",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "apixaban",
+      "file": "apixaban.json",
+      "set_id": "41a133ef-e461-48ad-8221-b735bdd0ec25",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "rivaroxaban",
+      "file": "rivaroxaban.json",
+      "set_id": "e98f6d83-5172-97a1-ee41-5d7d1d8ba2fd",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "dabigatran etexilate",
+      "file": "dabigatran_etexilate.json",
+      "set_id": "e7eff2fc-3fac-4ad5-985b-2b8cc28eb84a",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "edoxaban",
+      "file": "edoxaban.json",
+      "set_id": "e77d3400-56ad-11e3-949a-0800200c9a66",
+      "cached": false,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "phytonadione",
+      "file": "phytonadione.json",
+      "set_id": "0d971993-466c-46dd-bdd6-2e300173621e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "protamine",
+      "file": "protamine.json",
+      "set_id": "c76876da-b9a8-45d0-9278-7df3288d3a06",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "idarucizumab",
+      "file": "idarucizumab.json",
+      "set_id": "c7400f8a-dcf4-a6df-6d07-983081b1bf34",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "tranexamic acid",
+      "file": "tranexamic_acid.json",
+      "set_id": "40e3e10f-a787-42f2-a2c0-0ce2cb1ab916",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "aminocaproic acid",
+      "file": "aminocaproic_acid.json",
+      "set_id": "5e5ebfcb-c3a2-1fcf-e063-6394a90a356a",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "alteplase",
+      "file": "alteplase.json",
+      "set_id": "91ecdef2-95ff-42dd-a31c-c8a09cab3ad9",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "tenecteplase",
+      "file": "tenecteplase.json",
+      "set_id": "739a3c53-caf6-40d6-a6af-84ce733a948b",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "aspirin",
+      "file": "aspirin.json",
+      "set_id": "77429b7f-78e4-42c0-8679-ae8da1748848",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "clopidogrel",
+      "file": "clopidogrel.json",
+      "set_id": "55731d95-0c99-ff61-e063-6394a90a1ab5",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "prasugrel",
+      "file": "prasugrel.json",
+      "set_id": "f51e64e0-f556-65d0-a876-fb709aaeefea",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ticagrelor",
+      "file": "ticagrelor.json",
+      "set_id": "c4c1ca82-99bd-451a-ad77-7fe28c4ae3e8",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "dipyridamole",
+      "file": "dipyridamole.json",
+      "set_id": "1a2c0a9a-c637-4485-ad4b-0b6d0b05fa20",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "cilostazol",
+      "file": "cilostazol.json",
+      "set_id": "7c841eed-a98f-43c3-baaf-bf5502207a69",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "iron sucrose",
+      "file": "iron_sucrose.json",
+      "set_id": "6f19c80e-22e9-4bab-aa53-4d2d958119ed",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "iron dextran",
+      "file": "iron_dextran.json",
+      "set_id": "99bf34be-cb8a-46d1-9637-5544dc2da287",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ferric carboxymaltose",
+      "file": "ferric_carboxymaltose.json",
+      "set_id": "8e8e95f4-8d3a-4658-9f6c-09edf2210341",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ferumoxytol",
+      "file": "ferumoxytol.json",
+      "set_id": "cf94c7fc-13a0-4ac9-bb85-9c38aa704d35",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "sodium ferric gluconate",
+      "file": "sodium_ferric_gluconate.json",
+      "set_id": "1fe028ff-42ac-4329-b1a5-a9dadfcb79f6",
+      "cached": false,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ferrous sulfate",
+      "file": "ferrous_sulfate.json",
+      "set_id": "3a749d62-0e20-0c15-e063-6394a90ac1a8",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "epoetin alfa",
+      "file": "epoetin_alfa.json",
+      "set_id": "1f2d0b28-9cc5-4523-80b8-637fdaf3f7a5",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "darbepoetin alfa",
+      "file": "darbepoetin_alfa.json",
+      "set_id": "0fd36cb9-c4f6-4167-93c9-8530865db3f9",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "filgrastim",
+      "file": "filgrastim.json",
+      "set_id": "74e1ec6e-1630-4654-895c-2bd355f939e7",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "pegfilgrastim",
+      "file": "pegfilgrastim.json",
+      "set_id": "c48fe1a7-63d7-4dce-bb53-a913cb0ade83",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "eltrombopag",
+      "file": "eltrombopag.json",
+      "set_id": "9af1e314-91ca-4ebc-ac12-f9fddc6d7902",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "deferoxamine",
+      "file": "deferoxamine.json",
+      "set_id": "d91e16df-8daa-4cd2-86a2-273eaa2446e0",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "deferasirox",
+      "file": "deferasirox.json",
+      "set_id": "59f1d3fb-5bdb-4261-8557-9a4bde8b3c1c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "cyanocobalamin",
+      "file": "cyanocobalamin.json",
+      "set_id": "409ef9c7-bc19-4d23-8e32-cd5bc8dacc50",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "folic acid",
+      "file": "folic_acid.json",
+      "set_id": "726bb436-69e3-452f-9f28-153b58bf3ca5",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "leucovorin",
+      "file": "leucovorin.json",
+      "set_id": "82c445f5-4cb7-4457-af19-3b5b8a121b4f",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "desmopressin",
+      "file": "desmopressin.json",
+      "set_id": "1b966e11-966e-41bc-ab20-76d29196ca20",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "albumin human",
+      "file": "albumin_human.json",
+      "set_id": "57bd6811-8619-11e0-9d78-0800200c9a66",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "potassium chloride",
+      "file": "potassium_chloride.json",
+      "set_id": "730fcad2-e080-42b7-b52d-3dabab6209de",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "magnesium sulfate",
+      "file": "magnesium_sulfate.json",
+      "set_id": "5176ed24-015e-43fe-9eb4-85098debf5f1",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "calcium gluconate",
+      "file": "calcium_gluconate.json",
+      "set_id": "3cbf6bf7-2415-4435-b3df-41855514a05d",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "calcium chloride",
+      "file": "calcium_chloride.json",
+      "set_id": "0a3b8e0e-efb0-465b-84cb-d120b3096ebd",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "sodium bicarbonate",
+      "file": "sodium_bicarbonate.json",
+      "set_id": "ea9ad1a6-84f2-44d8-bf93-fb8f3d3fce9c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "thiamine",
+      "file": "thiamine.json",
+      "set_id": "3bdf3b03-90cf-4416-9344-7733b193adf5",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ascorbic acid",
+      "file": "ascorbic_acid.json",
+      "set_id": "f0b683f8-189b-4a3f-9ffe-f91df6d798b6",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "niacin",
+      "file": "niacin.json",
+      "set_id": "6e604319-e164-4056-ab80-b78b98c519c7",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "calcitriol",
+      "file": "calcitriol.json",
+      "set_id": "a1567da9-af74-4afd-9ac5-8b53ec5d7cbf",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ergocalciferol",
+      "file": "ergocalciferol.json",
+      "set_id": "ba2076ef-1650-45e1-b092-a4c449dd6210",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "acetylcysteine",
+      "file": "acetylcysteine.json",
+      "set_id": "3b0310d2-4e70-4b94-8d69-cb5999a32b54",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "glucagon",
+      "file": "glucagon.json",
+      "set_id": "3d8c92cf-9263-4126-8a5b-4cd761e31bc1",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "naloxone",
+      "file": "naloxone.json",
+      "set_id": "d39635a4-ddb3-4d32-8211-eb84c78e9f59",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "flumazenil",
+      "file": "flumazenil.json",
+      "set_id": "1855bb03-392f-4a0d-8361-24fc2a0e635e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "fomepizole",
+      "file": "fomepizole.json",
+      "set_id": "256910fe-91f2-48f6-b0b4-55edc52dacd4",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "methylene blue",
+      "file": "methylene_blue.json",
+      "set_id": "691a6872-bc2f-d492-11c6-c3eec25aa3d3",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "hydroxocobalamin",
+      "file": "hydroxocobalamin.json",
+      "set_id": "3be23e83-4a7f-3854-e063-6294a90acb7a",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "amoxicillin",
+      "file": "amoxicillin.json",
+      "set_id": "987786a1-d748-4b42-abb5-62a2f38ef195",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "amoxicillin and clavulanate potassium",
+      "file": "amoxicillin_and_clavulanate_potassium.json",
+      "set_id": "80be54ec-2a38-4125-a1a8-e58f50800dd2",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ampicillin",
+      "file": "ampicillin.json",
+      "set_id": "19546563-50b7-4160-8cbe-f8e7079cba69",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "penicillin v potassium",
+      "file": "penicillin_v_potassium.json",
+      "set_id": "ceddc406-4a17-471f-917e-63b4b03779ea",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "piperacillin and tazobactam",
+      "file": "piperacillin_and_tazobactam.json",
+      "set_id": "668a2730-e95a-4639-a506-ae95a6502ca1",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "cefazolin",
+      "file": "cefazolin.json",
+      "set_id": "197d5702-2c20-480e-8246-4d0d21f871be",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "cephalexin",
+      "file": "cephalexin.json",
+      "set_id": "6ce11859-aa21-4b3f-bd59-3cd26deca82b",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ceftriaxone",
+      "file": "ceftriaxone.json",
+      "set_id": "36c07ebf-b091-483e-b2c4-f0fc0c2b4186",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "cefepime",
+      "file": "cefepime.json",
+      "set_id": "de477f37-40f6-4295-ae72-a2ee36a8922e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "cefdinir",
+      "file": "cefdinir.json",
+      "set_id": "e296387e-eb20-4451-a184-f91748a4e9c7",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "cefuroxime",
+      "file": "cefuroxime.json",
+      "set_id": "0a145288-733a-4966-b7ae-dc96eb103d8c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "cefotaxime",
+      "file": "cefotaxime.json",
+      "set_id": "434fb630-c8d6-4583-b3ee-8e4ba6552c3d",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ceftazidime",
+      "file": "ceftazidime.json",
+      "set_id": "112c5457-8d71-49f5-b531-9761d7d38c93",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "meropenem",
+      "file": "meropenem.json",
+      "set_id": "31dd2160-7dbd-51fa-e054-00144ff88e88",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ertapenem",
+      "file": "ertapenem.json",
+      "set_id": "c4da28cb-6725-4fa1-a7b0-e84f408fb36b",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "imipenem and cilastatin",
+      "file": "imipenem_and_cilastatin.json",
+      "set_id": "46f54df9-5afe-430c-aa19-0d84c2044b0b",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "aztreonam",
+      "file": "aztreonam.json",
+      "set_id": "9a105eaf-ee77-4016-beeb-d425a5565db2",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "vancomycin",
+      "file": "vancomycin.json",
+      "set_id": "1bda7fa4-fdee-410a-a216-02cfbf91632f",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "daptomycin",
+      "file": "daptomycin.json",
+      "set_id": "e6fef9de-e357-4fa3-8839-f483edf1b4d0",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "linezolid",
+      "file": "linezolid.json",
+      "set_id": "6e70e63b-bfd5-478d-a8ee-8ba22c9efabd",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "metronidazole",
+      "file": "metronidazole.json",
+      "set_id": "353b7f5b-4bbc-4ec9-84ba-d82656ea1811",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ciprofloxacin",
+      "file": "ciprofloxacin.json",
+      "set_id": "cfda82e4-8660-447e-a881-b87165a31e9a",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "levofloxacin",
+      "file": "levofloxacin.json",
+      "set_id": "814450ae-439e-4a5d-8c60-9b21b6f14be5",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "moxifloxacin",
+      "file": "moxifloxacin.json",
+      "set_id": "5a6d3ff1-e853-a3d8-e063-6394a90a18f5",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "azithromycin",
+      "file": "azithromycin.json",
+      "set_id": "e9800bbe-e8bf-4689-a8a5-dc23b5d2ee56",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "clarithromycin",
+      "file": "clarithromycin.json",
+      "set_id": "1d328f5d-73c1-4df7-a3df-71d0e0221181",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "erythromycin",
+      "file": "erythromycin.json",
+      "set_id": "e54d66fa-93bb-4339-a75e-194a2e4488aa",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "doxycycline",
+      "file": "doxycycline.json",
+      "set_id": "9e710113-f25e-46fb-8327-7a8e649613a2",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "minocycline",
+      "file": "minocycline.json",
+      "set_id": "e1771cc1-a91a-436c-801a-1c915ca25c6a",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "tetracycline",
+      "file": "tetracycline.json",
+      "set_id": "02e88b4a-57ae-4ef6-ba48-97c657202b94",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "sulfamethoxazole and trimethoprim",
+      "file": "sulfamethoxazole_and_trimethoprim.json",
+      "set_id": "3ef62512-0dc3-4821-9b60-6b375841c4c0",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "trimethoprim",
+      "file": "trimethoprim.json",
+      "set_id": "e53ccf1b-315f-4454-824e-f69769908597",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "nitrofurantoin",
+      "file": "nitrofurantoin.json",
+      "set_id": "37606c6f-0d85-4314-94ae-f7732c7bc8d5",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "fosfomycin",
+      "file": "fosfomycin.json",
+      "set_id": "36bca22f-49ea-42ce-926b-035c42eb6038",
+      "cached": false,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "gentamicin",
+      "file": "gentamicin.json",
+      "set_id": "84f6eb1c-a287-489a-8c3e-aa5954cf1992",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "tobramycin",
+      "file": "tobramycin.json",
+      "set_id": "5b66bba3-cf97-4a9c-b618-ba5f277f20f6",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "amikacin",
+      "file": "amikacin.json",
+      "set_id": "499ab990-2b21-474f-aaba-d86388965f40",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "clindamycin",
+      "file": "clindamycin.json",
+      "set_id": "4a3901a4-194f-4a15-9c85-3d0982afcf31",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "rifampin",
+      "file": "rifampin.json",
+      "set_id": "50f706f9-5003-4e15-bece-85b6213b1f5c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "isoniazid",
+      "file": "isoniazid.json",
+      "set_id": "312cd403-b211-64ef-e063-6394a90aab88",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "pyrazinamide",
+      "file": "pyrazinamide.json",
+      "set_id": "262d8829-728c-48db-b89b-88d13b87e684",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ethambutol",
+      "file": "ethambutol.json",
+      "set_id": "e0d4a594-d3e0-47b0-9f11-f4dbd4552d5a",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "fluconazole",
+      "file": "fluconazole.json",
+      "set_id": "126406ae-1fdc-df20-e063-6294a90a2718",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "itraconazole",
+      "file": "itraconazole.json",
+      "set_id": "2ab38a8a-3708-4b97-9f7f-8e554a15348d",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "voriconazole",
+      "file": "voriconazole.json",
+      "set_id": "2b262849-9a29-44a2-9b9d-2378f771379c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ketoconazole",
+      "file": "ketoconazole.json",
+      "set_id": "8dd6b2f1-f438-4be1-a6c4-4f6c8902dfb6",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "terbinafine",
+      "file": "terbinafine.json",
+      "set_id": "2df111dc-ecac-4161-9e22-38436eb37c1f",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "nystatin",
+      "file": "nystatin.json",
+      "set_id": "56aca0e2-8691-4701-beba-e2315524709f",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "acyclovir",
+      "file": "acyclovir.json",
+      "set_id": "8cd22728-34b4-4e55-8339-580138fe46d8",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "valacyclovir",
+      "file": "valacyclovir.json",
+      "set_id": "495f22cc-18d4-4264-9313-7ab20e7b5bc9",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "oseltamivir",
+      "file": "oseltamivir.json",
+      "set_id": "339778ee-0b6f-6d81-e063-6394a90a2d32",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "hydroxychloroquine",
+      "file": "hydroxychloroquine.json",
+      "set_id": "5ca218af-b3f4-512a-e063-6394a90a3ec6",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "acetaminophen",
+      "file": "acetaminophen.json",
+      "set_id": "146c735b-5081-4de4-9025-d939d560bbba",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ibuprofen",
+      "file": "ibuprofen.json",
+      "set_id": "701ee488-c57f-a82c-e053-2991aa0af403",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "naproxen",
+      "file": "naproxen.json",
+      "set_id": "a9f9ce81-9d51-4167-9581-974866a8fe31",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "celecoxib",
+      "file": "celecoxib.json",
+      "set_id": "3191c9dc-bfdf-0591-e054-00144ff8d46c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "diclofenac",
+      "file": "diclofenac.json",
+      "set_id": "08e41a9d-644c-4ac6-aba3-38d7c3f36d36",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "indomethacin",
+      "file": "indomethacin.json",
+      "set_id": "85014b51-1354-4d16-9995-3ee33a7155fa",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "meloxicam",
+      "file": "meloxicam.json",
+      "set_id": "4acea0aa-973f-40e5-88b4-0e2d85ea624c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "diphenhydramine",
+      "file": "diphenhydramine.json",
+      "set_id": "9d6b5ec1-3aa4-4a19-936e-c44b04b2f3fa",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "loratadine",
+      "file": "loratadine.json",
+      "set_id": "06d1c443-ec23-4aa1-a7f3-f2b7ffcc2588",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "cetirizine",
+      "file": "cetirizine.json",
+      "set_id": "30cbaa91-2216-efd2-e063-6294a90aaaed",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "fexofenadine",
+      "file": "fexofenadine.json",
+      "set_id": "c5d58d74-da08-eb72-e053-2a95a90adc27",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "famotidine",
+      "file": "famotidine.json",
+      "set_id": "09ef39a4-c6b3-4395-8211-3f551dc44830",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "omeprazole",
+      "file": "omeprazole.json",
+      "set_id": "e235ef89-3592-4ca1-8c13-d7ce84b1001c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "pantoprazole",
+      "file": "pantoprazole.json",
+      "set_id": "3cde88e6-28f2-4cbe-8c3f-770b05cc0e1b",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "esomeprazole",
+      "file": "esomeprazole.json",
+      "set_id": "165b1942-6004-4687-bb7e-42240d4a9a59",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "lansoprazole",
+      "file": "lansoprazole.json",
+      "set_id": "3d180cfc-16a7-417c-8fcd-3f808faba838",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ondansetron",
+      "file": "ondansetron.json",
+      "set_id": "0b675b09-fe40-435c-b91a-c61cdf767fbf",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "metoclopramide",
+      "file": "metoclopramide.json",
+      "set_id": "917494a9-cff1-4ee6-9523-e112120373c5",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "loperamide",
+      "file": "loperamide.json",
+      "set_id": "3310a3c2-389a-4b27-a478-67c905789854",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "docusate sodium",
+      "file": "docusate_sodium.json",
+      "set_id": "91099e15-94d7-b684-e053-2a95a90a574e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "polyethylene glycol 3350",
+      "file": "polyethylene_glycol_3350.json",
+      "set_id": "d649f758-a46f-4864-8718-878ee5a74bfc",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "lisinopril",
+      "file": "lisinopril.json",
+      "set_id": "dd015c18-1ea6-44e3-9186-8d2f8444d874",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "enalapril",
+      "file": "enalapril.json",
+      "set_id": "2061543d-67e7-46b6-aa56-cafa11ae4b93",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ramipril",
+      "file": "ramipril.json",
+      "set_id": "245d3580-77c6-4c0f-b324-c8514b792c59",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "benazepril",
+      "file": "benazepril.json",
+      "set_id": "1a7b373a-9b74-4b9d-93fb-081614222e30",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "losartan",
+      "file": "losartan.json",
+      "set_id": "6286ea54-2350-49fc-8f37-4b979bd7f986",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "valsartan",
+      "file": "valsartan.json",
+      "set_id": "7d15c40a-4b01-4b80-ac75-784017545066",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "olmesartan",
+      "file": "olmesartan.json",
+      "set_id": "37e59db2-6d89-4593-ad00-35d77ab9d013",
+      "cached": false,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "irbesartan",
+      "file": "irbesartan.json",
+      "set_id": "bc07bbf5-b1c6-4854-b6af-e06520c20728",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "telmisartan",
+      "file": "telmisartan.json",
+      "set_id": "56a72ddf-c2a2-45ce-91b1-1fcfbff52c10",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "amlodipine",
+      "file": "amlodipine.json",
+      "set_id": "ac0dd8fb-ebe1-4d02-bd0d-4f979c6e3608",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "nifedipine",
+      "file": "nifedipine.json",
+      "set_id": "75003769-7800-4bc7-b709-35b4caec2c2f",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "diltiazem",
+      "file": "diltiazem.json",
+      "set_id": "850566b1-0c8e-42bc-85fa-c8ee710f34ba",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "verapamil",
+      "file": "verapamil.json",
+      "set_id": "60027309-1b7f-9c92-e063-6294a90a82d1",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "metoprolol",
+      "file": "metoprolol.json",
+      "set_id": "00de1f16-f979-4dbf-aa60-246ffac8d410",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "atenolol",
+      "file": "atenolol.json",
+      "set_id": "602bf7dd-e41c-bd2d-e063-6294a90a1a22",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "carvedilol",
+      "file": "carvedilol.json",
+      "set_id": "0930965b-80e3-4a0c-bffc-14ac32a47894",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "propranolol",
+      "file": "propranolol.json",
+      "set_id": "601b8b7e-763f-2466-e063-6294a90aa688",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "bisoprolol",
+      "file": "bisoprolol.json",
+      "set_id": "6517d564-ea55-4084-a8ab-34fea548c24e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "labetalol",
+      "file": "labetalol.json",
+      "set_id": "e4562c70-f245-4dbe-8fe1-0bb64a91a315",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "hydrochlorothiazide",
+      "file": "hydrochlorothiazide.json",
+      "set_id": "31a3d1cb-0f52-4818-965d-7584374bb23e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "furosemide",
+      "file": "furosemide.json",
+      "set_id": "7842eeab-decf-47e7-9134-0add90549a3d",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "torsemide",
+      "file": "torsemide.json",
+      "set_id": "5eeca7b4-92ac-bb1f-e063-6394a90a036a",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "spironolactone",
+      "file": "spironolactone.json",
+      "set_id": "37066684-5b63-4d3e-ae6a-08c4b3edd7aa",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "chlorthalidone",
+      "file": "chlorthalidone.json",
+      "set_id": "08b7ee65-53a5-ffbb-e063-6294a90ad4ee",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "triamterene",
+      "file": "triamterene.json",
+      "set_id": "11380f30-9c0f-4397-b5a7-2ed66611be73",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "atorvastatin",
+      "file": "atorvastatin.json",
+      "set_id": "8cc6240a-58d3-4bca-aa1e-662228957f75",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "simvastatin",
+      "file": "simvastatin.json",
+      "set_id": "c85d6d02-6cf6-4995-a590-cfca302ea0c9",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "rosuvastatin",
+      "file": "rosuvastatin.json",
+      "set_id": "ee4933c5-0d97-494d-ac0f-2083e0100836",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "pravastatin",
+      "file": "pravastatin.json",
+      "set_id": "be592e98-8a17-4c18-99b8-0f3a67000e2d",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "lovastatin",
+      "file": "lovastatin.json",
+      "set_id": "ac86821f-d741-4ab1-bd03-ce8797dd4f34",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ezetimibe",
+      "file": "ezetimibe.json",
+      "set_id": "109a22f4-a7cb-96c6-e063-6394a90ad7f6",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "gemfibrozil",
+      "file": "gemfibrozil.json",
+      "set_id": "5501438d-5247-4f2a-8e15-085276d01725",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "fenofibrate",
+      "file": "fenofibrate.json",
+      "set_id": "68024459-987a-9cf4-f539-4959093bc9f0",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "isosorbide mononitrate",
+      "file": "isosorbide_mononitrate.json",
+      "set_id": "86be0e85-5337-bee4-e053-2a91aa0a8158",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "nitroglycerin",
+      "file": "nitroglycerin.json",
+      "set_id": "5265648f-3062-48a2-a4e3-fea1207807a8",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "hydralazine",
+      "file": "hydralazine.json",
+      "set_id": "602d9775-61f3-5ef4-e063-6394a90a9aff",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "clonidine",
+      "file": "clonidine.json",
+      "set_id": "b359baee-6faf-4f7d-be86-ba7a1b1de770",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "doxazosin",
+      "file": "doxazosin.json",
+      "set_id": "bf2f7b41-f14d-4fcd-8db3-f507ca6ff78b",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "amiodarone",
+      "file": "amiodarone.json",
+      "set_id": "0a28ae25-7cc4-4ac0-a2ba-7820fb93e25c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "digoxin",
+      "file": "digoxin.json",
+      "set_id": "98d2ad5b-9ffa-4456-9a01-567636c3a4d2",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "flecainide",
+      "file": "flecainide.json",
+      "set_id": "ee9595d5-08a1-4529-9215-ddc3c7f929c4",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "sotalol",
+      "file": "sotalol.json",
+      "set_id": "e6ea445d-4d7c-4c32-83a7-e7683a56075b",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "dofetilide",
+      "file": "dofetilide.json",
+      "set_id": "26de5f8c-8cec-46f6-a468-69451758a278",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "metformin",
+      "file": "metformin.json",
+      "set_id": "ec43efb2-8a50-4bac-9576-f4303841a497",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "glipizide",
+      "file": "glipizide.json",
+      "set_id": "4c4dfe64-d1c5-65ec-e063-6394a90aead5",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "glyburide",
+      "file": "glyburide.json",
+      "set_id": "7e661288-2d24-4403-86a1-754afa1d04ff",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "glimepiride",
+      "file": "glimepiride.json",
+      "set_id": "2794f86b-d521-414b-8154-5dd1e2519653",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "sitagliptin",
+      "file": "sitagliptin.json",
+      "set_id": "b2da9d77-154b-48f7-8793-3f4a24dfafc6",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "linagliptin",
+      "file": "linagliptin.json",
+      "set_id": "dfe327e8-f6ab-41e5-bdef-d520118cd83a",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "empagliflozin",
+      "file": "empagliflozin.json",
+      "set_id": "faf3dd6a-9cd0-39c2-0d2e-232cb3f67565",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "dapagliflozin",
+      "file": "dapagliflozin.json",
+      "set_id": "5dc0e9df-3b45-4469-93fe-3d2eddbfe2b7",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "canagliflozin",
+      "file": "canagliflozin.json",
+      "set_id": "4e946ba3-02c4-4a10-9d5e-f2d87b534dc3",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "semaglutide",
+      "file": "semaglutide.json",
+      "set_id": "42bdd912-2393-44c4-b7e0-47672ca28991",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "liraglutide",
+      "file": "liraglutide.json",
+      "set_id": "0450d8a2-a88e-4849-9788-ed4f5246f223",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "pioglitazone",
+      "file": "pioglitazone.json",
+      "set_id": "04577c39-a9c0-4c66-a775-4c79e2c3dea5",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "insulin glargine",
+      "file": "insulin_glargine.json",
+      "set_id": "5328761e-59d3-ca7a-e063-6394a90ae810",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "insulin lispro",
+      "file": "insulin_lispro.json",
+      "set_id": "2be14cbb-197a-4da8-82c8-2443594e7f6f",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "insulin aspart",
+      "file": "insulin_aspart.json",
+      "set_id": "30c64769-d2f7-4604-ac9e-2a6bc09506c9",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "insulin detemir",
+      "file": "insulin_detemir.json",
+      "set_id": "82192527-99aa-4b53-8ce9-9173668d309c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "insulin human",
+      "file": "insulin_human.json",
+      "set_id": "b60e8dd0-1d48-4dc9-87fd-e14675255e8c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "levothyroxine",
+      "file": "levothyroxine.json",
+      "set_id": "0db62c57-d020-4ddb-b24a-ecb349ce3850",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "methimazole",
+      "file": "methimazole.json",
+      "set_id": "f69edfa9-0efb-4fe8-aeab-50f7baeebb6a",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "propylthiouracil",
+      "file": "propylthiouracil.json",
+      "set_id": "d819e532-09ac-434a-84a6-636c4204c7aa",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "albuterol",
+      "file": "albuterol.json",
+      "set_id": "5d62969b-2ad9-6cf0-e063-6394a90ac2f0",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "fluticasone",
+      "file": "fluticasone.json",
+      "set_id": "ba2b40a1-e28e-48b6-a406-9f720c3e6b39",
+      "cached": false,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "budesonide",
+      "file": "budesonide.json",
+      "set_id": "9d519bf3-8d9b-5208-13c5-308edc24aca7",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "montelukast",
+      "file": "montelukast.json",
+      "set_id": "c9ec1996-6a54-4622-b8a6-57dea49f6b35",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "tiotropium",
+      "file": "tiotropium.json",
+      "set_id": "496b38ee-45b6-4bb2-a35e-9023c3b73719",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ipratropium",
+      "file": "ipratropium.json",
+      "set_id": "ac641027-929e-694d-80cd-bf770dc51aa6",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "prednisone",
+      "file": "prednisone.json",
+      "set_id": "5b2f4fa9-817c-43c9-ac9a-750ab1d1f66f",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "prednisolone",
+      "file": "prednisolone.json",
+      "set_id": "96de9cad-2fb7-4947-87ae-4db57563a83a",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "methylprednisolone",
+      "file": "methylprednisolone.json",
+      "set_id": "cfc2eaf8-7c99-4ce1-95cf-ba1dc0226aed",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "dexamethasone",
+      "file": "dexamethasone.json",
+      "set_id": "d54a27f2-2af8-4f86-a7fd-453f6b1a9997",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "hydrocortisone",
+      "file": "hydrocortisone.json",
+      "set_id": "5f988ed9-7d5e-7976-e063-6294a90aa9f2",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "gabapentin",
+      "file": "gabapentin.json",
+      "set_id": "57492b91-1fe2-74ab-e063-6394a90a0b9e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "pregabalin",
+      "file": "pregabalin.json",
+      "set_id": "08ad87e3-e00c-46d1-98f8-df493cf1712e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "lamotrigine",
+      "file": "lamotrigine.json",
+      "set_id": "70cd448a-2921-4c69-bdf2-5a6ce883bd07",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "levetiracetam",
+      "file": "levetiracetam.json",
+      "set_id": "c6d5784d-abf9-45fe-ac5a-d5c53bd50f7e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "divalproex sodium",
+      "file": "divalproex_sodium.json",
+      "set_id": "c0aad9aa-65a2-42b2-8c7d-92290383a329",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "valproic acid",
+      "file": "valproic_acid.json",
+      "set_id": "ec41025a-ed7d-48c8-9005-08e3a9417f30",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "phenytoin",
+      "file": "phenytoin.json",
+      "set_id": "889dd22c-46f0-48d0-b18e-a3783c5fa653",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "carbamazepine",
+      "file": "carbamazepine.json",
+      "set_id": "48080efd-1781-4585-83f8-c43957ac63b3",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "oxcarbazepine",
+      "file": "oxcarbazepine.json",
+      "set_id": "3f36f519-c30c-4929-afa0-9844dc531e3f",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "topiramate",
+      "file": "topiramate.json",
+      "set_id": "1f327383-beb3-4d15-add6-5f1c749f2b3f",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "clonazepam",
+      "file": "clonazepam.json",
+      "set_id": "1ce88d2c-70f7-427b-8787-4afd9ce6f71c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "lorazepam",
+      "file": "lorazepam.json",
+      "set_id": "5140798d-8571-41fb-84a4-e182aac3f64c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "diazepam",
+      "file": "diazepam.json",
+      "set_id": "c2768add-5e01-4ff4-afa3-230380d59a1f",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "alprazolam",
+      "file": "alprazolam.json",
+      "set_id": "0ffcdbab-17e4-4395-8155-5b6ad00be6c2",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "midazolam",
+      "file": "midazolam.json",
+      "set_id": "3c2fd6ee-4ede-4ee4-8c05-34c93598f381",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "sertraline",
+      "file": "sertraline.json",
+      "set_id": "687ebdc4-6946-454e-8d46-3207488ccf32",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "fluoxetine",
+      "file": "fluoxetine.json",
+      "set_id": "620ecf00-5473-4420-afd1-94b5b38e7301",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "paroxetine",
+      "file": "paroxetine.json",
+      "set_id": "f22886f5-230c-47e4-9dd8-ffb14c8d6ae4",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "citalopram",
+      "file": "citalopram.json",
+      "set_id": "31a18cdf-b0aa-18f5-e054-00144ff8d46c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "escitalopram",
+      "file": "escitalopram.json",
+      "set_id": "d75e3b97-1ead-4e7b-9ae3-3626aede1efd",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "venlafaxine",
+      "file": "venlafaxine.json",
+      "set_id": "5fecf4b2-67fe-a7e9-e063-6394a90a793e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "duloxetine",
+      "file": "duloxetine.json",
+      "set_id": "ac903bda-76af-4aba-9c8a-ebf7066e05ee",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "bupropion",
+      "file": "bupropion.json",
+      "set_id": "6563b923-269f-40c3-b992-cbacdfca6e16",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "mirtazapine",
+      "file": "mirtazapine.json",
+      "set_id": "58e9b4c6-531f-49c4-a640-6953e70892fe",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "trazodone",
+      "file": "trazodone.json",
+      "set_id": "5e861818-6e7b-fe6d-e063-6294a90a7768",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "amitriptyline",
+      "file": "amitriptyline.json",
+      "set_id": "1523a2b4-f9d6-4d3c-a370-df579ed36911",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "lithium",
+      "file": "lithium.json",
+      "set_id": "edfceebd-a3e4-4905-bffe-cdc0b948dcd2",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "quetiapine",
+      "file": "quetiapine.json",
+      "set_id": "936b4ea8-82bf-461d-bc73-4b3bf3f3e9a0",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "olanzapine",
+      "file": "olanzapine.json",
+      "set_id": "f4e41c2c-d32d-40c2-8afb-b6df998ba6b0",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "risperidone",
+      "file": "risperidone.json",
+      "set_id": "ca41c144-224a-4d57-88d7-8778e6c69ed2",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "aripiprazole",
+      "file": "aripiprazole.json",
+      "set_id": "dd7bd09a-78c7-4848-a584-672b54296333",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "haloperidol",
+      "file": "haloperidol.json",
+      "set_id": "8ca14b79-6671-4e44-aa34-6564a92aa197",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "donepezil",
+      "file": "donepezil.json",
+      "set_id": "603c07bb-61bf-410f-8abf-01ef09d61c14",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "memantine",
+      "file": "memantine.json",
+      "set_id": "0e6977ef-6a0a-4bd9-b500-6ceb15abbd5e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "carbidopa and levodopa",
+      "file": "carbidopa_and_levodopa.json",
+      "set_id": "5217a6ec-cc26-4acc-b2da-17f6545c3b60",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "sumatriptan",
+      "file": "sumatriptan.json",
+      "set_id": "1bf70380-8272-4c0d-8841-d39ef2772351",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "tramadol",
+      "file": "tramadol.json",
+      "set_id": "ccb3e0f9-57db-40bc-84d2-b66a827a5b96",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "oxycodone",
+      "file": "oxycodone.json",
+      "set_id": "aa7ac2bf-d9ed-445d-b394-4d3fe39780ca",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "hydrocodone",
+      "file": "hydrocodone.json",
+      "set_id": "b7d23ac2-e776-9f62-3290-c64c2d6eb353",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "morphine",
+      "file": "morphine.json",
+      "set_id": "be420e8b-bcb0-49b5-bb4d-1df8b9959809",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "hydromorphone",
+      "file": "hydromorphone.json",
+      "set_id": "59d88866-e1ba-9d97-e063-6394a90a7b27",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "fentanyl",
+      "file": "fentanyl.json",
+      "set_id": "58dcd3f7-e3d8-4929-a186-8f680a51ff11",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "buprenorphine",
+      "file": "buprenorphine.json",
+      "set_id": "9f7b0a28-f937-4d4d-b793-ca3468bd28e0",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "methadone",
+      "file": "methadone.json",
+      "set_id": "540edd43-165d-4257-b989-3bccc8f54afb",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "allopurinol",
+      "file": "allopurinol.json",
+      "set_id": "682dd8b8-fc6e-47c5-95b7-82d7ad96b750",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "colchicine",
+      "file": "colchicine.json",
+      "set_id": "5c1ceff7-8f00-48cc-8ea4-678106455ff1",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "alendronate",
+      "file": "alendronate.json",
+      "set_id": "69f9c6f8-a8df-4ddf-8fb1-2768eb099ada",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "zoledronic acid",
+      "file": "zoledronic_acid.json",
+      "set_id": "4b699dd8-d232-4bdb-88ce-9b42ed93e036",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "tamsulosin",
+      "file": "tamsulosin.json",
+      "set_id": "f6b6aeab-bedd-4254-8811-4f65cf8a351f",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "finasteride",
+      "file": "finasteride.json",
+      "set_id": "e482a50d-db15-4407-85c9-160c88e8a657",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "sildenafil",
+      "file": "sildenafil.json",
+      "set_id": "5fa4920c-ec29-b879-e063-6294a90adcad",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "tadalafil",
+      "file": "tadalafil.json",
+      "set_id": "6c680b37-d515-4fc2-83e6-411f1017e18c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "estradiol",
+      "file": "estradiol.json",
+      "set_id": "6c5c47ab-28ee-11e1-bfc2-0800200c9a66",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "medroxyprogesterone",
+      "file": "medroxyprogesterone.json",
+      "set_id": "437edd12-2c08-4df4-8cf7-64c47e4779ac",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "levonorgestrel",
+      "file": "levonorgestrel.json",
+      "set_id": "51afe483-1834-0528-e063-6294a90ac75d",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "methotrexate",
+      "file": "methotrexate.json",
+      "set_id": "96e931f5-51ae-4bdf-a441-bb0dd26d4c0e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "azathioprine",
+      "file": "azathioprine.json",
+      "set_id": "ceab8e8b-d022-4d0c-a552-cc5782446248",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "mycophenolate mofetil",
+      "file": "mycophenolate_mofetil.json",
+      "set_id": "75a76397-bb62-4014-8488-949a711b25f0",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "tacrolimus",
+      "file": "tacrolimus.json",
+      "set_id": "604576da-e234-a27f-e063-6294a90a6d8d",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "cyclosporine",
+      "file": "cyclosporine.json",
+      "set_id": "1952d4c7-a40e-4924-b669-c41400774cb9",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "sulfasalazine",
+      "file": "sulfasalazine.json",
+      "set_id": "3254432e-87a4-4af0-afd1-d9e6f1b0efd4",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "buspirone",
+      "file": "buspirone.json",
+      "set_id": "fd05160d-24c6-4371-8b2c-c0f78c8b468e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "zolpidem",
+      "file": "zolpidem.json",
+      "set_id": "625fad5b-8817-4773-a2fc-20b662140e6e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "cyclobenzaprine",
+      "file": "cyclobenzaprine.json",
+      "set_id": "34e57aff-dc4b-4631-9d57-31020244835d",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "baclofen",
+      "file": "baclofen.json",
+      "set_id": "32525b4e-6384-49e1-a66d-abe45484ab86",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "tizanidine",
+      "file": "tizanidine.json",
+      "set_id": "25db7cc0-604c-3d6b-e063-6394a90a337f",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "oxybutynin",
+      "file": "oxybutynin.json",
+      "set_id": "9c8ced4b-94de-4df8-bea3-b42b8846b769",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "mirabegron",
+      "file": "mirabegron.json",
+      "set_id": "5f102149-ad27-4956-e063-6294a90ac6ad",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "atropine",
+      "file": "atropine.json",
+      "set_id": "6acb3f07-9e32-4ad0-8336-e2f33d55b127",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "epinephrine",
+      "file": "epinephrine.json",
+      "set_id": "cc4ebb51-6020-4339-a36a-ec2380b7d28e",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "norepinephrine",
+      "file": "norepinephrine.json",
+      "set_id": "be3c6f4f-54fc-4cb3-a299-8a022515d396",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "phenylephrine",
+      "file": "phenylephrine.json",
+      "set_id": "604bd7d8-3b44-bfc3-e063-6394a90a9a78",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "lidocaine",
+      "file": "lidocaine.json",
+      "set_id": "ffc87dfb-0e26-4b42-80fd-3fb7690119e3",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "propofol",
+      "file": "propofol.json",
+      "set_id": "76ae0147-53ad-4192-a400-c5d1760123d0",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "ketamine",
+      "file": "ketamine.json",
+      "set_id": "64a483f2-eb08-4993-84ce-9d8ddc757f2c",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "vasopressin",
+      "file": "vasopressin.json",
+      "set_id": "53372911-5a55-dfac-e063-6394a90ae2f6",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "octreotide",
+      "file": "octreotide.json",
+      "set_id": "4e2c9856-1836-49f0-9472-4dbeeb408f39",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "midodrine",
+      "file": "midodrine.json",
+      "set_id": "5a6705af-bb72-4edb-863a-93a351bd6dba",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "fludrocortisone",
+      "file": "fludrocortisone.json",
+      "set_id": "933e28ef-05e8-419e-a786-21eab67f33a2",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "tamoxifen",
+      "file": "tamoxifen.json",
+      "set_id": "509f8ba3-214d-aec8-e063-6294a90af498",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "anastrozole",
+      "file": "anastrozole.json",
+      "set_id": "da6ae05c-81e9-492a-a4c9-be3f1f367b59",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "fluorouracil",
+      "file": "fluorouracil.json",
+      "set_id": "1daf714b-704c-4bcc-b6e0-6f0eb2bfe66b",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "capecitabine",
+      "file": "capecitabine.json",
+      "set_id": "0b59e98c-5b34-4b93-90f6-20526f4d4f88",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "cyclophosphamide",
+      "file": "cyclophosphamide.json",
+      "set_id": "5bad5bfc-12c0-46a2-8355-1028f108ecbf",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "doxorubicin",
+      "file": "doxorubicin.json",
+      "set_id": "f280fb2e-5070-46e1-a4ed-ba191359cedd",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "isotretinoin",
+      "file": "isotretinoin.json",
+      "set_id": "9f1c8971-c6dc-4708-848b-5cee50b6c32a",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "clotrimazole",
+      "file": "clotrimazole.json",
+      "set_id": "6038e256-a2fe-18f2-e063-6394a90a40d9",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "mupirocin",
+      "file": "mupirocin.json",
+      "set_id": "1692855a-c6c1-4c30-aaa8-a761d635d931",
+      "cached": true,
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "seed": "triamcinolone",
+      "file": "triamcinolone.json",
+      "set_id": "0c77ba9f-9f17-4ece-8872-b9fd74218028",
+      "cached": false,
+      "retrieved_at": "2026-11-19"
+    }
+  ],
+  "missed": [
+    {
+      "seed": "cholecalciferol",
+      "reason": "no matching generic_name",
+      "total": 39,
+      "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22cholecalciferol%22&sort=effective_time%3Adesc&limit=25"
+    }
+  ]
+}

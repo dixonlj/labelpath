@@ -1,0 +1,32 @@
+{
+  "seed": "nystatin",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22nystatin%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 124,
+  "record": {
+    "set_id": "56aca0e2-8691-4701-beba-e2315524709f",
+    "id": "b137c100-538a-4d06-8f71-3681bd9018f9",
+    "effective_time": "20261027",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Nystatin Oral Suspension is indicated for the treatment of candidiasis in the oral cavity."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS The preparation is contraindicated in patients with a history of hypersensitivity to any of its components."
+    ],
+    "openfda": {
+      "generic_name": [
+        "NYSTATIN"
+      ],
+      "brand_name": [
+        "Nystatin"
+      ],
+      "substance_name": [
+        "NYSTATIN"
+      ],
+      "application_number": [
+        "ANDA203621"
+      ]
+    }
+  }
+}

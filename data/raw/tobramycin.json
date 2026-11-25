@@ -1,0 +1,32 @@
+{
+  "seed": "tobramycin",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tobramycin%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 95,
+  "record": {
+    "set_id": "5b66bba3-cf97-4a9c-b618-ba5f277f20f6",
+    "id": "8ea30c53-668e-48f2-a1b8-d4eab73d7ecb",
+    "effective_time": "20261026",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE TOBREX ® (tobramycin ophthalmic ointment) 0.3 % is a topical antibiotic indicated in the treatment of external infections of the eye and its adnexa caused by susceptible bacteria. Appropriate monitoring of bacterial response to topical antibiotic therapy should accompany the use of TOBREX (tobramycin ophthalmic ointment) 0.3%. Clinical studies have shown tobramycin to be safe and effective for use in children."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS TOBREX (tobramycin ophthalmic ointment) 0.3 % is contraindicated in patients with known hypersensitivity to any of its components."
+    ],
+    "openfda": {
+      "generic_name": [
+        "TOBRAMYCIN"
+      ],
+      "brand_name": [
+        "TOBREX"
+      ],
+      "substance_name": [
+        "TOBRAMYCIN"
+      ],
+      "application_number": [
+        "NDA050555"
+      ]
+    }
+  }
+}

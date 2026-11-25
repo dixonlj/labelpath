@@ -1,0 +1,29 @@
+{
+  "seed": "aspirin",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22aspirin%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 716,
+  "record": {
+    "set_id": "77429b7f-78e4-42c0-8679-ae8da1748848",
+    "id": "6029b741-a670-1998-e063-6394a90a2aa1",
+    "effective_time": "20261113",
+    "indications_and_usage": [
+      "Uses for the temporary relief of minor aches and pains or as recommended by your doctor. Because of its delayed action, this product will not provide fast relief of headaches or other symptoms needing immediate relief. ask your doctor about other uses for this product"
+    ],
+    "openfda": {
+      "generic_name": [
+        "ASPIRIN"
+      ],
+      "brand_name": [
+        "Aspirin"
+      ],
+      "substance_name": [
+        "ASPIRIN"
+      ],
+      "application_number": [
+        "M013"
+      ]
+    }
+  }
+}

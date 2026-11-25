@@ -1,0 +1,35 @@
+{
+  "seed": "hydrochlorothiazide",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22hydrochlorothiazide%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 555,
+  "record": {
+    "set_id": "31a3d1cb-0f52-4818-965d-7584374bb23e",
+    "id": "6000a73d-7b02-483f-e063-6294a90a6446",
+    "effective_time": "20261111",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Hydrochlorothiazide tablets are indicated as adjunctive therapy in edema associated with congestive heart failure, hepatic cirrhosis, and corticosteroid and estrogen therapy. Hydrochlorothiazide tablets have also been found useful in edema due to various forms of renal dysfunction such as nephrotic syndrome, acute glomerulonephritis, and chronic renal failure. Hydrochlorothiazide tablets are indicated in the management of hypertension either as the sole therapeutic agent or to enhance the effectiveness of other antihypertensive drugs in the more severe forms of hypertension. Use in Pregnancy Routine use of diuretics during normal pregnancy is inappropriate and exposes mother and fetus to unnecessary hazard. Diuretics do not prevent development of toxemia of pregnancy, and there is no satisfactory evidence that they are useful in the treatment of toxemia. Edema during pregnancy may arise from pathologic causes or from the physiologic and mechanical consequences of pregnancy. Thiazides are indicated in pregnancy when edema is due to pathologic causes, just as they are in the absence of pregnancy (see PRECAUTIONS, Pregnancy ). Dependent edema in pregnancy, resulting from restriction of venous return by the gravid uterus, is properly treated through elevation of the lower extremities and use of support stockings. Use of diuretics to lower intravascular volume in this instance is illogical and unnecessary. During normal pregnancy there is hypervolemia which is not harmful to the fetus or the mother in the absence of cardiovascular disease. However, it may be associated with edema, rarely generalized edema. If such edema causes discomfort, increased recumbency will often provide relief. Rarely this edema may cause extreme discomfort which is not relieved by rest. In these instances, a short course of diuretic therapy may provide relief and be appropriate."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Anuria. Hypersensitivity to this product or to other sulfonamide-derived drugs."
+    ],
+    "drug_interactions": [
+      "Drug Interactions When given concurrently the following drugs may interact with thiazide diuretics. Alcohol, barbiturates or narcotics - potentiation of orthostatic hypotension may occur. Antidiabetic drugs - (oral agents and insulin) - dosage adjustment of the antidiabetic drug may be required. Other antihypertensive drugs - additive effect or potentiation. Cholestyramine and colestipol resins - Absorption of hydrochlorothiazide is impaired in the presence of anionic exchange resins. Single doses of either cholestyramine or colestipol resins bind the hydrochlorothiazide and reduce its absorption from the gastrointestinal tract by up to 85 and 43 percent, respectively. Corticosteroids, ACTH - intensified electrolyte depletion, particularly hypokalemia. Pressor amines (e.g., norepinephrine) - possible decreased response to pressor amines but not sufficient to preclude their use. Skeletal muscle relaxants, nondepolarizing (e.g., tubocurarine) - possible increased responsiveness to the muscle relaxant. Lithium - generally should not be given with diluretics. Diuretic agents reduce the renal clearance of lithium and add a high risk of lithium toxicity. Refer to the package insert for lithium preparations before use of such preparations with hydrochlorothiazide Non - steroidal Anti - inflammatory Drugs - In some patients, the administration of a non-steroidal anti-inflammatory agent can reduce the diuretic, natriuretic and antihypertensive effects of loop, potassium-sparing and thiazide diuretics. Therefore when hydrochlorothiazide and non-steroidal anti-inflammatory agents are used concomitantly the patient should be observed closely to determine if the desired effect of the diuretic is obtained."
+    ],
+    "openfda": {
+      "generic_name": [
+        "HYDROCHLOROTHIAZIDE"
+      ],
+      "brand_name": [
+        "HYDROCHLOROTHIAZIDE"
+      ],
+      "substance_name": [
+        "HYDROCHLOROTHIAZIDE"
+      ],
+      "application_number": [
+        "ANDA085182"
+      ]
+    }
+  }
+}

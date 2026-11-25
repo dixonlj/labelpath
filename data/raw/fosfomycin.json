@@ -1,0 +1,35 @@
+{
+  "seed": "fosfomycin",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22fosfomycin%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 10,
+  "record": {
+    "set_id": "36bca22f-49ea-42ce-926b-035c42eb6038",
+    "id": "bc26713a-907e-4277-be0e-28399f873d69",
+    "effective_time": "20260910",
+    "indications_and_usage": [
+      "INDICATIONS & USAGE Fosfomycin Tromethamine Granules for Oral Solution is indicated only for the treatment of uncomplicated urinary tract infections (acute cystitis) in women due to susceptible strains of Escherichia coli and Enterococcus faecalis . Fosfomycin Tromethamine Granules for Oral Solution is not indicated for the treatment of pyelonephritis or perinephric abscess. If persistence or reappearance of bacteriuria occurs after treatment with fosfomycin tromethamine, other therapeutic agents should be selected. (See PRECAUTIONS and CLINICAL STUDIES section)."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Fosfomycin Tromethamine Granules for Oral Solution is contraindicated in patients with known hypersensitivity to the drug."
+    ],
+    "drug_interactions": [
+      "DRUG INTERACTIONS Metoclopramide: When coadministered with fosfomycin tromethamine, metoclopramide, a drug which increases gastrointestinal motility, lowers the serum concentration and urinary excretion of fosfomycin. Other drugs that increase gastrointestinal motility may produce similar effects. Cimetidine: Cimetidine does not affect the pharmacokinetics of fosfomycin when coadministered with fosfomycin tromethamine."
+    ],
+    "openfda": {
+      "generic_name": [
+        "FOSFOMYCIN TROMETHAMINE"
+      ],
+      "brand_name": [
+        "Fosfomycin Tromethamine"
+      ],
+      "substance_name": [
+        "FOSFOMYCIN TROMETHAMINE"
+      ],
+      "application_number": [
+        "ANDA210426"
+      ]
+    }
+  }
+}

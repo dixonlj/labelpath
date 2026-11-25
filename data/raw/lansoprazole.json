@@ -1,0 +1,29 @@
+{
+  "seed": "lansoprazole",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22lansoprazole%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 103,
+  "record": {
+    "set_id": "3d180cfc-16a7-417c-8fcd-3f808faba838",
+    "id": "9ae8b13e-f3b9-459f-9b07-4c34a5e8c813",
+    "effective_time": "20261102",
+    "indications_and_usage": [
+      "Use • treats frequent heartburn (occurs 2 or more days a week) • not intended for immediate relief of heartburn; this drug may take 1 to 4 days for full effect"
+    ],
+    "openfda": {
+      "generic_name": [
+        "LANSOPRAZOLE"
+      ],
+      "brand_name": [
+        "EQUATE LANSOPRAZOLE"
+      ],
+      "substance_name": [
+        "LANSOPRAZOLE"
+      ],
+      "application_number": [
+        "NDA208025"
+      ]
+    }
+  }
+}

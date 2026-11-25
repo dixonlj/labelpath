@@ -1,0 +1,30 @@
+# Virtual environments
+venv/
+.venv/
+
+# Secrets and local env
+.env
+.env.*
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.cache/
+.tox/
+
+# macOS
+.DS_Store
+
+# Auth / token files
+*.token
+*.tokens
+*auth*token*
+.auth/
+credentials.json

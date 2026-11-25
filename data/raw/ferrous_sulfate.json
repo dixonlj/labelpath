@@ -1,0 +1,26 @@
+{
+  "seed": "ferrous sulfate",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22ferrous+sulfate%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 5,
+  "record": {
+    "set_id": "3a749d62-0e20-0c15-e063-6394a90ac1a8",
+    "id": "3a749d62-0e21-0c15-e063-6394a90ac1a8",
+    "effective_time": "20250721",
+    "indications_and_usage": [
+      "Uses: See symptoms on front panel. Relieves hot flashes with headaches *"
+    ],
+    "openfda": {
+      "generic_name": [
+        "FERROUS SULFATE"
+      ],
+      "brand_name": [
+        "FERRUM SULPHURICUM"
+      ],
+      "substance_name": [
+        "FERROUS SULFATE"
+      ]
+    }
+  }
+}

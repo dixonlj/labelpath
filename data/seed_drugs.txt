@@ -1,0 +1,313 @@
+# LabelPath seed list of generic names
+#
+# This is a seed list used to build a graph of public FDA label text.
+# It is not medical advice, not a recommended treatment list, not a formulary,
+# and not a complete list of drugs. Names are lowercase search terms for the
+# openFDA drug label API (https://api.fda.gov/drug/label.json).
+#
+# A name may match a salt or simple dose form of the same generic (for example
+# "warfarin" may match a "WARFARIN SODIUM" label). Combination products are
+# listed under their full generic name so they are not confused with a single
+# component.
+
+# --- Lab-relevant core: anticoagulants, reversal agents, hemostasis, iron, ESA ---
+warfarin
+heparin
+enoxaparin
+dalteparin
+fondaparinux
+apixaban
+rivaroxaban
+dabigatran etexilate
+edoxaban
+phytonadione
+protamine
+idarucizumab
+tranexamic acid
+aminocaproic acid
+alteplase
+tenecteplase
+aspirin
+clopidogrel
+prasugrel
+ticagrelor
+dipyridamole
+cilostazol
+iron sucrose
+iron dextran
+ferric carboxymaltose
+ferumoxytol
+sodium ferric gluconate
+ferrous sulfate
+epoetin alfa
+darbepoetin alfa
+filgrastim
+pegfilgrastim
+eltrombopag
+deferoxamine
+deferasirox
+cyanocobalamin
+folic acid
+leucovorin
+desmopressin
+albumin human
+
+# --- Electrolytes, vitamins, and common supportive agents ---
+potassium chloride
+magnesium sulfate
+calcium gluconate
+calcium chloride
+sodium bicarbonate
+thiamine
+ascorbic acid
+niacin
+calcitriol
+ergocalciferol
+cholecalciferol
+acetylcysteine
+glucagon
+naloxone
+flumazenil
+fomepizole
+methylene blue
+hydroxocobalamin
+
+# --- Antibiotics, antifungals, antivirals, antimycobacterials ---
+amoxicillin
+amoxicillin and clavulanate potassium
+ampicillin
+penicillin v potassium
+piperacillin and tazobactam
+cefazolin
+cephalexin
+ceftriaxone
+cefepime
+cefdinir
+cefuroxime
+cefotaxime
+ceftazidime
+meropenem
+ertapenem
+imipenem and cilastatin
+aztreonam
+vancomycin
+daptomycin
+linezolid
+metronidazole
+ciprofloxacin
+levofloxacin
+moxifloxacin
+azithromycin
+clarithromycin
+erythromycin
+doxycycline
+minocycline
+tetracycline
+sulfamethoxazole and trimethoprim
+trimethoprim
+nitrofurantoin
+fosfomycin
+gentamicin
+tobramycin
+amikacin
+clindamycin
+rifampin
+isoniazid
+pyrazinamide
+ethambutol
+fluconazole
+itraconazole
+voriconazole
+ketoconazole
+terbinafine
+nystatin
+acyclovir
+valacyclovir
+oseltamivir
+hydroxychloroquine
+
+# --- Everyday and chronic outpatient medicines ---
+acetaminophen
+ibuprofen
+naproxen
+celecoxib
+diclofenac
+indomethacin
+meloxicam
+diphenhydramine
+loratadine
+cetirizine
+fexofenadine
+famotidine
+omeprazole
+pantoprazole
+esomeprazole
+lansoprazole
+ondansetron
+metoclopramide
+loperamide
+docusate sodium
+polyethylene glycol 3350
+lisinopril
+enalapril
+ramipril
+benazepril
+losartan
+valsartan
+olmesartan
+irbesartan
+telmisartan
+amlodipine
+nifedipine
+diltiazem
+verapamil
+metoprolol
+atenolol
+carvedilol
+propranolol
+bisoprolol
+labetalol
+hydrochlorothiazide
+furosemide
+torsemide
+spironolactone
+chlorthalidone
+triamterene
+atorvastatin
+simvastatin
+rosuvastatin
+pravastatin
+lovastatin
+ezetimibe
+gemfibrozil
+fenofibrate
+isosorbide mononitrate
+nitroglycerin
+hydralazine
+clonidine
+doxazosin
+amiodarone
+digoxin
+flecainide
+sotalol
+dofetilide
+metformin
+glipizide
+glyburide
+glimepiride
+sitagliptin
+linagliptin
+empagliflozin
+dapagliflozin
+canagliflozin
+semaglutide
+liraglutide
+pioglitazone
+insulin glargine
+insulin lispro
+insulin aspart
+insulin detemir
+insulin human
+levothyroxine
+methimazole
+propylthiouracil
+albuterol
+fluticasone
+budesonide
+montelukast
+tiotropium
+ipratropium
+prednisone
+prednisolone
+methylprednisolone
+dexamethasone
+hydrocortisone
+gabapentin
+pregabalin
+lamotrigine
+levetiracetam
+divalproex sodium
+valproic acid
+phenytoin
+carbamazepine
+oxcarbazepine
+topiramate
+clonazepam
+lorazepam
+diazepam
+alprazolam
+midazolam
+sertraline
+fluoxetine
+paroxetine
+citalopram
+escitalopram
+venlafaxine
+duloxetine
+bupropion
+mirtazapine
+trazodone
+amitriptyline
+lithium
+quetiapine
+olanzapine
+risperidone
+aripiprazole
+haloperidol
+donepezil
+memantine
+carbidopa and levodopa
+sumatriptan
+tramadol
+oxycodone
+hydrocodone
+morphine
+hydromorphone
+fentanyl
+buprenorphine
+methadone
+allopurinol
+colchicine
+alendronate
+zoledronic acid
+tamsulosin
+finasteride
+sildenafil
+tadalafil
+estradiol
+medroxyprogesterone
+levonorgestrel
+methotrexate
+azathioprine
+mycophenolate mofetil
+tacrolimus
+cyclosporine
+sulfasalazine
+buspirone
+zolpidem
+cyclobenzaprine
+baclofen
+tizanidine
+oxybutynin
+mirabegron
+atropine
+epinephrine
+norepinephrine
+phenylephrine
+lidocaine
+propofol
+ketamine
+vasopressin
+octreotide
+midodrine
+fludrocortisone
+tamoxifen
+anastrozole
+fluorouracil
+capecitabine
+cyclophosphamide
+doxorubicin
+isotretinoin
+clotrimazole
+mupirocin
+triamcinolone

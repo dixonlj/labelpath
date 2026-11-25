@@ -1,0 +1,38 @@
+{
+  "seed": "norepinephrine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22norepinephrine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 46,
+  "record": {
+    "set_id": "be3c6f4f-54fc-4cb3-a299-8a022515d396",
+    "id": "31e01df0-0db5-49f8-9813-740020665889",
+    "effective_time": "20261027",
+    "indications_and_usage": [
+      "1 INDICATIONS AND USAGE Norepinephrine Bitartrate in 5% Dextrose Injection is indicated to raise blood pressure in adult patients with severe, acute hypotension. Norepinephrine Bitartrate in 5% Dextrose Injection is a catecholamine indicated for restoration of blood pressure in adult patients with acute hypotensive states. ( 1 )"
+    ],
+    "contraindications": [
+      "4 CONTRAINDICATIONS None. None. ( 4 )"
+    ],
+    "drug_interactions": [
+      "7 DRUG INTERACTIONS Monoamine oxidase inhibitors (MAOI) or tricyclic antidepressants of the triptyline or imipramine types may result in hypertension. ( 7.1 , 7.2 ) Antidiabetics: Norepinephrine can decrease insulin sensitivity and raise blood glucose ( 7.3 ) Cyclopropane and halothane anesthetics increase cardiac autonomic irritability. ( 7.4 ) 7.1 MAO-Inhibiting Drugs Co-administration of norepinephrine bitartrate with monoamine oxidase (MAO) inhibitors or other drugs with MAO-inhibiting properties (e.g., linezolid) can cause severe, prolonged hypertension. If administration of norepinephrine bitartrate cannot be avoided in patients who recently have received any of these drugs and in whom, after discontinuation, MAO activity has not yet sufficiently recovered, monitor for hypertension. 7.2 Tricyclic Antidepressants Co-administration of norepinephrine bitartrate with tricyclic antidepressants (including amitriptyline, nortriptyline, protriptyline, clomipramine, desipramine, imipramine) can cause severe, prolonged hypertension. If administration of norepinephrine bitartrate cannot be avoided in these patients, monitor for hypertension. 7.3 Antidiabetics Norepinephrine bitartrate can decrease insulin sensitivity and raise blood glucose. Monitor glucose and consider dosage adjustment of antidiabetic drugs. 7.4 Halogenated Anesthetics Concomitant use of norepinephrine bitartrate with halogenated anesthetics (e.g., cyclopropane, desflurane, enflurane, isoflurane, and sevoflurane) may lead to ventricular tachycardia or ventricular fibrillation. Monitor cardiac rhythm in patients receiving concomitant halogenated anesthetics."
+    ],
+    "warnings_and_cautions": [
+      "5 WARNINGS AND PRECAUTIONS Tissue Ischemia : Infuse norepinephrine bitartrate in dextrose injection into a large vein. To prevent sloughing and necrosis in areas in with extravasation, infiltrate the area with an adrenergic blocking agent in saline. ( 5.1 ) Hypotension After Abrupt Discontinuation: Gradually taper a norepinephrine infusion to prevent hypotension. ( 5.2 ) Cardiac Arrhythmias: Norepinephrine bitartrate in dextrose injection may cause arrhythmias. Monitor cardiac function in patients with underlying heart disease. ( 5.3 ) 5.1 Tissue Ischemia Administration of norepinephrine bitartrate to patients who are hypotensive from hypovolemia can result in severe peripheral and visceral vasoconstriction, decreased renal perfusion and reduced urine output, tissue hypoxia, lactic acidosis, and reduced systemic blood flow despite “normal” blood pressure. Address hypovolemia prior to initiating norepinephrine bitartrate [see Dosage and Administration ( 2.1 )]. Avoid norepinephrine bitartrate in patients with mesenteric or peripheral vascular thrombosis, as this may increase ischemia and extend the area of infarction. Gangrene of the extremities has occurred in patients with occlusive or thrombotic vascular disease or who received prolonged or high dose infusions. Monitor for changes to the skin of the extremities in susceptible patients. Extravasation of norepinephrine bitartrate may cause necrosis and sloughing of surrounding tissue. To reduce the risk of extravasation, infuse into a large vein, check the infusion site frequently for free flow, and monitor for signs of extravasation [see Dosage and Administration ( 2.1 )]. Emergency Treatment of Extravasation To prevent sloughing and necrosis in areas in which extravasation has occurred, infiltrate the ischemic area as soon as possible, using a syringe with a fine hypodermic needle with 5 to 10 mg of phentolamine mesylate in 10 to 15 mL of 0.9% Sodium Chloride Injection in adults. Sympathetic blockade with phentolamine causes immediate and conspicuous local hyperemic changes if the area is infiltrated within 12 hours. 5.2 Hypotension after Abrupt Discontinuation Sudden cessation of the infusion rate may result in marked hypotension. When discontinuing the infusion, gradually reduce the norepinephrine bitartrate infusion rate while expanding blood volume with intravenous fluids. 5.3 Cardiac Arrhythmias Norepinephrine bitartrate elevates intracellular calcium concentrations and may cause arrhythmias, particularly in the setting of hypoxia or hypercarbia. Perform continuous cardiac monitoring of patients with arrhythmias."
+    ],
+    "openfda": {
+      "generic_name": [
+        "NOREPINEPHRINE BITARTRATE"
+      ],
+      "brand_name": [
+        "Norepinephrine Bitartrate in Dextrose"
+      ],
+      "substance_name": [
+        "NOREPINEPHRINE BITARTRATE"
+      ],
+      "application_number": [
+        "ANDA219692"
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "seed": "ceftazidime",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22ceftazidime%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 7,
+  "record": {
+    "set_id": "112c5457-8d71-49f5-b531-9761d7d38c93",
+    "id": "57ce314f-eda1-4438-8a50-2010d4d8aefd",
+    "effective_time": "20260803",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Ceftazidime for injection, USP is indicated for the treatment of patients with infections caused by susceptible strains of the designated organisms in the following diseases: Lower Respiratory Tract Infections, including pneumonia, caused by Pseudomonas aeruginosa and other Pseudomonas spp.; Haemophilus influenzae, including ampicillin-resistant strains; Klebsiella spp.; Enterobacter spp.; Proteus mirabilis; Escherichia coli; Serratia spp.; Citrobacter spp.; Streptococcus pneumoniae; and Staphylococcus aureus (methicillin-susceptible strains). Skin and Skin-Structure Infections caused by Pseudomonas aeruginosa; Klebsiella spp.; Escherichia coli; Proteus spp., including Proteus mirabilis and indole-positive Proteus; Enterobacter spp.; Serratia spp.; Staphylococcus aureus (methicillin-susceptible strains); and Streptococcus pyogenes (group A beta-hemolytic streptococci). Urinary Tract Infections, both complicated and uncomplicated, caused by Pseudomonas aeruginosa; Enterobacter spp.; Proteus spp., including Proteus mirabilis and indole-positive Proteus; Klebsiella spp.; and Escherichia coli. Bacterial Septicemia caused by Pseudomonas aeruginosa, Klebsiella spp., Haemophilus influenzae, Escherichia coli, Serratia spp., Streptococcus pneumoniae, and Staphylococcus aureus (methicillin-susceptible strains). Bone and Joint Infections caused by Pseudomonas aeruginosa, Klebsiella spp., Enterobacter spp., and Staphylococcus aureus (methicillin-susceptible strains). Gynecologic Infections, including endometritis, pelvic cellulitis, and other infections of the female genital tract caused by Escherichia coli. Intra-abdominal Infections, including peritonitis caused by Escherichia coli, Klebsiella spp., and Staphylococcus aureus (methicillin-susceptible strains) and polymicrobial infections caused by aerobic and anaerobic organisms and Bacteroides spp. (many strains of Bacteroides fragilis are resistant). Central Nervous System Infections, including meningitis, caused by Haemophilus influenzae and Neisseria meningitidis. Ceftazidime has also been used successfully in a limited number of cases of meningitis due to Pseudomonas aeruginosa and Streptococcus pneumoniae. Ceftazidime for injection, USP may be used alone in cases of confirmed or suspected sepsis. Ceftazidime has been used successfully in clinical trials as empiric therapy in cases where various concomitant therapies with other antibacterial drugs have been used. Ceftazidime for injection, USP may also be used concomitantly with other antibacterial drugs, such as aminoglycosides, vancomycin, and clindamycin; in severe and life-threatening infections; and in the immunocompromised patient. When such concomitant treatment is appropriate, prescribing information in the labeling for the other antibacterial drugs should be followed. The dose depends on the severity of the infection and the patient's condition. To reduce the development of drug-resistant bacteria and maintain the effectiveness of ceftazidime for injection, USP and other antibacterial drugs, ceftazidime for injection, USP should be used only to treat infections that are proven or strongly suspected to be caused by susceptible bacteria. When culture and susceptibility information are available, they should be considered in selecting or modifying antibacterial therapy. In the absence of such data, local epidemiology and susceptibility patterns may contribute to the empiric selection of therapy."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Ceftazidime for injection is contraindicated in patients who have shown hypersensitivity to ceftazidime or the cephalosporin group of antibacterial drugs."
+    ],
+    "drug_interactions": [
+      "Drug Interactions Nephrotoxicity has been reported following concomitant administration of cephalosporins with aminoglycoside antibacterial drugs or potent diuretics such as furosemide. Renal function should be carefully monitored, especially if higher dosages of the aminoglycosides are to be administered or if therapy is prolonged, because of the potential nephrotoxicity and ototoxicity of aminoglycoside antibacterial drugs. Nephrotoxicity and ototoxicity were not noted when ceftazidime was given alone in clinical trials. Chloramphenicol has been shown to be antagonistic to beta-lactam antibacterial drugs, including ceftazidime, based on in vitro studies and time kill curves with enteric gram-negative bacilli. Due to the possibility of antagonism in vivo , particularly when bactericidal activity is desired, this drug combination should be avoided."
+    ],
+    "openfda": {
+      "generic_name": [
+        "CEFTAZIDIME"
+      ],
+      "brand_name": [
+        "Ceftazidime"
+      ],
+      "substance_name": [
+        "CEFTAZIDIME"
+      ],
+      "application_number": [
+        "ANDA062640"
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "seed": "ipratropium",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22ipratropium%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 53,
+  "record": {
+    "set_id": "ac641027-929e-694d-80cd-bf770dc51aa6",
+    "id": "6359b73c-ecef-b751-a56c-a56f44c5b828",
+    "effective_time": "20260911",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Ipratropium bromide nasal solution, 0.03% is indicated for the symptomatic relief of rhinorrhea associated with allergic and nonallergic perennial rhinitis in adults and children age 6 years and older. Ipratropium bromide nasal solution, 0.03% does not relieve nasal congestion, sneezing, or postnasal drip associated with allergic or nonallergic perennial rhinitis."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Ipratropium bromide nasal solution, 0.03% is contraindicated in patients with a history of hypersensitivity to atropine or its derivatives, or to any of the other ingredients."
+    ],
+    "drug_interactions": [
+      "Drug Interactions No controlled clinical trials were conducted to investigate potential drug-drug interactions. There is potential for an additive interaction with other concomitantly administered medications with anticholinergic properties, including ipratropium bromide for oral inhalation."
+    ],
+    "openfda": {
+      "generic_name": [
+        "IPRATROPIUM BROMIDE"
+      ],
+      "brand_name": [
+        "Ipratropium Bromide"
+      ],
+      "substance_name": [
+        "IPRATROPIUM BROMIDE"
+      ],
+      "application_number": [
+        "ANDA076156"
+      ]
+    }
+  }
+}

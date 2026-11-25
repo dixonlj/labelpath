@@ -1,0 +1,35 @@
+{
+  "seed": "diclofenac",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22diclofenac%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 457,
+  "record": {
+    "set_id": "08e41a9d-644c-4ac6-aba3-38d7c3f36d36",
+    "id": "601b091c-e6e9-998a-e063-6294a90a885e",
+    "effective_time": "20261112",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Carefully consider the potential benefits and risks of diclofenac potassium tablets and other treatment options before deciding to use diclofenac potassium tablets. Use the lowest effective dose for the shortest duration consistent with individual patient treatment goals (see WARNINGS ; Gastrointestinal Bleeding, Ulceration, and Perforation ). Diclofenac potassium tablets are indicated: for treatment of primary dysmenorrhea for relief of mild to moderate pain for relief of the signs and symptoms of osteoarthritis for relief of the signs and symptoms of rheumatoid arthritis"
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Diclofenac is contraindicated in the following patients: Known hypersensitivity (e.g., anaphylactic reactions and serious skin reactions) to diclofenac or any components of the drug product (see WARNINGS ; Anaphylactic Reactions, Serious Skin Reactions ). History of asthma, urticaria, or allergic-type reactions after taking aspirin or other NSAIDs. Severe, sometimes fatal, anaphylactic reactions to NSAIDs have been reported in such patients (see WARNINGS ; Anaphylactic Reactions, Exacerbation of Asthma Related to Aspirin Sensitivity ). In the setting of coronary artery bypass graft (CABG) surgery (see W ARNINGS ; Cardiovascular Thrombotic Events )."
+    ],
+    "boxed_warning": [
+      "WARNING: RISK OF SERIOUS CARDIOVASCULAR AND GASTROINTESTINAL EVENTS Cardiovascular Thrombotic Events Nonsteroidal anti-inflammatory drugs (NSAIDs) cause an increased risk of serious cardiovascular thrombotic events, including myocardial infarction and stroke, which can be fatal. This risk may occur early in treatment and may increase with duration of use (see WARNINGS ). Diclofenac potassium tablets are contraindicated in the setting of coronary artery bypass graft (CABG) surgery (see CONTRAINDICATIONS , WARNINGS ). Gastrointestinal Bleeding, Ulceration, and Perforation NSAIDs cause an increased risk of serious gastrointestinal (GI) adverse events, including bleeding, ulceration, and perforation of the stomach or intestines, which can be fatal. These events can occur at any time during use and without warning symptoms. Elderly patients and patients with a prior history of peptic ulcer disease and/or GI bleeding are at greater risk for serious GI events (see WARNINGS )."
+    ],
+    "openfda": {
+      "generic_name": [
+        "DICLOFENAC POTASSIUM"
+      ],
+      "brand_name": [
+        "Diclofenac Potassium"
+      ],
+      "substance_name": [
+        "DICLOFENAC POTASSIUM"
+      ],
+      "application_number": [
+        "ANDA075219"
+      ]
+    }
+  }
+}

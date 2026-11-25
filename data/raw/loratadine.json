@@ -1,0 +1,29 @@
+{
+  "seed": "loratadine",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22loratadine%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 401,
+  "record": {
+    "set_id": "06d1c443-ec23-4aa1-a7f3-f2b7ffcc2588",
+    "id": "2bc5d996-4703-4713-83b9-2b06548ae2a8",
+    "effective_time": "20261106",
+    "indications_and_usage": [
+      "Uses temporarily relieves these symptoms due to hay fever or other upper respiratory allergies: • runny nose • itchy, watery eyes • sneezing • itching of the nose or throat"
+    ],
+    "openfda": {
+      "generic_name": [
+        "LORATADINE"
+      ],
+      "brand_name": [
+        "careone childrens allergy relief"
+      ],
+      "substance_name": [
+        "LORATADINE"
+      ],
+      "application_number": [
+        "ANDA210033"
+      ]
+    }
+  }
+}

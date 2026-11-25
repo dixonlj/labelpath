@@ -1,0 +1,29 @@
+{
+  "seed": "budesonide",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22budesonide%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 69,
+  "record": {
+    "set_id": "9d519bf3-8d9b-5208-13c5-308edc24aca7",
+    "id": "e2386672-11f1-4508-b794-b4f6ec4909f7",
+    "effective_time": "20261027",
+    "indications_and_usage": [
+      "Use s Temporarily relieves these symptoms of hay fever or other upper respiratory allergies: nasal congestion runny nose sneezing itchy nose"
+    ],
+    "openfda": {
+      "generic_name": [
+        "BUDESONIDE"
+      ],
+      "brand_name": [
+        "Budesonide"
+      ],
+      "substance_name": [
+        "BUDESONIDE"
+      ],
+      "application_number": [
+        "ANDA078949"
+      ]
+    }
+  }
+}

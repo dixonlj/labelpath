@@ -1,0 +1,35 @@
+{
+  "seed": "methimazole",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22methimazole%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 39,
+  "record": {
+    "set_id": "f69edfa9-0efb-4fe8-aeab-50f7baeebb6a",
+    "id": "5b0f22cc-34dc-605d-e063-6294a90ae719",
+    "effective_time": "20260909",
+    "indications_and_usage": [
+      "INDICATIONS AND USAGE Methimazole tablets are indicated: In patients with Graves' disease with hyperthyroidism or toxic multinodular goiter for whom surgery or radioactive iodine therapy is not an appropriate treatment option. To ameliorate symptoms of hyperthyroidism in preparation for thyroidectomy or radioactive iodine therapy."
+    ],
+    "contraindications": [
+      "CONTRAINDICATIONS Methimazole tablets are contraindicated in the presence of hypersensitivity to the drug or any of the other product components."
+    ],
+    "drug_interactions": [
+      "Drug Interactions Anticoagulants (oral): Due to potential inhibition of vitamin K activity by methimazole, the activity of oral anticoagulants (e.g., warfarin) may be increased; additional monitoring of PT/INR should be considered, especially before surgical procedures. ß-adrenergic blocking agents: Hyperthyroidism may cause an increased clearance of beta blockers with a high extraction ratio. A dose reduction of beta-adrenergic blockers may be needed when a hyperthyroid patient becomes euthyroid. Digitalis glycosides: Serum digitalis levels may be increased when hyperthyroid patients on a stable digitalis glycoside regimen become euthyroid; a reduced dosage of digitalis glycosides may be needed. Theophylline: Theophylline clearance may decrease when hyperthyroid patients on a stable theophylline regimen become euthyroid; a reduced dose of theophylline may be needed."
+    ],
+    "openfda": {
+      "generic_name": [
+        "METHIMAZOLE"
+      ],
+      "brand_name": [
+        "Methimazole"
+      ],
+      "substance_name": [
+        "METHIMAZOLE"
+      ],
+      "application_number": [
+        "ANDA040350"
+      ]
+    }
+  }
+}

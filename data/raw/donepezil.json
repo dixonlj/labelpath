@@ -1,0 +1,38 @@
+{
+  "seed": "donepezil",
+  "retrieved_at": "2026-11-19",
+  "query": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22donepezil%22&sort=effective_time%3Adesc&limit=25",
+  "api_last_updated": "2026-11-19",
+  "candidates": 54,
+  "record": {
+    "set_id": "603c07bb-61bf-410f-8abf-01ef09d61c14",
+    "id": "5b1abd48-a18b-9308-e063-6394a90a7eb9",
+    "effective_time": "20260910",
+    "indications_and_usage": [
+      "1 INDICATIONS AND USAGE Donepezil hydrochloride is indicated for the treatment of dementia of the Alzheimer's type. Efficacy has been demonstrated in patients with mild, moderate, and severe Alzheimer's disease. Donepezil hydrochloride is an acetylcholinesterase inhibitor indicated for the treatment of dementia of the Alzheimer's type. Efficacy has been demonstrated in patients with mild, moderate, and severe Alzheimer's Disease ( 1 )."
+    ],
+    "contraindications": [
+      "4 CONTRAINDICATIONS Donepezil hydrochloride is contraindicated in patients with known hypersensitivity to donepezil hydrochloride or to piperidine derivatives. Known hypersensitivity to donepezil hydrochloride or to piperidine derivatives ( 4 )"
+    ],
+    "drug_interactions": [
+      "7 DRUG INTERACTIONS Cholinesterase inhibitors have the potential to interfere with the activity of anticholinergic medications ( 7.1 ). A synergistic effect may be expected with concomitant administration of succinylcholine, similar neuromuscular blocking agents, or cholinergic agonists ( 7.2 ). 7.1 Use with Anticholinergics Because of their mechanism of action, cholinesterase inhibitors have the potential to interfere with the activity of anticholinergic medications. 7.2 Use with Cholinomimetics and Other Cholinesterase Inhibitors A synergistic effect may be expected when cholinesterase inhibitors are given concurrently with succinylcholine, similar neuromuscular blocking agents, or cholinergic agonists such as bethanechol."
+    ],
+    "warnings_and_cautions": [
+      "5 WARNINGS AND PRECAUTIONS Cholinesterase inhibitors are likely to exaggerate succinylcholine-type muscle relaxation during anesthesia ( 5.1 ). Cholinesterase inhibitors may have vagotonic effects on the sinoatrial and atrioventricular nodes manifesting as bradycardia or heart block ( 5.2 ). Donepezil hydrochloride can cause vomiting. Patients should be observed closely at initiation of treatment and after dose increases ( 5.3 ). Patients should be monitored closely for symptoms of active or occult gastrointestinal (GI) bleeding, especially those at increased risk for developing ulcers ( 5.4 ). Cholinomimetics may cause bladder outflow obstructions ( 5.6 ). Cholinomimetics are believed to have some potential to cause generalized convulsions ( 5.7 ). Cholinesterase inhibitors should be prescribed with care to patients with a history of asthma or obstructive pulmonary disease ( 5.8 ). 5.1 Anesthesia Donepezil hydrochloride, as a cholinesterase inhibitor, is likely to exaggerate succinylcholine-type muscle relaxation during anesthesia. 5.2 Cardiovascular Conditions Because of their pharmacological action, cholinesterase inhibitors may have vagotonic effects on the sinoatrial and atrioventricular nodes. This effect may manifest as bradycardia or heart block in patients both with and without known underlying cardiac conduction abnormalities. Syncopal episodes have been reported in association with the use of donepezil hydrochloride. 5.3 Nausea and Vomiting Donepezil hydrochloride, as a predictable consequence of its pharmacological properties, has been shown to produce diarrhea, nausea, and vomiting. These effects, when they occur, appear more frequently with the 10 mg/day dose than with the 5 mg/day dose. Although in most cases, these effects have been transient, sometimes lasting one to three weeks, and have resolved during continued use of donepezil hydrochloride, patients should be observed closely at the initiation of treatment and after dose increases. 5.4 Peptic Ulcer Disease and GI Bleeding Through their primary action, cholinesterase inhibitors may be expected to increase gastric acid secretion due to increased cholinergic activity. Therefore, patients should be monitored closely for symptoms of active or occult gastrointestinal bleeding, especially those at increased risk for developing ulcers, e.g., those with a history of ulcer disease or those receiving concurrent nonsteroidal anti-inflammatory drugs (NSAIDs). Clinical studies of donepezil hydrochloride in a dose of 5 mg/day to 10 mg/day have shown no increase, relative to placebo, in the incidence of either peptic ulcer disease or gastrointestinal bleeding. 5.6 Genitourinary Conditions Although not observed in clinical trials of donepezil hydrochloride, cholinomimetics may cause bladder outflow obstruction. 5.7 Neurological Conditions: Seizures Cholinomimetics are believed to have some potential to cause generalized convulsions. However, seizure activity also may be a manifestation of Alzheimer's disease. 5.8 Pulmonary Conditions Because of their cholinomimetic actions, cholinesterase inhibitors should be prescribed with care to patients with a history of asthma or obstructive pulmonary disease."
+    ],
+    "openfda": {
+      "generic_name": [
+        "DONEPEZIL HYDROCHLORIDE"
+      ],
+      "brand_name": [
+        "donepezil hydrochloride"
+      ],
+      "substance_name": [
+        "DONEPEZIL HYDROCHLORIDE"
+      ],
+      "application_number": [
+        "ANDA200292"
+      ]
+    }
+  }
+}

@@ -1,0 +1,98 @@
+# Conservative condition phrases used only as whole-phrase, word-boundary
+# matches against indications_and_usage or contraindications text.
+# This is not a medical ontology, not a complete condition list, and not
+# advice. Short or ambiguous words (for example "pain", "infection",
+# "bleeding", "depression") are intentionally omitted.
+
+atrial fibrillation
+venous thrombosis
+deep vein thrombosis
+pulmonary embolism
+myocardial infarction
+cardiac valve replacement
+mechanical heart valve
+heparin-induced thrombocytopenia
+iron deficiency anemia
+anemia of chronic kidney disease
+chronic kidney disease
+end stage renal disease
+heart failure
+hypertension
+malignant hypertension
+type 2 diabetes mellitus
+type 1 diabetes mellitus
+diabetes mellitus
+asthma
+chronic obstructive pulmonary disease
+hypothyroidism
+hyperthyroidism
+rheumatoid arthritis
+osteoarthritis
+osteoporosis
+gout
+open-angle glaucoma
+glaucoma
+epilepsy
+status epilepticus
+schizophrenia
+bipolar disorder
+major depressive disorder
+parkinson disease
+parkinson's disease
+migraine
+anaphylaxis
+hemophilia
+community-acquired pneumonia
+urinary tract infection
+acute otitis media
+streptococcal pharyngitis
+gastrointestinal bleeding
+peptic ulcer
+duodenal ulcer
+gastric ulcer
+gastroesophageal reflux disease
+active bleeding
+intracranial hemorrhage
+pregnancy
+preeclampsia
+angioedema
+coronary artery disease
+peripheral arterial disease
+stroke
+transient ischemic attack
+systemic embolism
+thromboembolism
+pulmonary hypertension
+hyperlipidemia
+hypercholesterolemia
+benign prostatic hyperplasia
+overactive bladder
+erectile dysfunction
+breast cancer
+prostate cancer
+chronic myeloid leukemia
+ulcerative colitis
+crohn's disease
+psoriasis
+psoriatic arthritis
+ankylosing spondylitis
+systemic lupus erythematosus
+vitamin b12 deficiency
+hypokalemia
+hyperkalemia
+hyponatremia
+hypomagnesemia
+diabetic peripheral neuropathy
+opioid use disorder
+opioid overdose
+herpes zoster
+influenza
+covid-19
+hiv-1 infection
+tuberculosis
+malaria
+allergic rhinitis
+hepatic impairment
+renal impairment
+seizures
+chemotherapy-induced nausea
