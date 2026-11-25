@@ -262,3 +262,14 @@ The smoke test starts `relate serve --mcp stdio --database ./data/labelpath.rl -
 
 Do **not** run `python scripts/ingest.py` or `python scripts/milestone1_toy.py` just to try MCP: both would replace `data/labelpath.rl`. Do **not** start MCP without `--read-only`. Do **not** edit Claude Desktop or Cursor config files unless you choose to paste a snippet from `docs/MCP.md` yourself (a LIAM STEP).
 
+
+## Milestone 6 on a Mac
+
+The judge-ready README, `LICENSE` (Apache-2.0), `ARCHITECTURE.md`, and `CITATION.cff` are in the project root. After the project venv `venv/` is active in `~/Projects/labelpath` (this repo uses `venv/`, not `.venv`):
+
+```bash
+python -m pytest
+```
+
+Do **not** run `python scripts/ingest.py` or `python scripts/milestone1_toy.py` just to re-read the docs: both would replace `data/labelpath.rl`. Leave a LabelPath UI server on port 8765 alone if one is already running. A public GitHub repo is not created in this milestone.
+

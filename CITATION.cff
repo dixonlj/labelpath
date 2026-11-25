@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: LabelPath
+message: If you use this software, please cite it as below.
+type: software
+authors:
+  - family-names: Dixon
+    given-names: Liam
+license: Apache-2.0
+date-released: '2026-11-25'
+abstract: >-
+  A local Relate graph of public FDA drug labels, so you can
+  follow labeled connections between drugs, ingredients, and
+  conditions, with a source snippet for every hop.
+  Educational only, not medical advice.

@@ -5,4 +5,5 @@
 - 20 November 2026 (America/New_York): AI-assisted Milestone 3 implementation (read-only query functions, `python -m labelpath query` CLI, tests, and README / MAC_SETUP updates). No patient, employer, or hospital data was used.
 - 25 November 2026 (America/New_York): AI-assisted Milestone 4 implementation (local 127.0.0.1 single-page UI with `python -m labelpath serve`, standard-library HTTP server, tests, and README / MAC_SETUP updates). No patient, employer, or hospital data was used.
 - 25 November 2026 (America/New_York): AI-assisted Milestone 5 implementation (read-only Relate MCP documentation, stdio JSON-RPC smoke test, tests, and README / MAC_SETUP updates). No patient, employer, or hospital data was used. Claude Desktop and Cursor config files were not edited.
+- 25 November 2026 (America/New_York): AI-assisted Milestone 6 work (judge-ready README following the official contest template, Apache-2.0 LICENSE, ARCHITECTURE.md, CITATION.cff, ingest `--database` for temp-store rebuilds, and a clean-clone reproducibility check). No patient, employer, or hospital data was used. No public repository was created or pushed.
 

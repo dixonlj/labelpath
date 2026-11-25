@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Build data/labelpath.rl from the cached openFDA snapshot in data/raw/.
+"""Build a LabelPath Relate store from the cached openFDA snapshot in data/raw/.
 
-Offline. Replaces the store on each run so ingest is safe to repeat.
+Offline. Replaces the target store on each run so ingest is safe to repeat.
+The default target is data/labelpath.rl; pass --database PATH to write elsewhere.
 Python 3.9 compatible.
 """
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -108,10 +110,15 @@ def execute(conn: Any, statement: str, params: Optional[Dict[str, Any]] = None) 
     conn.execute(statement, params or {})
 
 
-def ingest(snapshot: Sequence[Dict[str, Any]], condition_phrases: Sequence[str]) -> Dict[str, Dict[str, int]]:
-    if STORE_FILE.exists():
-        STORE_FILE.unlink()
-    STORE_FILE.parent.mkdir(parents=True, exist_ok=True)
+def ingest(
+    snapshot: Sequence[Dict[str, Any]],
+    condition_phrases: Sequence[str],
+    store_file=STORE_FILE,
+) -> Dict[str, Dict[str, int]]:
+    store_file = Path(store_file)
+    if store_file.exists():
+        store_file.unlink()
+    store_file.parent.mkdir(parents=True, exist_ok=True)
 
     node_counts: Dict[str, int] = {}
     rel_counts: Dict[str, int] = {}
@@ -185,7 +192,7 @@ def ingest(snapshot: Sequence[Dict[str, Any]], condition_phrases: Sequence[str])
             }
         )
 
-    conn = relate.connect(str(STORE_FILE))
+    conn = relate.connect(str(store_file))
     try:
         conn.autocommit = False
         for row in prepared:
@@ -426,8 +433,9 @@ def print_counts(counts: Dict[str, Dict[str, int]]) -> None:
     print("  relationships_total: %s" % sum(counts["relationships"].values()))
 
 
-def verify_with_read() -> None:
-    reader = relate.connect(str(STORE_FILE), read_only=True)
+def verify_with_read(store_file=STORE_FILE) -> None:
+    store_file = Path(store_file)
+    reader = relate.connect(str(store_file), read_only=True)
     try:
         for label, prop in (
             ("Drug", "key"),
@@ -456,7 +464,17 @@ def verify_with_read() -> None:
         reader.close()
 
 
-def main() -> int:
+def main(argv=None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Build a LabelPath Relate store from the cached snapshot in data/raw/ (offline)."
+    )
+    parser.add_argument(
+        "--database",
+        default=None,
+        help="Path of the .rl store to write (default: data/labelpath.rl). Replaces that file.",
+    )
+    args = parser.parse_args(argv)
+    store_file = Path(args.database) if args.database else STORE_FILE
     seeds = load_name_list(SEED_FILE)
     snapshot = load_snapshot()
     condition_phrases = load_name_list(CONDITION_FILE)
@@ -465,14 +483,14 @@ def main() -> int:
         return 1
     print(
         "Ingesting %s cached labels (%s seeds listed) into %s"
-        % (len(snapshot), len(seeds), STORE_FILE)
+        % (len(snapshot), len(seeds), store_file)
     )
-    counts = ingest(snapshot, condition_phrases)
+    counts = ingest(snapshot, condition_phrases, store_file=store_file)
     print_counts(counts)
     print("Verifying read-only reopen...")
-    verify_with_read()
-    size = STORE_FILE.stat().st_size if STORE_FILE.is_file() else 0
-    print("Store written: %s (%s bytes)" % (STORE_FILE, size))
+    verify_with_read(store_file)
+    size = store_file.stat().st_size if store_file.is_file() else 0
+    print("Store written: %s (%s bytes)" % (store_file, size))
     return 0
 
 
