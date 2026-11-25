@@ -223,7 +223,7 @@ python -m labelpath query path apixaban aspirin --max-hops 3
 python -m labelpath query warnings warfarin
 ```
 
-Every command prints `Educational only, not medical advice.` The store is opened read-only. Do **not** run `python scripts/ingest.py` or `python scripts/milestone1_toy.py` just to try queries: both would replace `data/labelpath.rl`. Ingest is only needed if you are rebuilding the store from `data/raw/` on purpose.
+Every command prints `Educational only, not medical advice.` The CLI path command defaults to 3 hops. The store is opened read-only. Do **not** run `python scripts/ingest.py` or `python scripts/milestone1_toy.py` just to try queries: both would replace `data/labelpath.rl`. Ingest is only needed if you are rebuilding the store from `data/raw/` on purpose.
 
 
 ## Milestone 4 on a Mac
@@ -242,7 +242,7 @@ curl -sS http://127.0.0.1:8765/ | head
 curl -sS "http://127.0.0.1:8765/api/path?start=apixaban&end=aspirin"
 ```
 
-The server binds to 127.0.0.1 only and opens the store read-only. The page always shows `Educational only, not medical advice.` Click **Try: apixaban → aspirin** for the demo pair (default max 2 hops). Stop the server with Ctrl+C.
+The server binds to 127.0.0.1 only and opens the store read-only. The page always shows `Educational only, not medical advice.` Click **Try: apixaban → aspirin** for the demo pair (the UI defaults to 2 hops and can be raised to 3). Stop the server with Ctrl+C.
 
 Do **not** run `python scripts/ingest.py` or `python scripts/milestone1_toy.py` just to try the UI: both would replace `data/labelpath.rl`.
 

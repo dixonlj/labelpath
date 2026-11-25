@@ -10,5 +10,5 @@ date-released: '2026-11-25'
 abstract: >-
   A local Relate graph of public FDA drug labels, so you can
   follow labeled connections between drugs, ingredients, and
-  conditions, with a source snippet for every hop.
+  conditions, with a source snippet when one exists on a hop.
   Educational only, not medical advice.

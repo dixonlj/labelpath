@@ -41,7 +41,7 @@ Judging is 12–16 December 2026; winners are announced 17 December 2026.
 | Field | Draft location | Status |
 | --- | --- | --- |
 | Title: LabelPath | `DEVPOST.md` | Draft done; **LIAM STEP** to paste |
-| Tagline / short description (200 characters or fewer; current draft is 157) | `DEVPOST.md` | Draft done; **LIAM STEP** to paste |
+| Tagline / short description (200 characters or fewer; current draft is 169) | `DEVPOST.md` | Draft done; **LIAM STEP** to paste |
 | Inspiration, What it does, How we built it, Challenges, Accomplishments, What we learned, What's next | `DEVPOST.md` | Draft done; **LIAM STEP** to paste |
 | Built with tags | `DEVPOST.md` | Draft done; **LIAM STEP** to select on Devpost |
 | GitHub repo URL | — | **LIAM STEP** (repo does not exist yet) |

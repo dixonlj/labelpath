@@ -1,6 +1,6 @@
 # LabelPath
 
-A local Relate graph of public FDA drug labels, so you can follow labeled connections between drugs, ingredients, and conditions — with a source snippet for every hop.
+A local Relate graph of public FDA drug labels, so you can follow labeled connections between drugs, ingredients, and conditions — with a source snippet when one exists on a hop.
 
 **Educational only, not medical advice.** Not for clinical use, and not a substitute for the official label or a licensed clinician. This is a graph of public label text only. openFDA says: “Do not rely on openFDA to make decisions regarding medical care.” Always speak to your health provider about the risks and benefits of FDA-regulated products. Data provided by the U.S. Food and Drug Administration (https://open.fda.gov). See `DATA.md` for the official wording, terms, and attribution.
 
@@ -55,9 +55,9 @@ python -m labelpath serve --port 8765
 
 On Windows PowerShell, use `venv\Scripts\Activate.ps1` instead of `source`. This project is developed for macOS; the official CLI install command differs on Windows (see the install page above).
 
-Open http://127.0.0.1:8765/ on the same machine and click **Try: apixaban → aspirin**, or add `?demo=1` to the URL. The UI binds to **127.0.0.1 only**, opens the store read-only, and always shows the educational disclaimer and openFDA attribution. Stop the server with Ctrl+C.
+Open http://127.0.0.1:8765/ on the same machine and click **Try: apixaban → aspirin**, or add `?demo=1` to the URL. The UI binds to **127.0.0.1 only**, opens the store read-only, and always shows the educational disclaimer and openFDA attribution. The UI defaults to 2 hops and can be raised to 3. Stop the server with Ctrl+C.
 
-CLI (venv active, from the project root). Every command prints `Educational only, not medical advice.`
+CLI (venv active, from the project root). Every command prints `Educational only, not medical advice.` The CLI path command defaults to 3 hops.
 
 ```bash
 python -m labelpath query lookup "warfarin sodium"
