@@ -97,7 +97,24 @@ relate --database ./data/labelpath.rl --read-only --mode table --param key=warfa
   "MATCH (d:Drug {key: $key})-[:HAS_LABEL]->(:Label)-[:HAS_SECTION]->(s:Section) RETURN s.kind AS kind LIMIT 10"
 ```
 
-A later milestone may add a documented read-only MCP command.
+## Read-only MCP
+
+Relate’s built-in MCP server can open the same committed store. The command this project documents and smoke-tests is:
+
+```bash
+relate serve --mcp stdio --database ./data/labelpath.rl --read-only
+```
+
+Opened `--read-only`, the server lists only `read_cypher` and `get_schema`. `write_cypher` is not listed; calling it is refused. Bind Cypher parameters and use `LIMIT`. Details, host-config snippets (a **LIAM STEP** to paste yourself; this repo does not edit Claude Desktop or Cursor config files), and example questions are in `docs/MCP.md`.
+
+With the project venv `venv/` active (not `.venv`):
+
+```bash
+python scripts/mcp_smoke.py
+```
+
+The smoke test talks JSON-RPC over stdio (no extra Python package). It initializes, lists tools, runs a parameterized apixaban → warfarin → aspirin read, and checks that a write is refused and that `data/labelpath.rl` is unchanged. If the Relate CLI is missing, the script exits 77 and `pytest` skips that test.
+
 
 ## License
 

@@ -245,3 +245,20 @@ curl -sS "http://127.0.0.1:8765/api/path?start=apixaban&end=aspirin"
 The server binds to 127.0.0.1 only and opens the store read-only. The page always shows `Educational only, not medical advice.` Click **Try: apixaban → aspirin** for the demo pair (default max 2 hops). Stop the server with Ctrl+C.
 
 Do **not** run `python scripts/ingest.py` or `python scripts/milestone1_toy.py` just to try the UI: both would replace `data/labelpath.rl`.
+
+
+## Milestone 5 on a Mac
+
+Read-only MCP is documented in `docs/MCP.md` and `README.md`. After the project venv `venv/` is active in `~/Projects/labelpath` (this repo uses `venv/`, not `.venv`):
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+relate --version
+python -m pytest
+python scripts/mcp_smoke.py
+```
+
+The smoke test starts `relate serve --mcp stdio --database ./data/labelpath.rl --read-only` itself, talks JSON-RPC on that process, and then lets it exit. It does not bind a port. Leave a LabelPath UI server on port 8765 alone if one is already running.
+
+Do **not** run `python scripts/ingest.py` or `python scripts/milestone1_toy.py` just to try MCP: both would replace `data/labelpath.rl`. Do **not** start MCP without `--read-only`. Do **not** edit Claude Desktop or Cursor config files unless you choose to paste a snippet from `docs/MCP.md` yourself (a LIAM STEP).
+
