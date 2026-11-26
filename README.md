@@ -6,7 +6,7 @@ A local Relate graph of public FDA drug labels, so you can follow labeled connec
 
 ## Use case
 
-LabelPath is for a person or an agent who wants to see *what the public label text actually says* about how two snapshot drugs are connected, or what boxed warnings and contraindication neighbors a drug has, without opening a hospital system or calling a remote database. It solves a documentation problem, not a clinical one: the interesting relationships are `LABELED_INTERACTION` edges (a label mention in an interaction-related section), ingredients a product contains, and conservatively phrase-matched indications and contraindications. `INDICATED_FOR`, `CONTRAINDICATED_IN`, and `LABELED_INTERACTION` point back to a source section and a snippet when those exist, and to a DailyMed page when a `set_id` exists; `CONTAINS` comes from the structured ingredient list and has no section snippet. A path means label text in this snapshot mentions both names; it is not a pharmacological pathway or a clinical interaction finding. A typical first result is the path from apixaban to aspirin, including a two-hop path via warfarin; on that documented demo path, each hop has a section name, a snippet, and a DailyMed link.
+LabelPath is for a person or an agent who wants to see *what the public label text actually says* about how two snapshot drugs are connected, or what boxed warnings and contraindication neighbors a drug has, without opening a hospital system or calling a remote database. It solves a documentation problem, not a clinical one: the interesting relationships are `LABELED_INTERACTION` edges (a label mention in an interaction-related section), ingredients a product contains, and conservatively phrase-matched indications and contraindications. `INDICATED_FOR`, `CONTRAINDICATED_IN`, and `LABELED_INTERACTION` point back to a source section and a snippet when those exist, and to a DailyMed page when a `set_id` exists; `CONTAINS` comes from the structured ingredient list and has no section snippet. A path means label text in this snapshot mentions both names; it is not a pharmacological pathway or a clinical interaction finding. A typical first result is the path from apixaban to aspirin, including a two-hop path via warfarin; on that documented demo path, each hop has a section name, a snippet, and a DailyMed link. A second checked example is clopidogrel → omeprazole → methotrexate (see below).
 
 ## How it uses Relate
 
@@ -15,6 +15,10 @@ LabelPath uses Relate as an **embedded, single-file graph store** that is writte
 - **Mode:** single file (`data/labelpath.rl`)
 - **Why this mode:** one `.rl` file is easy to commit, copy, and inspect. Judges can query the committed store offline with the Python client or the Relate CLI. This is not an in-memory-only demo; the file remains after the process exits.
 - **What the graph models:** public FDA label text for a curated snapshot of 293 drugs (294 seed names; one miss). Nodes are `Drug`, `Label`, `Section`, `Ingredient`, and `Condition`. Relationships are `HAS_LABEL`, `HAS_SECTION`, `CONTAINS`, `INDICATED_FOR`, `CONTRAINDICATED_IN`, and `LABELED_INTERACTION` (a label mention, not a confirmed clinical finding). A fuller map is in `ARCHITECTURE.md` and `DATA.md`.
+
+![LabelPath graph schema: Drug, Label, Section, Ingredient and Condition nodes joined by HAS_LABEL, HAS_SECTION, CONTAINS, INDICATED_FOR, CONTRAINDICATED_IN and LABELED_INTERACTION relationships. CONTAINS carries no snippet; the other three source-backed relationships carry source_kind, summary and source_set_id.](docs/img/labelpath-schema.png)
+
+*Graph schema, checked against the live store (counts from the 19 November 2026 snapshot). A relationship named LABELED_INTERACTION is a label mention, not a clinical finding. Educational only, not medical advice.*
 
 Relate capabilities this project actually uses, and where:
 
@@ -79,6 +83,26 @@ Read-only MCP, including host-config snippets and example questions, is document
 
 A screenshot of the UI after the demo path loads is in `docs/screenshots/apixaban-aspirin.png` (captured on a Linux dry-run machine; that folder’s README has steps to recapture on a Mac).
 
+### Second example: clopidogrel → omeprazole → methotrexate
+
+Another path checked against the committed store with read-only queries (26 November 2026). In the UI, type `clopidogrel` and `methotrexate`, keep the default 2 hops, and click **Find paths**. Path 1 goes through a shared condition (`anaphylaxis`, from two contraindication sections). Path 2 is two `LABELED_INTERACTION` hops, each a label mention with a section name, a snippet, and a DailyMed `set_id`. In this snapshot there is no direct clopidogrel–methotrexate edge. Stored snippets are truncated, so they can start or end mid-word.
+
+1. clopidogrel → omeprazole, section `drug_interactions`, label `set_id` `55731d95-0c99-ff61-e063-6394a90a1ab5`: “...sma concentrations of the active metabolite of clopidogrel and a reduction in platelet inhibition [ see Warnings and Precautions ( 5.1 ) ]. Omeprazole or Esomeprazole Avoid concomitant use of clopidogrel with omeprazole or esomeprazole. In clinical studies, omeprazole was shown to reduce s...”
+2. omeprazole → methotrexate, section `drug_interactions`, label `set_id` `e235ef89-3592-4ca1-8c13-d7ce84b1001c`: “...CYP2C19 and 3A4 (e.g. voriconazole) may raise omeprazole levels (7.3) Tacrolimus: omeprazole may increase serum levels of tacrolimus (7.4) Methotrexate: Omeprazole may increase serum levels of methotrexate ( 7.7 ) 7.1 Interference with Antiretroviral Therapy Concomitant use of atazanavir an...”
+
+As with the first example, a path means the label text mentions both names. It is not a pharmacological pathway or a clinical interaction finding. Educational only, not medical advice.
+
+## Screenshots and diagram
+
+Screenshots of the local UI, captured on 26 November 2026 (America/New_York) on the maintainer's Mac against the read-only server on 127.0.0.1:8765. The disclaimer banner is visible in each.
+
+| | |
+| --- | --- |
+| ![LabelPath home page with the disclaimer banner](docs/img/01-home.png) | ![Apixaban to aspirin: Path 3, apixaban to warfarin to aspirin](docs/img/02-path-apixaban-aspirin.png) |
+| ![Clopidogrel to methotrexate: Path 2 via omeprazole](docs/img/03-path-clopidogrel-methotrexate.png) | ![Boxed warning and contraindication snippets for warfarin](docs/img/04-warnings-warfarin.png) |
+
+The schema diagram and the 3:2 thumbnail (`docs/img/labelpath-schema.png`, `docs/img/labelpath-thumbnail.png`) were made as hand-written HTML/SVG rendered with headless Google Chrome; the sources are in `docs/img/src/`.
+
 ## Where the data lives
 
 - **Persistent Relate store (committed, query this first):** `data/labelpath.rl`. On the Linux dry-run machine this file was 7,139,328 bytes after ingest. The snapshot it holds was built on 19 November 2026 (America/New_York) from 293 cached labels: **2,023 nodes** and **4,186 relationships**.
@@ -129,12 +153,14 @@ The graph is built from the public openFDA drug labeling API (https://open.fda.g
 - [pytest](https://pytest.org/) 8.4.2: the test runner.
 - [openFDA](https://open.fda.gov/) drug-label records: the dataset. Attribution is in `DATA.md`.
 - The local UI and the MCP smoke test use the Python standard library only (no extra package, no CDN).
+- Headless Google Chrome: rendered the hand-written HTML/SVG schema diagram and thumbnail to PNG, and captured the UI screenshots.
+- ElevenLabs text-to-speech: the draft demo voiceover audio (not committed).
 
 There are no required paid services, no committed `.env`, and no API key in this snapshot.
 
 ## AI use
 
-AI-assisted development was used for scaffolding and implementation. Graph extraction did not use an LLM. No patient, employer, or hospital data was used. The dated log is in `AI_USE.md`.
+AI-assisted development was used for scaffolding and implementation. A draft demo voiceover was generated with ElevenLabs text-to-speech from my own script (the audio file is not in this repo). Graph extraction did not use an LLM. No patient, employer, or hospital data was used. The dated log is in `AI_USE.md`.
 
 ## License
 

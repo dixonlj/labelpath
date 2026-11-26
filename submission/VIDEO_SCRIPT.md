@@ -1,19 +1,20 @@
 # Demo video script — LabelPath
 
-**Status:** draft only. Do not record or upload until Liam agrees. Official Rules (Section 4) allow a video of **up to 2 minutes** *or* a link to a working demo. The Devpost overview checklist asks for a 1–2 minute video. This script is written for **about 1:30–1:50**, and it must stay **under 2:00**.
+**Status:** draft only. Do not record or upload until Liam agrees. Official Rules (Section 4) allow a video of **up to 2 minutes** *or* a link to a working demo. The Devpost overview checklist asks for a 1–2 minute video. The voiceover below is **219 words**; a text-to-speech read of exactly this text runs **about 1:31** (90.6 seconds), and it must stay **under 2:00**. The finished video can run a little longer than the voiceover while you show the screens.
 
 The video must be your own work (filming, editing, and graphic design). Do not add unlicensed music or stock footage. The finished file must be accessible to judges **without a login or payment**. Official Rules do not name a required host (they do not mention YouTube). An unlisted YouTube link is a common option if the watch page opens without signing in; confirm that before you submit. Do not modify the Relate logo or mascot if you show them (Official Rules, Section 8).
 
 Keep **Educational only, not medical advice.** visible on screen for the whole video (the UI banner does this during the UI shots; add a lower-third or title card for the CLI and MCP shots).
 
-## Timed shot list (target 1:40)
+## Timed shot list (target 1:40 to 1:50)
 
 | Time | Shot | What to show | What to say (short cue) |
 | --- | --- | --- | --- |
 | 0:00–0:12 | Title card, then the UI with the disclaimer banner already visible | Title “LabelPath”; browser at `http://127.0.0.1:8765/`; the dark banner with “Educational only, not medical advice.” and the openFDA attribution | Who you are, one-sentence problem, the disclaimer out loud |
 | 0:12–0:22 | Stay on the UI, or a simple slide of the graph model | Drugs, labels, ingredients, conditions; edges: contains, labeled interaction, indicated for, contraindicated in | “It is a graph of public label text, not a hospital record.” |
-| 0:22–0:55 | Live UI path demo | Click **Try: apixaban → aspirin** (UI default is 2 hops; it can be raised to 3). Scroll to Path 3: apixaban → warfarin → aspirin. On this demo path, both hops have a section name, a snippet, and a DailyMed link | Read one hop out loud, including the section name |
-| 0:55–1:08 | UI warnings | In the Warnings box, type `warfarin`, click **Show warnings**. Show the boxed-warning snippet | “This is the boxed warning text from the snapshot label, not advice.” |
+| 0:22–0:46 | Live UI path demo | Click **Try: apixaban → aspirin** (UI default is 2 hops; it can be raised to 3). Scroll to Path 3: apixaban → warfarin → aspirin. On this demo path, both hops have a section name, a snippet, and a DailyMed link | Read one hop out loud, including the section name |
+| 0:46–0:58 | Second example in the UI | Type `clopidogrel` and `methotrexate`, keep 2 hops, click **Find paths**. Path 1 goes through a shared condition (`anaphylaxis`, from two contraindication sections); scroll to Path 2: clopidogrel → omeprazole → methotrexate, two `drug_interactions` hops, each with a snippet and a DailyMed link | “Same idea, same hedges: label text mentions both names.” |
+| 0:58–1:08 | UI warnings | In the Warnings box, type `warfarin`, click **Show warnings**. Show the boxed-warning snippet | “This is the boxed warning text from the snapshot label, not advice.” |
 | 1:08–1:22 | Terminal CLI | From `~/Projects/labelpath` with `venv/` active: `python -m labelpath query path apixaban aspirin` (the CLI defaults to 3 hops). The first line must be the disclaimer | “Same graph from the command line.” |
 | 1:22–1:36 | Terminal MCP smoke, or a prepared scrollback | `python scripts/mcp_smoke.py` (or a short, already-run output). Highlight `tools/list: read_cypher, get_schema` and `write_cypher refusal: unknown tool 'write_cypher'` | “Official MCP, opened read-only, returns raw Cypher results. A write is refused.” |
 | 1:36–1:50 | Finder or `ls -l data/labelpath.rl`, then the README setup block | The committed `.rl` file in the repo; one-line clone-and-run (`pip install -r requirements.txt`, then `python -m labelpath serve --port 8765`); “built with Relate”; openFDA credit | Where the store lives, how a judge can run it, close on the disclaimer |
@@ -22,21 +23,25 @@ If you are running long, cut the graph-model beat (0:12–0:22) and keep the liv
 
 ## Voiceover (plain words, read this)
 
-Hi, I’m Liam Dixon. I work as a blood-bank medical laboratory technician, and I have been teaching myself AI and software in the evenings. I built LabelPath outside of work.
+Hi, I'm Liam Dixon. I work as a blood-bank medical laboratory technician, and I have been teaching myself AI and software in the evenings. I built LabelPath outside of work.
 
-It is a local graph of public FDA drug labels. Educational only, not medical advice, and not for clinical use. It does not use any hospital or patient data.
+It is a local graph of public FDA drug labels. Educational only, not medical advice, and not for clinical use. It uses no hospital or patient data.
 
-Relate stores the snapshot in one file, data/labelpath.rl, in the repo — 293 labels you can inspect offline. I click Try: apixaban to aspirin, at the UI default of two hops, which you can raise to three. Shorter paths come first. Here is a two-hop path: apixaban, to warfarin, to aspirin. On this demo path, each hop shows the label section, a snippet, and a DailyMed link. A path means the label text mentions both names; it is not a clinical interaction finding.
+Relate stores the snapshot in a single file in the repo. I click Try: apixaban to aspirin. The UI defaults to two hops, and you can raise that to three. Here is a two-hop path: apixaban, to warfarin, to aspirin. Each hop shows the label section, a snippet, and a DailyMed link. A path means the label text mentions both names. It is not a pharmacological pathway or a clinical finding.
 
-Warnings for warfarin show the boxed warning from that snapshot label — again, label text, not advice.
+A second example: clopidogrel, to omeprazole, to methotrexate. Same sources, same hedges.
 
-The same questions run from the command line. The CLI path command defaults to three hops. Every command prints the disclaimer first.
+Warnings for warfarin show the boxed warning from the label, not advice.
 
-Agents can use Relate’s official MCP server in read-only mode. It lists read_cypher and get_schema and returns raw Cypher results. Official MCP output carries no disclaimer, so the host must add it. A write is refused, and the store file does not change.
+The command line prints the same results, disclaimer first, and defaults to three hops.
 
-If you clone the repo, install the requirements, and start the local UI on 127.0.0.1, you can replay this demo offline. Data provided by the U.S. Food and Drug Administration. Educational only, not medical advice.
+Agents can use Relate's official read-only MCP server. It lists read cypher and get schema, and a write is refused. MCP output carries no disclaimer, so the host must add it.
 
-(About 259 words. At a calm pace this is roughly 1:30–1:50, and it may run close to 2:00. Do a timed read-through before you record, and trim rather than speed up.)
+Clone the repo, install, and run it offline. Data provided by the U.S. Food and Drug Administration. Educational only, not medical advice.
+
+(219 words; about 1:31 as a generated read. For the spoken text, `read_cypher` and `get_schema` are read as “read cypher” and “get schema”. Do a timed read-through before you record, and trim rather than speed up.)
+
+A generated MP3 of this exact text (ElevenLabs text-to-speech, stock voice “Reid - E-Learning Instructor”, model `eleven_multilingual_v2`, 90.6 seconds) was made on 26 November 2026. It is **not committed** (`*.mp3` is git-ignored); if you use it, the voiceover is synthetic, and the video should say so.
 
 ## Recording tips (macOS)
 

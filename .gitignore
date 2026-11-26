@@ -28,3 +28,6 @@ htmlcov/
 *auth*token*
 .auth/
 credentials.json
+
+# Generated audio (not committed)
+*.mp3

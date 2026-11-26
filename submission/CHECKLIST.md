@@ -22,7 +22,7 @@ Judging is 12–16 December 2026; winners are announced 17 December 2026. Offici
 | Register on the Contest page and submit there by the deadline | Official Rules §4 | **LIAM STEP.** Use only the address Liam names, and only after an explicit OK |
 | Project title and description of what it does and why it is useful | Official Rules §4 | **Done** as a draft in `DEVPOST.md`. **LIAM STEP** to paste into Devpost |
 | Setup instructions so a judge can install and run the project | Official Rules §4; overview README template | **Done** in `README.md` (official template: use case; how it uses Relate, including single-file mode and why; setup and run; path to the store) |
-| Demo: a video of up to 2 minutes *or* a working-demo link, plus screenshots if useful | Official Rules §4 | **LIAM STEP** to record and upload (script in `VIDEO_SCRIPT.md`). A screenshot already exists at `docs/screenshots/apixaban-aspirin.png`. Safest path: include a 1–2 minute video *and* the clone-and-run repo. Official Rules do not name YouTube; the video must be reachable **without a login or payment** |
+| Demo: a video of up to 2 minutes *or* a working-demo link, plus screenshots if useful | Official Rules §4 | **LIAM STEP** to record and upload (script in `VIDEO_SCRIPT.md`). Screenshots are in `docs/img/` and `docs/screenshots/apixaban-aspirin.png`; a draft ElevenLabs voiceover MP3 exists outside the repo (disclose it as synthetic if used). Safest path: include a 1–2 minute video *and* the clone-and-run repo. Official Rules do not name YouTube; the video must be reachable **without a login or payment** |
 | Video, if submitted, is original work (filming, editing, graphic design); third-party music and images only with permission; no modified Relate logo or mascot | Official Rules §4, §8 | **LIAM STEP** at recording time. Follow `VIDEO_SCRIPT.md` |
 | Statement of Product capabilities, third-party tools, and AI tools | Official Rules §4 | **Done** as a draft in `STATEMENT.md`. **LIAM STEP** to include it on Devpost |
 | Persistent Relate store (directory or single file) that judges can inspect; not in-memory only | Official Rules / overview | **Done.** Committed `data/labelpath.rl` (7,139,328 bytes; 2,023 nodes, 4,186 relationships) |
@@ -46,7 +46,7 @@ Judging is 12–16 December 2026; winners are announced 17 December 2026. Offici
 | Built with tags | `DEVPOST.md` | Draft done; **LIAM STEP** to select on Devpost |
 | GitHub repo URL | https://github.com/dixonlj/labelpath | **Done.** **LIAM STEP** only to paste the URL into Devpost at submit time |
 | Video link | `VIDEO_SCRIPT.md` | **LIAM STEP** after recording and upload |
-| Screenshots | `docs/screenshots/` | File ready; **LIAM STEP** to attach, without cropping the disclaimer |
+| Screenshots, schema diagram, thumbnail | `docs/img/`, `docs/screenshots/` | Files ready; **LIAM STEP** to attach, without cropping the disclaimer |
 | Capabilities / tools / AI statement | `STATEMENT.md` | Draft done; **LIAM STEP** to paste or attach |
 
 ## Suggested GitHub steps (later, only with explicit OK)

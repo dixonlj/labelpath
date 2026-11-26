@@ -29,6 +29,10 @@ The UI (`labelpath/serve.py`) is a standard-library HTTP server that binds 127.0
 
 From the 19 November 2026 snapshot (2,023 nodes, 4,186 relationships):
 
+![LabelPath graph schema: Drug, Label, Section, Ingredient and Condition nodes joined by HAS_LABEL, HAS_SECTION, CONTAINS, INDICATED_FOR, CONTRAINDICATED_IN and LABELED_INTERACTION relationships. CONTAINS carries no snippet; the other three source-backed relationships carry source_kind, summary and source_set_id.](docs/img/labelpath-schema.png)
+
+*The diagram was written as HTML/SVG (`docs/img/src/labelpath-schema.html`) and rendered with headless Google Chrome. Its labels, property names, and counts were checked against `scripts/ingest.py` and the committed store.*
+
 | Nodes | What they represent |
 | --- | --- |
 | `Drug` | One node per seed that has a cached label (`key` is the normalized seed name) |

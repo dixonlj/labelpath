@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#0b1020}svg{display:block;font-family:'Noto Sans','DejaVu Sans',Arial,sans-serif}.mono{font-family:'DejaVu Sans Mono',monospace}</style></head><body>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+<defs>
+ <radialGradient id="bg" cx="25%" cy="15%" r="100%"><stop offset="0" stop-color="#1f2b5e"/><stop offset="0.55" stop-color="#0f1630"/><stop offset="1" stop-color="#080c1a"/></radialGradient>
+ <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.6" fill="#fff" opacity="0.06"/></pattern>
+ <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity="0.5"/></filter>
+ <filter id="glow" filterUnits="userSpaceOnUse" x="0" y="0" width="1800" height="1200"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <linearGradient id="gDrug" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6e9bff"/><stop offset="1" stop-color="#3b5bdb"/></linearGradient>
+ <linearGradient id="gTitle" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#9db8ff"/></linearGradient>
+ <marker id="aAmber" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1 1 L11 6 L1 11 z" fill="#fbbf24"/></marker>
+</defs>
+<rect width="1800" height="1200" fill="url(#bg)"/><rect width="1800" height="1200" fill="url(#dots)"/>
+<text x="110" y="250" font-size="170" font-weight="800" fill="url(#gTitle)" letter-spacing="-4">LabelPath</text>
+<text x="114" y="325" font-size="42" fill="#c5d1ee">Labeled paths through public FDA drug labels</text>
+<text x="114" y="385" font-size="30" fill="#8fa0c8">Each hop points back to its label section, a snippet when one exists, and DailyMed.</text>
+
+<!-- motif: apixaban -> warfarin -> aspirin -->
+<line x1="520" y1="650" x2="718" y2="650" stroke="#fbbf24" stroke-width="8" marker-end="url(#aAmber)" filter="url(#glow)"/>
+<line x1="1040" y1="650" x2="1238" y2="650" stroke="#fbbf24" stroke-width="8" marker-end="url(#aAmber)" filter="url(#glow)"/>
+<g filter="url(#shadow)">
+ <rect x="150" y="570" width="370" height="160" rx="34" fill="url(#gDrug)"/>
+ <rect x="720" y="570" width="320" height="160" rx="34" fill="url(#gDrug)"/>
+ <rect x="1240" y="570" width="320" height="160" rx="34" fill="url(#gDrug)"/>
+</g>
+<g fill="#fff" text-anchor="middle" font-weight="800">
+ <text x="335" y="665" font-size="52">apixaban</text><text x="880" y="665" font-size="52">warfarin</text><text x="1400" y="665" font-size="52">aspirin</text>
+ <g font-size="22" font-weight="600" opacity="0.9"><text x="335" y="705">Drug</text><text x="880" y="705">Drug</text><text x="1400" y="705">Drug</text></g>
+</g>
+<g font-size="22" font-weight="700" text-anchor="middle">
+ <rect x="470" y="515" width="300" height="42" rx="21" fill="#2a2208" stroke="#fbbf24" stroke-width="2"/><text x="620" y="544" fill="#fde68a">LABELED_INTERACTION</text>
+ <rect x="990" y="515" width="300" height="42" rx="21" fill="#2a2208" stroke="#fbbf24" stroke-width="2"/><text x="1140" y="544" fill="#fde68a">LABELED_INTERACTION</text>
+</g>
+<text x="900" y="800" text-anchor="middle" font-size="26" fill="#a9b6d8">A path means label text mentions both names. Not a clinical finding.</text>
+
+<g>
+ <rect x="110" y="905" width="1580" height="190" rx="30" fill="#10192f" stroke="#2b3866" stroke-width="2"/>
+ <text x="150" y="985" font-size="52" font-weight="800" fill="#fff">Educational only, not medical advice.</text>
+ <text x="150" y="1040" font-size="28" fill="#a9b6d8">293 FDA labels · 2,023 nodes · 4,186 relationships · single-file Relate store · read-only CLI, UI and MCP</text>
+ <text x="150" y="1075" font-size="22" fill="#7c8bb0">Data provided by the U.S. Food and Drug Administration (https://open.fda.gov). Built with Relate.</text>
+</g>
+</svg></body></html>
