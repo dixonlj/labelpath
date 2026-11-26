@@ -6,7 +6,7 @@ A local Relate graph of public FDA drug labels, so you can follow labeled connec
 
 ## Use case
 
-LabelPath is for a person or an agent who wants to see *what the public label text actually says* about how two snapshot drugs are connected, or what boxed warnings and contraindication neighbors a drug has, without opening a hospital system or calling a remote database. It solves a documentation problem, not a clinical one: the interesting relationships are labeled interactions, ingredients a product contains, and conservatively phrase-matched indications and contraindications, each pointing back to a label section and a DailyMed page. A typical first result is the path from apixaban to aspirin, including a two-hop path via warfarin, with section names and snippets from the source labels.
+LabelPath is for a person or an agent who wants to see *what the public label text actually says* about how two snapshot drugs are connected, or what boxed warnings and contraindication neighbors a drug has, without opening a hospital system or calling a remote database. It solves a documentation problem, not a clinical one: the interesting relationships are `LABELED_INTERACTION` edges (a label mention in an interaction-related section), ingredients a product contains, and conservatively phrase-matched indications and contraindications. `INDICATED_FOR`, `CONTRAINDICATED_IN`, and `LABELED_INTERACTION` point back to a source section and a snippet when those exist, and to a DailyMed page when a `set_id` exists; `CONTAINS` comes from the structured ingredient list and has no section snippet. A path means label text in this snapshot mentions both names; it is not a pharmacological pathway or a clinical interaction finding. A typical first result is the path from apixaban to aspirin, including a two-hop path via warfarin; on that documented demo path, each hop has a section name, a snippet, and a DailyMed link.
 
 ## How it uses Relate
 
@@ -14,7 +14,7 @@ LabelPath uses Relate as an **embedded, single-file graph store** that is writte
 
 - **Mode:** single file (`data/labelpath.rl`)
 - **Why this mode:** one `.rl` file is easy to commit, copy, and inspect. Judges can query the committed store offline with the Python client or the Relate CLI. This is not an in-memory-only demo; the file remains after the process exits.
-- **What the graph models:** public FDA label text for a curated snapshot of 293 drugs (294 seed names; one miss). Nodes are `Drug`, `Label`, `Section`, `Ingredient`, and `Condition`. Relationships are `HAS_LABEL`, `HAS_SECTION`, `CONTAINS`, `INDICATED_FOR`, `CONTRAINDICATED_IN`, and `LABELED_INTERACTION`. A fuller map is in `ARCHITECTURE.md` and `DATA.md`.
+- **What the graph models:** public FDA label text for a curated snapshot of 293 drugs (294 seed names; one miss). Nodes are `Drug`, `Label`, `Section`, `Ingredient`, and `Condition`. Relationships are `HAS_LABEL`, `HAS_SECTION`, `CONTAINS`, `INDICATED_FOR`, `CONTRAINDICATED_IN`, and `LABELED_INTERACTION` (a label mention, not a confirmed clinical finding). A fuller map is in `ARCHITECTURE.md` and `DATA.md`.
 
 Relate capabilities this project actually uses, and where:
 
@@ -75,7 +75,7 @@ relate --database ./data/labelpath.rl --read-only --mode table --param key=warfa
   "MATCH (d:Drug {key: $key})-[:HAS_LABEL]->(:Label)-[:HAS_SECTION]->(s:Section) RETURN s.kind AS kind LIMIT 10"
 ```
 
-Read-only MCP, including host-config snippets and example questions, is documented in `docs/MCP.md`. A stdlib smoke test is `python scripts/mcp_smoke.py` (skipped by pytest if the CLI is missing).
+Read-only MCP, including host-config snippets and example questions, is documented in `docs/MCP.md`. Official MCP output carries no disclaimer, so hosts must add it. A stdlib smoke test is `python scripts/mcp_smoke.py` (skipped by pytest if the CLI is missing).
 
 A screenshot of the UI after the demo path loads is in `docs/screenshots/apixaban-aspirin.png` (captured on a Linux dry-run machine; that folder’s README has steps to recapture on a Mac).
 
@@ -106,7 +106,7 @@ Observed gaps and quirks in this snapshot, also listed in `DATA.md`:
 
 - The warfarin label discusses “vitamin K,” not the generic name “phytonadione,” so there is no direct `LABELED_INTERACTION` between those two seeds.
 - The heparin label in this snapshot did not name protamine in the scanned sections; the protamine boxed warning does name heparin.
-- Phrase matches in contraindications can still fire inside an exception clause. On the warfarin label, “thromboembolism” appears in a sentence about pregnant women with mechanical heart valves who remain at high risk of thromboembolism, which is not a contraindication to warfarin for thromboembolism.
+- Phrase matches in contraindications can still fire inside an exception clause. On the warfarin label, “thromboembolism” appears in a sentence about pregnant women with mechanical heart valves who remain at high risk of thromboembolism, which is not a contraindication to warfarin for thromboembolism, so contraindication neighbors can be wrong.
 - The most recent matching label can be a repackaged product. The warfarin snapshot record is a REMEDYREPACK ANDA label that still includes the boxed warning, indications, contraindications, interactions, and warnings-and-cautions sections.
 - One seed was missed: **cholecalciferol**. Searches returned only combination products, which the matcher does not treat as a single-ingredient match. See `data/raw/missed.txt`.
 

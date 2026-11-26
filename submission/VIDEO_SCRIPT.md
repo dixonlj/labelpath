@@ -12,7 +12,7 @@ Keep **Educational only, not medical advice.** visible on screen for the whole v
 | --- | --- | --- | --- |
 | 0:00–0:12 | Title card, then the UI with the disclaimer banner already visible | Title “LabelPath”; browser at `http://127.0.0.1:8765/`; the dark banner with “Educational only, not medical advice.” and the openFDA attribution | Who you are, one-sentence problem, the disclaimer out loud |
 | 0:12–0:22 | Stay on the UI, or a simple slide of the graph model | Drugs, labels, ingredients, conditions; edges: contains, labeled interaction, indicated for, contraindicated in | “It is a graph of public label text, not a hospital record.” |
-| 0:22–0:55 | Live UI path demo | Click **Try: apixaban → aspirin** (UI default is 2 hops; it can be raised to 3). Scroll to Path 3: apixaban → warfarin → aspirin. Point at the section name, the snippet when one exists, and the DailyMed link | Read one hop out loud, including the section name |
+| 0:22–0:55 | Live UI path demo | Click **Try: apixaban → aspirin** (UI default is 2 hops; it can be raised to 3). Scroll to Path 3: apixaban → warfarin → aspirin. On this demo path, both hops have a section name, a snippet, and a DailyMed link | Read one hop out loud, including the section name |
 | 0:55–1:08 | UI warnings | In the Warnings box, type `warfarin`, click **Show warnings**. Show the boxed-warning snippet | “This is the boxed warning text from the snapshot label, not advice.” |
 | 1:08–1:22 | Terminal CLI | From `~/Projects/labelpath` with `venv/` active: `python -m labelpath query path apixaban aspirin` (the CLI defaults to 3 hops). The first line must be the disclaimer | “Same graph from the command line.” |
 | 1:22–1:36 | Terminal MCP smoke, or a prepared scrollback | `python scripts/mcp_smoke.py` (or a short, already-run output). Highlight `tools/list: read_cypher, get_schema` and `write_cypher refusal: unknown tool 'write_cypher'` | “Official MCP, opened read-only, returns raw Cypher results. A write is refused.” |
@@ -26,17 +26,17 @@ Hi, I’m Liam Dixon. I work as a blood-bank medical laboratory technician, and 
 
 It is a local graph of public FDA drug labels. Educational only, not medical advice, and not for clinical use. It does not use any hospital or patient data.
 
-Relate stores the snapshot in one file, data/labelpath.rl, in the repo — 293 labels you can inspect offline. I click Try: apixaban to aspirin, at the UI default of two hops, which you can raise to three. Shorter paths come first. Here is a two-hop path: apixaban, to warfarin, to aspirin. Each hop shows the label section, a short snippet when one exists, and a DailyMed link back to the source.
+Relate stores the snapshot in one file, data/labelpath.rl, in the repo — 293 labels you can inspect offline. I click Try: apixaban to aspirin, at the UI default of two hops, which you can raise to three. Shorter paths come first. Here is a two-hop path: apixaban, to warfarin, to aspirin. On this demo path, each hop shows the label section, a snippet, and a DailyMed link. A path means the label text mentions both names; it is not a clinical interaction finding.
 
 Warnings for warfarin show the boxed warning from that snapshot label — again, label text, not advice.
 
 The same questions run from the command line. The CLI path command defaults to three hops. Every command prints the disclaimer first.
 
-Agents can use Relate’s official MCP server in read-only mode. It lists read_cypher and get_schema and returns raw Cypher results. The project docs ask every answer to keep the disclaimer line. A write is refused, and the store file does not change.
+Agents can use Relate’s official MCP server in read-only mode. It lists read_cypher and get_schema and returns raw Cypher results. Official MCP output carries no disclaimer, so the host must add it. A write is refused, and the store file does not change.
 
 If you clone the repo, install the requirements, and start the local UI on 127.0.0.1, you can replay this demo offline. Data provided by the U.S. Food and Drug Administration. Educational only, not medical advice.
 
-(About 246 words. At a calm pace this is roughly 1:30–1:50, and it may run close to 2:00. Do a timed read-through before you record, and trim rather than speed up.)
+(About 259 words. At a calm pace this is roughly 1:30–1:50, and it may run close to 2:00. Do a timed read-through before you record, and trim rather than speed up.)
 
 ## Recording tips (macOS)
 

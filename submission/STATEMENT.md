@@ -10,17 +10,17 @@ LabelPath makes meaningful use of Relate as an embedded, persistent graph, not o
 
 - **Embedded Python client** (`relate-db==1.1.0`, `import relate`): `scripts/ingest.py` writes the store; `labelpath/query.py` and the tests open it.
 - **Single-file store mode:** the committed persistent store is `data/labelpath.rl` (7,139,328 bytes after the 19 November 2026 ingest). A single file was chosen because it is easy to commit, copy, and inspect. This is not an in-memory-only demo.
-- **Cypher via Python, with bound parameters:** lookups, bounded path queries, warnings, and neighbors all run as parameterized Cypher. User text is not interpolated into statements. Path queries are at most three hops, shorter first. The UI defaults to 2 hops and can be raised to 3; the CLI defaults to 3.
+- **Cypher via Python, with bound parameters:** lookups, bounded path queries, warnings, and neighbors all run as parameterized Cypher. User text is not interpolated into statements. Path queries are at most three hops, shorter first. The UI defaults to 2 hops and can be raised to 3; the CLI defaults to 3. A path means label text mentions both names; it is not a pharmacological pathway or a clinical interaction finding. In prose, a `LABELED_INTERACTION` is a label mention, not a confirmed clinical finding.
 - **Read-only open:** every query surface uses `relate.connect(path, read_only=True)` or `relate serve … --read-only`.
 - **Relate CLI (optional for judges):** documented one-liners against `data/labelpath.rl`, and the MCP command below. The maintainer’s Mac has Relate CLI v1.1.0. The official installer installed CLI v1.3.0 on a Linux dry-run machine on 25 November 2026. The committed store, written with `relate-db==1.1.0`, opened read-only under CLI v1.3.0. Write or migration compatibility with CLI v1.3.0 was not tested.
-- **MCP:** the official server, started as `relate serve --mcp stdio --database ./data/labelpath.rl --read-only`. Opened read-only, `tools/list` returns `read_cypher` and `get_schema`. A `write_cypher` call is refused with `unknown tool 'write_cypher'`. This project does not start a writable MCP server and does not start MCP over HTTP. Official MCP returns raw Cypher results; the project docs ask every answer to keep the disclaimer line. The CLI and UI always show the disclaimer.
+- **MCP:** the official server, started as `relate serve --mcp stdio --database ./data/labelpath.rl --read-only`. Opened read-only, `tools/list` returns `read_cypher` and `get_schema`. A `write_cypher` call is refused with `unknown tool 'write_cypher'`. This project does not start a writable MCP server and does not start MCP over HTTP. Official MCP output carries no disclaimer, so hosts must add it. The CLI and UI always show the disclaimer.
 
 This project does **not** use vector search, Bolt, the HTTP Query API, WebAssembly, or a connection to Neo4j or Aura.
 
 ## Third-party tools and data
 
 - **Relate** / `relate-db` and the Relate CLI (Apache License 2.0): the embedded store, Cypher, the official CLI, and the official MCP server. Relate itself is not a paid service and needs no account.
-- **pytest 8.4.2:** the test runner (34 tests passed on the maintainer’s Mac and in a clean-clone check).
+- **pytest 8.4.2:** the test runner (34 tests passed on the maintainer’s Mac and in a clean-clone check, with the Relate CLI installed). Without the CLI, the MCP smoke test in `tests/test_mcp.py` is skipped.
 - **Python 3.9** and the Python standard library: the local UI (`http.server`, HTML, CSS, and JavaScript with no CDN) and the MCP stdio smoke test. No extra UI package is required.
 - **openFDA drug labeling API** (https://open.fda.gov/apis/drug/label/): the dataset. The committed snapshot was retrieved on 19 November 2026 (America/New_York) with no API key, under the official unauthenticated limits. Field mapping and limitations are in `DATA.md`.
 

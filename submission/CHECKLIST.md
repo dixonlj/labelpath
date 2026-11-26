@@ -4,7 +4,7 @@ Draft only. **Publish, push, register, and submit nothing** until Liam gives a s
 
 **Deadline:** Friday, 11 December 2026, **9:00 PM ET** (America/New_York) / **6:00 PM PST**. That is the official Contest-page time. Submissions after that time will not be accepted. **Safe cutoff: 12:00 PM noon ET that same day**, so a missing GitHub topic, README typo, or video-link problem can still be fixed. Do not count on the rules’ “reasonable period” to add a missing `relate` topic after you submit.
 
-Judging is 12–16 December 2026; winners are announced 17 December 2026.
+Judging is 12–16 December 2026; winners are announced 17 December 2026. Official Rules Section 5 (as updated 24 November 2026, confirmed at https://relate.devpost.com/rules) scores each eligible entry out of 100 points: Relate and connected context (30 points), Functionality and completeness (25 points), Usefulness (20 points), Documentation and reproducibility (15 points), and Creativity (10 points).
 
 ---
 
@@ -62,7 +62,7 @@ Judging is 12–16 December 2026; winners are announced 17 December 2026.
 - Judge-ready `README.md`, `ARCHITECTURE.md`, `DATA.md`, `docs/MCP.md`, Apache-2.0 `LICENSE`
 - Committed inspectable store `data/labelpath.rl`
 - CLI, 127.0.0.1 UI, read-only MCP docs and smoke test
-- 34 tests passed on the Mac and in a clean-clone check
+- 34 tests passed on the Mac and in a clean-clone check (with the Relate CLI installed)
 - This pack under `submission/`
 
 ## What is not done, on purpose

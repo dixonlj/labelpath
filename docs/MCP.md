@@ -93,7 +93,7 @@ Where to put it, from the official host guide:
 
 ## Example questions
 
-Ask these only as questions about **this public-label snapshot**. Every answer should keep the line **Educational only, not medical advice.**
+Ask these only as questions about **this public-label snapshot**. Official MCP output carries no disclaimer, so the host must add it. Every answer should include the line **Educational only, not medical advice.**
 
 **1. Is there a labeled path from apixaban to aspirin via warfarin?**
 

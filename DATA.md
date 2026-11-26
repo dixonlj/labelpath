@@ -97,13 +97,13 @@ Ingest (`scripts/ingest.py`) reads only `data/raw/` and does not use the network
 - `(:Label {set_id, effective_time, source_url})` and `(Drug)-[:HAS_LABEL]->(Label)-[:HAS_SECTION {kind}]->(:Section {kind, text})`.
 - `(:Ingredient {key, name})` from `openfda.substance_name`, with `(Drug)-[:CONTAINS]->(Ingredient)`.
 - `(:Condition {key, name})` only when a phrase from the documented list in `data/condition_phrases.txt` appears as a whole-phrase, word-boundary match. Longer phrases win over overlapping shorter ones (so “malignant hypertension” is not also stored as “hypertension”). `(Drug)-[:INDICATED_FOR {source_set_id, source_kind, summary}]->(Condition)` is created only from `indications_and_usage`. `(Drug)-[:CONTRAINDICATED_IN {source_set_id, source_kind, summary}]->(Condition)` is created only from `contraindications`. This is a conservative phrase list, not a medical ontology.
-- `(Drug)-[:LABELED_INTERACTION {summary, source_set_id, source_kind, matched_name}]->(Drug|Ingredient)` only when an interaction-related section (`drug_interactions`, `contraindications`, `boxed_warning`, or `warnings_and_cautions`) names another snapshot drug or ingredient with a word-boundary match. A drug is not linked to itself, and is not linked to its own ingredients. The relationship properties point back to the source section.
+- `(Drug)-[:LABELED_INTERACTION {summary, source_set_id, source_kind, matched_name}]->(Drug|Ingredient)` only when an interaction-related section (`drug_interactions`, `contraindications`, `boxed_warning`, or `warnings_and_cautions`) names another snapshot drug or ingredient with a word-boundary match. A drug is not linked to itself, and is not linked to its own ingredients. The relationship properties point back to the source section. In prose, this is a label mention, not a confirmed clinical interaction.
 
 Known limits of this conservative matching, observed in this snapshot:
 
 - The warfarin label discusses “vitamin K,” not the generic name “phytonadione,” so no direct `LABELED_INTERACTION` was created between those two seeds.
 - The heparin label in this snapshot did not name protamine in the scanned sections; the protamine boxed warning does name heparin.
-- Phrase matches in contraindications can still fire inside an exception clause. On the warfarin label, “thromboembolism” appears in the sentence about pregnant women with mechanical heart valves who remain at high risk of thromboembolism, which is not a contraindication to warfarin for thromboembolism.
+- Phrase matches in contraindications can still fire inside an exception clause. On the warfarin label, “thromboembolism” appears in the sentence about pregnant women with mechanical heart valves who remain at high risk of thromboembolism, which is not a contraindication to warfarin for thromboembolism, so contraindication neighbors can be wrong.
 
 ## Snapshot built on 19 November 2026 (America/New_York)
 
