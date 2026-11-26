@@ -77,4 +77,4 @@ This submission is meant to be a complete, cloneable graph demo, not a clinical 
 
 ---
 
-**Devpost field notes (for Liam):** paste the title and tagline into the corresponding fields. Paste the story sections into Inspiration through What's next. Add the Built with tags above. Attach the GitHub link and video only after those LIAM STEPs are done. Include a screenshot from `docs/screenshots/` if useful, and do not crop out the disclaimer.
+**Devpost field notes (for Liam):** paste the title and tagline into the corresponding fields. Paste the story sections into Inspiration through What's next. Add the Built with tags above. The GitHub repo is https://github.com/dixonlj/labelpath. Attach that link on Devpost, and attach the video only after that LIAM STEP is done. Include a screenshot from `docs/screenshots/` if useful, and do not crop out the disclaimer.
