@@ -111,7 +111,7 @@ As with the first example, a path means the label text mentions both names. It i
 
 ## Screenshots and diagram
 
-Current screenshots of the local UI live in [docs/img/](docs/img/), captured on 26 November 2026 (America/New_York) on the maintainer's Mac against the read-only server on 127.0.0.1:8765. The disclaimer banner is visible in each. The UI can list the same route more than once when a hop has more than one source section (one edge per section). That is expected.
+Current screenshots of the local UI live in [docs/img/](docs/img/), captured on 27 November 2026 (America/New_York) on the maintainer's Mac against the read-only server on 127.0.0.1:8765. The disclaimer banner is visible in each. The UI can list the same route more than once when a hop has more than one source section (one edge per section). That is expected.
 
 | | |
 | --- | --- |

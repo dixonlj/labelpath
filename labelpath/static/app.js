@@ -45,9 +45,9 @@
       parts.push(
         '<p><a href="' +
           text(source.source_url) +
-          '" rel="noopener noreferrer" target="_blank">DailyMed label' +
-          (source.set_id ? " (set_id " + text(source.set_id) + ")" : "") +
-          "</a></p>"
+          '" rel="noopener noreferrer" target="_blank"' +
+          (source.set_id ? ' title="set_id ' + text(source.set_id) + '"' : "") +
+          ">Official FDA label on DailyMed</a></p>"
       );
     } else if (source.set_id) {
       parts.push('<p class="muted">Label set_id: ' + text(source.set_id) + "</p>");
