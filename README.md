@@ -176,6 +176,7 @@ The graph is built from the public openFDA drug labeling API (https://open.fda.g
 - [pytest](https://pytest.org/) 8.4.2: the test runner.
 - [openFDA](https://open.fda.gov/) drug-label records: the dataset. Attribution is in [DATA.md](DATA.md).
 - The local UI and the MCP smoke test use the Python standard library only (no extra package, no CDN).
+- [Inter](https://rsms.me/inter/) typeface (SIL Open Font License 1.1, license text in `labelpath/static/fonts/Inter-OFL.txt`): a Latin subset is bundled and served locally for the UI, so no font CDN is needed.
 - Headless Google Chrome: rendered the hand-written HTML/SVG flow diagram, schema diagram, and thumbnail to PNG, and captured the UI screenshots.
 - ElevenLabs text-to-speech: the draft demo voiceover audio (not committed).
 

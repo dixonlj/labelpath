@@ -199,6 +199,10 @@ def test_static_css_and_js(httpd):
     assert "javascript" in (js_headers.get("Content-Type") or "")
     assert b"banner" in css
     assert b"Try" not in js or b"apixaban" in js
+    font_status, font_headers, font = _request(base, "/static/fonts/inter-latin-var.woff2")
+    assert font_status == 200
+    assert "font/woff2" in (font_headers.get("Content-Type") or "")
+    assert font[:4] == b"wOF2"
 
 
 def test_static_path_traversal_is_rejected(httpd):

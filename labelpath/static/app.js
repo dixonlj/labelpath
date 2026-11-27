@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 
+  var SVG_FONT = 'Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif';
+
   function $(id) {
     return document.getElementById(id);
   }
@@ -31,7 +33,7 @@
     }
     var parts = [];
     if (source.kind) {
-      parts.push('<p>Section: <strong>' + text(source.kind) + "</strong></p>");
+      parts.push('<p class="section-tag">Section: <strong>' + text(source.kind) + "</strong></p>");
     }
     if (source.snippet) {
       parts.push('<p class="snippet">' + text(source.snippet) + "</p>");
@@ -87,12 +89,12 @@
     if (!nodes.length) {
       return "";
     }
-    var boxW = 158;
-    var boxH = 52;
-    var gap = 136;
+    var boxW = 172;
+    var boxH = 58;
+    var gap = 172;
     var padX = 16;
     var width = padX * 2 + nodes.length * boxW + Math.max(nodes.length - 1, 0) * gap;
-    var height = 112;
+    var height = 116;
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("viewBox", "0 0 " + width + " " + height);
     svg.setAttribute("width", String(width));
@@ -114,19 +116,21 @@
         var mid = (x1 + x2) / 2;
         var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
         line.setAttribute("x1", String(x1));
-        line.setAttribute("y1", "56");
+        line.setAttribute("y1", "61");
         line.setAttribute("x2", String(x2));
-        line.setAttribute("y2", "56");
-        line.setAttribute("stroke", "#8c2f12");
-        line.setAttribute("stroke-width", "1.6");
+        line.setAttribute("y2", "61");
+        line.setAttribute("stroke", "#0e7c7b");
+        line.setAttribute("stroke-width", "2");
         svg.appendChild(line);
         var label = document.createElementNS("http://www.w3.org/2000/svg", "text");
         label.setAttribute("x", String(mid));
-        label.setAttribute("y", "28");
+        label.setAttribute("y", "50");
         label.setAttribute("text-anchor", "middle");
-        label.setAttribute("fill", "#8c2f12");
+        label.setAttribute("fill", "#0a5f5e");
         label.setAttribute("font-size", "10");
-        label.setAttribute("font-family", "ui-sans-serif, system-ui, sans-serif");
+        label.setAttribute("font-weight", "600");
+        label.setAttribute("letter-spacing", "0.3");
+        label.setAttribute("font-family", SVG_FONT);
         var relText = String(hop.rel || "").replace(/_/g, " ");
         if (hop.reversed) {
           relText += " (rev)";
@@ -138,30 +142,33 @@
       var g = document.createElementNS("http://www.w3.org/2000/svg", "g");
       var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
       rect.setAttribute("x", String(boxX(i)));
-      rect.setAttribute("y", "34");
+      rect.setAttribute("y", "32");
       rect.setAttribute("width", String(boxW));
       rect.setAttribute("height", String(boxH));
-      rect.setAttribute("rx", "10");
-      rect.setAttribute("fill", "#fffaf2");
-      rect.setAttribute("stroke", "#241c15");
-      rect.setAttribute("stroke-width", "1.2");
+      rect.setAttribute("rx", "12");
+      rect.setAttribute("fill", "#ffffff");
+      rect.setAttribute("stroke", "#0b2545");
+      rect.setAttribute("stroke-width", "1.5");
       g.appendChild(rect);
       var kind = document.createElementNS("http://www.w3.org/2000/svg", "text");
       kind.setAttribute("x", String(boxX(i) + boxW / 2));
       kind.setAttribute("y", "52");
       kind.setAttribute("text-anchor", "middle");
-      kind.setAttribute("fill", "#6b5c4d");
-      kind.setAttribute("font-size", "9");
-      kind.setAttribute("font-family", "ui-sans-serif, system-ui, sans-serif");
-      kind.textContent = node.kind || "";
+      kind.setAttribute("fill", "#5a6b7c");
+      kind.setAttribute("font-size", "9.5");
+      kind.setAttribute("font-weight", "600");
+      kind.setAttribute("letter-spacing", "0.8");
+      kind.setAttribute("font-family", SVG_FONT);
+      kind.textContent = (node.kind || "").toUpperCase();
       g.appendChild(kind);
       var name = document.createElementNS("http://www.w3.org/2000/svg", "text");
       name.setAttribute("x", String(boxX(i) + boxW / 2));
-      name.setAttribute("y", "70");
+      name.setAttribute("y", "73");
       name.setAttribute("text-anchor", "middle");
-      name.setAttribute("fill", "#241c15");
-      name.setAttribute("font-size", "11");
-      name.setAttribute("font-family", "Georgia, Palatino, serif");
+      name.setAttribute("fill", "#0b2545");
+      name.setAttribute("font-size", "13");
+      name.setAttribute("font-weight", "700");
+      name.setAttribute("font-family", SVG_FONT);
       var labelText = node.name || node.key || "";
       if (labelText.length > 20) {
         labelText = labelText.slice(0, 18) + "…";
@@ -182,7 +189,7 @@
     marker.setAttribute("orient", "auto");
     var tip = document.createElementNS("http://www.w3.org/2000/svg", "path");
     tip.setAttribute("d", "M 0 0 L 10 3.5 L 0 7 z");
-    tip.setAttribute("fill", "#8c2f12");
+    tip.setAttribute("fill", "#0e7c7b");
     marker.appendChild(tip);
     defs.appendChild(marker);
     svg.insertBefore(defs, svg.firstChild);
@@ -211,21 +218,41 @@
     (result.paths || []).forEach(function (path, index) {
       var card = document.createElement("article");
       card.className = "card path-card";
-      var heading = document.createElement("h3");
+      var head = document.createElement("div");
+      head.className = "card-head";
       var names = (path.nodes || []).map(function (n) { return n.name || n.key; }).join(" → ");
-      heading.textContent = "Path " + (index + 1) + " (" + (path.hops || 0) + " hop" + (path.hops === 1 ? "" : "s") + "): " + names;
-      card.appendChild(heading);
+      var hopWord = (path.hops || 0) + " hop" + (path.hops === 1 ? "" : "s");
+      var heading = document.createElement("h3");
+      heading.className = "path-title";
+      heading.textContent = "Path " + (index + 1);
+      var badge = document.createElement("span");
+      badge.className = "badge";
+      badge.setAttribute("aria-hidden", "true");
+      badge.textContent = String(index + 1);
+      var count = document.createElement("span");
+      count.className = "hop-count";
+      count.textContent = hopWord;
+      head.appendChild(badge);
+      head.appendChild(heading);
+      head.appendChild(count);
+      card.appendChild(head);
+      var route = document.createElement("p");
+      route.className = "path-route";
+      route.textContent = names;
+      card.appendChild(route);
       card.appendChild(drawDiagram(path));
       (path.nodes || []).slice(0, -1).forEach(function (_, hopIndex) {
         var hop = walkStep(path, hopIndex);
         var block = document.createElement("div");
         block.className = "hop";
         block.innerHTML =
-          "<p><strong>" +
+          '<span class="hop-num" aria-hidden="true">' +
+          (hopIndex + 1) +
+          '</span><p class="hop-line"><strong>' +
           text(hop.left.name || hop.left.key) +
-          "</strong> → <em>" +
+          '</strong> → <span class="rel">' +
           text(hop.rel) +
-          "</em> → <strong>" +
+          "</span> → <strong>" +
           text(hop.right.name || hop.right.key) +
           "</strong>" +
           (hop.reversed

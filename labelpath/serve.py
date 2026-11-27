@@ -39,6 +39,8 @@ _MIME = {
     ".svg": "image/svg+xml",
     ".txt": "text/plain; charset=utf-8",
     ".png": "image/png",
+    ".woff2": "font/woff2",
+    ".woff": "font/woff",
     ".ico": "image/x-icon",
 }
 

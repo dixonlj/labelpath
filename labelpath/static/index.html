@@ -8,6 +8,7 @@
 </head>
 <body>
   <aside class="banner" role="note" aria-label="Disclaimer">
+    <div class="banner-inner">
     <p class="banner-kicker">Educational only, not medical advice.</p>
     <p>
       Not for clinical use, and not a substitute for the official label or a licensed clinician.
@@ -19,11 +20,33 @@
       Data provided by the U.S. Food and Drug Administration
       (<a href="https://open.fda.gov" rel="noopener noreferrer">https://open.fda.gov</a>).
     </p>
+    </div>
   </aside>
 
-  <header class="masthead">
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="LabelPath home">
+        <svg class="brand-mark" width="30" height="30" viewBox="0 0 30 30" role="img" aria-label="LabelPath logo">
+          <rect width="30" height="30" rx="8" fill="#0e7c7b"/>
+          <path d="M8 21 L15 9 L22 21" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="8" cy="21" r="3" fill="#ffffff"/>
+          <circle cx="15" cy="9" r="3" fill="#ffffff"/>
+          <circle cx="22" cy="21" r="3" fill="#ffffff"/>
+        </svg>
+        <span>LabelPath</span>
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#paths">Paths</a>
+        <a href="#lookup">Lookup</a>
+        <a href="#warnings">Warnings</a>
+        <a href="#neighbors">Neighbors</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="masthead" id="top">
     <p class="eyebrow">Local snapshot · Relate graph · read-only</p>
-    <h1>LabelPath</h1>
+    <h1>Labeled connections in public FDA drug labels</h1>
     <p class="lede">
       Look up a drug from this offline snapshot of public FDA labels, then follow
       labeled paths, boxed warnings, and neighbors — each hop points back to a
