@@ -46,7 +46,7 @@ Judging is 12–16 December 2026; winners are announced 17 December 2026. Offici
 | Built with tags | `DEVPOST.md` | Draft done; **LIAM STEP** to select on Devpost |
 | GitHub repo URL | https://github.com/dixonlj/labelpath | **Done.** **LIAM STEP** only to paste the URL into Devpost at submit time |
 | Video link | `VIDEO_SCRIPT.md` | **LIAM STEP** after recording and upload |
-| Screenshots, schema diagram, thumbnail | `docs/img/`, `docs/screenshots/` | Files ready; **LIAM STEP** to attach, without cropping the disclaimer |
+| Screenshots, flow diagram, schema diagram, thumbnail | `docs/img/` (current; includes `labelpath-flow.png`). `docs/screenshots/` is an older Linux set | Files ready; **LIAM STEP** to attach, without cropping the disclaimer |
 | Capabilities / tools / AI statement | `STATEMENT.md` | Draft done; **LIAM STEP** to paste or attach |
 
 ## Suggested GitHub steps (later, only with explicit OK)
