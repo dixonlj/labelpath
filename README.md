@@ -4,6 +4,12 @@ A local Relate graph of public FDA drug labels, so you can follow labeled connec
 
 **Educational only, not medical advice.** Not for clinical use, and not a substitute for the official label or a licensed clinician. This is a graph of public label text only. openFDA says: “Do not rely on openFDA to make decisions regarding medical care.” Always speak to your health provider about the risks and benefits of FDA-regulated products. Data provided by the U.S. Food and Drug Administration (https://open.fda.gov). See `DATA.md` for the official wording, terms, and attribution.
 
+## How LabelPath works
+
+![How LabelPath works: public FDA drug labels are turned into connected facts on your computer, then a question such as whether apixaban's label mentions aspirin is answered with the exact label quote and its source.](docs/img/labelpath-flow.png)
+
+*From public FDA drug labels to a sourced answer. Public openFDA data - educational only, not medical advice.*
+
 ## Use case
 
 LabelPath is for a person or an agent who wants to see *what the public label text actually says* about how two snapshot drugs are connected, or what boxed warnings and contraindication neighbors a drug has, without opening a hospital system or calling a remote database. It solves a documentation problem, not a clinical one: the interesting relationships are `LABELED_INTERACTION` edges (a label mention in an interaction-related section), ingredients a product contains, and conservatively phrase-matched indications and contraindications. `INDICATED_FOR`, `CONTRAINDICATED_IN`, and `LABELED_INTERACTION` point back to a source section and a snippet when those exist, and to a DailyMed page when a `set_id` exists; `CONTAINS` comes from the structured ingredient list and has no section snippet. A path means label text in this snapshot mentions both names; it is not a pharmacological pathway or a clinical interaction finding. A typical first result is the path from apixaban to aspirin, including a two-hop path via warfarin; on that documented demo path, each hop has a section name, a snippet, and a DailyMed link. A second checked example is clopidogrel → omeprazole → methotrexate (see below).
@@ -15,10 +21,6 @@ LabelPath uses Relate as an **embedded, single-file graph store** that is writte
 - **Mode:** single file (`data/labelpath.rl`)
 - **Why this mode:** one `.rl` file is easy to commit, copy, and inspect. Judges can query the committed store offline with the Python client or the Relate CLI. This is not an in-memory-only demo; the file remains after the process exits.
 - **What the graph models:** public FDA label text for a curated snapshot of 293 drugs (294 seed names; one miss). Nodes are `Drug`, `Label`, `Section`, `Ingredient`, and `Condition`. Relationships are `HAS_LABEL`, `HAS_SECTION`, `CONTAINS`, `INDICATED_FOR`, `CONTRAINDICATED_IN`, and `LABELED_INTERACTION` (a label mention, not a confirmed clinical finding). A fuller map is in `ARCHITECTURE.md` and `DATA.md`.
-
-![LabelPath graph schema: Drug, Label, Section, Ingredient and Condition nodes joined by HAS_LABEL, HAS_SECTION, CONTAINS, INDICATED_FOR, CONTRAINDICATED_IN and LABELED_INTERACTION relationships. CONTAINS carries no snippet; the other three source-backed relationships carry source_kind, summary and source_set_id.](docs/img/labelpath-schema.png)
-
-*Graph schema, checked against the live store (counts from the 19 November 2026 snapshot). A relationship named LABELED_INTERACTION is a label mention, not a clinical finding. Educational only, not medical advice.*
 
 Relate capabilities this project actually uses, and where:
 
@@ -101,7 +103,13 @@ Screenshots of the local UI, captured on 26 November 2026 (America/New_York) on 
 | ![LabelPath home page with the disclaimer banner](docs/img/01-home.png) | ![Apixaban to aspirin: Path 3, apixaban to warfarin to aspirin](docs/img/02-path-apixaban-aspirin.png) |
 | ![Clopidogrel to methotrexate: Path 2 via omeprazole](docs/img/03-path-clopidogrel-methotrexate.png) | ![Boxed warning and contraindication snippets for warfarin](docs/img/04-warnings-warfarin.png) |
 
-The schema diagram and the 3:2 thumbnail (`docs/img/labelpath-schema.png`, `docs/img/labelpath-thumbnail.png`) were made as hand-written HTML/SVG rendered with headless Google Chrome; the sources are in `docs/img/src/`.
+The flow diagram (`docs/img/labelpath-flow.png`), the schema diagram, and the 3:2 thumbnail (`docs/img/labelpath-schema.png`, `docs/img/labelpath-thumbnail.png`) were made as hand-written HTML/SVG rendered with headless Google Chrome; the sources are in `docs/img/src/`.
+
+## Architecture
+
+![LabelPath graph schema: Drug, Label, Section, Ingredient and Condition nodes joined by HAS_LABEL, HAS_SECTION, CONTAINS, INDICATED_FOR, CONTRAINDICATED_IN and LABELED_INTERACTION relationships. CONTAINS carries no snippet; the other three source-backed relationships carry source_kind, summary and source_set_id.](docs/img/labelpath-schema.png)
+
+*Graph schema, checked against the live store (counts from the 19 November 2026 snapshot). A relationship named LABELED_INTERACTION is a label mention, not a clinical finding. Educational only, not medical advice.*
 
 ## Where the data lives
 
@@ -153,7 +161,7 @@ The graph is built from the public openFDA drug labeling API (https://open.fda.g
 - [pytest](https://pytest.org/) 8.4.2: the test runner.
 - [openFDA](https://open.fda.gov/) drug-label records: the dataset. Attribution is in `DATA.md`.
 - The local UI and the MCP smoke test use the Python standard library only (no extra package, no CDN).
-- Headless Google Chrome: rendered the hand-written HTML/SVG schema diagram and thumbnail to PNG, and captured the UI screenshots.
+- Headless Google Chrome: rendered the hand-written HTML/SVG flow diagram, schema diagram, and thumbnail to PNG, and captured the UI screenshots.
 - ElevenLabs text-to-speech: the draft demo voiceover audio (not committed).
 
 There are no required paid services, no committed `.env`, and no API key in this snapshot.
