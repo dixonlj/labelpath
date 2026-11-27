@@ -29,7 +29,7 @@ Paste the sections below into the Devpost project story. Keep the disclaimer in 
 
 ## Inspiration
 
-I work as a blood-bank medical laboratory technician, and I have been teaching myself AI and software in the evenings. Outside of work, I have been curious about a documentation question only: what does the public label text say about how two drugs are connected, or which boxed warning sits on a drug in this snapshot?
+I work as a medical lab professional, and in my spare time I build AI tools by directing coding assistants like Cursor and Claude. Outside of work, I have been curious about a documentation question only: what does the public label text say about how two drugs are connected, or which boxed warning sits on a drug in this snapshot?
 
 I did not want to build a hospital graph, a pathway model, or anything that touched employer, patient, or production data. LabelPath is a local Relate graph of a snapshot of public FDA drug labels. It is educational only, not medical advice, not for clinical use, and not a substitute for the official label or a licensed clinician. openFDA says: “Do not rely on openFDA to make decisions regarding medical care.” Data provided by the U.S. Food and Drug Administration (https://open.fda.gov).
 

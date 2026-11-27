@@ -88,6 +88,9 @@ class LabelPathHandler(BaseHTTPRequestHandler):
         if route in ("/", "/index.html"):
             self._send_static(STATIC_DIR / "index.html")
             return
+        if route == "/favicon.ico":
+            self._send_static(STATIC_DIR / "favicon.ico")
+            return
         if route.startswith("/static/"):
             self._send_static_route(route[len("/static/") :])
             return

@@ -1,6 +1,6 @@
 # Demo video script — LabelPath
 
-**Status:** draft only. Do not record or upload until Liam agrees. Official Rules (Section 4) allow a video of **up to 2 minutes** *or* a link to a working demo. The Devpost overview checklist asks for a 1–2 minute video. The voiceover below is **232 words**; the finished video is **1:45**, with a voiceover of **about 1:33**, and it must stay **under 2:00**.
+**Status:** draft only. Do not record or upload until Liam agrees. Official Rules (Section 4) allow a video of **up to 2 minutes** *or* a link to a working demo. The Devpost overview checklist asks for a 1–2 minute video. The voiceover below is **236 words**; the finished video is **1:45**, with a voiceover of **about 1:33**, and it must stay **under 2:00**.
 
 The video must be your own work (filming, editing, and graphic design). Do not add unlicensed music or stock footage. The finished file must be accessible to judges **without a login or payment**. Official Rules do not name a required host (they do not mention YouTube). An unlisted YouTube link is a common option if the watch page opens without signing in; confirm that before you submit. Do not modify the Relate logo or mascot if you show them (Official Rules, Section 8).
 
@@ -23,7 +23,7 @@ If you are running long, cut the graph-model beat (0:12–0:22) and keep the liv
 
 ## Voiceover (plain words, read this)
 
-Hi, I'm Liam Dixon. I work as a blood-bank medical laboratory technician, and I have been teaching myself AI and software in the evenings. I built LabelPath outside of work.
+Hi, I'm Liam Dixon. I work as a medical lab professional, and in my spare time I build AI tools by directing coding assistants like Cursor and Claude. I built LabelPath outside of work.
 
 It is a local graph of public FDA drug labels. Educational only, not medical advice, and not for clinical use. It uses no hospital or patient data.
 
@@ -39,7 +39,7 @@ Agents can use Relate's official read-only MCP server. It lists read cypher and 
 
 Clone the repo, install, and run it offline. Data provided by the U.S. Food and Drug Administration. Educational only, not medical advice.
 
-(232 words; the finished video is 1:45, with a voiceover of about 1:33, still well under 2:00. For the spoken text, `read_cypher` and `get_schema` are read as “read cypher” and “get schema”. Do a timed read-through before you record, and trim rather than speed up.)
+(236 words; the finished video is 1:45, with a voiceover of about 1:33, still well under 2:00. For the spoken text, `read_cypher` and `get_schema` are read as “read cypher” and “get schema”. Do a timed read-through before you record, and trim rather than speed up.)
 
 An earlier ElevenLabs draft MP3 of a previous script (stock voice “Reid - E-Learning Instructor”, model `eleven_multilingual_v2`) was made on 26 November 2026. Re-record the voiceover for this script (about 1:33, in a finished video of 1:45). It is **not committed** (`*.mp3` is git-ignored); if you use a synthetic voiceover, the video should say so.
 

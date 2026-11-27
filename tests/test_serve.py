@@ -203,6 +203,18 @@ def test_static_css_and_js(httpd):
     assert font_status == 200
     assert "font/woff2" in (font_headers.get("Content-Type") or "")
     assert font[:4] == b"wOF2"
+    img_status, img_headers, img = _request(base, "/static/how-labelpath-works.png")
+    assert img_status == 200
+    assert "image/png" in (img_headers.get("Content-Type") or "")
+    assert img[:8] == b"\x89PNG\r\n\x1a\n"
+    logo_status, logo_headers, logo = _request(base, "/static/logo.svg")
+    assert logo_status == 200
+    assert "svg" in (logo_headers.get("Content-Type") or "")
+    assert b"LabelPath" in logo
+    fav_status, fav_headers, fav = _request(base, "/favicon.ico")
+    assert fav_status == 200
+    assert "image/x-icon" in (fav_headers.get("Content-Type") or "")
+    assert len(fav) > 16
 
 
 def test_static_path_traversal_is_rejected(httpd):
