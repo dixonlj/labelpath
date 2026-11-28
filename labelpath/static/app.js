@@ -156,6 +156,7 @@
       rel: step.rel_type || "RELATED",
       display: step.display_label || hopDisplayLabel(step.rel_type, null, step.source_kinds || (step.source && step.source.kind ? [step.source.kind] : [])),
       reversed: reversed,
+      mutual: !!step.mutual,
       source: step.source || sources[0] || null,
       sources: sources
     };
@@ -172,10 +173,10 @@
     }
     var boxW = 172;
     var boxH = 58;
-    var gap = 220;
+    var gap = 260;
     var padX = 16;
     var width = padX * 2 + nodes.length * boxW + Math.max(nodes.length - 1, 0) * gap;
-    var height = 128;
+    var height = 148;
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("viewBox", "0 0 " + width + " " + height);
     svg.setAttribute("width", String(width));
@@ -186,20 +187,26 @@
     svg.appendChild(title);
 
     var defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
-    var markerId = "arrow-" + Math.random().toString(36).slice(2, 8);
-    var marker = document.createElementNS("http://www.w3.org/2000/svg", "marker");
-    marker.setAttribute("id", markerId);
-    marker.setAttribute("viewBox", "0 0 10 7");
-    marker.setAttribute("refX", "9");
-    marker.setAttribute("refY", "3.5");
-    marker.setAttribute("markerWidth", "8");
-    marker.setAttribute("markerHeight", "7");
-    marker.setAttribute("orient", "auto");
-    var tip = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    tip.setAttribute("d", "M 0 0 L 10 3.5 L 0 7 z");
-    tip.setAttribute("fill", "#0e7c7b");
-    marker.appendChild(tip);
-    defs.appendChild(marker);
+    var suffix = Math.random().toString(36).slice(2, 8);
+    function makeMarker(id, start) {
+      var marker = document.createElementNS("http://www.w3.org/2000/svg", "marker");
+      marker.setAttribute("id", id);
+      marker.setAttribute("viewBox", "0 0 10 7");
+      marker.setAttribute("refX", "9");
+      marker.setAttribute("refY", "3.5");
+      marker.setAttribute("markerWidth", "8");
+      marker.setAttribute("markerHeight", "7");
+      marker.setAttribute("orient", start ? "auto-start-reverse" : "auto");
+      var tip = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      tip.setAttribute("d", "M 0 0 L 10 3.5 L 0 7 z");
+      tip.setAttribute("fill", "#0e7c7b");
+      marker.appendChild(tip);
+      return marker;
+    }
+    var markerEnd = "arrow-end-" + suffix;
+    var markerStart = "arrow-start-" + suffix;
+    defs.appendChild(makeMarker(markerEnd, false));
+    defs.appendChild(makeMarker(markerStart, true));
     svg.appendChild(defs);
 
     function boxX(i) {
@@ -225,11 +232,16 @@
         line.setAttribute("y2", "70");
         line.setAttribute("stroke", "#0e7c7b");
         line.setAttribute("stroke-width", "2");
-        line.setAttribute("marker-end", "url(#" + markerId + ")");
+        if (hop.mutual) {
+          line.setAttribute("marker-start", "url(#" + markerStart + ")");
+          line.setAttribute("marker-end", "url(#" + markerEnd + ")");
+        } else {
+          line.setAttribute("marker-end", "url(#" + markerEnd + ")");
+        }
         svg.appendChild(line);
         var label = document.createElementNS("http://www.w3.org/2000/svg", "text");
         label.setAttribute("x", String(mid));
-        label.setAttribute("y", "48");
+        label.setAttribute("y", "36");
         label.setAttribute("text-anchor", "middle");
         label.setAttribute("fill", "#0a5f5e");
         label.setAttribute("font-size", "10");
@@ -237,21 +249,27 @@
         label.setAttribute("letter-spacing", "0.2");
         label.setAttribute("font-family", SVG_FONT);
         var display = String(hop.display || hop.rel || "");
-        var parts = display.split(" · ");
-        if (parts.length > 1) {
-          var first = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-          first.setAttribute("x", String(mid));
-          first.setAttribute("dy", "0");
-          first.textContent = parts[0];
-          label.appendChild(first);
-          var second = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-          second.setAttribute("x", String(mid));
-          second.setAttribute("dy", "12");
-          second.textContent = parts.slice(1).join(" · ");
-          label.appendChild(second);
+        var parts = display.split(" · ").filter(Boolean);
+        var lines = [];
+        if (hop.mutual) {
+          lines.push("Mutual mention");
+          parts.forEach(function (part) {
+            if (part !== "Mentions" && part !== "Mutual mention") {
+              lines.push(part);
+            }
+          });
+        } else if (parts.length) {
+          lines = parts;
         } else {
-          label.textContent = display;
+          lines = [display];
         }
+        lines.forEach(function (lineText, li) {
+          var tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+          tspan.setAttribute("x", String(mid));
+          tspan.setAttribute("dy", li === 0 ? "0" : "12");
+          tspan.textContent = lineText;
+          label.appendChild(tspan);
+        });
         svg.appendChild(label);
       }
 
@@ -300,9 +318,91 @@
     return wrap;
   }
 
-  function cypherToggle(result) {
+  function formatCypherStatement(statement) {
+    var text = String(statement || "").replace(/\s+/g, " ").trim();
+    if (!text) {
+      return "";
+    }
+    var keywords = ["ORDER BY", "MATCH", "WHERE", "WITH", "RETURN", "LIMIT"];
+    var out = [];
+    var i = 0;
+    var depth = 0;
+    while (i < text.length) {
+      var ch = text.charAt(i);
+      if ("([{".indexOf(ch) !== -1) {
+        depth += 1;
+        out.push(ch);
+        i += 1;
+        continue;
+      }
+      if (")]}".indexOf(ch) !== -1) {
+        depth = Math.max(0, depth - 1);
+        out.push(ch);
+        i += 1;
+        continue;
+      }
+      if (depth === 0) {
+        var matched = null;
+        for (var k = 0; k < keywords.length; k++) {
+          var kw = keywords[k];
+          if (text.indexOf(kw, i) !== i) {
+            continue;
+          }
+          var nxt = text.charAt(i + kw.length);
+          if (nxt && /[A-Za-z0-9_]/.test(nxt)) {
+            continue;
+          }
+          if (i > 0) {
+            if (out.length && out[out.length - 1] === " ") {
+              out.pop();
+            }
+            out.push("\n");
+          }
+          out.push(kw);
+          i += kw.length;
+          matched = kw;
+          break;
+        }
+        if (matched) {
+          continue;
+        }
+      }
+      out.push(ch);
+      i += 1;
+    }
+    return out.join("").trim();
+  }
+
+  function formatCypher(result) {
     var cypher = (result && result.cypher) || {};
-    if (!cypher.statement) {
+    var queries = cypher.queries && cypher.queries.length ? cypher.queries : null;
+    function block(item, index, total) {
+      var head = total > 1 ? "Query " + (index + 1) + ":\n" : "";
+      var body = formatCypherStatement(item.statement || "");
+      if (item.parameters) {
+        body += "\n\nParameters:\n" + JSON.stringify(item.parameters, null, 2);
+      }
+      return head + body;
+    }
+    var text = "";
+    if (queries) {
+      text = queries
+        .map(function (item, index) {
+          return block(item, index, queries.length);
+        })
+        .join("\n\n");
+    } else if (cypher.statement) {
+      text = block(cypher, 0, 1);
+    }
+    if (result && result.lookup_note) {
+      text = result.lookup_note + (text ? "\n\n" + text : "");
+    }
+    return text;
+  }
+
+  function cypherToggle(result) {
+    var body = formatCypher(result);
+    if (!body) {
       return null;
     }
     var details = document.createElement("details");
@@ -312,10 +412,6 @@
     details.appendChild(summary);
     var pre = document.createElement("pre");
     pre.className = "cypher-block";
-    var body = cypher.statement;
-    if (cypher.parameters) {
-      body += "\n\nParameters:\n" + JSON.stringify(cypher.parameters, null, 2);
-    }
     pre.textContent = body;
     details.appendChild(pre);
     return details;
@@ -412,14 +508,25 @@
         var toNode = hop.reversed ? hop.left : hop.right;
         var line = document.createElement("p");
         line.className = "hop-line";
-        line.innerHTML =
-          "<strong>" +
-          text(nodeCaption(fromNode)) +
-          '</strong> <span class="rel">' +
-          text(hop.display || hop.rel) +
-          "</span> <strong>" +
-          text(nodeCaption(toNode)) +
-          "</strong>";
+        if (hop.mutual) {
+          line.innerHTML =
+            "<strong>" +
+            text(nodeCaption(hop.left)) +
+            '</strong> <span class="rel">' +
+            text("Mutual mention") +
+            "</span> <strong>" +
+            text(nodeCaption(hop.right)) +
+            "</strong>";
+        } else {
+          line.innerHTML =
+            "<strong>" +
+            text(nodeCaption(fromNode)) +
+            '</strong> <span class="rel">' +
+            text(hop.display || hop.rel) +
+            "</span> <strong>" +
+            text(nodeCaption(toNode)) +
+            "</strong>";
+        }
         var num = document.createElement("span");
         num.className = "hop-num";
         num.setAttribute("aria-hidden", "true");
@@ -429,7 +536,11 @@
         hop.sources.forEach(function (source) {
           var wrap = document.createElement("div");
           wrap.className = "source-item";
-          wrap.innerHTML = sourceBlock(source);
+          var fromName = source.from_name || source.from_key;
+          var attrib = fromName
+            ? '<p class="source-from">From ' + text(fromName) + "'s label:</p>"
+            : "";
+          wrap.innerHTML = attrib + sourceBlock(source);
           block.appendChild(wrap);
         });
         card.appendChild(block);
@@ -503,7 +614,9 @@
     if (result.contraindicated_in && result.contraindicated_in.length) {
       var card = document.createElement("article");
       card.className = "card";
-      card.innerHTML = "<h3>Contraindicated in</h3>";
+      card.innerHTML =
+        "<h3>Contraindicated in</h3>" +
+        '<p class="muted caveat">Phrase matches from the contraindications text. Read the quote; a match can come from an exception clause.</p>';
       result.contraindicated_in.forEach(function (item) {
         var hop = document.createElement("div");
         hop.className = "hop";
@@ -556,13 +669,151 @@
     appendCypher(root, result);
   }
 
+  function drawScanDiagram(drugs, pairs) {
+    var nodes = (drugs || []).slice();
+    if (nodes.length < 2) {
+      return null;
+    }
+    var boxW = 150;
+    var boxH = 54;
+    var gap = 90;
+    var padX = 16;
+    var width = padX * 2 + nodes.length * boxW + Math.max(nodes.length - 1, 0) * gap;
+    var height = 128;
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 " + width + " " + height);
+    svg.setAttribute("width", String(width));
+    svg.setAttribute("height", String(height));
+    svg.setAttribute("role", "img");
+    var title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+    title.textContent = "Directed mention scan of " + nodes.map(nodeCaption).join(", ");
+    svg.appendChild(title);
+    var defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+    var suffix = Math.random().toString(36).slice(2, 8);
+    function makeMarker(id, start) {
+      var marker = document.createElementNS("http://www.w3.org/2000/svg", "marker");
+      marker.setAttribute("id", id);
+      marker.setAttribute("viewBox", "0 0 10 7");
+      marker.setAttribute("refX", "9");
+      marker.setAttribute("refY", "3.5");
+      marker.setAttribute("markerWidth", "8");
+      marker.setAttribute("markerHeight", "7");
+      marker.setAttribute("orient", start ? "auto-start-reverse" : "auto");
+      var tip = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      tip.setAttribute("d", "M 0 0 L 10 3.5 L 0 7 z");
+      tip.setAttribute("fill", "#0e7c7b");
+      marker.appendChild(tip);
+      return marker;
+    }
+    var markerEnd = "scan-end-" + suffix;
+    var markerStart = "scan-start-" + suffix;
+    defs.appendChild(makeMarker(markerEnd, false));
+    defs.appendChild(makeMarker(markerStart, true));
+    svg.appendChild(defs);
+    function boxX(i) {
+      return padX + i * (boxW + gap);
+    }
+    var indexOf = {};
+    nodes.forEach(function (node, i) {
+      indexOf[node.key] = i;
+    });
+    (pairs || []).forEach(function (pair) {
+      if (pair.none) {
+        return;
+      }
+      var i = indexOf[(pair.a || {}).key];
+      var j = indexOf[(pair.b || {}).key];
+      if (i == null || j == null) {
+        return;
+      }
+      var left = Math.min(i, j);
+      var right = Math.max(i, j);
+      var x1 = boxX(left) + boxW;
+      var x2 = boxX(right);
+      var mid = (x1 + x2) / 2;
+      var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      var aKey = (pair.a || {}).key;
+      var bKey = (pair.b || {}).key;
+      var aOnLeft = indexOf[aKey] === left;
+      if (pair.mutual) {
+        line.setAttribute("x1", String(x1));
+        line.setAttribute("x2", String(x2));
+        line.setAttribute("marker-start", "url(#" + markerStart + ")");
+        line.setAttribute("marker-end", "url(#" + markerEnd + ")");
+      } else if (pair.a_mentions_b && aOnLeft) {
+        line.setAttribute("x1", String(x1));
+        line.setAttribute("x2", String(x2));
+        line.setAttribute("marker-end", "url(#" + markerEnd + ")");
+      } else if (pair.a_mentions_b && !aOnLeft) {
+        line.setAttribute("x1", String(x2));
+        line.setAttribute("x2", String(x1));
+        line.setAttribute("marker-end", "url(#" + markerEnd + ")");
+      } else if (pair.b_mentions_a && aOnLeft) {
+        line.setAttribute("x1", String(x2));
+        line.setAttribute("x2", String(x1));
+        line.setAttribute("marker-end", "url(#" + markerEnd + ")");
+      } else {
+        line.setAttribute("x1", String(x1));
+        line.setAttribute("x2", String(x2));
+        line.setAttribute("marker-end", "url(#" + markerEnd + ")");
+      }
+      line.setAttribute("y1", "34");
+      line.setAttribute("y2", "34");
+      line.setAttribute("stroke", "#0e7c7b");
+      line.setAttribute("stroke-width", "2");
+      svg.appendChild(line);
+      var label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      label.setAttribute("x", String(mid));
+      label.setAttribute("y", "22");
+      label.setAttribute("text-anchor", "middle");
+      label.setAttribute("fill", "#0a5f5e");
+      label.setAttribute("font-size", "10");
+      label.setAttribute("font-weight", "600");
+      label.setAttribute("font-family", SVG_FONT);
+      label.textContent = pair.mutual ? "Mutual mention" : "Mentions";
+      svg.appendChild(label);
+    });
+    nodes.forEach(function (node, i) {
+      var g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      rect.setAttribute("x", String(boxX(i)));
+      rect.setAttribute("y", "48");
+      rect.setAttribute("width", String(boxW));
+      rect.setAttribute("height", String(boxH));
+      rect.setAttribute("rx", "12");
+      rect.setAttribute("fill", "#ffffff");
+      rect.setAttribute("stroke", "#0b2545");
+      rect.setAttribute("stroke-width", "1.5");
+      g.appendChild(rect);
+      var name = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      name.setAttribute("x", String(boxX(i) + boxW / 2));
+      name.setAttribute("y", "80");
+      name.setAttribute("text-anchor", "middle");
+      name.setAttribute("fill", "#0b2545");
+      name.setAttribute("font-size", "12");
+      name.setAttribute("font-weight", "700");
+      name.setAttribute("font-family", SVG_FONT);
+      var labelText = nodeCaption(node);
+      if (labelText.length > 16) {
+        labelText = labelText.slice(0, 14) + "…";
+      }
+      name.textContent = labelText;
+      g.appendChild(name);
+      svg.appendChild(g);
+    });
+    var wrap = document.createElement("div");
+    wrap.className = "diagram-wrap scan-diagram";
+    wrap.appendChild(svg);
+    return wrap;
+  }
+
   function renderMedList(result) {
     var root = $("med-list-results");
     root.innerHTML = "";
     if (result.drugs && result.drugs.length) {
       var intro = document.createElement("p");
       intro.textContent =
-        "Checking " +
+        "Scanning " +
         result.drugs
           .map(function (item) {
             return item.name || item.key;
@@ -571,7 +822,8 @@
         ".";
       root.appendChild(intro);
     }
-    if (result.error && !result.found) {
+    var hasBridges = (result.bridges || []).length > 0;
+    if (result.error && !result.found && !hasBridges) {
       if (result.no_path_note) {
         var miss = document.createElement("p");
         miss.className = "path-note";
@@ -580,6 +832,10 @@
       }
       appendCypher(root, result);
       return;
+    }
+    var diagram = drawScanDiagram(result.drugs || [], result.pairs || []);
+    if (diagram) {
+      root.appendChild(diagram);
     }
     (result.pairs || []).forEach(function (pair) {
       var card = document.createElement("article");
@@ -599,8 +855,8 @@
       card.appendChild(heading);
       card.appendChild(badge);
       [
-        { label: a + " mentions " + b, payload: pair.a_mentions_b },
-        { label: b + " mentions " + a, payload: pair.b_mentions_a }
+        { payload: pair.a_mentions_b },
+        { payload: pair.b_mentions_a }
       ].forEach(function (entry) {
         if (!entry.payload) {
           return;
@@ -611,17 +867,19 @@
         line.className = "hop-line";
         line.innerHTML =
           "<strong>" +
-          text(entry.payload.from_name || entry.label) +
-          '</strong> <span class="rel">' +
-          text(entry.payload.display_label || "Mentions") +
-          "</span> <strong>" +
-          text(entry.payload.to_name || "") +
+          text(entry.payload.from_name || entry.payload.from_key) +
+          '</strong> <span class="rel">Mentions</span> <strong>' +
+          text(entry.payload.to_name || entry.payload.to_key || "") +
           "</strong>";
         block.appendChild(line);
         (entry.payload.sources || []).forEach(function (source) {
           var wrap = document.createElement("div");
           wrap.className = "source-item";
-          wrap.innerHTML = sourceBlock(source);
+          var fromName = source.from_name || source.from_key || entry.payload.from_name;
+          var attrib = fromName
+            ? '<p class="source-from">From ' + text(fromName) + "'s label:</p>"
+            : "";
+          wrap.innerHTML = attrib + sourceBlock(source);
           block.appendChild(wrap);
         });
         card.appendChild(block);
@@ -631,6 +889,19 @@
         empty.className = "muted";
         empty.textContent = "Neither label mentions the other in this snapshot.";
         card.appendChild(empty);
+      }
+      if (pair.bridges && pair.bridges.length) {
+        var bridge = document.createElement("p");
+        bridge.className = "path-note";
+        bridge.textContent =
+          "Connected through " +
+          pair.bridges
+            .map(function (item) {
+              return item.name || item.key;
+            })
+            .join(", ") +
+          " (2-hop mention, not in this list).";
+        card.appendChild(bridge);
       }
       root.appendChild(card);
     });

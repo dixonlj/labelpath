@@ -32,7 +32,7 @@
       </a>
       <nav class="nav" aria-label="Sections">
         <a href="#paths">Paths</a>
-        <a href="#med-list">Med-list check</a>
+        <a href="#med-list">Multi-drug mention scan</a>
         <a href="#lookup">Lookup</a>
         <a href="#warnings">Warnings</a>
         <a href="#neighbors">Neighbors</a>
@@ -97,11 +97,12 @@
 
     <section class="panel" id="med-list" aria-labelledby="med-list-heading">
       <div class="panel-head">
-        <h2 id="med-list-heading">Med-list check</h2>
+        <h2 id="med-list-heading">Multi-drug mention scan</h2>
         <p>
           Enter 2 to 6 drugs to see every label mention among them, in both
-          directions, with the source section and snippet. This runs as one
-          Cypher query over the snapshot.
+          directions, with the source section and snippet. Direct mentions run
+          as one Cypher query; a second read-only query looks for 2-hop
+          mention bridges through a drug that is not in the list.
         </p>
       </div>
       <form id="med-list-form" class="med-list-form" action="#" method="get">
@@ -110,7 +111,7 @@
           <textarea id="med-list-q" name="q" rows="4" maxlength="400" placeholder="apixaban&#10;aspirin&#10;warfarin"></textarea>
         </label>
         <div class="actions">
-          <button type="submit" class="btn primary">Check mentions</button>
+          <button type="submit" class="btn primary">Scan mentions</button>
           <button type="button" class="btn ghost" id="try-med-list">Try: apixaban, aspirin, warfarin</button>
         </div>
       </form>
@@ -190,7 +191,7 @@
         </article>
         <article class="card">
           <h3>A Cypher example</h3>
-          <p>Mutual mentions in this snapshot, as a parameterized-style query you can run in Relate:</p>
+          <p>Mutual mentions in this snapshot, as a read-only Cypher query you can run in Relate:</p>
           <pre class="cypher-block" tabindex="0">MATCH (a:Drug)-[:LABELED_INTERACTION]-&gt;(b:Drug)-[:LABELED_INTERACTION]-&gt;(a)
 WHERE a.key &lt; b.key
 RETURN a.key AS drug, b.key AS other

@@ -10,6 +10,7 @@ import pytest
 from labelpath.query import (
     DISCLAIMER,
     HUB_CONDITION_MIN_DRUGS,
+    format_cypher,
     hop_display_label,
     hub_conditions,
     lookup,
@@ -350,7 +351,7 @@ def test_cli_med_list_and_mentions_label():
             "-m",
             "labelpath",
             "query",
-            "med-list",
+            "mention-scan",
             "apixaban",
             "aspirin",
             "warfarin",
@@ -366,3 +367,115 @@ def test_cli_med_list_and_mentions_label():
     assert "warfarin" in med.stdout
     assert "Cypher:" in med.stdout
     assert "LABELED_INTERACTION" in med.stdout
+
+
+def test_mutual_mention_keeps_source_direction(conn):
+    result = paths_between("clopidogrel", "omeprazole", max_hops=1, conn=conn, limit=20)
+    assert result["found"] is True
+    path = result["paths"][0]
+    assert path["hops"] == 1
+    assert path.get("mutual_mention") is True
+    assert path.get("headline") == "Mutual mention"
+    step = path["steps"][0]
+    assert step.get("mutual") is True
+    from_keys = {source["from_key"] for source in step["sources"]}
+    to_keys = {source["to_key"] for source in step["sources"]}
+    assert from_keys == {"clopidogrel", "omeprazole"}
+    assert to_keys == {"clopidogrel", "omeprazole"}
+    clo = [s for s in step["sources"] if s["from_key"] == "clopidogrel"]
+    ome = [s for s in step["sources"] if s["from_key"] == "omeprazole"]
+    assert clo and ome
+    assert all((s.get("matched_name") or "").lower() == "omeprazole" or "omeprazole" in (s.get("snippet") or "").lower() for s in clo)
+    assert all((s.get("matched_name") or "").lower() == "clopidogrel" or "clopidogrel" in (s.get("snippet") or "").lower() for s in ome)
+
+
+def test_clopidogrel_methotrexate_preserves_mutual_hop(conn):
+    result = paths_between("clopidogrel", "methotrexate", max_hops=2, conn=conn, limit=20)
+    via = [
+        path
+        for path in result["paths"]
+        if [node["key"] for node in path["nodes"]]
+        == ["clopidogrel", "omeprazole", "methotrexate"]
+    ]
+    assert via
+    hop = via[0]["steps"][0]
+    assert hop.get("mutual") is True
+    from_keys = {source["from_key"] for source in hop["sources"]}
+    assert "clopidogrel" in from_keys and "omeprazole" in from_keys
+
+
+def test_cli_mutual_mention_attribution():
+    proc = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "labelpath",
+            "query",
+            "path",
+            "clopidogrel",
+            "omeprazole",
+            "--max-hops",
+            "1",
+        ],
+        cwd=str(ROOT),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert proc.returncode == 0, proc.stderr
+    lower = proc.stdout.lower()
+    assert "from clopidogrel" in lower and "label:" in lower
+    assert "from omeprazole" in lower
+    assert "Mutual mention" in proc.stdout
+
+
+def test_med_list_display_label_includes_each_section(conn):
+    result = med_list_check(["apixaban", "warfarin"], conn=conn)
+    grouped = [
+        item
+        for item in result["grouped_mentions"]
+        if item["from_key"] == "apixaban" and item["to_key"] == "warfarin"
+    ]
+    assert grouped
+    kinds = {source["kind"] for source in grouped[0]["sources"]}
+    assert "drug_interactions" in kinds
+    assert "warnings_and_cautions" in kinds
+    assert "Warnings and cautions" in grouped[0]["display_label"]
+    assert "Drug interactions" in grouped[0]["display_label"]
+
+
+def test_mention_scan_alias_and_bridges(conn):
+    result = med_list_check(["clopidogrel", "methotrexate"], conn=conn)
+    assert result["found"] is True
+    keys = {(item["a"]["key"], item["b"]["key"], item["via"]["key"]) for item in result["bridges"]}
+    assert ("clopidogrel", "methotrexate", "omeprazole") in keys
+    alias = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "labelpath",
+            "query",
+            "med-list",
+            "clopidogrel",
+            "omeprazole",
+        ],
+        cwd=str(ROOT),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert alias.returncode == 0, alias.stderr
+    assert "Multi-drug mention scan" in alias.stdout
+    assert "mutual" in alias.stdout.lower() or "Mutual" in alias.stdout
+
+
+def test_format_cypher_renders_all_queries_and_breaks_clauses(conn):
+    result = warnings("warfarin", conn=conn)
+    text = format_cypher(result["cypher"])
+    assert "Query 1:" in text and "Query 2:" in text
+    assert "\nWHERE " in "\n" + text.replace("\r", "")
+    # inner WHERE inside ALL(...) or similar should not be the test; warnings WHERE is top-level
+    assert "MATCH (d:Drug" in text
+    lines = text.splitlines()
+    assert any(line.startswith("WHERE") for line in lines)
+    assert any(line.startswith("RETURN") for line in lines)

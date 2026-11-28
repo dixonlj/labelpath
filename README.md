@@ -25,7 +25,7 @@ Open http://127.0.0.1:8765/ and click **Try: apixaban → aspirin**. Full setup,
 
 ## Use case
 
-LabelPath is for a person or an agent who wants to see *what the public label text actually says* about how two snapshot drugs are connected, or what boxed warnings and contraindication neighbors a drug has, without opening a hospital system or calling a remote database. It solves a documentation problem, not a clinical one: the interesting relationships are `LABELED_INTERACTION` edges (a label mention in an interaction-related section), ingredients a product contains, and conservatively phrase-matched indications and contraindications. `INDICATED_FOR`, `CONTRAINDICATED_IN`, and `LABELED_INTERACTION` point back to a source section and a snippet when those exist, and to a DailyMed page when a `set_id` exists; `CONTAINS` comes from the structured ingredient list and has no section snippet. A path is not a pharmacological pathway or a clinical interaction finding. A direct mention means one endpoint label names the other. A longer path can mean the two names are only connected through a third drug, ingredient, or condition — and when that happens, the UI and CLI say so plainly. No path in this snapshot does not mean the drugs are safe together: the snapshot covers 293 drugs, matches exact names only, and misses class mentions such as “anticoagulants.” Current DailyMed labels may differ from the snapshot (retrieved 19 November 2026, America/New_York). A typical first result is the path from apixaban to aspirin, including a two-hop path via warfarin; on that documented demo path, each hop has a section name, a snippet, and a DailyMed link. A second checked example is clopidogrel → omeprazole → methotrexate (see below). A med-list check shows every label mention among two to six drugs, in both directions.
+LabelPath is for a person or an agent who wants to see *what the public label text actually says* about how two snapshot drugs are connected, or what boxed warnings and contraindication neighbors a drug has, without opening a hospital system or calling a remote database. It solves a documentation problem, not a clinical one: the interesting relationships are `LABELED_INTERACTION` edges (a label mention in an interaction-related section), ingredients a product contains, and conservatively phrase-matched indications and contraindications. `INDICATED_FOR`, `CONTRAINDICATED_IN`, and `LABELED_INTERACTION` point back to a source section and a snippet when those exist, and to a DailyMed page when a `set_id` exists; `CONTAINS` comes from the structured ingredient list and has no section snippet. A path is not a pharmacological pathway or a clinical interaction finding. A direct mention means one endpoint label names the other. A longer path can mean the two names are only connected through a third drug, ingredient, or condition — and when that happens, the UI and CLI say so plainly. No path in this snapshot does not mean the drugs are safe together: the snapshot covers 293 drugs, matches exact names only, and misses class mentions such as “anticoagulants.” Current DailyMed labels may differ from the snapshot (retrieved 19 November 2026, America/New_York). A typical first result is the path from apixaban to aspirin, including a two-hop path via warfarin; on that documented demo path, each hop has a section name, a snippet, and a DailyMed link. A second checked example is clopidogrel → omeprazole → methotrexate (see below). A multi-drug mention scan shows every label mention among two to six drugs, in both directions.
 
 ## How it uses Relate
 
@@ -40,7 +40,8 @@ Relate capabilities this project actually uses, and where:
 | Capability | Where it is used |
 | --- | --- |
 | Embedded Python client (`relate-db==1.1.0`, `import relate`) | `scripts/ingest.py` writes the store; `labelpath/query.py` and tests open it |
-| Cypher via Python, with bound parameters | All lookups, path queries, warnings, neighbors, and the med-list check |
+| Cypher via Python, with bound parameters | Path queries, warnings, neighbors, and the multi-drug mention scan |
+| Snapshot catalog, then Python name matching | Lookup: two read-only catalog queries load the 293 drugs and their ingredients (`LIMIT $limit`); matching is done in Python so salt forms and case still resolve |
 | Read-only open (`relate.connect(path, read_only=True)`) | The query library, CLI, local UI, and tests |
 | Relate CLI | Optional documented one-liners, and MCP |
 | MCP (`relate serve --mcp stdio --database ./data/labelpath.rl --read-only`) | Official Relate MCP server; listed tools are `read_cypher` and `get_schema` |
@@ -97,7 +98,7 @@ python -m pytest
 python -m labelpath serve --port 8765
 ```
 
-`python -m pytest` should end with `46 passed`. If the Relate CLI is not installed, the MCP smoke test is skipped and the remaining tests still pass.
+`python -m pytest` should end with `55 passed`. If the Relate CLI is not installed, the MCP smoke test is skipped and the remaining tests still pass.
 
 On Windows PowerShell, use `venv\Scripts\Activate.ps1` instead of `source`. This project is developed for macOS; macOS notes are in [MAC_SETUP.md](MAC_SETUP.md). The official CLI install command differs on Windows (see the install page above).
 
@@ -110,7 +111,7 @@ python -m labelpath query lookup "warfarin sodium"
 python -m labelpath query path apixaban aspirin --max-hops 3
 python -m labelpath query path clopidogrel methotrexate --max-hops 2
 python -m labelpath query path clopidogrel methotrexate --max-hops 2 --include-hubs
-python -m labelpath query med-list apixaban aspirin warfarin --show-cypher
+python -m labelpath query mention-scan apixaban aspirin warfarin --show-cypher
 python -m labelpath query warnings warfarin
 python -m labelpath query neighbors protamine
 ```
@@ -145,8 +146,9 @@ Current screenshots of the local UI live in [docs/img/](docs/img/), captured on 
 | --- | --- |
 | ![LabelPath home page with the disclaimer banner](docs/img/01-home.png) | ![Apixaban to aspirin, starting with the direct mention](docs/img/02-path-apixaban-aspirin.png) |
 | ![Apixaban to aspirin via warfarin, with grouped source snippets](docs/img/02-path-apixaban-aspirin-via-warfarin.png) | ![Clopidogrel to methotrexate, connected through omeprazole](docs/img/03-path-clopidogrel-methotrexate.png) |
-| ![Boxed warning and contraindication snippets for warfarin](docs/img/04-warnings-warfarin.png) | ![Med-list check for apixaban, aspirin, and warfarin](docs/img/05-med-list.png) |
-| ![Show Cypher toggle under a result](docs/img/06-show-cypher.png) | |
+| ![Boxed warning and contraindication snippets for warfarin](docs/img/04-warnings-warfarin.png) | ![Multi-drug mention scan for apixaban, aspirin, and warfarin](docs/img/05-med-list.png) |
+| ![Show Cypher toggle under a result](docs/img/06-show-cypher.png) | ![Mutual mention between clopidogrel and omeprazole](docs/img/07-mutual-mention.png) |
+| ![Contraindicated-in caveat on the warfarin warnings card](docs/img/08-warnings-caveat.png) | ![Why a graph: 1,396 mention-linked pairs, 172 mutual, 1,224 one-sided](docs/img/09-why-a-graph.png) |
 
 The flow diagram (`docs/img/labelpath-flow.png`), the schema diagram, and the 3:2 thumbnail (`docs/img/labelpath-schema.png`, `docs/img/labelpath-thumbnail.png`) were made as hand-written HTML/SVG rendered with headless Google Chrome; the sources are in `docs/img/src/`.
 

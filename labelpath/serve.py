@@ -142,7 +142,7 @@ class LabelPathHandler(BaseHTTPRequestHandler):
         if route == "/api/neighbors":
             self._api_neighbors(query)
             return
-        if route == "/api/med-list":
+        if route in ("/api/med-list", "/api/mention-scan"):
             self._api_med_list(query)
             return
         self._send_json(404, _error_payload("Not found."))

@@ -66,7 +66,8 @@ def test_index_contains_disclaimer_and_attribution(httpd):
     assert "https://open.fda.gov" in text
     assert "Do not rely on openFDA to make decisions regarding medical care." in text
     assert "Try: apixaban → aspirin" in text
-    assert "Med-list check" in text
+    assert "Multi-drug mention scan" in text
+    assert "Scan mentions" in text
     assert "Why a graph" in text
     assert "exact FDA label" not in text
     assert "label on DailyMed (current version may differ from the snapshot)" in text
@@ -290,3 +291,14 @@ def test_api_med_list(httpd):
         item["from_key"] == "warfarin" and item["to_key"] == "aspirin"
         for item in payload["mentions"]
     )
+
+
+def test_api_mention_scan_alias(httpd):
+    base, _server = httpd
+    status, _headers, payload = _json(
+        base, "/api/mention-scan?q=clopidogrel,omeprazole"
+    )
+    assert status == 200
+    assert payload["found"] is True
+    assert any(pair.get("mutual") for pair in payload["pairs"])
+    assert payload["cypher"]["queries"] and len(payload["cypher"]["queries"]) == 2

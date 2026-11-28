@@ -256,11 +256,41 @@ def find_mentions(text: str, name: str) -> List[Tuple[int, int]]:
     return [(m.start(), m.end()) for m in pattern.finditer(text)]
 
 
+def clip_text(text: Optional[str], length: int = 400) -> Optional[str]:
+    """Trim to length, snapping the cut to a word boundary, with an ellipsis."""
+    if not text:
+        return text
+    compact = " ".join(text.split())
+    if len(compact) <= length:
+        return compact
+    budget = length - 3
+    if budget < 1:
+        return "..."
+    cut = compact[:budget].rstrip()
+    if " " in cut:
+        cut = cut.rsplit(" ", 1)[0].rstrip()
+    if not cut:
+        cut = compact[:budget].rstrip()
+    return cut + "..."
+
+
 def snippet_around(text: str, start: int, end: int, radius: int = 140) -> str:
+    """Return a window around [start, end), snapped to word boundaries, with ellipses."""
+    if not text:
+        return ""
     lo = max(0, start - radius)
     hi = min(len(text), end + radius)
-    chunk = text[lo:hi]
-    chunk = re.sub(r"\s+", " ", chunk).strip()
+    if lo > 0:
+        while lo < start and lo < len(text) and not text[lo].isspace():
+            lo += 1
+        while lo < start and lo < len(text) and text[lo].isspace():
+            lo += 1
+    if hi < len(text):
+        while hi > end and hi > 0 and not text[hi - 1].isspace():
+            hi -= 1
+        while hi > end and hi > 0 and text[hi - 1].isspace():
+            hi -= 1
+    chunk = re.sub(r"\s+", " ", text[lo:hi]).strip()
     if lo > 0:
         chunk = "..." + chunk
     if hi < len(text):

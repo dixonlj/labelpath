@@ -13,6 +13,7 @@ from labelpath.query import (
     DEFAULT_PATH_LIMIT,
     DISCLAIMER,
     friendly_label,
+    format_cypher,
     hop_display_label,
     lookup,
     med_list_check,
@@ -67,14 +68,14 @@ def _fmt_source(source: Optional[Dict[str, Any]], indent: str = "     ") -> List
 
 
 def _fmt_cypher(result: Dict[str, Any]) -> List[str]:
-    cypher = result.get("cypher") or {}
-    statement = cypher.get("statement")
-    if not statement:
+    text = format_cypher(result.get("cypher") or {})
+    if not text:
         return []
-    lines = ["", "Cypher:", statement]
-    params = cypher.get("parameters")
-    if params:
-        lines.append("Parameters: %s" % json.dumps(params, ensure_ascii=False))
+    note = result.get("lookup_note")
+    lines = ["", "Cypher:"]
+    if note:
+        lines.append(note)
+    lines.extend(text.split("\n"))
     return lines
 
 
@@ -158,12 +159,21 @@ def format_paths(result: Dict[str, Any]) -> str:
                 step.get("rel_type"),
                 source_kinds=step.get("source_kinds"),
             )
-            lines.append(
-                "  %s. %s -[:%s]-> %s"
-                % (step_i, step.get("from_key"), display, step.get("to_key"))
-            )
+            if step.get("mutual"):
+                lines.append(
+                    "  %s. %s <-[:%s]-> %s"
+                    % (step_i, step.get("from_key"), "Mutual mention · " + display if not display.startswith("Mutual") else display, step.get("to_key"))
+                )
+            else:
+                lines.append(
+                    "  %s. %s -[:%s]-> %s"
+                    % (step_i, step.get("from_key"), display, step.get("to_key"))
+                )
             sources = step.get("sources") or ([step.get("source")] if step.get("source") else [])
             for source in sources:
+                name = source.get("from_name") or source.get("from_key")
+                if name:
+                    lines.append("     From %s's label:" % name)
                 lines.extend(_fmt_source(source))
     return "\n".join(lines) + "\n"
 
@@ -246,7 +256,7 @@ def format_med_list(result: Dict[str, Any]) -> str:
     drugs = result.get("drugs") or result.get("resolved") or []
     if drugs:
         lines.append(
-            "Med-list check (%s drugs): %s"
+            "Multi-drug mention scan (%s drugs): %s"
             % (len(drugs), ", ".join(item.get("name") or item.get("key") for item in drugs))
         )
     if result.get("error") and not result.get("found"):
@@ -276,7 +286,14 @@ def format_med_list(result: Dict[str, Any]) -> str:
                 continue
             lines.append("  %s:" % direction)
             for source in payload.get("sources") or []:
+                name = source.get("from_name") or source.get("from_key")
+                if name:
+                    lines.append("    From %s's label:" % name)
                 lines.extend(_fmt_source(source, indent="    "))
+        vias = pair.get("bridges") or []
+        if vias:
+            names = ", ".join(item.get("name") or item.get("key") for item in vias)
+            lines.append("  Connected through %s (2-hop mention, not in this list)." % names)
     return "\n".join(lines) + "\n"
 
 
@@ -324,7 +341,7 @@ def build_parser() -> argparse.ArgumentParser:
         help="Print one JSON object to stdout (the disclaimer line goes to stderr).",
     )
     sub = parser.add_subparsers(dest="group")
-    query = sub.add_parser("query", help="Run a lookup, path, warnings, neighbors, or med-list query.")
+    query = sub.add_parser("query", help="Run a lookup, path, warnings, neighbors, or mention-scan query.")
     qsub = query.add_subparsers(dest="action", required=True)
 
     p_lookup = qsub.add_parser("lookup", help="Find a drug or ingredient by name.")
@@ -357,8 +374,9 @@ def build_parser() -> argparse.ArgumentParser:
     p_nei.add_argument("--show-cypher", action="store_true")
 
     p_med = qsub.add_parser(
-        "med-list",
-        help="Check every label mention among 2 to 6 drugs, in both directions.",
+        "mention-scan",
+        aliases=["med-list"],
+        help="Scan every label mention among 2 to 6 drugs, in both directions.",
     )
     p_med.add_argument("names", nargs="+", help="Two to six drug names.")
     p_med.add_argument("--show-cypher", action="store_true")
@@ -409,7 +427,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         if args.action == "neighbors":
             result = neighbors(args.name, database=database, limit=args.limit)
             return _emit(result, as_json, format_neighbors, show_cypher)
-        if args.action == "med-list":
+        if args.action in ("mention-scan", "med-list"):
             result = med_list_check(args.names, database=database)
             return _emit(result, as_json, format_med_list, show_cypher)
     except Exception as exc:

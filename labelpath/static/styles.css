@@ -634,8 +634,35 @@ footer p { margin: 0.2rem 0; }
   cursor: pointer;
 }
 
+.path-form .hub-toggle span {
+  display: inline;
+  margin-bottom: 0;
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
 .path-form .hub-toggle input {
   margin-top: 0.2rem;
+  flex: 0 0 auto;
+}
+
+.source-from {
+  margin: 0.55rem 0 0.1rem !important;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.caveat {
+  margin: 0 0 0.8rem;
+  line-height: 1.5;
+}
+
+.scan-diagram {
+  margin: 0.4rem 0 1rem;
 }
 
 .med-list-form {

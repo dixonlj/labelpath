@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 from labelpath.textutil import (
+    clip_text,
     core_name,
     first_mention_snippet,
     generic_matches_seed,
     normalize_name,
+    snippet_around,
 )
 
 
@@ -55,3 +57,33 @@ def test_longer_condition_phrase_wins_overlap():
     hits = dict(nonoverlapping_phrase_hits(text, ["hypertension", "malignant hypertension"]))
     assert "malignant hypertension" in hits
     assert "hypertension" not in hits
+
+
+def test_snippet_around_snaps_to_word_boundaries():
+    text = "alpha beta midwordgamma delta epsilon zeta"
+    start = text.index("midwordgamma")
+    end = start + len("midwordgamma")
+    # Radius 8 starts inside "beta" ("ta midw...") and ends inside "delta" ("...mma del").
+    snippet = snippet_around(text, start, end, radius=8)
+    assert "midwordgamma" in snippet
+    assert not snippet.startswith("...ta ")
+    assert not snippet.endswith("del...")
+    body = snippet
+    if body.startswith("..."):
+        body = body[3:]
+    if body.endswith("..."):
+        body = body[:-3]
+    words = text.split()
+    tokens = body.split()
+    assert tokens
+    assert tokens[0] in words
+    assert tokens[-1] in words
+
+
+def test_clip_text_snaps_to_word_boundary():
+    text = "one two three four five six"
+    clipped = clip_text(text, 12)
+    assert clipped.endswith("...")
+    assert " " not in clipped[:-3] or not clipped[:-3].endswith("t")
+    assert clipped == "one two..."
+    assert clip_text("short text", 40) == "short text"

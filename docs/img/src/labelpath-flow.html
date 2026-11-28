@@ -65,8 +65,8 @@
     <tspan x="966" dy="44">what the labels say</tspan>
   </text>
   <text x="966" y="372" fill="#5A6B7C" font-size="28" font-weight="400">
-    <tspan x="966" dy="0">Drugs, ingredients, uses,</tspan>
-    <tspan x="966" dy="38">warnings, and interactions.</tspan>
+    <tspan x="966" dy="0">Drugs, ingredients, and</tspan>
+    <tspan x="966" dy="38">label mentions.</tspan>
   </text>
 
   <!-- card 3 -->
@@ -120,7 +120,10 @@
   </text>
 
   <line x1="1036" y1="936" x2="2244" y2="936" stroke="#E6EEF1" stroke-width="1.5"/>
-  <text x="1036" y="980" fill="#0E7C7B" font-size="24" font-weight="500">Source: official FDA label on DailyMed</text>
+  <text x="1036" y="968" fill="#0E7C7B" font-size="22" font-weight="500">
+    <tspan x="1036" dy="0">Source: official FDA label on DailyMed</tspan>
+    <tspan x="1036" dy="26">(snapshot; current label may differ)</tspan>
+  </text>
 
   <!-- arrows: 1→2, 2→3, 3→4 (elbow), 4→5; each tip/tail sits on a box edge -->
   <line x1="780" y1="352" x2="834" y2="352" stroke="#0E7C7B" stroke-width="5" stroke-linecap="round"/><path d="M832 343 L850 352 L832 361 Z" fill="#0E7C7B"/>
@@ -132,7 +135,7 @@
 
   <!-- footer -->
   <text x="80" y="1148" fill="#0B2545" font-size="32" font-weight="650">Public openFDA data - educational only, not medical advice.</text>
-  <text x="80" y="1190" fill="#5A6B7C" font-size="24" font-weight="400">A path means the label text mentions both names; it is not a pharmacological pathway or a clinical finding.</text>
+  <text x="80" y="1190" fill="#5A6B7C" font-size="24" font-weight="400">A path follows label mentions hop by hop; it is not a pharmacological pathway or a clinical finding.</text>
   <text x="80" y="1226" fill="#5A6B7C" font-size="24" font-weight="400">Data provided by the U.S. Food and Drug Administration (https://open.fda.gov).</text>
 </svg>
 </body>
