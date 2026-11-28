@@ -7,7 +7,18 @@ from pathlib import Path
 
 import pytest
 
-from labelpath.query import DISCLAIMER, lookup, neighbors, paths_between, warnings
+from labelpath.query import (
+    DISCLAIMER,
+    HUB_CONDITION_MIN_DRUGS,
+    hop_display_label,
+    hub_conditions,
+    lookup,
+    med_list_check,
+    neighbors,
+    paths_between,
+    snapshot_stats,
+    warnings,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -168,3 +179,190 @@ def test_warnings_accepts_salt_name(conn):
     assert result["found"] is True
     assert result["drug"]["key"] == "warfarin"
     assert result["boxed_warnings"]
+
+
+def test_hub_conditions_derived_from_store(conn):
+    hubs = hub_conditions(conn)
+    keys = [item["key"] for item in hubs]
+    assert HUB_CONDITION_MIN_DRUGS == 10
+    assert keys == ["anaphylaxis", "angioedema", "asthma"]
+    by_key = {item["key"]: item["drug_count"] for item in hubs}
+    assert by_key["anaphylaxis"] == 44
+    assert by_key["angioedema"] == 41
+    assert by_key["asthma"] == 15
+
+
+def test_paths_exclude_hubs_by_default(conn):
+    filtered = paths_between(
+        "clopidogrel", "methotrexate", max_hops=2, conn=conn, limit=20
+    )
+    assert filtered["found"] is True
+    routes = [[node["key"] for node in path["nodes"]] for path in filtered["paths"]]
+    assert all("anaphylaxis" not in route for route in routes)
+    assert all("angioedema" not in route for route in routes)
+    assert all("asthma" not in route for route in routes)
+    assert ["clopidogrel", "omeprazole", "methotrexate"] in routes
+    assert filtered["paths"][0]["nodes"][1]["key"] != "anaphylaxis"
+    assert any(path.get("headline", "").startswith("Connected through") for path in filtered["paths"])
+    assert filtered.get("direct_mention_found") is False
+    assert any(
+        path.get("note") == "Neither endpoint label mentions the other directly."
+        for path in filtered["paths"]
+    )
+    assert filtered["cypher"]["statement"]
+    assert "hub_keys" in filtered["cypher"]["parameters"]
+
+    included = paths_between(
+        "clopidogrel",
+        "methotrexate",
+        max_hops=2,
+        conn=conn,
+        limit=20,
+        include_hubs=True,
+    )
+    included_routes = [[node["key"] for node in path["nodes"]] for path in included["paths"]]
+    assert any("anaphylaxis" in route for route in included_routes)
+    assert "hub_keys" not in included["cypher"]["parameters"]
+
+
+def test_paths_group_duplicate_routes_and_list_sources(conn):
+    result = paths_between("apixaban", "aspirin", max_hops=2, conn=conn, limit=20)
+    routes = [tuple(node["key"] for node in path["nodes"]) for path in result["paths"]]
+    assert len(routes) == len(set(routes))
+    via = [
+        path
+        for path in result["paths"]
+        if [node["key"] for node in path["nodes"]] == ["apixaban", "warfarin", "aspirin"]
+    ]
+    assert via
+    hop = via[0]["steps"][0]
+    assert hop.get("display_label", "").startswith("Mentions")
+    assert hop.get("sources")
+    assert hop["source"] in hop["sources"] or hop["source"] == hop["sources"][0]
+
+
+def test_direct_mentions_are_listed_first(conn):
+    result = paths_between("apixaban", "aspirin", max_hops=2, conn=conn, limit=20)
+    if not any(path.get("direct_mention") for path in result["paths"]):
+        pytest.skip("no direct mention in this snapshot pair")
+    first_non_direct = next(
+        (i for i, path in enumerate(result["paths"]) if not path.get("direct_mention")),
+        len(result["paths"]),
+    )
+    assert all(path.get("direct_mention") for path in result["paths"][:first_non_direct])
+    assert all(not path.get("direct_mention") for path in result["paths"][first_non_direct:])
+
+
+def test_snapshot_stats_match_store(conn):
+    stats = snapshot_stats(conn)
+    assert stats["drug_count"] == 293
+    assert stats["mention_linked_pairs"] == 1396
+    assert stats["mutual_mention_pairs"] == 172
+    assert stats["one_sided_mention_pairs"] == 1224
+    assert stats["snapshot_date"] == "19 November 2026"
+    top = {item["key"]: item["named_by"] for item in stats["most_mentioned"]}
+    assert top["warfarin"] == 64
+    assert top["phenytoin"] == 61
+    assert top["rifampin"] == 53
+
+
+def test_med_list_check_both_directions(conn):
+    result = med_list_check(["apixaban", "aspirin", "warfarin"], conn=conn)
+    assert result["found"] is True
+    assert result["disclaimer"] == DISCLAIMER
+    assert result["cypher"]["statement"].count("MATCH") == 1
+    assert "LABELED_INTERACTION" in result["cypher"]["statement"]
+    assert set(result["cypher"]["parameters"]["keys"]) == {
+        "apixaban",
+        "aspirin",
+        "warfarin",
+    }
+    keys = {item["key"] for item in result["drugs"]}
+    assert keys == {"apixaban", "aspirin", "warfarin"}
+
+    def direction(src, dst):
+        return [
+            item
+            for item in result["mentions"]
+            if item["from_key"] == src and item["to_key"] == dst
+        ]
+
+    assert direction("warfarin", "aspirin")
+    assert not direction("aspirin", "warfarin")
+    assert direction("apixaban", "warfarin")
+    assert not direction("warfarin", "apixaban")
+    pairs = {
+        tuple(sorted((pair["a"]["key"], pair["b"]["key"]))): pair
+        for pair in result["pairs"]
+    }
+    wa = pairs[("aspirin", "warfarin")]
+    assert wa["one_sided"] is True
+    assert wa["mutual"] is False
+    aw = pairs[("apixaban", "warfarin")]
+    assert aw["one_sided"] is True
+    source = direction("warfarin", "aspirin")[0]["source"]
+    assert source["snippet"]
+    assert source["kind"]
+    assert "aspirin" in (source.get("matched_name") or source["snippet"]).lower()
+
+
+def test_med_list_check_rejects_counts(conn):
+    too_few = med_list_check(["warfarin"], conn=conn)
+    assert too_few["found"] is False
+    assert "2 to 6" in too_few["error"]
+    too_many = med_list_check(
+        ["a", "b", "c", "d", "e", "f", "g"], conn=conn
+    )
+    assert too_many["found"] is False
+    assert "2 to 6" in too_many["error"]
+
+
+def test_hop_display_label_mentions_section():
+    assert hop_display_label("LABELED_INTERACTION", "warnings_and_cautions") == (
+        "Mentions · Warnings and cautions"
+    )
+
+
+def test_cli_med_list_and_mentions_label():
+    proc = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "labelpath",
+            "query",
+            "path",
+            "apixaban",
+            "aspirin",
+            "--max-hops",
+            "2",
+        ],
+        cwd=str(ROOT),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert proc.returncode == 0, proc.stderr
+    assert "Mentions" in proc.stdout
+    assert "LABELED_INTERACTION" not in proc.stdout
+    med = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "labelpath",
+            "query",
+            "med-list",
+            "apixaban",
+            "aspirin",
+            "warfarin",
+            "--show-cypher",
+        ],
+        cwd=str(ROOT),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert med.returncode == 0, med.stderr
+    assert DISCLAIMER in med.stdout
+    assert "warfarin" in med.stdout
+    assert "Cypher:" in med.stdout
+    assert "LABELED_INTERACTION" in med.stdout

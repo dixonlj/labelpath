@@ -6,11 +6,16 @@ import json
 import sys
 from typing import Any, Dict, List, Optional
 
+import re
+
 from labelpath.query import (
     DEFAULT_NEIGHBOR_LIMIT,
     DEFAULT_PATH_LIMIT,
     DISCLAIMER,
+    friendly_label,
+    hop_display_label,
     lookup,
+    med_list_check,
     neighbors,
     paths_between,
     warnings,
@@ -26,27 +31,50 @@ def _print_disclaimer(as_json: bool) -> None:
         sys.stdout.write(DISCLAIMER + "\n")
 
 
+def _highlight_snippet(snippet: Optional[str], matched_name: Optional[str]) -> str:
+    text = snippet or ""
+    needle = (matched_name or "").strip()
+    if not text or not needle:
+        return text
+    pattern = re.compile(r"(?<!\w)" + re.escape(needle) + r"(?!\w)", re.IGNORECASE)
+    return pattern.sub(lambda match: "**" + match.group(0) + "**", text)
+
+
 def _fmt_source(source: Optional[Dict[str, Any]], indent: str = "     ") -> List[str]:
     if not source:
-        return [indent + "Source: (none)"]
+        return []
     lines = []
     kind = source.get("kind")
-    set_id = source.get("set_id")
-    url = source.get("source_url")
-    snippet = source.get("snippet")
-    note = source.get("note")
     if kind:
-        lines.append(indent + "Section: %s" % kind)
-    if set_id:
-        lines.append(indent + "Label set_id: %s" % set_id)
-    if url:
-        lines.append(indent + "Source URL: %s" % url)
+        lines.append(indent + "Section: %s" % friendly_label(kind))
+    snippet = _highlight_snippet(source.get("snippet"), source.get("matched_name"))
     if snippet:
         lines.append(indent + "Snippet: %s" % snippet)
+    note = source.get("note")
     if note:
-        lines.append(indent + "Note: %s" % note)
-    if not lines:
-        lines.append(indent + "Source: (no section pointer on this edge)")
+        lines.append(indent + note)
+    url = source.get("source_url")
+    set_id = source.get("set_id")
+    if url:
+        lines.append(indent + "DailyMed: %s" % url)
+        lines.append(
+            indent
+            + "Label on DailyMed (current version may differ from the snapshot)."
+        )
+    elif set_id:
+        lines.append(indent + "FDA label ID: %s" % set_id)
+    return lines
+
+
+def _fmt_cypher(result: Dict[str, Any]) -> List[str]:
+    cypher = result.get("cypher") or {}
+    statement = cypher.get("statement")
+    if not statement:
+        return []
+    lines = ["", "Cypher:", statement]
+    params = cypher.get("parameters")
+    if params:
+        lines.append("Parameters: %s" % json.dumps(params, ensure_ascii=False))
     return lines
 
 
@@ -85,6 +113,9 @@ def format_paths(result: Dict[str, Any]) -> str:
             lines.append("Candidates:")
             for item in extras:
                 lines.append("  - " + _fmt_entity(item))
+        note = result.get("no_path_note")
+        if note and note not in (result.get("error") or ""):
+            lines.append(note)
         return "\n".join(lines) + "\n"
     lines.append(
         "Paths from %s to %s (max %s hop(s), %s shown):"
@@ -95,22 +126,45 @@ def format_paths(result: Dict[str, Any]) -> str:
             len(result.get("paths") or []),
         )
     )
+    if result.get("excluded_hubs") and not result.get("include_hubs"):
+        names = ", ".join(item.get("name") or item.get("key") for item in result["excluded_hubs"])
+        lines.append(
+            "Generic hub conditions excluded by default (contraindicated in more than %s drugs): %s. "
+            "Pass --include-hubs to include them."
+            % (result.get("hub_condition_min_drugs"), names)
+        )
     if not result.get("paths"):
         lines.append(result.get("error") or "No path found.")
+        if result.get("no_path_note") and result.get("no_path_note") not in (result.get("error") or ""):
+            lines.append(result["no_path_note"])
         return "\n".join(lines) + "\n"
+    if not result.get("direct_mention_found"):
+        lines.append("Neither endpoint label mentions the other directly.")
     for index, path in enumerate(result["paths"], start=1):
         nodes = path.get("nodes") or []
         steps = path.get("steps") or []
         if nodes:
-            label = " -> ".join("%s" % node.get("key") for node in nodes)
+            label = " -> ".join("%s" % (node.get("name") or node.get("key")) for node in nodes)
+            headline = path.get("headline")
             lines.append("")
-            lines.append("Path %s (%s hop(s)): %s" % (index, path.get("hops"), label))
+            header = "Path %s (%s hop(s)): %s" % (index, path.get("hops"), label)
+            if headline:
+                header += " — %s" % headline
+            lines.append(header)
+        if path.get("note") and result.get("direct_mention_found"):
+            lines.append("  %s" % path["note"])
         for step_i, step in enumerate(steps, start=1):
+            display = step.get("display_label") or hop_display_label(
+                step.get("rel_type"),
+                source_kinds=step.get("source_kinds"),
+            )
             lines.append(
                 "  %s. %s -[:%s]-> %s"
-                % (step_i, step.get("from_key"), step.get("rel_type"), step.get("to_key"))
+                % (step_i, step.get("from_key"), display, step.get("to_key"))
             )
-            lines.extend(_fmt_source(step.get("source")))
+            sources = step.get("sources") or ([step.get("source")] if step.get("source") else [])
+            for source in sources:
+                lines.extend(_fmt_source(source))
     return "\n".join(lines) + "\n"
 
 
@@ -165,7 +219,7 @@ def format_neighbors(result: Dict[str, Any]) -> str:
         if item.get("direction") == "outgoing":
             desc = "%s -[:%s]-> %s %s (%s)" % (
                 drug.get("key"),
-                item.get("rel_type"),
+                item.get("display_label") or hop_display_label(item.get("rel_type"), source_kind=(item.get("source") or {}).get("kind")),
                 neighbor.get("kind"),
                 neighbor.get("key"),
                 neighbor.get("name"),
@@ -175,7 +229,11 @@ def format_neighbors(result: Dict[str, Any]) -> str:
                 neighbor.get("kind"),
                 neighbor.get("key"),
                 neighbor.get("name"),
-                item.get("rel_type"),
+                item.get("display_label")
+                or hop_display_label(
+                    item.get("rel_type"),
+                    source_kind=(item.get("source") or {}).get("kind"),
+                ),
                 drug.get("key"),
             )
         lines.append("  - " + desc)
@@ -183,7 +241,46 @@ def format_neighbors(result: Dict[str, Any]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def _emit(result: Dict[str, Any], as_json: bool, formatter) -> int:
+def format_med_list(result: Dict[str, Any]) -> str:
+    lines = [DISCLAIMER, ""]
+    drugs = result.get("drugs") or result.get("resolved") or []
+    if drugs:
+        lines.append(
+            "Med-list check (%s drugs): %s"
+            % (len(drugs), ", ".join(item.get("name") or item.get("key") for item in drugs))
+        )
+    if result.get("error") and not result.get("found"):
+        lines.append(result["error"])
+        for err in result.get("errors") or []:
+            lines.append("  - %s: %s" % (err.get("query"), err.get("error")))
+        return "\n".join(lines) + "\n"
+    if not result.get("found"):
+        lines.append(result.get("error") or "No label mentions among these drugs were found.")
+        return "\n".join(lines) + "\n"
+    for pair in result.get("pairs") or []:
+        a = (pair.get("a") or {}).get("name") or (pair.get("a") or {}).get("key")
+        b = (pair.get("b") or {}).get("name") or (pair.get("b") or {}).get("key")
+        if pair.get("mutual"):
+            kind = "mutual mentions"
+        elif pair.get("one_sided"):
+            kind = "one-sided mention"
+        else:
+            kind = "no mention in either direction"
+        lines.append("")
+        lines.append("%s — %s (%s)" % (a, b, kind))
+        for direction, payload in (
+            ("%s mentions %s" % (a, b), pair.get("a_mentions_b")),
+            ("%s mentions %s" % (b, a), pair.get("b_mentions_a")),
+        ):
+            if not payload:
+                continue
+            lines.append("  %s:" % direction)
+            for source in payload.get("sources") or []:
+                lines.extend(_fmt_source(source, indent="    "))
+    return "\n".join(lines) + "\n"
+
+
+def _emit(result: Dict[str, Any], as_json: bool, formatter, show_cypher: bool = False) -> int:
     _print_disclaimer(as_json)
     if as_json:
         json.dump(result, sys.stdout, indent=2, ensure_ascii=False)
@@ -193,13 +290,17 @@ def _emit(result: Dict[str, Any], as_json: bool, formatter) -> int:
         text = formatter(result)
         if text.startswith(DISCLAIMER):
             text = text[len(DISCLAIMER) :].lstrip("\n")
-            sys.stdout.write(text)
-            if not text.endswith("\n"):
-                sys.stdout.write("\n")
-        else:
-            sys.stdout.write(text)
-    if result.get("found") is False:
-        return 0
+        if show_cypher:
+            extra = "\n".join(_fmt_cypher(result))
+            if extra:
+                if not text.endswith("\n"):
+                    text += "\n"
+                text += extra
+                if not text.endswith("\n"):
+                    text += "\n"
+        sys.stdout.write(text)
+        if not text.endswith("\n"):
+            sys.stdout.write("\n")
     return 0
 
 
@@ -223,24 +324,44 @@ def build_parser() -> argparse.ArgumentParser:
         help="Print one JSON object to stdout (the disclaimer line goes to stderr).",
     )
     sub = parser.add_subparsers(dest="group")
-    query = sub.add_parser("query", help="Run a lookup, path, warnings, or neighbors query.")
+    query = sub.add_parser("query", help="Run a lookup, path, warnings, neighbors, or med-list query.")
     qsub = query.add_subparsers(dest="action", required=True)
 
     p_lookup = qsub.add_parser("lookup", help="Find a drug or ingredient by name.")
     p_lookup.add_argument("name")
+    p_lookup.add_argument("--show-cypher", action="store_true")
 
     p_path = qsub.add_parser("path", help="Find bounded labeled paths between two names.")
     p_path.add_argument("start")
     p_path.add_argument("end")
     p_path.add_argument("--max-hops", type=int, default=3)
     p_path.add_argument("--limit", type=int, default=DEFAULT_PATH_LIMIT)
+    p_path.add_argument(
+        "--include-hubs",
+        action="store_true",
+        help="Include generic hub conditions (anaphylaxis, angioedema, asthma, and any other condition contraindicated in more than 10 drugs) in path search.",
+    )
+    p_path.add_argument(
+        "--show-cypher",
+        action="store_true",
+        help="Print the parameterized Cypher statement that ran.",
+    )
 
     p_warn = qsub.add_parser("warnings", help="Show boxed warnings and contraindications.")
     p_warn.add_argument("name")
+    p_warn.add_argument("--show-cypher", action="store_true")
 
     p_nei = qsub.add_parser("neighbors", help="List labeled neighbors of a drug.")
     p_nei.add_argument("name")
     p_nei.add_argument("--limit", type=int, default=DEFAULT_NEIGHBOR_LIMIT)
+    p_nei.add_argument("--show-cypher", action="store_true")
+
+    p_med = qsub.add_parser(
+        "med-list",
+        help="Check every label mention among 2 to 6 drugs, in both directions.",
+    )
+    p_med.add_argument("names", nargs="+", help="Two to six drug names.")
+    p_med.add_argument("--show-cypher", action="store_true")
 
     p_serve = sub.add_parser(
         "serve",
@@ -268,9 +389,10 @@ def main(argv: Optional[List[str]] = None) -> int:
     database = args.database
     as_json = args.as_json
     try:
+        show_cypher = bool(getattr(args, "show_cypher", False))
         if args.action == "lookup":
             result = lookup(args.name, database=database)
-            return _emit(result, as_json, format_lookup)
+            return _emit(result, as_json, format_lookup, show_cypher)
         if args.action == "path":
             result = paths_between(
                 args.start,
@@ -278,14 +400,18 @@ def main(argv: Optional[List[str]] = None) -> int:
                 max_hops=args.max_hops,
                 database=database,
                 limit=args.limit,
+                include_hubs=bool(getattr(args, "include_hubs", False)),
             )
-            return _emit(result, as_json, format_paths)
+            return _emit(result, as_json, format_paths, show_cypher)
         if args.action == "warnings":
             result = warnings(args.name, database=database)
-            return _emit(result, as_json, format_warnings)
+            return _emit(result, as_json, format_warnings, show_cypher)
         if args.action == "neighbors":
             result = neighbors(args.name, database=database, limit=args.limit)
-            return _emit(result, as_json, format_neighbors)
+            return _emit(result, as_json, format_neighbors, show_cypher)
+        if args.action == "med-list":
+            result = med_list_check(args.names, database=database)
+            return _emit(result, as_json, format_med_list, show_cypher)
     except Exception as exc:
         _print_disclaimer(as_json)
         message = "%s: %s" % (type(exc).__name__, exc)

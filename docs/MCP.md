@@ -42,7 +42,11 @@ python -m pytest
 
 The script looks for `relate` in `$RELATE_CLI`, then `PATH`, then the official installer location `~/.local/bin/relate`.
 
-## Host configuration (LIAM STEP only)
+## Agent prompt
+
+Official MCP output carries no disclaimer. Before a host answers questions about this snapshot, give it the short system prompt in [AGENT_PROMPT.md](AGENT_PROMPT.md): quote the section and snippet, include **Educational only, not medical advice.**, and never treat a mention as a clinical interaction.
+
+## Host configuration
 
 Do **not** have an agent edit Claude Desktop or Cursor config files for you. If you want a host to start the read-only server, paste a snippet yourself and restart the host. The official blocks are in [Connect over MCP](https://relatedb.ai/docs/guides/agents/connect-over-mcp/) (that page notes host formats as of 2026-11-07). Official docs also say desktop apps often do not include `~/.local/bin` on `PATH`, so `command` should be the absolute path of the `relate` binary.
 
@@ -66,25 +70,7 @@ Placeholder (replace the two absolute paths):
 }
 ```
 
-Filled in for this Mac project (Liam Dixon’s machine). Do not remove `"--read-only"`:
-
-```json
-{
-  "mcpServers": {
-    "relate": {
-      "command": "/Users/liamdixon/.local/bin/relate",
-      "args": [
-        "serve",
-        "--mcp",
-        "stdio",
-        "--database",
-        "/Users/liamdixon/Projects/labelpath/data/labelpath.rl",
-        "--read-only"
-      ]
-    }
-  }
-}
-```
+Do not remove `"--read-only"` from the args.
 
 Where to put it, from the official host guide:
 

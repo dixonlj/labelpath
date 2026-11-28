@@ -13,8 +13,10 @@ from labelpath.query import (
     DEFAULT_NEIGHBOR_LIMIT,
     DISCLAIMER,
     lookup,
+    med_list_check,
     neighbors,
     paths_between,
+    snapshot_stats,
     warnings,
 )
 
@@ -69,6 +71,37 @@ def _error_payload(message: str, extra: Optional[Dict[str, Any]] = None) -> Dict
     return payload
 
 
+_META_CACHE: Dict[str, Any] = {}
+
+
+def _meta_payload(database) -> Dict[str, Any]:
+    key = str(resolve_database(database))
+    cached = _META_CACHE.get(key)
+    if cached is not None:
+        payload = dict(cached)
+        payload["disclaimer"] = DISCLAIMER
+        payload["attribution"] = ATTRIBUTION
+        payload["openfda_caution"] = OPENFDA_CAUTION
+        payload["bind"] = BIND_HOST
+        payload["default_max_hops"] = DEFAULT_UI_MAX_HOPS
+        return payload
+    import relate
+
+    conn = relate.connect(key, read_only=True)
+    try:
+        stats = snapshot_stats(conn)
+    finally:
+        conn.close()
+    _META_CACHE[key] = stats
+    payload = dict(stats)
+    payload["disclaimer"] = DISCLAIMER
+    payload["attribution"] = ATTRIBUTION
+    payload["openfda_caution"] = OPENFDA_CAUTION
+    payload["bind"] = BIND_HOST
+    payload["default_max_hops"] = DEFAULT_UI_MAX_HOPS
+    return payload
+
+
 class LabelPathHandler(BaseHTTPRequestHandler):
     """Serves the single-page UI and read-only JSON query endpoints."""
 
@@ -95,16 +128,7 @@ class LabelPathHandler(BaseHTTPRequestHandler):
             self._send_static_route(route[len("/static/") :])
             return
         if route == "/api/meta":
-            self._send_json(
-                200,
-                {
-                    "disclaimer": DISCLAIMER,
-                    "attribution": ATTRIBUTION,
-                    "openfda_caution": OPENFDA_CAUTION,
-                    "bind": BIND_HOST,
-                    "default_max_hops": DEFAULT_UI_MAX_HOPS,
-                },
-            )
+            self._send_json(200, _meta_payload(self.database))
             return
         if route == "/api/lookup":
             self._api_lookup(query)
@@ -117,6 +141,9 @@ class LabelPathHandler(BaseHTTPRequestHandler):
             return
         if route == "/api/neighbors":
             self._api_neighbors(query)
+            return
+        if route == "/api/med-list":
+            self._api_med_list(query)
             return
         self._send_json(404, _error_payload("Not found."))
 
@@ -182,8 +209,14 @@ class LabelPathHandler(BaseHTTPRequestHandler):
             self._send_json(400, _error_payload(error, extra))
             return
         assert hops is not None and limit is not None
+        include_hubs = self._param(query, "include_hubs").lower() in ("1", "true", "yes")
         result = paths_between(
-            start, end, max_hops=hops, database=self.database, limit=limit
+            start,
+            end,
+            max_hops=hops,
+            database=self.database,
+            limit=limit,
+            include_hubs=include_hubs,
         )
         result["attribution"] = ATTRIBUTION
         self._send_json(200, result)
@@ -208,6 +241,23 @@ class LabelPathHandler(BaseHTTPRequestHandler):
             return
         assert limit is not None
         result = neighbors(name, database=self.database, limit=limit)
+        result["attribution"] = ATTRIBUTION
+        self._send_json(200, result)
+
+    def _api_med_list(self, query: Dict[str, list]) -> None:
+        raw = self._param(query, "q")
+        if not raw:
+            # Allow repeated name= or names= parameters as well as a single q= list.
+            parts = (query.get("name") or []) + (query.get("names") or [])
+            raw = ",".join(parts)
+        names = [item.strip() for item in raw.replace(";", ",").replace("\n", ",").split(",") if item.strip()]
+        if not raw or not names:
+            self._send_json(
+                400,
+                _error_payload("Enter 2 to 6 drug names, separated by commas."),
+            )
+            return
+        result = med_list_check(names, database=self.database)
         result["attribution"] = ATTRIBUTION
         self._send_json(200, result)
 

@@ -19,6 +19,137 @@ PATH_REL_TYPES = (
 # Sanitized integer hop bounds only (never raw user text) are interpolated below.
 _PATH_REL_PATTERN = "|".join(PATH_REL_TYPES)
 
+# Display-only labels. Graph/API keys stay in PATH_REL_TYPES and source.kind.
+FRIENDLY_LABELS = {
+    "LABELED_INTERACTION": "Mentions",
+    "CONTAINS": "Contains",
+    "INDICATED_FOR": "Indicated for",
+    "CONTRAINDICATED_IN": "Contraindicated in",
+    "drug_interactions": "Drug interactions",
+    "boxed_warning": "Boxed warning",
+    "warnings_and_cautions": "Warnings and cautions",
+    "contraindications": "Contraindications",
+    "indications_and_usage": "Indications and usage",
+    "adverse_reactions": "Adverse reactions",
+}
+
+# Conditions linked by CONTRAINDICATED_IN to more than this many distinct
+# drugs are treated as generic hubs and omitted from path search by default.
+HUB_CONDITION_MIN_DRUGS = 10
+
+# Retrieved date stored on the committed snapshot (data/raw/manifest.json).
+SNAPSHOT_DATE = "19 November 2026"
+SNAPSHOT_TZ = "America/New_York"
+SNAPSHOT_DRUG_COUNT = 293  # verified against the store; also queried at runtime
+
+NO_PATH_NOTE = (
+    "No path in this snapshot does not mean the drugs are safe together. "
+    "The snapshot covers %s drugs, matches exact names only, and misses "
+    "class mentions such as 'anticoagulants'."
+)
+
+DAILYMED_LINK_NOTE = (
+    "Label on DailyMed (current version may differ from the snapshot)"
+)
+
+
+def friendly_label(value) -> str:
+    """Turn a raw relationship or section name into a short display label."""
+    raw = "" if value is None else str(value)
+    if not raw:
+        return ""
+    if raw in FRIENDLY_LABELS:
+        return FRIENDLY_LABELS[raw]
+    spaced = " ".join(raw.replace("_", " ").split())
+    if not spaced:
+        return ""
+    return spaced[0].upper() + spaced[1:].lower()
+
+
+def hop_display_label(rel_type, source_kind=None, source_kinds=None) -> str:
+    """Arrow text: 'Mentions · Drug interactions'."""
+    rel = friendly_label(rel_type)
+    kinds = []
+    if source_kinds:
+        for kind in source_kinds:
+            label = friendly_label(kind)
+            if label and label not in kinds:
+                kinds.append(label)
+    elif source_kind:
+        label = friendly_label(source_kind)
+        if label:
+            kinds.append(label)
+    if kinds:
+        return rel + " · " + " · ".join(kinds)
+    return rel
+
+
+def _cypher_payload(statement: str, parameters: Dict[str, Any]) -> Dict[str, Any]:
+    return {"statement": statement, "parameters": parameters}
+
+
+def hub_conditions(conn: Any) -> List[Dict[str, Any]]:
+    """Condition nodes contraindicated in more than HUB_CONDITION_MIN_DRUGS drugs."""
+    rows = conn.execute(
+        "MATCH (d:Drug)-[:CONTRAINDICATED_IN]->(c:Condition) "
+        "RETURN c.key AS key, c.name AS name, count(DISTINCT d) AS drug_count "
+        "ORDER BY drug_count DESC, key ASC"
+    ).fetchall()
+    hubs = []
+    for row in rows:
+        count = int(row["drug_count"] or 0)
+        if count > HUB_CONDITION_MIN_DRUGS:
+            hubs.append(
+                {
+                    "key": row["key"],
+                    "name": row["name"] or row["key"],
+                    "drug_count": count,
+                }
+            )
+    return hubs
+
+
+def snapshot_stats(conn: Any) -> Dict[str, Any]:
+    """Counts and mention-pair facts, all read from the store."""
+    drug_count = conn.execute("MATCH (d:Drug) RETURN count(d) AS n").fetchone()["n"]
+    directed = conn.execute(
+        "MATCH (a:Drug)-[:LABELED_INTERACTION]->(b:Drug) "
+        "RETURN DISTINCT a.key AS a, b.key AS b"
+    ).fetchall()
+    outgoing = {}
+    undirected = set()
+    for row in directed:
+        a, b = row["a"], row["b"]
+        outgoing.setdefault(a, set()).add(b)
+        undirected.add(tuple(sorted((a, b))))
+    mutual = [
+        (a, b) for a, b in sorted(undirected) if b in outgoing.get(a, set()) and a in outgoing.get(b, set())
+    ]
+    top = conn.execute(
+        "MATCH (a:Drug)-[:LABELED_INTERACTION]->(b:Drug) "
+        "RETURN b.key AS key, b.generic_name AS name, count(DISTINCT a) AS n "
+        "ORDER BY n DESC, key ASC "
+        "LIMIT 5"
+    ).fetchall()
+    hubs = hub_conditions(conn)
+    return {
+        "disclaimer": DISCLAIMER,
+        "snapshot_date": SNAPSHOT_DATE,
+        "snapshot_timezone": SNAPSHOT_TZ,
+        "drug_count": int(drug_count),
+        "mention_linked_pairs": len(undirected),
+        "mutual_mention_pairs": len(mutual),
+        "one_sided_mention_pairs": len(undirected) - len(mutual),
+        "directed_mention_pairs": len(directed),
+        "most_mentioned": [
+            {"key": row["key"], "name": row["name"], "named_by": int(row["n"])} for row in top
+        ],
+        "hub_condition_min_drugs": HUB_CONDITION_MIN_DRUGS,
+        "hub_conditions": hubs,
+        "dailymed_link_note": DAILYMED_LINK_NOTE,
+        "no_path_note": NO_PATH_NOTE % int(drug_count),
+    }
+
 # CONTAINS edges come from the structured openFDA substance list, not a section.
 CONTAINS_SOURCE_NOTE = (
     "Structured openFDA substance_name field on the source drug; "
@@ -175,6 +306,7 @@ def _source_fields(
     summary: Optional[str],
     labels: Dict[str, Dict[str, Any]],
     rel_type: str,
+    matched_name: Optional[str] = None,
 ) -> Dict[str, Any]:
     info = labels.get(source_set_id or "", {})
     source = {
@@ -183,6 +315,7 @@ def _source_fields(
         "source_url": info.get("source_url"),
         "effective_time": info.get("effective_time"),
         "snippet": summary,
+        "matched_name": matched_name,
     }
     if rel_type == "CONTAINS" and not source_kind and not summary:
         source["note"] = CONTAINS_SOURCE_NOTE
@@ -195,11 +328,19 @@ def lookup(name: str, conn: Any = None, database=None) -> Dict[str, Any]:
     try:
         drugs, ingredients = _load_catalog(connection)
         matches = _matches_from_catalog(name, drugs, ingredients)
+        catalog_cypher = (
+            "MATCH (d:Drug) "
+            "RETURN d.key AS key, d.generic_name AS generic_name, "
+            "d.brand_names AS brand_names, d.application_numbers AS application_numbers "
+            "ORDER BY d.key "
+            "LIMIT 1000"
+        )
         return {
             "disclaimer": DISCLAIMER,
             "query": name,
             "matches": matches,
             "found": bool(matches),
+            "cypher": _cypher_payload(catalog_cypher, {}),
         }
     finally:
         if close:
@@ -231,6 +372,7 @@ def paths_between(
     conn: Any = None,
     database=None,
     limit: int = DEFAULT_PATH_LIMIT,
+    include_hubs: bool = False,
 ) -> Dict[str, Any]:
     """Bounded labeled paths between two snapshot drugs or ingredients."""
     hops = int(max_hops)
@@ -248,15 +390,27 @@ def paths_between(
     try:
         start, start_matches, start_error = _resolve_required(a, connection, "start")
         end, end_matches, end_error = _resolve_required(b, connection, "end")
+        drug_count = connection.execute("MATCH (d:Drug) RETURN count(d) AS n").fetchone()["n"]
+        no_path_note = NO_PATH_NOTE % int(drug_count)
+        hubs = [] if include_hubs else hub_conditions(connection)
+        hub_keys = [item["key"] for item in hubs]
         result = {
             "disclaimer": DISCLAIMER,
             "start_query": a,
             "end_query": b,
             "max_hops": hops,
+            "include_hubs": include_hubs,
+            "excluded_hubs": hubs,
+            "hub_condition_min_drugs": HUB_CONDITION_MIN_DRUGS,
             "start": start,
             "end": end,
             "paths": [],
             "found": False,
+            "direct_mention_found": False,
+            "no_path_note": no_path_note,
+            "snapshot_date": SNAPSHOT_DATE,
+            "snapshot_timezone": SNAPSHOT_TZ,
+            "drug_count": int(drug_count),
         }
         if start_error:
             result["error"] = start_error
@@ -271,13 +425,25 @@ def paths_between(
             result["error"] = "The start and end resolve to the same snapshot node."
             return result
 
-        # Hop bound is a clamped integer, not raw user text.
+        fetch_cap = cap * 8
+        if fetch_cap < 80:
+            fetch_cap = 80
+        if fetch_cap > 200:
+            fetch_cap = 200
+
+        hub_clause = ""
+        if hub_keys:
+            hub_clause = (
+                "AND ALL(n IN ns WHERE NOT (n:Condition AND n.key IN $hub_keys)) "
+            )
+
         statement = (
             "MATCH (start {key: $start_key}), (finish {key: $end_key}) "
             "WHERE $start_label IN labels(start) AND $end_label IN labels(finish) "
             "MATCH p = (start)-[:%s*1..%d]-(finish) "
             "WITH p, nodes(p) AS ns "
             "WHERE ALL(n IN ns WHERE size([m IN ns WHERE m = n]) = 1) "
+            "%s"
             "RETURN length(p) AS hops, "
             "[n IN nodes(p) | n.key] AS keys, "
             "[n IN nodes(p) | labels(n)[0]] AS node_kinds, "
@@ -286,32 +452,36 @@ def paths_between(
             "[r IN relationships(p) | r.summary] AS summaries, "
             "[r IN relationships(p) | r.source_kind] AS source_kinds, "
             "[r IN relationships(p) | r.source_set_id] AS source_set_ids, "
+            "[r IN relationships(p) | r.matched_name] AS matched_names, "
             "[r IN relationships(p) | startNode(r).key] AS rel_starts, "
             "[r IN relationships(p) | endNode(r).key] AS rel_ends "
             "ORDER BY length(p) ASC "
             "LIMIT $fetch_limit"
-        ) % (_PATH_REL_PATTERN, hops)
+        ) % (_PATH_REL_PATTERN, hops, hub_clause)
 
-        rows = connection.execute(
-            statement,
-            {
-                "start_key": start["key"],
-                "end_key": end["key"],
-                "start_label": start["kind"],
-                "end_label": end["kind"],
-                "fetch_limit": cap,
-            },
-        ).fetchall()
+        parameters = {
+            "start_key": start["key"],
+            "end_key": end["key"],
+            "start_label": start["kind"],
+            "end_label": end["kind"],
+            "fetch_limit": fetch_cap,
+        }
+        if hub_keys:
+            parameters["hub_keys"] = hub_keys
+        result["cypher"] = _cypher_payload(statement, parameters)
+
+        rows = connection.execute(statement, parameters).fetchall()
 
         set_ids: List[str] = []
         for row in rows:
             set_ids.extend([item for item in (row["source_set_ids"] or []) if item])
         labels = _label_map(connection, set_ids)
 
-        paths = []
+        raw_paths = []
         for row in rows:
             steps = []
             rel_types = row["rel_types"] or []
+            matched_names = row["matched_names"] or []
             for index, rel_type in enumerate(rel_types):
                 source = _source_fields(
                     (row["source_kinds"] or [None])[index],
@@ -319,6 +489,7 @@ def paths_between(
                     (row["summaries"] or [None])[index],
                     labels,
                     rel_type,
+                    matched_names[index] if index < len(matched_names) else None,
                 )
                 steps.append(
                     {
@@ -340,34 +511,129 @@ def paths_between(
                         "name": names[index] if index < len(names) else key,
                     }
                 )
-            paths.append(
-                {
-                    "hops": row["hops"],
-                    "nodes": nodes,
-                    "steps": steps,
-                }
-            )
+            raw_paths.append({"hops": row["hops"], "nodes": nodes, "steps": steps})
 
-        def path_sort_key(path: Dict[str, Any]) -> Tuple:
-            node_keys = tuple(node["key"] for node in path["nodes"])
-            rels = tuple(step["rel_type"] for step in path["steps"])
-            kinds = tuple((step["source"] or {}).get("kind") or "" for step in path["steps"])
-            return (path["hops"], node_keys, rels, kinds)
-
-        paths.sort(key=path_sort_key)
-        paths = paths[:cap]
+        paths, direct = _group_and_annotate_paths(raw_paths, cap)
         result["paths"] = paths
         result["found"] = bool(paths)
+        result["direct_mention_found"] = direct
         if not paths:
             result["error"] = (
                 "No labeled path of at most %s hop(s) was found between %s and %s "
-                "in this snapshot."
-                % (hops, start["key"], end["key"])
+                "in this snapshot. %s"
+                % (hops, start["key"], end["key"], no_path_note)
             )
         return result
     finally:
         if close:
             connection.close()
+
+
+def _source_signature(source: Optional[Dict[str, Any]]) -> Tuple:
+    src = source or {}
+    return (src.get("kind"), src.get("set_id"), src.get("snippet"), src.get("matched_name"))
+
+
+def _group_and_annotate_paths(
+    raw_paths: List[Dict[str, Any]], cap: int
+) -> Tuple[List[Dict[str, Any]], bool]:
+    """Collapse identical node routes; keep every distinct source snippet."""
+    groups: Dict[Tuple[str, ...], Dict[str, Any]] = {}
+    order: List[Tuple[str, ...]] = []
+    for path in raw_paths:
+        route = tuple(node["key"] for node in path["nodes"])
+        if route not in groups:
+            grouped_steps = []
+            for step in path["steps"]:
+                source = step.get("source")
+                grouped_steps.append(
+                    {
+                        "from_key": step.get("from_key"),
+                        "to_key": step.get("to_key"),
+                        "rel_type": step.get("rel_type"),
+                        "rel_types": [step.get("rel_type")],
+                        "source": source,
+                        "sources": [source] if source is not None else [],
+                    }
+                )
+            groups[route] = {
+                "hops": path["hops"],
+                "nodes": path["nodes"],
+                "steps": grouped_steps,
+            }
+            order.append(route)
+            continue
+        existing = groups[route]
+        for index, step in enumerate(path["steps"]):
+            if index >= len(existing["steps"]):
+                break
+            estep = existing["steps"][index]
+            rel_type = step.get("rel_type")
+            if rel_type and rel_type not in estep["rel_types"]:
+                estep["rel_types"].append(rel_type)
+            source = step.get("source")
+            if source is None:
+                continue
+            sigs = [_source_signature(item) for item in estep["sources"]]
+            if _source_signature(source) not in sigs:
+                estep["sources"].append(source)
+                if estep.get("source") is None:
+                    estep["source"] = source
+
+    has_direct = False
+    annotated = []
+    for route in order:
+        path = groups[route]
+        for step in path["steps"]:
+            kinds = []
+            for source in step["sources"]:
+                kind = (source or {}).get("kind")
+                if kind and kind not in kinds:
+                    kinds.append(kind)
+            step["source_kinds"] = kinds
+            step["display_label"] = hop_display_label(
+                step["rel_type"], source_kinds=kinds
+            )
+        intermediates = path["nodes"][1:-1]
+        path["connected_through"] = [
+            node.get("name") or node.get("key") for node in intermediates
+        ]
+        all_mentions = all(
+            step.get("rel_type") == "LABELED_INTERACTION" for step in path["steps"]
+        )
+        path["all_mentions"] = all_mentions
+        path["direct_mention"] = path["hops"] == 1 and all_mentions
+        if path["direct_mention"]:
+            has_direct = True
+            path["headline"] = "Direct mention"
+        elif path["connected_through"]:
+            path["headline"] = "Connected through " + ", ".join(path["connected_through"])
+        else:
+            path["headline"] = ""
+        annotated.append(path)
+
+    for path in annotated:
+        if path["direct_mention"]:
+            path["neither_endpoint_mentions_the_other"] = False
+        else:
+            path["neither_endpoint_mentions_the_other"] = not has_direct
+            if not has_direct:
+                path["note"] = (
+                    "Neither endpoint label mentions the other directly."
+                )
+
+    def rank(path: Dict[str, Any]) -> Tuple:
+        if path.get("direct_mention"):
+            cls = 0
+        elif path.get("all_mentions"):
+            cls = 1
+        else:
+            cls = 2
+        keys = tuple(node["key"] for node in path["nodes"])
+        return (cls, path["hops"], keys)
+
+    annotated.sort(key=rank)
+    return annotated[:cap], has_direct
 
 
 def _drug_or_error(name: str, conn: Any) -> Tuple[Optional[Dict[str, Any]], Dict[str, Any]]:
@@ -469,6 +735,46 @@ def warnings(drug_name: str, conn: Any = None, database=None) -> Dict[str, Any]:
         result["boxed_warnings"] = boxed
         result["contraindication_sections"] = contra_sections
         result["contraindicated_in"] = conditions
+        result["cypher"] = {
+            "statement": (
+                "MATCH (d:Drug {key: $key})-[:HAS_LABEL]->(l:Label)-[:HAS_SECTION]->(s:Section) "
+                "WHERE s.kind IN $kinds "
+                "RETURN s.kind AS kind, s.text AS text, l.set_id AS set_id, "
+                "l.source_url AS source_url, l.effective_time AS effective_time "
+                "ORDER BY s.kind "
+                "LIMIT 20"
+            ),
+            "parameters": {
+                "key": drug["key"],
+                "kinds": ["boxed_warning", "contraindications"],
+            },
+            "queries": [
+                {
+                    "statement": (
+                        "MATCH (d:Drug {key: $key})-[:HAS_LABEL]->(l:Label)-[:HAS_SECTION]->(s:Section) "
+                        "WHERE s.kind IN $kinds "
+                        "RETURN s.kind AS kind, s.text AS text, l.set_id AS set_id, "
+                        "l.source_url AS source_url, l.effective_time AS effective_time "
+                        "ORDER BY s.kind "
+                        "LIMIT 20"
+                    ),
+                    "parameters": {
+                        "key": drug["key"],
+                        "kinds": ["boxed_warning", "contraindications"],
+                    },
+                },
+                {
+                    "statement": (
+                        "MATCH (d:Drug {key: $key})-[r:CONTRAINDICATED_IN]->(c:Condition) "
+                        "RETURN c.key AS key, c.name AS name, r.summary AS summary, "
+                        "r.source_kind AS source_kind, r.source_set_id AS source_set_id "
+                        "ORDER BY c.key "
+                        "LIMIT 100"
+                    ),
+                    "parameters": {"key": drug["key"]},
+                },
+            ],
+        }
         return result
     finally:
         if close:
@@ -492,18 +798,20 @@ def neighbors(
         drug, result = _drug_or_error(drug_name, connection)
         if drug is None:
             return result
-        rows = connection.execute(
+        neighbor_statement = (
             "MATCH (d:Drug {key: $key})-[r:%s]-(n) "
             "RETURN type(r) AS rel_type, startNode(r).key AS start_key, "
             "endNode(r).key AS end_key, labels(n)[0] AS neighbor_kind, "
             "n.key AS neighbor_key, coalesce(n.generic_name, n.name, n.key) AS neighbor_name, "
             "r.summary AS summary, r.source_kind AS source_kind, "
-            "r.source_set_id AS source_set_id "
+            "r.source_set_id AS source_set_id, r.matched_name AS matched_name "
             "ORDER BY type(r), n.key "
             "LIMIT $fetch_limit"
-            % _PATH_REL_PATTERN,
-            {"key": drug["key"], "fetch_limit": cap},
-        ).fetchall()
+            % _PATH_REL_PATTERN
+        )
+        neighbor_params = {"key": drug["key"], "fetch_limit": cap}
+        result["cypher"] = _cypher_payload(neighbor_statement, neighbor_params)
+        rows = connection.execute(neighbor_statement, neighbor_params).fetchall()
         labels = _label_map(
             connection,
             [row["source_set_id"] for row in rows],
@@ -526,6 +834,10 @@ def neighbors(
                         row["summary"],
                         labels,
                         row["rel_type"],
+                        row["matched_name"],
+                    ),
+                    "display_label": hop_display_label(
+                        row["rel_type"], source_kind=row["source_kind"]
                     ),
                 }
             )
@@ -539,6 +851,172 @@ def neighbors(
             )
         )
         result["neighbors"] = items[:cap]
+        return result
+    finally:
+        if close:
+            connection.close()
+
+
+MED_LIST_MIN = 2
+MED_LIST_MAX = 6
+MED_LIST_STATEMENT = (
+    "MATCH (a:Drug)-[r:LABELED_INTERACTION]->(b:Drug) "
+    "WHERE a.key IN $keys AND b.key IN $keys AND a.key <> b.key "
+    "RETURN a.key AS from_key, a.generic_name AS from_name, "
+    "b.key AS to_key, b.generic_name AS to_name, "
+    "r.source_kind AS source_kind, r.source_set_id AS source_set_id, "
+    "r.summary AS summary, r.matched_name AS matched_name "
+    "ORDER BY from_key, to_key, source_kind"
+)
+
+
+def med_list_check(
+    names: Sequence[str], conn: Any = None, database=None
+) -> Dict[str, Any]:
+    """Every label mention among 2-6 resolved drugs, both directions, one query."""
+    cleaned = [str(name).strip() for name in names if str(name).strip()]
+    result: Dict[str, Any] = {
+        "disclaimer": DISCLAIMER,
+        "query": cleaned,
+        "found": False,
+        "mentions": [],
+        "pairs": [],
+        "drugs": [],
+        "snapshot_date": SNAPSHOT_DATE,
+        "snapshot_timezone": SNAPSHOT_TZ,
+        "no_path_note": NO_PATH_NOTE % SNAPSHOT_DRUG_COUNT,
+        "cypher": _cypher_payload(MED_LIST_STATEMENT, {"keys": []}),
+    }
+    if len(cleaned) < MED_LIST_MIN or len(cleaned) > MED_LIST_MAX:
+        result["error"] = "Enter 2 to 6 drug names."
+        return result
+
+    connection, close = open_store(database=database, conn=conn)
+    try:
+        drug_count = connection.execute(
+            "MATCH (d:Drug) RETURN count(d) AS n"
+        ).fetchone()["n"]
+        result["drug_count"] = int(drug_count)
+        result["no_path_note"] = NO_PATH_NOTE % int(drug_count)
+
+        resolved: List[Dict[str, Any]] = []
+        errors: List[Dict[str, Any]] = []
+        for name in cleaned:
+            entity, matches, error = _resolve_required(
+                name, connection, "drug", prefer_drug=True
+            )
+            if error:
+                errors.append({"query": name, "error": error, "matches": matches})
+                continue
+            assert entity is not None
+            if entity["kind"] != "Drug":
+                errors.append(
+                    {
+                        "query": name,
+                        "error": (
+                            "%r resolved to an Ingredient (%s), not a Drug, in this snapshot."
+                            % (name, entity["key"])
+                        ),
+                        "matches": matches,
+                    }
+                )
+                continue
+            resolved.append(
+                {
+                    "query": name,
+                    "kind": entity["kind"],
+                    "key": entity["key"],
+                    "name": entity.get("name") or entity.get("generic_name") or entity["key"],
+                }
+            )
+
+        result["resolved"] = resolved
+        if errors:
+            result["errors"] = errors
+            result["error"] = "Every name must resolve to a drug in this snapshot."
+            return result
+
+        keys: List[str] = []
+        drugs: List[Dict[str, Any]] = []
+        seen = set()
+        for item in resolved:
+            if item["key"] in seen:
+                continue
+            seen.add(item["key"])
+            keys.append(item["key"])
+            drugs.append(item)
+        result["drugs"] = drugs
+        if len(keys) < MED_LIST_MIN:
+            result["error"] = "Those names resolve to fewer than two distinct drugs."
+            return result
+
+        parameters = {"keys": keys}
+        result["cypher"] = _cypher_payload(MED_LIST_STATEMENT, parameters)
+        rows = connection.execute(MED_LIST_STATEMENT, parameters).fetchall()
+        labels = _label_map(connection, [row["source_set_id"] for row in rows])
+
+        mentions = []
+        grouped: Dict[Tuple[str, str], Dict[str, Any]] = {}
+        for row in rows:
+            source = _source_fields(
+                row["source_kind"],
+                row["source_set_id"],
+                row["summary"],
+                labels,
+                "LABELED_INTERACTION",
+                row["matched_name"],
+            )
+            mention = {
+                "from_key": row["from_key"],
+                "from_name": row["from_name"] or row["from_key"],
+                "to_key": row["to_key"],
+                "to_name": row["to_name"] or row["to_key"],
+                "rel_type": "LABELED_INTERACTION",
+                "display_label": hop_display_label(
+                    "LABELED_INTERACTION", source_kind=row["source_kind"]
+                ),
+                "source": source,
+            }
+            mentions.append(mention)
+            pair_key = (row["from_key"], row["to_key"])
+            if pair_key not in grouped:
+                grouped[pair_key] = {
+                    "from_key": mention["from_key"],
+                    "from_name": mention["from_name"],
+                    "to_key": mention["to_key"],
+                    "to_name": mention["to_name"],
+                    "display_label": mention["display_label"],
+                    "sources": [],
+                }
+            grouped[pair_key]["sources"].append(source)
+
+        by_key = {item["key"]: item for item in drugs}
+        pairs = []
+        for i, key_a in enumerate(keys):
+            for key_b in keys[i + 1 :]:
+                a_to_b = grouped.get((key_a, key_b))
+                b_to_a = grouped.get((key_b, key_a))
+                pairs.append(
+                    {
+                        "a": by_key[key_a],
+                        "b": by_key[key_b],
+                        "a_mentions_b": a_to_b,
+                        "b_mentions_a": b_to_a,
+                        "mutual": bool(a_to_b) and bool(b_to_a),
+                        "one_sided": bool(a_to_b) != bool(b_to_a),
+                        "none": not a_to_b and not b_to_a,
+                    }
+                )
+
+        result["mentions"] = mentions
+        result["grouped_mentions"] = list(grouped.values())
+        result["pairs"] = pairs
+        result["found"] = bool(mentions)
+        if not mentions:
+            result["error"] = (
+                "No label mentions among these drugs were found in this snapshot. "
+                + result["no_path_note"]
+            )
         return result
     finally:
         if close:

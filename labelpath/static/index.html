@@ -32,10 +32,11 @@
       </a>
       <nav class="nav" aria-label="Sections">
         <a href="#paths">Paths</a>
+        <a href="#med-list">Med-list check</a>
         <a href="#lookup">Lookup</a>
         <a href="#warnings">Warnings</a>
         <a href="#neighbors">Neighbors</a>
-        <a href="#how-it-works">How it works</a>
+        <a href="#why-a-graph">Why a graph</a>
       </nav>
     </div>
   </div>
@@ -44,10 +45,11 @@
     <p class="eyebrow">Local snapshot · Relate graph · read-only</p>
     <h1>Labeled connections in public FDA drug labels</h1>
     <p class="lede">
-      Look up a drug from this offline snapshot of public FDA labels, then follow
-      labeled paths, boxed warnings, and neighbors — each hop points back to a
-      section name and a snippet when they exist, and to the exact FDA label the
-      fact came from when that label is available.
+      Look up a drug from this offline snapshot of public FDA labels
+      (retrieved <span id="snapshot-date-lede">19 November 2026</span>, America/New_York),
+      then follow labeled paths, boxed warnings, and neighbors — each hop points
+      back to a section name and a snippet when they exist, and to the
+      label on DailyMed (current version may differ from the snapshot).
     </p>
   </header>
 
@@ -55,7 +57,12 @@
     <section class="panel" id="paths" aria-labelledby="paths-heading">
       <div class="panel-head">
         <h2 id="paths-heading">Labeled paths</h2>
-        <p>Shorter paths are listed first. The default hop limit is 2; you can raise it to 3.</p>
+        <p>
+          Shorter paths are listed first, and a direct mention between the two
+          names is shown before a path that only connects through another node.
+          The default hop limit is 2; you can raise it to 3. Generic hub
+          conditions are left out of the search unless you turn them back on.
+        </p>
       </div>
       <form id="path-form" class="path-form" action="#" method="get">
         <label>
@@ -75,6 +82,10 @@
             <option value="3">3</option>
           </select>
         </label>
+        <label class="hub-toggle" for="include-hubs">
+          <input id="include-hubs" name="include_hubs" type="checkbox" value="1">
+          <span id="hub-toggle-label">Include generic hub conditions (anaphylaxis, angioedema, asthma)</span>
+        </label>
         <div class="actions">
           <button type="submit" class="btn primary">Find paths</button>
           <button type="button" class="btn ghost" id="try-demo">Try: apixaban → aspirin</button>
@@ -82,6 +93,29 @@
       </form>
       <div id="path-status" class="status" role="status" data-state="idle">Enter two names, or try the demo pair.</div>
       <div id="path-results" class="results"></div>
+    </section>
+
+    <section class="panel" id="med-list" aria-labelledby="med-list-heading">
+      <div class="panel-head">
+        <h2 id="med-list-heading">Med-list check</h2>
+        <p>
+          Enter 2 to 6 drugs to see every label mention among them, in both
+          directions, with the source section and snippet. This runs as one
+          Cypher query over the snapshot.
+        </p>
+      </div>
+      <form id="med-list-form" class="med-list-form" action="#" method="get">
+        <label class="grow">
+          <span>Drug names (2–6, one per line or separated by commas)</span>
+          <textarea id="med-list-q" name="q" rows="4" maxlength="400" placeholder="apixaban&#10;aspirin&#10;warfarin"></textarea>
+        </label>
+        <div class="actions">
+          <button type="submit" class="btn primary">Check mentions</button>
+          <button type="button" class="btn ghost" id="try-med-list">Try: apixaban, aspirin, warfarin</button>
+        </div>
+      </form>
+      <div id="med-list-status" class="status" role="status" data-state="idle"></div>
+      <div id="med-list-results" class="results"></div>
     </section>
 
     <section class="how-it-works" id="how-it-works" aria-labelledby="how-it-works-heading">
@@ -94,6 +128,75 @@
           alt="How LabelPath works: public FDA drug labels are turned into connected facts on your computer, then a question such as whether apixaban's label mentions aspirin is answered with a quote from the label and its source."
         >
       </figure>
+    </section>
+
+    <section class="panel about-panel" id="why-a-graph" aria-labelledby="why-a-graph-heading">
+      <div class="panel-head">
+        <h2 id="why-a-graph-heading">Why a graph</h2>
+        <p>
+          A table of rows can tell you that one label mentions another drug.
+          A graph makes the difference between a one-sided mention and a mutual
+          one visible, and it can show a path that only exists through a third
+          name when neither endpoint label mentions the other directly.
+        </p>
+      </div>
+      <div class="why-grid">
+        <article class="card">
+          <h3>One-sided versus mutual mentions</h3>
+          <p>
+            This snapshot has <strong id="stat-pairs">1,396</strong> undirected
+            mention-linked drug pairs. Of those,
+            <strong id="stat-mutual">172</strong> are mutual — each label names
+            the other — and <strong id="stat-onesided">1,224</strong> are one-sided.
+          </p>
+          <ul class="spot-checks">
+            <li>
+              <strong>Mutual:</strong> clopidogrel and omeprazole. Clopidogrel’s
+              warnings and drug interactions (FDA label ID
+              <code>55731d95-0c99-ff61-e063-6394a90a1ab5</code>) say
+              “Avoid concomitant use of omeprazole or esomeprazole.”
+              Omeprazole’s matching sections (FDA label ID
+              <code>e235ef89-3592-4ca1-8c13-d7ce84b1001c</code>) say
+              “Avoid concomitant use of omeprazole with clopidogrel” and that
+              “omeprazole decreases exposure to the active metabolite of clopidogrel.”
+            </li>
+            <li>
+              <strong>One-sided:</strong> warfarin mentions aspirin in its
+              drug interactions section (FDA label ID
+              <code>61ab23a7-bc67-4777-854a-bf43c788a69a</code>) as part of a
+              bleeding-drug-class list. This snapshot has no aspirin → warfarin
+              mention edge.
+            </li>
+            <li>
+              <strong>One-sided:</strong> apixaban mentions warfarin in warnings
+              and cautions and in drug interactions (FDA label ID
+              <code>41a133ef-e461-48ad-8221-b735bdd0ec25</code>), including a
+              transition from ELIQUIS to warfarin. This snapshot has no
+              warfarin → apixaban mention edge.
+            </li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Most-mentioned drugs</h3>
+          <p>
+            Counted as the number of distinct other drugs whose labels name
+            them, the top three in this snapshot are:
+          </p>
+          <ol id="most-mentioned-list">
+            <li>warfarin — named by 64 other drugs</li>
+            <li>phenytoin — named by 61 other drugs</li>
+            <li>rifampin — named by 53 other drugs</li>
+          </ol>
+        </article>
+        <article class="card">
+          <h3>A Cypher example</h3>
+          <p>Mutual mentions in this snapshot, as a parameterized-style query you can run in Relate:</p>
+          <pre class="cypher-block" tabindex="0">MATCH (a:Drug)-[:LABELED_INTERACTION]-&gt;(b:Drug)-[:LABELED_INTERACTION]-&gt;(a)
+WHERE a.key &lt; b.key
+RETURN a.key AS drug, b.key AS other
+ORDER BY drug, other</pre>
+        </article>
+      </div>
     </section>
 
     <section class="panel" id="lookup" aria-labelledby="lookup-heading">
@@ -149,6 +252,7 @@
 
   <footer>
     <p>Educational only, not medical advice. Served on 127.0.0.1 only. The Relate store is opened read-only.</p>
+    <p>Snapshot retrieved <span id="snapshot-date-footer">19 November 2026</span> (America/New_York). Current DailyMed labels may differ from this snapshot.</p>
     <p>Data provided by the U.S. Food and Drug Administration (https://open.fda.gov).</p>
   </footer>
   <script src="/static/app.js"></script>

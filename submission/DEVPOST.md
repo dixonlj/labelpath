@@ -1,7 +1,5 @@
 # Devpost draft — LabelPath
 
-**Status:** draft only. Do not publish, register, or submit until Liam gives an explicit OK.
-
 **Title:** LabelPath
 
 **Tagline** (169 characters, limit 200):
@@ -35,7 +33,7 @@ I did not want to build a hospital graph, a pathway model, or anything that touc
 
 ## What it does
 
-LabelPath turns a curated, offline snapshot of public FDA labels into a persistent Relate single-file store, `data/labelpath.rl`. You can look up a drug or ingredient, find labeled paths of at most three hops between two names (shorter paths first; the UI defaults to 2 hops and can be raised to 3, and the CLI defaults to 3), list boxed warnings and contraindication neighbors, and list adjacent drugs, ingredients, and conditions. Each hop shows a section name when the hop has one, a source snippet when one exists, and a DailyMed link when a `set_id` exists. A path means label text in this snapshot mentions both names; it is not a pharmacological pathway or a clinical interaction finding.
+LabelPath turns a curated, offline snapshot of public FDA labels into a persistent Relate single-file store, `data/labelpath.rl`. You can look up a drug or ingredient, find labeled paths of at most three hops between two names (shorter paths first; the UI defaults to 2 hops and can be raised to 3, and the CLI defaults to 3), list boxed warnings and contraindication neighbors, and list adjacent drugs, ingredients, and conditions. Each hop shows a section name when the hop has one, a source snippet when one exists, and a DailyMed link when a `set_id` exists. A direct mention means one endpoint label names the other; a longer path can connect two names only through a third drug, ingredient, or condition. A path is not a pharmacological pathway or a clinical interaction finding.
 
 What connects to what: Drug –HAS_LABEL→ Label –HAS_SECTION→ Section; Drug –CONTAINS→ Ingredient; Drug –INDICATED_FOR / CONTRAINDICATED_IN→ Condition; Drug –LABELED_INTERACTION→ Drug or Ingredient. `CONTAINS` comes from the structured openFDA substance list and does not store a section or snippet. `INDICATED_FOR`, `CONTRAINDICATED_IN`, and `LABELED_INTERACTION` store the source section kind, a snippet, and a `source_set_id`. In prose, a `LABELED_INTERACTION` is a label mention in an interaction-related section, not a confirmed clinical finding. An agent can query the same store through Relate’s official read-only MCP (`read_cypher`, `get_schema`). Official MCP output carries no disclaimer, so the host must add it.
 
@@ -65,7 +63,7 @@ I also stayed on official Relate docs and flags rather than inventing APIs, kept
 
 - A judge can clone the repo, install from `requirements.txt`, and get a first result from the committed store without a network call or a paid service.
 - The same read-only graph is available from a CLI, a local UI, and official MCP. The CLI and UI always show the disclaimer. Official MCP output carries no disclaimer, so hosts must add it.
-- Source-backed paths: each hop shows a section name when the hop has one, a snippet when one exists, and a DailyMed link when a `set_id` exists. On the documented apixaban → warfarin → aspirin demo, both hops have all three. A path means label text mentions both names; it is not a clinical interaction finding.
+- Source-backed paths: each hop shows a section name when the hop has one, a snippet when one exists, and a DailyMed link when a `set_id` exists. On the documented apixaban → warfarin → aspirin demo, both hops have all three. A path is not a clinical interaction finding.
 - 34 tests passed on the maintainer’s Mac (Python 3.9.6) and in a clean-clone check (Python 3.9.25), including JSON UI endpoints and an MCP smoke test that refuses writes (with the Relate CLI installed).
 - The project uses only public openFDA data. No employer, patient, or hospital records were used.
 
@@ -79,4 +77,4 @@ This submission is meant to be a complete, cloneable graph demo, not a clinical 
 
 ---
 
-**Devpost field notes (for Liam):** paste the title and tagline into the corresponding fields. Paste the story sections into Inspiration through What's next. Add the Built with tags above. The GitHub repo is https://github.com/dixonlj/labelpath. Attach that link on Devpost, and attach the video only after that LIAM STEP is done. Include the flow diagram `docs/img/labelpath-flow.png` as a first gallery image if useful, then screenshots from `docs/img/` (`01-home.png`, `02-path-apixaban-aspirin.png`, `03-path-clopidogrel-methotrexate.png`, `04-warnings-warfarin.png`), and do not crop out the disclaimer. The 3:2 project thumbnail is `docs/img/labelpath-thumbnail.png` and the schema diagram is `docs/img/labelpath-schema.png`. The finished video is 1:45, with a voiceover of about 1:33. A draft voiceover MP3 (ElevenLabs text-to-speech, not in the repo) may be on the maintainer's Desktop; re-record it for the current script, and disclose it as synthetic if you use it.
+**Devpost field notes (for Liam):** paste the title and tagline into the corresponding fields. Paste the story sections into Inspiration through What's next. Add the Built with tags above. The GitHub repo is https://github.com/dixonlj/labelpath. Attach that link on Devpost, and attach the video once it has been re-recorded. Include the flow diagram `docs/img/labelpath-flow.png` as a first gallery image if useful, then screenshots from `docs/img/` (`01-home.png`, `02-path-apixaban-aspirin.png`, `03-path-clopidogrel-methotrexate.png`, `04-warnings-warfarin.png`), and do not crop out the disclaimer. The 3:2 project thumbnail is `docs/img/labelpath-thumbnail.png` and the schema diagram is `docs/img/labelpath-schema.png`. The finished video length is TBD (it will be re-recorded; Official Rules allow up to 2 minutes). A draft voiceover MP3 (ElevenLabs text-to-speech, not in the repo) may be on the maintainer's Desktop; re-record it for the current script, and disclose it as synthetic if you use it.

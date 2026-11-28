@@ -1,7 +1,24 @@
 (function () {
   "use strict";
 
-  var SVG_FONT = 'Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif';
+  var FRIENDLY_LABELS = {
+    LABELED_INTERACTION: "Mentions",
+    CONTAINS: "Contains",
+    INDICATED_FOR: "Indicated for",
+    CONTRAINDICATED_IN: "Contraindicated in",
+    drug_interactions: "Drug interactions",
+    boxed_warning: "Boxed warning",
+    warnings_and_cautions: "Warnings and cautions",
+    contraindications: "Contraindications",
+    indications_and_usage: "Indications and usage",
+    adverse_reactions: "Adverse reactions"
+  };
+
+  var DAILYMED_LINK_TEXT =
+    "Label on DailyMed (current version may differ from the snapshot)";
+
+  var SVG_FONT =
+    'Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
 
   function $(id) {
     return document.getElementById(id);
@@ -12,31 +29,82 @@
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#39;");
+      .replace(/"/g, "&quot;");
   }
 
   function text(value, fallback) {
     var raw = value == null || value === "" ? fallback : value;
-    return escapeHtml(raw);
+    return escapeHtml(raw == null ? "" : raw);
+  }
+
+  function friendlyLabel(value) {
+    var raw = value == null ? "" : String(value);
+    if (!raw) {
+      return "";
+    }
+    if (FRIENDLY_LABELS[raw]) {
+      return FRIENDLY_LABELS[raw];
+    }
+    var spaced = raw.replace(/_/g, " ").replace(/\s+/g, " ").trim();
+    if (!spaced) {
+      return "";
+    }
+    return spaced.charAt(0).toUpperCase() + spaced.slice(1).toLowerCase();
+  }
+
+  function hopDisplayLabel(relType, sourceKind, sourceKinds) {
+    var rel = friendlyLabel(relType);
+    var kinds = [];
+    var list = sourceKinds && sourceKinds.length ? sourceKinds : sourceKind ? [sourceKind] : [];
+    list.forEach(function (kind) {
+      var label = friendlyLabel(kind);
+      if (label && kinds.indexOf(label) === -1) {
+        kinds.push(label);
+      }
+    });
+    return kinds.length ? rel + " · " + kinds.join(" · ") : rel;
   }
 
   function setStatus(id, message, state) {
-    var node = $(id);
-    node.textContent = message || "";
-    node.setAttribute("data-state", state || "idle");
+    var el = $(id);
+    if (!el) {
+      return;
+    }
+    el.textContent = message || "";
+    el.setAttribute("data-state", state || "idle");
+  }
+
+  function highlightSnippet(snippet, matchedName) {
+    var escaped = text(snippet);
+    if (!escaped || !matchedName) {
+      return escaped;
+    }
+    var needle = String(matchedName).trim();
+    if (!needle) {
+      return escaped;
+    }
+    var pattern = new RegExp("(?<!\\w)" + needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?!\\w)", "gi");
+    return escaped.replace(pattern, "<mark class=\"hit\">$&</mark>");
   }
 
   function sourceBlock(source) {
     if (!source) {
-      return '<p class="muted">No source pointer on this edge.</p>';
+      return "";
     }
     var parts = [];
     if (source.kind) {
-      parts.push('<p class="section-tag">Section: <strong>' + text(source.kind) + "</strong></p>");
+      parts.push(
+        '<p class="section-tag">Section: <strong>' +
+          text(friendlyLabel(source.kind)) +
+          "</strong></p>"
+      );
     }
     if (source.snippet) {
-      parts.push('<p class="snippet">' + text(source.snippet) + "</p>");
+      parts.push(
+        '<blockquote class="snippet">' +
+          highlightSnippet(source.snippet, source.matched_name) +
+          "</blockquote>"
+      );
     }
     if (source.note) {
       parts.push('<p class="muted">' + text(source.note) + "</p>");
@@ -45,26 +113,30 @@
       parts.push(
         '<p><a href="' +
           text(source.source_url) +
-          '" rel="noopener noreferrer" target="_blank"' +
-          (source.set_id ? ' title="set_id ' + text(source.set_id) + '"' : "") +
-          ">Official FDA label on DailyMed</a></p>"
+          '" rel="noopener noreferrer"' +
+          (source.set_id ? ' title="FDA label ID ' + text(source.set_id) + '"' : "") +
+          ">" +
+          text(DAILYMED_LINK_TEXT) +
+          "</a></p>"
       );
     } else if (source.set_id) {
-      parts.push('<p class="muted">Label set_id: ' + text(source.set_id) + "</p>");
+      parts.push('<p class="muted">FDA label ID: ' + text(source.set_id) + "</p>");
     }
-    return parts.join("") || '<p class="muted">No section snippet for this edge.</p>';
+    return parts.join("");
   }
 
   function entityLine(item) {
-    if (!item) {
-      return "";
-    }
-    var name = item.generic_name || item.name || item.key || "";
-    var bits = '<span class="kind">' + text(item.kind || "Node") + "</span> <strong>" + text(name) + "</strong>";
-    if (item.key && item.key !== name) {
-      bits += ' <span class="muted">(' + text(item.key) + ")</span>";
-    }
-    return bits;
+    var kind = item.kind || item.type || "";
+    var name = item.name || item.generic_name || item.key || "";
+    var key = item.key && item.key !== name ? " (" + item.key + ")" : "";
+    return (
+      '<span class="entity"><span class="kind">' +
+      text(kind) +
+      "</span> " +
+      text(name) +
+      text(key) +
+      "</span>"
+    );
   }
 
   function walkStep(path, index) {
@@ -75,13 +147,22 @@
     var step = steps[index] || {};
     var storedFrom = step.from_key;
     var reversed = storedFrom && left.key && storedFrom !== left.key;
+    var sources = step.sources && step.sources.length ? step.sources : step.source ? [step.source] : [];
     return {
       left: left,
       right: right,
+      fromKey: step.from_key,
+      toKey: step.to_key,
       rel: step.rel_type || "RELATED",
+      display: step.display_label || hopDisplayLabel(step.rel_type, null, step.source_kinds || (step.source && step.source.kind ? [step.source.kind] : [])),
       reversed: reversed,
-      source: step.source || null,
+      source: step.source || sources[0] || null,
+      sources: sources
     };
+  }
+
+  function nodeCaption(node) {
+    return node && (node.name || node.key) ? String(node.name || node.key) : "";
   }
 
   function drawDiagram(path) {
@@ -91,96 +172,23 @@
     }
     var boxW = 172;
     var boxH = 58;
-    var gap = 172;
+    var gap = 220;
     var padX = 16;
     var width = padX * 2 + nodes.length * boxW + Math.max(nodes.length - 1, 0) * gap;
-    var height = 116;
+    var height = 128;
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("viewBox", "0 0 " + width + " " + height);
     svg.setAttribute("width", String(width));
     svg.setAttribute("height", String(height));
     svg.setAttribute("role", "img");
     var title = document.createElementNS("http://www.w3.org/2000/svg", "title");
-    title.textContent = (nodes.map(function (n) { return n.name || n.key; }).join(" → "));
+    title.textContent = nodes.map(nodeCaption).join(" → ");
     svg.appendChild(title);
 
-    function boxX(i) {
-      return padX + i * (boxW + gap);
-    }
-
-    nodes.forEach(function (node, i) {
-      if (i < nodes.length - 1) {
-        var hop = walkStep(path, i);
-        var x1 = boxX(i) + boxW;
-        var x2 = boxX(i + 1);
-        var mid = (x1 + x2) / 2;
-        var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-        line.setAttribute("x1", String(x1));
-        line.setAttribute("y1", "61");
-        line.setAttribute("x2", String(x2));
-        line.setAttribute("y2", "61");
-        line.setAttribute("stroke", "#0e7c7b");
-        line.setAttribute("stroke-width", "2");
-        svg.appendChild(line);
-        var label = document.createElementNS("http://www.w3.org/2000/svg", "text");
-        label.setAttribute("x", String(mid));
-        label.setAttribute("y", "50");
-        label.setAttribute("text-anchor", "middle");
-        label.setAttribute("fill", "#0a5f5e");
-        label.setAttribute("font-size", "10");
-        label.setAttribute("font-weight", "600");
-        label.setAttribute("letter-spacing", "0.3");
-        label.setAttribute("font-family", SVG_FONT);
-        var relText = String(hop.rel || "").replace(/_/g, " ");
-        if (hop.reversed) {
-          relText += " (rev)";
-        }
-        label.textContent = relText;
-        svg.appendChild(label);
-      }
-
-      var g = document.createElementNS("http://www.w3.org/2000/svg", "g");
-      var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-      rect.setAttribute("x", String(boxX(i)));
-      rect.setAttribute("y", "32");
-      rect.setAttribute("width", String(boxW));
-      rect.setAttribute("height", String(boxH));
-      rect.setAttribute("rx", "12");
-      rect.setAttribute("fill", "#ffffff");
-      rect.setAttribute("stroke", "#0b2545");
-      rect.setAttribute("stroke-width", "1.5");
-      g.appendChild(rect);
-      var kind = document.createElementNS("http://www.w3.org/2000/svg", "text");
-      kind.setAttribute("x", String(boxX(i) + boxW / 2));
-      kind.setAttribute("y", "52");
-      kind.setAttribute("text-anchor", "middle");
-      kind.setAttribute("fill", "#5a6b7c");
-      kind.setAttribute("font-size", "9.5");
-      kind.setAttribute("font-weight", "600");
-      kind.setAttribute("letter-spacing", "0.8");
-      kind.setAttribute("font-family", SVG_FONT);
-      kind.textContent = (node.kind || "").toUpperCase();
-      g.appendChild(kind);
-      var name = document.createElementNS("http://www.w3.org/2000/svg", "text");
-      name.setAttribute("x", String(boxX(i) + boxW / 2));
-      name.setAttribute("y", "73");
-      name.setAttribute("text-anchor", "middle");
-      name.setAttribute("fill", "#0b2545");
-      name.setAttribute("font-size", "13");
-      name.setAttribute("font-weight", "700");
-      name.setAttribute("font-family", SVG_FONT);
-      var labelText = node.name || node.key || "";
-      if (labelText.length > 20) {
-        labelText = labelText.slice(0, 18) + "…";
-      }
-      name.textContent = labelText;
-      g.appendChild(name);
-      svg.appendChild(g);
-    });
-
     var defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+    var markerId = "arrow-" + Math.random().toString(36).slice(2, 8);
     var marker = document.createElementNS("http://www.w3.org/2000/svg", "marker");
-    marker.setAttribute("id", "arrow-" + Math.random().toString(36).slice(2, 8));
+    marker.setAttribute("id", markerId);
     marker.setAttribute("viewBox", "0 0 10 7");
     marker.setAttribute("refX", "9");
     marker.setAttribute("refY", "3.5");
@@ -192,11 +200,98 @@
     tip.setAttribute("fill", "#0e7c7b");
     marker.appendChild(tip);
     defs.appendChild(marker);
-    svg.insertBefore(defs, svg.firstChild);
-    // Point the edges at this unique marker.
-    var markerId = marker.getAttribute("id");
-    Array.prototype.forEach.call(svg.querySelectorAll("line"), function (line) {
-      line.setAttribute("marker-end", "url(#" + markerId + ")");
+    svg.appendChild(defs);
+
+    function boxX(i) {
+      return padX + i * (boxW + gap);
+    }
+
+    nodes.forEach(function (node, i) {
+      if (i < nodes.length - 1) {
+        var hop = walkStep(path, i);
+        var leftX = boxX(i) + boxW;
+        var rightX = boxX(i + 1);
+        var mid = (leftX + rightX) / 2;
+        var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        // Arrow follows the true mention direction: the label that names a drug points to it.
+        if (hop.reversed) {
+          line.setAttribute("x1", String(rightX));
+          line.setAttribute("x2", String(leftX));
+        } else {
+          line.setAttribute("x1", String(leftX));
+          line.setAttribute("x2", String(rightX));
+        }
+        line.setAttribute("y1", "70");
+        line.setAttribute("y2", "70");
+        line.setAttribute("stroke", "#0e7c7b");
+        line.setAttribute("stroke-width", "2");
+        line.setAttribute("marker-end", "url(#" + markerId + ")");
+        svg.appendChild(line);
+        var label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        label.setAttribute("x", String(mid));
+        label.setAttribute("y", "48");
+        label.setAttribute("text-anchor", "middle");
+        label.setAttribute("fill", "#0a5f5e");
+        label.setAttribute("font-size", "10");
+        label.setAttribute("font-weight", "600");
+        label.setAttribute("letter-spacing", "0.2");
+        label.setAttribute("font-family", SVG_FONT);
+        var display = String(hop.display || hop.rel || "");
+        var parts = display.split(" · ");
+        if (parts.length > 1) {
+          var first = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+          first.setAttribute("x", String(mid));
+          first.setAttribute("dy", "0");
+          first.textContent = parts[0];
+          label.appendChild(first);
+          var second = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+          second.setAttribute("x", String(mid));
+          second.setAttribute("dy", "12");
+          second.textContent = parts.slice(1).join(" · ");
+          label.appendChild(second);
+        } else {
+          label.textContent = display;
+        }
+        svg.appendChild(label);
+      }
+
+      var g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      rect.setAttribute("x", String(boxX(i)));
+      rect.setAttribute("y", "41");
+      rect.setAttribute("width", String(boxW));
+      rect.setAttribute("height", String(boxH));
+      rect.setAttribute("rx", "12");
+      rect.setAttribute("fill", "#ffffff");
+      rect.setAttribute("stroke", "#0b2545");
+      rect.setAttribute("stroke-width", "1.5");
+      g.appendChild(rect);
+      var kind = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      kind.setAttribute("x", String(boxX(i) + boxW / 2));
+      kind.setAttribute("y", "61");
+      kind.setAttribute("text-anchor", "middle");
+      kind.setAttribute("fill", "#5a6b7c");
+      kind.setAttribute("font-size", "9.5");
+      kind.setAttribute("font-weight", "600");
+      kind.setAttribute("letter-spacing", "0.8");
+      kind.setAttribute("font-family", SVG_FONT);
+      kind.textContent = (node.kind || "").toUpperCase();
+      g.appendChild(kind);
+      var name = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      name.setAttribute("x", String(boxX(i) + boxW / 2));
+      name.setAttribute("y", "82");
+      name.setAttribute("text-anchor", "middle");
+      name.setAttribute("fill", "#0b2545");
+      name.setAttribute("font-size", "13");
+      name.setAttribute("font-weight", "700");
+      name.setAttribute("font-family", SVG_FONT);
+      var labelText = nodeCaption(node);
+      if (labelText.length > 20) {
+        labelText = labelText.slice(0, 18) + "…";
+      }
+      name.textContent = labelText;
+      g.appendChild(name);
+      svg.appendChild(g);
     });
 
     var wrap = document.createElement("div");
@@ -205,22 +300,78 @@
     return wrap;
   }
 
+  function cypherToggle(result) {
+    var cypher = (result && result.cypher) || {};
+    if (!cypher.statement) {
+      return null;
+    }
+    var details = document.createElement("details");
+    details.className = "cypher-toggle";
+    var summary = document.createElement("summary");
+    summary.textContent = "Show Cypher";
+    details.appendChild(summary);
+    var pre = document.createElement("pre");
+    pre.className = "cypher-block";
+    var body = cypher.statement;
+    if (cypher.parameters) {
+      body += "\n\nParameters:\n" + JSON.stringify(cypher.parameters, null, 2);
+    }
+    pre.textContent = body;
+    details.appendChild(pre);
+    return details;
+  }
+
+  function appendCypher(root, result) {
+    var toggle = cypherToggle(result);
+    if (toggle) {
+      root.appendChild(toggle);
+    }
+  }
+
   function renderPaths(result) {
     var root = $("path-results");
     root.innerHTML = "";
-    $("path-results").setAttribute("data-ready", result && result.found ? "yes" : "no");
+    root.setAttribute("data-ready", result && result.found ? "yes" : "no");
     if (!result) {
       return;
     }
     if (result.error && !result.found) {
+      if (result.no_path_note) {
+        var miss = document.createElement("p");
+        miss.className = "path-note";
+        miss.textContent = result.no_path_note;
+        root.appendChild(miss);
+      }
+      appendCypher(root, result);
       return;
+    }
+    if (!result.direct_mention_found) {
+      var neither = document.createElement("p");
+      neither.className = "path-note";
+      neither.textContent = "Neither endpoint label mentions the other directly.";
+      root.appendChild(neither);
+    }
+    if (result.excluded_hubs && result.excluded_hubs.length && !result.include_hubs) {
+      var hubs = document.createElement("p");
+      hubs.className = "muted path-note";
+      hubs.textContent =
+        "Generic hub conditions excluded by default (contraindicated in more than " +
+        (result.hub_condition_min_drugs || 10) +
+        " drugs): " +
+        result.excluded_hubs
+          .map(function (item) {
+            return (item.name || item.key) + " (" + item.drug_count + ")";
+          })
+          .join(", ") +
+        ".";
+      root.appendChild(hubs);
     }
     (result.paths || []).forEach(function (path, index) {
       var card = document.createElement("article");
       card.className = "card path-card";
       var head = document.createElement("div");
       head.className = "card-head";
-      var names = (path.nodes || []).map(function (n) { return n.name || n.key; }).join(" → ");
+      var names = (path.nodes || []).map(nodeCaption).join(" → ");
       var hopWord = (path.hops || 0) + " hop" + (path.hops === 1 ? "" : "s");
       var heading = document.createElement("h3");
       heading.className = "path-title";
@@ -236,34 +387,56 @@
       head.appendChild(heading);
       head.appendChild(count);
       card.appendChild(head);
+      if (path.headline) {
+        var headline = document.createElement("p");
+        headline.className = "path-headline";
+        headline.textContent = path.headline;
+        card.appendChild(headline);
+      }
       var route = document.createElement("p");
       route.className = "path-route";
       route.textContent = names;
       card.appendChild(route);
+      if (path.note && result.direct_mention_found) {
+        var note = document.createElement("p");
+        note.className = "path-note";
+        note.textContent = path.note;
+        card.appendChild(note);
+      }
       card.appendChild(drawDiagram(path));
       (path.nodes || []).slice(0, -1).forEach(function (_, hopIndex) {
         var hop = walkStep(path, hopIndex);
         var block = document.createElement("div");
         block.className = "hop";
-        block.innerHTML =
-          '<span class="hop-num" aria-hidden="true">' +
-          (hopIndex + 1) +
-          '</span><p class="hop-line"><strong>' +
-          text(hop.left.name || hop.left.key) +
-          '</strong> → <span class="rel">' +
-          text(hop.rel) +
-          "</span> → <strong>" +
-          text(hop.right.name || hop.right.key) +
-          "</strong>" +
-          (hop.reversed
-            ? ' <span class="muted">(stored relationship points the other way)</span>'
-            : "") +
-          "</p>" +
-          sourceBlock(hop.source);
+        var fromNode = hop.reversed ? hop.right : hop.left;
+        var toNode = hop.reversed ? hop.left : hop.right;
+        var line = document.createElement("p");
+        line.className = "hop-line";
+        line.innerHTML =
+          "<strong>" +
+          text(nodeCaption(fromNode)) +
+          '</strong> <span class="rel">' +
+          text(hop.display || hop.rel) +
+          "</span> <strong>" +
+          text(nodeCaption(toNode)) +
+          "</strong>";
+        var num = document.createElement("span");
+        num.className = "hop-num";
+        num.setAttribute("aria-hidden", "true");
+        num.textContent = String(hopIndex + 1);
+        block.appendChild(num);
+        block.appendChild(line);
+        hop.sources.forEach(function (source) {
+          var wrap = document.createElement("div");
+          wrap.className = "source-item";
+          wrap.innerHTML = sourceBlock(source);
+          block.appendChild(wrap);
+        });
         card.appendChild(block);
       });
       root.appendChild(card);
     });
+    appendCypher(root, result);
   }
 
   function renderLookup(result) {
@@ -293,6 +466,7 @@
       card.appendChild(use);
       root.appendChild(card);
     });
+    appendCypher(root, result);
   }
 
   function renderWarnings(result) {
@@ -314,24 +488,35 @@
         var hop = document.createElement("div");
         hop.className = "hop";
         hop.innerHTML = sourceBlock({
-          kind: item.kind || kindLabel || (item.source && item.source.kind),
-          snippet: item.snippet || (item.source && item.source.snippet),
-          source_url: item.source_url || (item.source && item.source.source_url),
+          kind: item.kind || kindLabel,
+          snippet: item.snippet,
           set_id: item.set_id || (item.source && item.source.set_id),
-          note: item.source && item.source.note,
+          source_url: item.source_url || (item.source && item.source.source_url),
+          matched_name: item.matched_name || (item.source && item.source.matched_name)
         });
-        if (item.name) {
-          var head = document.createElement("p");
-          head.innerHTML = "<strong>" + text(item.name) + "</strong>";
-          hop.insertBefore(head, hop.firstChild);
-        }
         card.appendChild(hop);
       });
       root.appendChild(card);
     }
-    section("Boxed warning", result.boxed_warnings, "boxed_warning");
-    section("Contraindications", result.contraindication_sections, "contraindications");
-    section("Contraindicated in", result.contraindicated_in, "contraindications");
+    section("Boxed warnings", result.boxed_warnings, "boxed_warning");
+    section("Contraindication sections", result.contraindication_sections, "contraindications");
+    if (result.contraindicated_in && result.contraindicated_in.length) {
+      var card = document.createElement("article");
+      card.className = "card";
+      card.innerHTML = "<h3>Contraindicated in</h3>";
+      result.contraindicated_in.forEach(function (item) {
+        var hop = document.createElement("div");
+        hop.className = "hop";
+        hop.innerHTML =
+          "<p><strong>" +
+          text(item.name || item.key) +
+          "</strong></p>" +
+          sourceBlock(item.source);
+        card.appendChild(hop);
+      });
+      root.appendChild(card);
+    }
+    appendCypher(root, result);
   }
 
   function renderNeighbors(result) {
@@ -342,29 +527,118 @@
       intro.innerHTML = entityLine(result.drug);
       root.appendChild(intro);
     }
-    var list = document.createElement("ul");
-    list.className = "list";
     (result.neighbors || []).forEach(function (item) {
-      var li = document.createElement("li");
-      li.className = "card";
-      var n = item.neighbor || {};
-      var dir = item.direction === "incoming" ? "incoming" : "outgoing";
-      li.innerHTML =
-        "<h3>" +
-        entityLine(n) +
-        '</h3><p class="muted">' +
-        text(dir) +
-        " · " +
-        text(item.rel_type) +
-        "</p>" +
+      var card = document.createElement("article");
+      card.className = "card";
+      var neighbor = item.neighbor || {};
+      var display =
+        item.display_label ||
+        hopDisplayLabel(item.rel_type, item.source && item.source.kind);
+      var fromName, toName;
+      if (item.direction === "outgoing") {
+        fromName = (result.drug && (result.drug.name || result.drug.key)) || "drug";
+        toName = neighbor.name || neighbor.key;
+      } else {
+        fromName = neighbor.name || neighbor.key;
+        toName = (result.drug && (result.drug.name || result.drug.key)) || "drug";
+      }
+      card.innerHTML =
+        "<p class=\"hop-line\"><strong>" +
+        text(fromName) +
+        '</strong> <span class="rel">' +
+        text(display) +
+        "</span> <strong>" +
+        text(toName) +
+        "</strong></p>" +
         sourceBlock(item.source);
-      list.appendChild(li);
+      root.appendChild(card);
     });
-    root.appendChild(list);
+    appendCypher(root, result);
+  }
+
+  function renderMedList(result) {
+    var root = $("med-list-results");
+    root.innerHTML = "";
+    if (result.drugs && result.drugs.length) {
+      var intro = document.createElement("p");
+      intro.textContent =
+        "Checking " +
+        result.drugs
+          .map(function (item) {
+            return item.name || item.key;
+          })
+          .join(", ") +
+        ".";
+      root.appendChild(intro);
+    }
+    if (result.error && !result.found) {
+      if (result.no_path_note) {
+        var miss = document.createElement("p");
+        miss.className = "path-note";
+        miss.textContent = result.no_path_note;
+        root.appendChild(miss);
+      }
+      appendCypher(root, result);
+      return;
+    }
+    (result.pairs || []).forEach(function (pair) {
+      var card = document.createElement("article");
+      card.className = "card";
+      var a = (pair.a && (pair.a.name || pair.a.key)) || "";
+      var b = (pair.b && (pair.b.name || pair.b.key)) || "";
+      var kind = pair.mutual
+        ? "Mutual mentions"
+        : pair.one_sided
+          ? "One-sided mention"
+          : "No mention in either direction";
+      var heading = document.createElement("h3");
+      heading.textContent = a + " — " + b;
+      var badge = document.createElement("p");
+      badge.className = "path-headline";
+      badge.textContent = kind;
+      card.appendChild(heading);
+      card.appendChild(badge);
+      [
+        { label: a + " mentions " + b, payload: pair.a_mentions_b },
+        { label: b + " mentions " + a, payload: pair.b_mentions_a }
+      ].forEach(function (entry) {
+        if (!entry.payload) {
+          return;
+        }
+        var block = document.createElement("div");
+        block.className = "hop";
+        var line = document.createElement("p");
+        line.className = "hop-line";
+        line.innerHTML =
+          "<strong>" +
+          text(entry.payload.from_name || entry.label) +
+          '</strong> <span class="rel">' +
+          text(entry.payload.display_label || "Mentions") +
+          "</span> <strong>" +
+          text(entry.payload.to_name || "") +
+          "</strong>";
+        block.appendChild(line);
+        (entry.payload.sources || []).forEach(function (source) {
+          var wrap = document.createElement("div");
+          wrap.className = "source-item";
+          wrap.innerHTML = sourceBlock(source);
+          block.appendChild(wrap);
+        });
+        card.appendChild(block);
+      });
+      if (pair.none) {
+        var empty = document.createElement("p");
+        empty.className = "muted";
+        empty.textContent = "Neither label mentions the other in this snapshot.";
+        card.appendChild(empty);
+      }
+      root.appendChild(card);
+    });
+    appendCypher(root, result);
   }
 
   function request(url, statusId, onOk, emptyMessage) {
-    setStatus(statusId, "Looking in the local snapshot…", "busy");
+    setStatus(statusId, "Searching this snapshot…", "busy");
     return fetch(url)
       .then(function (res) {
         return res.json().then(function (body) {
@@ -374,91 +648,93 @@
       .then(function (payload) {
         var body = payload.body || {};
         if (!payload.ok || body.found === false) {
-          setStatus(statusId, body.error || emptyMessage || "Nothing found in this snapshot.", "empty");
+          var message = body.error || emptyMessage || "Nothing was found in this snapshot.";
+          if (body.no_path_note && message.indexOf(body.no_path_note) === -1) {
+            message = message.replace(/\s*$/, "") + " " + body.no_path_note;
+          }
+          setStatus(statusId, message, body.error && payload.ok === false ? "error" : "empty");
+          onOk(body);
           return body;
         }
-        setStatus(statusId, body.error || "", body.found ? "ok" : "idle");
-        if (typeof onOk === "function") {
-          onOk(body);
-        }
+        setStatus(statusId, "", "ok");
+        onOk(body);
         return body;
       })
       .catch(function () {
-        setStatus(statusId, "The local LabelPath server could not be reached.", "error");
-        return null;
+        setStatus(statusId, "The local server could not complete that request.", "error");
       });
   }
 
   function runPaths() {
     var start = $("path-start").value.trim();
     var end = $("path-end").value.trim();
-    var hops = $("path-hops").value || "2";
-    if (!start || !end) {
-      $("path-results").innerHTML = "";
-      $("path-results").setAttribute("data-ready", "no");
-      setStatus("path-status", "Enter two drug or ingredient names to look for a labeled path.", "empty");
-      return;
-    }
+    var hops = $("path-hops").value;
+    var includeHubs = $("include-hubs") && $("include-hubs").checked ? "1" : "0";
     var url =
       "/api/path?start=" +
       encodeURIComponent(start) +
       "&end=" +
       encodeURIComponent(end) +
       "&max_hops=" +
-      encodeURIComponent(hops);
-    request(url, "path-status", renderPaths, "No labeled path was found in this snapshot.").then(function (body) {
-      if (body && body.found) {
-        var count = (body.paths || []).length;
-        setStatus(
-          "path-status",
-          count +
-            " path" +
-            (count === 1 ? "" : "s") +
-            " of at most " +
-            (body.max_hops || hops) +
-            " hop" +
-            (String(body.max_hops || hops) === "1" ? "" : "s") +
-            ".",
-          "ok"
-        );
-      }
-    });
+      encodeURIComponent(hops) +
+      "&include_hubs=" +
+      includeHubs;
+    request(
+      url,
+      "path-status",
+      renderPaths,
+      "No labeled path was found in this snapshot."
+    );
+  }
+
+  function parseMedList(raw) {
+    return String(raw || "")
+      .split(/[\n,;]+/)
+      .map(function (item) {
+        return item.trim();
+      })
+      .filter(Boolean);
+  }
+
+  function runMedList() {
+    var names = parseMedList($("med-list-q").value);
+    var url = "/api/med-list?q=" + encodeURIComponent(names.join(","));
+    request(
+      url,
+      "med-list-status",
+      renderMedList,
+      "No label mentions among these drugs were found in this snapshot."
+    );
   }
 
   function runLookup() {
     var q = $("lookup-q").value.trim();
-    if (!q) {
-      $("lookup-results").innerHTML = "";
-      setStatus("lookup-status", "Type a drug or ingredient name to search.", "empty");
-      return;
-    }
-    request("/api/lookup?q=" + encodeURIComponent(q), "lookup-status", renderLookup, "No match in this snapshot.").then(
-      function (body) {
-        if (body && body.found) {
-          setStatus("lookup-status", (body.matches || []).length + " match(es).", "ok");
-        }
-      }
+    request(
+      "/api/lookup?q=" + encodeURIComponent(q),
+      "lookup-status",
+      renderLookup,
+      "No drug or ingredient by that name was found in this snapshot."
     );
   }
 
   function runWarnings() {
     var q = $("warnings-q").value.trim();
-    if (!q) {
-      $("warnings-results").innerHTML = "";
-      setStatus("warnings-status", "Type a drug name to list boxed warnings and contraindications.", "empty");
-      return;
-    }
-    request("/api/warnings?q=" + encodeURIComponent(q), "warnings-status", renderWarnings, "No warnings found in this snapshot.");
+    request(
+      "/api/warnings?q=" + encodeURIComponent(q),
+      "warnings-status",
+      renderWarnings,
+      "No warnings found in this snapshot."
+    );
   }
 
   function runNeighbors() {
     var q = $("neighbors-q").value.trim();
-    if (!q) {
-      $("neighbors-results").innerHTML = "";
-      setStatus("neighbors-status", "Type a drug name to list labeled neighbors.", "empty");
-      return;
-    }
-    request("/api/neighbors?q=" + encodeURIComponent(q), "neighbors-status", renderNeighbors, "No neighbors found in this snapshot.");
+    request(
+      "/api/neighbors?q=" + encodeURIComponent(q),
+      "neighbors-status",
+      renderNeighbors,
+      "No neighbors found in this snapshot."
+    );
   }
 
   function fillDemo() {
@@ -467,6 +743,65 @@
     $("path-hops").value = "2";
     runPaths();
   }
+
+  function fillMedDemo() {
+    $("med-list-q").value = "apixaban\naspirin\nwarfarin";
+    runMedList();
+  }
+
+  function formatCount(n) {
+    return Number(n).toLocaleString("en-US");
+  }
+
+  function applyMeta(meta) {
+    if (!meta) {
+      return;
+    }
+    ["snapshot-date-lede", "snapshot-date-footer"].forEach(function (id) {
+      if ($(id) && meta.snapshot_date) {
+        $(id).textContent = meta.snapshot_date;
+      }
+    });
+    if ($("stat-pairs") && meta.mention_linked_pairs != null) {
+      $("stat-pairs").textContent = formatCount(meta.mention_linked_pairs);
+    }
+    if ($("stat-mutual") && meta.mutual_mention_pairs != null) {
+      $("stat-mutual").textContent = formatCount(meta.mutual_mention_pairs);
+    }
+    if ($("stat-onesided") && meta.one_sided_mention_pairs != null) {
+      $("stat-onesided").textContent = formatCount(meta.one_sided_mention_pairs);
+    }
+    if ($("hub-toggle-label") && meta.hub_conditions && meta.hub_conditions.length) {
+      var names = meta.hub_conditions
+        .map(function (item) {
+          return item.name || item.key;
+        })
+        .join(", ");
+      $("hub-toggle-label").textContent =
+        "Include generic hub conditions (" + names + ")";
+    }
+    if ($("most-mentioned-list") && meta.most_mentioned && meta.most_mentioned.length) {
+      $("most-mentioned-list").innerHTML = meta.most_mentioned
+        .slice(0, 3)
+        .map(function (item) {
+          return (
+            "<li>" +
+            text(item.name || item.key) +
+            " — named by " +
+            text(item.named_by) +
+            " other drugs</li>"
+          );
+        })
+        .join("");
+    }
+  }
+
+  fetch("/api/meta")
+    .then(function (res) {
+      return res.json();
+    })
+    .then(applyMeta)
+    .catch(function () {});
 
   $("path-form").addEventListener("submit", function (event) {
     event.preventDefault();
@@ -484,9 +819,13 @@
     event.preventDefault();
     runNeighbors();
   });
+  $("med-list-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    runMedList();
+  });
   $("try-demo").addEventListener("click", fillDemo);
-
-  if (/(?:\?|&)demo=1(?:&|$)/.test(window.location.search)) {
+  $("try-med-list").addEventListener("click", fillMedDemo);
+  if (/[?&]demo=1(?:&|$)/.test(window.location.search)) {
     fillDemo();
   }
 })();

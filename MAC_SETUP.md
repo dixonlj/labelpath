@@ -260,7 +260,7 @@ python scripts/mcp_smoke.py
 
 The smoke test starts `relate serve --mcp stdio --database ./data/labelpath.rl --read-only` itself, talks JSON-RPC on that process, and then lets it exit. It does not bind a port. Leave a LabelPath UI server on port 8765 alone if one is already running.
 
-Do **not** run `python scripts/ingest.py` or `python scripts/milestone1_toy.py` just to try MCP: both would replace `data/labelpath.rl`. Do **not** start MCP without `--read-only`. Do **not** edit Claude Desktop or Cursor config files unless you choose to paste a snippet from `docs/MCP.md` yourself (a LIAM STEP).
+Do **not** run `python scripts/ingest.py` or `python scripts/milestone1_toy.py` just to try MCP: both would replace `data/labelpath.rl`. Do **not** start MCP without `--read-only`. Do **not** edit Claude Desktop or Cursor config files unless you choose to paste a snippet from `docs/MCP.md` yourself.
 
 
 ## Milestone 6 on a Mac

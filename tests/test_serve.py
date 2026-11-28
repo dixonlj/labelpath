@@ -66,6 +66,10 @@ def test_index_contains_disclaimer_and_attribution(httpd):
     assert "https://open.fda.gov" in text
     assert "Do not rely on openFDA to make decisions regarding medical care." in text
     assert "Try: apixaban → aspirin" in text
+    assert "Med-list check" in text
+    assert "Why a graph" in text
+    assert "exact FDA label" not in text
+    assert "label on DailyMed (current version may differ from the snapshot)" in text
     # The disclaimer is in the HTML itself, not only injected by JavaScript.
     assert text.index(DISCLAIMER) < text.index('src="/static/app.js"')
 
@@ -239,3 +243,50 @@ def test_unknown_route_is_404_with_disclaimer(httpd):
 def test_make_server_rejects_non_loopback(store_path):
     with pytest.raises(ValueError, match="loopback"):
         make_server(database=str(store_path), host="0.0.0.0", port=0, quiet=True)
+
+
+def test_api_meta_includes_snapshot_facts(httpd):
+    base, _server = httpd
+    status, _headers, payload = _json(base, "/api/meta")
+    assert status == 200
+    assert payload["drug_count"] == 293
+    assert payload["mention_linked_pairs"] == 1396
+    assert payload["mutual_mention_pairs"] == 172
+    assert payload["snapshot_date"] == "19 November 2026"
+    keys = [item["key"] for item in payload["hub_conditions"]]
+    assert keys == ["anaphylaxis", "angioedema", "asthma"]
+
+
+def test_api_path_hub_toggle_and_cypher(httpd):
+    base, _server = httpd
+    status, _headers, payload = _json(
+        base, "/api/path?start=clopidogrel&end=methotrexate&max_hops=2"
+    )
+    assert status == 200
+    routes = [[node["key"] for node in path["nodes"]] for path in payload["paths"]]
+    assert all("anaphylaxis" not in route for route in routes)
+    assert payload["cypher"]["statement"]
+    status, _headers, included = _json(
+        base,
+        "/api/path?start=clopidogrel&end=methotrexate&max_hops=2&include_hubs=1",
+    )
+    assert status == 200
+    included_routes = [
+        [node["key"] for node in path["nodes"]] for path in included["paths"]
+    ]
+    assert any("anaphylaxis" in route for route in included_routes)
+
+
+def test_api_med_list(httpd):
+    base, _server = httpd
+    status, _headers, payload = _json(
+        base, "/api/med-list?q=apixaban,aspirin,warfarin"
+    )
+    assert status == 200
+    assert payload["disclaimer"] == DISCLAIMER
+    assert payload["found"] is True
+    assert payload["cypher"]["statement"].count("MATCH") == 1
+    assert any(
+        item["from_key"] == "warfarin" and item["to_key"] == "aspirin"
+        for item in payload["mentions"]
+    )

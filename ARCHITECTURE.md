@@ -50,7 +50,7 @@ From the 19 November 2026 snapshot (2,023 nodes, 4,186 relationships):
 | `CONTRAINDICATED_IN` | Drug to a condition phrase found in `contraindications` |
 | `LABELED_INTERACTION` | Drug to another snapshot drug or ingredient named in an interaction-related section (a label mention, not a confirmed clinical finding) |
 
-Path queries walk `LABELED_INTERACTION`, `CONTAINS`, `INDICATED_FOR`, and `CONTRAINDICATED_IN`, at most three hops, shorter paths first. The UI defaults to 2 hops and can be raised to 3; the CLI defaults to 3. Each hop shows a section kind when the hop has one, a snippet when one exists, and a DailyMed link when a `set_id` exists. `CONTAINS` hops come from the structured ingredient list and have no section snippet. A path means label text mentions both names; it is not a pharmacological pathway or a clinical interaction finding.
+Path queries walk `LABELED_INTERACTION`, `CONTAINS`, `INDICATED_FOR`, and `CONTRAINDICATED_IN`, at most three hops, shorter paths first. The UI defaults to 2 hops and can be raised to 3; the CLI defaults to 3. Each hop shows a section kind when the hop has one, a snippet when one exists, and a DailyMed link when a `set_id` exists. `CONTAINS` hops come from the structured ingredient list and have no section snippet. A direct mention means one endpoint label names the other. A longer path can connect two names only through a third drug, ingredient, or condition; that is not the same as either endpoint naming the other. A path is not a pharmacological pathway or a clinical interaction finding.
 
 ## Files worth reading next
 
